@@ -1,0 +1,63 @@
+.trustBar {
+  padding: var(--space-3xl) 0;
+  background: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  text-align: center;
+}
+
+.trustText {
+  font-size: var(--text-base);
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.highlight {
+  color: var(--color-light);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-lg);
+  align-items: center;
+  justify-items: center;
+}
+
+.logoItem {
+  color: var(--color-gray-500);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  padding: var(--space-md);
+  transition: color var(--transition-base);
+  opacity: 0.7;
+}
+
+.logoItem:hover {
+  color: var(--color-gray-300);
+  opacity: 1;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .logoGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .logoGrid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
