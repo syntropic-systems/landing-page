@@ -44,10 +44,10 @@
     }
   ],
   "scrollImages": [
-    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr.png",
-    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-2.png",
-    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-3.png", 
-    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-4.png",
-    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-5.png"
+    "/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr.png",
+    "/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-2.png",
+    "/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-3.png", 
+    "/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-4.png",
+    "/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-5.png"
   ]
 }

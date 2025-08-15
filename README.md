@@ -1,69 +1,119 @@
-# React + TypeScript + Vite
+# Cloud Glance Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Quick Start
 
-Currently, two official plugins are available:
+```bash
+# Install dependencies
+npm install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Run development server
+npm run dev
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Build for production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📝 Editing Content
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+All website content is stored in JSON files located in `/public/content/`. To update content:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
+### Content Files Structure
+- `hero.json` - Main headline, subtitle, and CTAs
+- `services.json` - Three product offerings
+- `features.json` - Use cases and benefits
+- `testimonials.json` - Customer success stories
+- `navbar.json` - Navigation menu items
+- `footer.json` - Footer links and copyright
+- `trustbar.json` - Client logos
+- `demo.json` - Demo section content
+
+### How to Edit Content
+
+1. **Edit JSON files directly** in `/public/content/`
+2. **Keep `/content/` in sync** - Copy changes to both folders
+3. **Images** - Place in `/public/assets/` and reference as `/assets/[path]`
+
+Example content edit:
+```json
+// public/content/hero.json
+{
+  "title": {
+    "gradientText": "Your Gradient Text",
+    "grayText": "Your Gray Text"
   },
-])
+  "subtitle": "Your subtitle here"
+}
 ```
+
+## 🌐 Deployment
+
+### Automatic Deployment
+- **Production**: Every push to `master` branch auto-deploys to production
+- **Preview**: Every push to other branches creates a preview deployment
+- **Live Site**: [cloudglancelab.com](https://cloudglancelab.com) (after DNS propagation)
+
+### Manual Deployment Steps
+
+1. **Make changes** to content or code
+2. **Test locally**: `npm run dev`
+3. **Commit & Push**:
+   ```bash
+   git add .
+   git commit -m "Your change description"
+   git push
+   ```
+4. **Vercel auto-deploys** within 2-3 minutes
+5. **Check deployment** at [Vercel Dashboard](https://vercel.com)
+
+## 🛠️ Development
+
+### Tech Stack
+- React 19 + TypeScript
+- Vite build tool
+- CSS Modules for styling
+- Framer Motion for animations
+- JSON-based content management
+
+### Project Structure
+```
+/
+├── public/
+│   ├── content/     # JSON content files (EDIT HERE)
+│   └── assets/      # Images and static files
+├── src/
+│   ├── components/  # React components
+│   ├── styles/      # Global styles
+│   └── hooks/       # Custom React hooks
+└── content/         # Backup content files
+```
+
+### Commands
+- `npm run dev` - Start development server (localhost:5173)
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+
+## 🔧 Troubleshooting
+
+### Images not showing?
+- Ensure images are in `/public/assets/`
+- Use paths like `/assets/image.png` in JSON files
+
+### Content not updating?
+- Edit files in `/public/content/` (not `/content/`)
+- Hard refresh browser (Ctrl+Shift+R / Cmd+Shift+R)
+
+### Deployment issues?
+- Check [Vercel Dashboard](https://vercel.com) for build logs
+- Ensure all commits are pushed to GitHub
+
+## 📦 Environment
+
+- Node.js 18+ required
+- npm 9+ recommended
+
+## 🔗 Links
+
+- **Repository**: [github.com/syntropic-systems/landing-page](https://github.com/syntropic-systems/landing-page)
+- **Live Site**: [cloudglancelab.com](https://cloudglancelab.com)
+- **Vercel Dashboard**: [vercel.com](https://vercel.com)

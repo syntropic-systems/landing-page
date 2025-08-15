@@ -5,12 +5,12 @@
   },
   "demoImages": [
     {
-      "src": "/src/assets/demo/Gemini_Generated_Image_29z3xp29z3xp29z3.png",
+      "src": "/assets/demo/Gemini_Generated_Image_29z3xp29z3xp29z3.png",
       "title": "Visual Document Analysis",
       "description": "See exactly where insights come from with visual grounding, bounding boxes, and precise citations"
     },
     {
-      "src": "/src/assets/demo/Gemini_Generated_Image_d2s6dud2s6dud2s6.png",
+      "src": "/assets/demo/Gemini_Generated_Image_d2s6dud2s6dud2s6.png",
       "title": "Instant BOQ Generation", 
       "description": "Upload construction drawings and generate detailed Bill of Quantities in minutes, not weeks"
     }

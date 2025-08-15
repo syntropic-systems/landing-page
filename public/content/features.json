@@ -18,7 +18,7 @@
     }
   },
   "overviewImage": {
-    "src": "/src/assets/overview/Gemini_Generated_Image_npdszunpdszunpds.png",
+    "src": "/assets/overview/Gemini_Generated_Image_npdszunpdszunpds.png",
     "alt": "Document intelligence platform overview",
     "labels": [
       { "text": "Visual Citations", "position": { "top": "10%", "left": "10%" }},
