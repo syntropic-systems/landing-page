@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useContent } from '../../../hooks/useContent';
+import type { TestimonialsContent } from '../../../types/content';
 import styles from './Testimonials.module.css';
 
 export const Testimonials: React.FC = () => {
@@ -8,27 +10,11 @@ export const Testimonials: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  const content = useContent<TestimonialsContent>('testimonials.json');
 
-  const testimonials = [
-    {
-      quote: "Cloud Glance transformed our infrastructure monitoring. We've reduced downtime by 90% and cut costs by 60%. The predictive analytics are game-changing.",
-      author: "Sarah Johnson",
-      title: "CTO, TechCorp",
-      company: "Fortune 500 Technology Company"
-    },
-    {
-      quote: "The multi-cloud visibility is exactly what we needed. Finally, one platform to monitor AWS, Azure, and GCP. The automation features saved our team hundreds of hours.",
-      author: "Michael Chen",
-      title: "DevOps Lead, ScaleUp Inc",
-      company: "High-Growth Startup"
-    },
-    {
-      quote: "Implementation was seamless and the ROI was immediate. Cloud Glance pays for itself within the first month through cost optimizations alone.",
-      author: "Emily Rodriguez",
-      title: "VP of Engineering, DataFlow",
-      company: "Enterprise Data Platform"
-    }
-  ];
+  if (!content) {
+    return <section className={styles.testimonials}>Loading...</section>;
+  }
 
   return (
     <section className={styles.testimonials} ref={ref}>
@@ -40,15 +26,15 @@ export const Testimonials: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className={styles.sectionTitle}>
-            Trusted by thousands of companies worldwide
+            {content.sectionHeader.title}
           </h2>
           <p className={styles.sectionSubtitle}>
-            See what our customers say about Cloud Glance
+            {content.sectionHeader.subtitle}
           </p>
         </motion.div>
 
         <div className={styles.testimonialsGrid}>
-          {testimonials.map((testimonial, index) => (
+          {content.testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.author}
               className={styles.testimonialCard}

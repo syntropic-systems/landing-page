@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useContent } from '../../../hooks/useContent';
+import type { DemoContent } from '../../../types/content';
 import styles from './Demo.module.css';
 
 export const Demo: React.FC = () => {
@@ -8,19 +10,11 @@ export const Demo: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+  const content = useContent<DemoContent>('demo.json');
 
-  const demoImages = [
-    {
-      src: '/src/assets/demo/Gemini_Generated_Image_29z3xp29z3xp29z3.png',
-      title: 'Real-time Dashboard',
-      description: 'Monitor your entire cloud infrastructure from a single, intuitive dashboard'
-    },
-    {
-      src: '/src/assets/demo/Gemini_Generated_Image_d2s6dud2s6dud2s6.png', 
-      title: 'Advanced Analytics',
-      description: 'Get deep insights with AI-powered analytics and predictive monitoring'
-    }
-  ];
+  if (!content) {
+    return <section className={styles.demo}>Loading...</section>;
+  }
 
   return (
     <section className={styles.demo} ref={ref}>
@@ -32,15 +26,15 @@ export const Demo: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className={styles.sectionTitle}>
-            See Cloud Glance in Action
+            {content.sectionHeader.title}
           </h2>
           <p className={styles.sectionSubtitle}>
-            Experience the power of intelligent cloud monitoring
+            {content.sectionHeader.subtitle}
           </p>
         </motion.div>
 
         <div className={styles.demoGrid}>
-          {demoImages.map((demo, index) => (
+          {content.demoImages.map((demo, index) => (
             <motion.div
               key={demo.title}
               className={styles.demoCard}

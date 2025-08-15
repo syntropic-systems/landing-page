@@ -1,0 +1,53 @@
+{
+  "sectionHeader": {
+    "title": "Three Ways to Transform Your Document Processing",
+    "subtitle": "From enterprise deployment to specialized industry solutions - choose the approach that fits your needs.",
+    "button": {
+      "label": "Compare Solutions",
+      "variant": "primary",
+      "size": "medium"
+    }
+  },
+  "services": [
+    {
+      "title": "Enterprise RAG Platform",
+      "description": "Deploy our advanced document intelligence system on-premise, via API, or Docker. Perfect for organizations needing secure, customizable document processing.",
+      "features": [
+        "On-premise deployment options",
+        "REST API integration", 
+        "Enterprise security & compliance",
+        "Custom model training",
+        "Multi-format document support"
+      ]
+    },
+    {
+      "title": "Tender Intelligence Suite",
+      "description": "Complete tender analysis, competitor intelligence, and bid preparation automation. Transform weeks of manual work into strategic advantage.",
+      "features": [
+        "Automated document analysis",
+        "Competitor intelligence gathering",
+        "Bid preparation recommendations",
+        "Risk assessment & compliance",
+        "Historical data integration"
+      ]
+    },
+    {
+      "title": "Project Intelligence Platform", 
+      "description": "BOQ automation, cost estimation, and project scoping for construction, insurance, and project-based businesses. Eliminate manual calculations and reduce errors.",
+      "features": [
+        "Automated BOQ generation",
+        "Cost estimation from drawings",
+        "Damage assessment reports",
+        "Historical project comparison",
+        "Real-time pricing integration"
+      ]
+    }
+  ],
+  "scrollImages": [
+    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr.png",
+    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-2.png",
+    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-3.png", 
+    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-4.png",
+    "/src/assets/scroll-animation/Gemini_Generated_Image_kwvrw7kwvrw7kwvr-5.png"
+  ]
+}

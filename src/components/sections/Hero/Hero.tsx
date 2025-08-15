@@ -1,15 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../../common/Button';
-import { Badge } from '../../common/Badge';
+import { useContent } from '../../../hooks/useContent';
+import type { HeroContent } from '../../../types/content';
 import styles from './Hero.module.css';
 
 export const Hero: React.FC = () => {
-  const metrics = [
-    { icon: '📊', value: '99.9%', label: 'Uptime SLA' },
-    { icon: '⚡', value: '<100ms', label: 'Response Time' },
-    { icon: '🔍', value: '24/7', label: 'Monitoring' },
-  ];
+  const content = useContent<HeroContent>('hero.json');
+
+  if (!content) {
+    return <section className={styles.hero}>Loading...</section>;
+  }
 
   return (
     <section className={styles.hero}>
@@ -21,24 +22,21 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.6 }}
         >
           <h1 className={styles.heroTitle}>
-            <span className={styles.gradientText}>Breakthrough Cloud Intelligence from</span>
+            <span className={styles.gradientText}>{content.title.gradientText}</span>
             <br />
-            <span className={styles.grayText}>Data to Deployment</span>
+            <span className={styles.grayText}>{content.title.grayText}</span>
           </h1>
 
           <p className={styles.heroSubtitle}>
-            Cloud Glance delivers proven data, evaluations, and outcomes
-            <br />
-            to AI labs, governments, and the Fortune 500.
+            {content.subtitle}
           </p>
 
           <div className={styles.heroActions}>
-            <Button variant="ghost" size="large">
-              Book a Demo →
-            </Button>
-            <Button variant="outline" size="large">
-              Build AI →
-            </Button>
+            {content.buttons.map((button, index) => (
+              <Button key={index} variant={button.variant as any} size={button.size as any}>
+                {button.label}
+              </Button>
+            ))}
           </div>
         </motion.div>
 

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../../common/Button';
+import { useContent } from '../../../hooks/useContent';
+import type { NavbarContent } from '../../../types/content';
 import styles from './Navbar.module.css';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const content = useContent<NavbarContent>('navbar.json');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,48 +18,20 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { 
-      label: 'Products', 
-      href: '#products',
-      dropdown: [
-        { label: 'Cloud Monitoring', href: '#monitoring' },
-        { label: 'Predictive Analytics', href: '#analytics' },
-        { label: 'Auto-Optimization', href: '#optimization' },
-      ]
-    },
-    { 
-      label: 'Solutions', 
-      href: '#solutions',
-      dropdown: [
-        { label: 'Enterprise', href: '#enterprise' },
-        { label: 'Government', href: '#government' },
-        { label: 'Startups', href: '#startups' },
-      ]
-    },
-    { label: 'Customers', href: '#customers' },
-    { label: 'Pricing', href: '#pricing' },
-    { 
-      label: 'Resources', 
-      href: '#resources',
-      dropdown: [
-        { label: 'Documentation', href: '#docs' },
-        { label: 'Blog', href: '#blog' },
-        { label: 'Support', href: '#support' },
-      ]
-    },
-  ];
+  if (!content) {
+    return <nav className={styles.navbar}>Loading...</nav>;
+  }
 
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <div className={styles.navContent}>
           <div className={styles.logo}>
-            <span className={styles.logoText}>Cloud Glance</span>
+            <span className={styles.logoText}>{content.logo}</span>
           </div>
 
           <div className={styles.navMenu}>
-            {navLinks.map((link) => (
+            {content.navLinks.map((link) => (
               <div key={link.label} className={styles.navItem}>
                 <a href={link.href} className={styles.navLink}>
                   {link.label}
@@ -76,11 +51,11 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className={styles.navActions}>
-            <a href="#login" className={styles.navLink}>
-              Log In
+            <a href={content.actions.login.href} className={styles.navLink}>
+              {content.actions.login.label}
             </a>
-            <Button variant="primary" size="small">
-              Book a Demo
+            <Button variant={content.actions.cta.variant as any} size={content.actions.cta.size as any}>
+              {content.actions.cta.label}
             </Button>
           </div>
 
@@ -99,7 +74,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.open : ''}`}>
-          {navLinks.map((link) => (
+          {content.navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
@@ -110,11 +85,11 @@ export const Navbar: React.FC = () => {
             </a>
           ))}
           <div className={styles.mobileActions}>
-            <a href="#login" className={styles.mobileNavLink}>
-              Log In
+            <a href={content.actions.login.href} className={styles.mobileNavLink}>
+              {content.actions.login.label}
             </a>
-            <Button variant="primary" size="medium" fullWidth>
-              Book a Demo
+            <Button variant={content.actions.cta.variant as any} size="medium" fullWidth>
+              {content.actions.cta.label}
             </Button>
           </div>
         </div>

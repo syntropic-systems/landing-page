@@ -1,0 +1,52 @@
+{
+  "sectionHeader": {
+    "title": "Proven Results Across Industries",
+    "subtitle": "See how our document intelligence transforms critical business processes"
+  },
+  "videoDemo": {
+    "src": "https://www.youtube.com/embed/UYmvFzDuO5k?si=-nvI-kXmBZIoL4ZW",
+    "title": "Document Intelligence Demo"
+  },
+  "benefits": {
+    "left": {
+      "title": "75% Faster Processing",
+      "description": "Transform weeks of manual document analysis into hours of strategic insights"
+    },
+    "right": {
+      "title": "90% Accuracy Improvement", 
+      "description": "Eliminate human errors with AI-powered visual grounding and citation tracking"
+    }
+  },
+  "overviewImage": {
+    "src": "/src/assets/overview/Gemini_Generated_Image_npdszunpdszunpds.png",
+    "alt": "Document intelligence platform overview",
+    "labels": [
+      { "text": "Visual Citations", "position": { "top": "10%", "left": "10%" }},
+      { "text": "Multi-Format", "position": { "top": "10%", "right": "10%" }},
+      { "text": "Tender Analysis", "position": { "left": "5%", "top": "35%" }},
+      { "text": "BOQ Automation", "position": { "right": "5%", "top": "35%" }},
+      { "text": "Cost Estimation", "position": { "left": "5%", "bottom": "35%" }},
+      { "text": "Risk Assessment", "position": { "right": "5%", "bottom": "35%" }},
+      { "text": "API Integration", "position": { "bottom": "10%", "left": "10%" }},
+      { "text": "Enterprise Security", "position": { "bottom": "10%", "right": "10%" }}
+    ]
+  },
+  "additionalBenefits": [
+    {
+      "title": "Tender Preparation",
+      "description": "Transform 3-week processes into 3-day strategic advantage with automated document analysis"
+    },
+    {
+      "title": "Construction Estimation", 
+      "description": "Generate accurate BOQs from drawings in minutes, eliminate manual takeoffs"
+    },
+    {
+      "title": "Insurance Claims",
+      "description": "Process damage reports and photos instantly, accelerate claim approvals"
+    },
+    {
+      "title": "Contract Analysis",
+      "description": "Extract key terms and risks from legal documents with visual verification"
+    }
+  ]
+}
