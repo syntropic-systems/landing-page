@@ -35,13 +35,14 @@
   ],
   "actions": {
     "login": {
-      "label": "API Sandbox",
-      "href": "#sandbox"
+      "label": "Try Demo",
+      "href": "https://app.cloudglancelab.com"
     },
     "cta": {
-      "label": "Schedule Demo",
+      "label": "Contact Sales",
       "variant": "primary",
-      "size": "small"
+      "size": "small",
+      "href": "mailto:sales@cloudglancelab.com"
     }
   }
 }

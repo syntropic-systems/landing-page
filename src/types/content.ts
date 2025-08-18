@@ -14,6 +14,7 @@ export interface NavbarContent {
       label: string;
       variant: string;
       size: string;
+      href?: string;
     };
   };
 }
