@@ -33,7 +33,12 @@ export const Hero: React.FC = () => {
 
           <div className={styles.heroActions}>
             {content.buttons.map((button, index) => (
-              <Button key={index} variant={button.variant as any} size={button.size as any}>
+              <Button 
+                key={index} 
+                variant={button.variant as any} 
+                size={button.size as any}
+                href={button.href}
+              >
                 {button.label}
               </Button>
             ))}

@@ -28,6 +28,7 @@ export interface HeroContent {
     label: string;
     variant: string;
     size: string;
+    href?: string;
   }[];
   metrics: {
     icon: string;

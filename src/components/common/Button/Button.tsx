@@ -7,6 +7,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
   loading?: boolean;
   icon?: React.ReactNode;
+  href?: string;
   children: React.ReactNode;
 }
 
@@ -16,6 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   fullWidth = false,
   loading = false,
   icon,
+  href,
   children,
   className = '',
   disabled,
@@ -30,20 +32,34 @@ export const Button: React.FC<ButtonProps> = ({
     className
   ].filter(Boolean).join(' ');
 
+  const content = loading ? (
+    <span className={styles.loader} />
+  ) : (
+    <>
+      {icon && <span className={styles.icon}>{icon}</span>}
+      <span>{children}</span>
+    </>
+  );
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={classes}
+        {...(props as any)}
+      >
+        {content}
+      </a>
+    );
+  }
+
   return (
     <button
       className={classes}
       disabled={disabled || loading}
       {...props}
     >
-      {loading ? (
-        <span className={styles.loader} />
-      ) : (
-        <>
-          {icon && <span className={styles.icon}>{icon}</span>}
-          <span>{children}</span>
-        </>
-      )}
+      {content}
     </button>
   );
 };
