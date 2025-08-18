@@ -51,9 +51,6 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className={styles.navActions}>
-            <a href={content.actions.login.href} className={styles.navLink}>
-              {content.actions.login.label}
-            </a>
             <Button 
               variant={content.actions.cta.variant as any} 
               size={content.actions.cta.size as any}
@@ -61,6 +58,9 @@ export const Navbar: React.FC = () => {
             >
               {content.actions.cta.label}
             </Button>
+            <a href={content.actions.login.href} className={styles.navLink}>
+              {content.actions.login.label}
+            </a>
           </div>
 
           <button
