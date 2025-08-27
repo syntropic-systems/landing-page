@@ -7,6 +7,7 @@ import { Services } from './components/sections/Services';
 import { Features } from './components/sections/Features';
 import { Demo } from './components/sections/Demo';
 import { Testimonials } from './components/sections/Testimonials';
+import { FAQ } from './components/sections/FAQ';
 import './styles/globals.css';
 import './styles/utilities.css';
 
@@ -22,6 +23,7 @@ function App() {
         <Features />
         <Demo />
         <Testimonials />
+        <FAQ />
       </main>
       <Footer />
     </div>

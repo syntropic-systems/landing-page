@@ -172,6 +172,24 @@ export interface TestimonialsContent {
   }[];
 }
 
+export interface FAQContent {
+  sectionHeader: {
+    title: string;
+    subtitle: string;
+  };
+  faqs: {
+    id: string;
+    question: string;
+    answer: string;
+  }[];
+  contactSupport: {
+    title: string;
+    subtitle: string;
+    ctaText: string;
+    ctaHref: string;
+  };
+}
+
 export interface FooterContent {
   footerLinks: {
     product: { label: string; href: string }[];
