@@ -1,0 +1,44 @@
+{
+  "sectionHeader": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about CloudGlance"
+  },
+  "faqs": [
+    {
+      "id": "getting-started",
+      "question": "How long does it take to get started?",
+      "answer": "You can start analyzing your first documents in minutes. For a full enterprise deployment with integrations, our dedicated success team ensures a seamless process that typically takes less than a week. We provide comprehensive onboarding and training to ensure your team is up and running quickly."
+    },
+    {
+      "id": "security",
+      "question": "How secure is our data?",
+      "answer": "Security is our top priority. CloudGlance is SOC 2 Certified with bank-grade encryption for data both in transit and at rest. We're GDPR compliant and offer flexible deployment options including cloud, on-premise, and hybrid solutions to meet your specific security requirements."
+    },
+    {
+      "id": "accuracy",
+      "question": "How accurate is the AI? Can we trust it?",
+      "answer": "Our platform achieves 99.7% extraction accuracy across all document types. Using RAG (Retrieval-Augmented Generation) technology, every answer is 100% verifiable and cited directly to source documents, completely eliminating the risk of AI hallucinations. You can trust every output with confidence."
+    },
+    {
+      "id": "complex-documents",
+      "question": "Can it handle our company's specific and complex documents?",
+      "answer": "Absolutely. CloudGlance is engineered to handle complex documents across demanding industries including engineering, construction, legal, and government sectors. We support all major formats (PDF, DOCX, XLSX, images, ZIP files) and can be custom-trained on your specific terminology and document structures."
+    },
+    {
+      "id": "roi",
+      "question": "What ROI can we realistically expect?",
+      "answer": "Our clients typically see a full payback period of under 4 months. This includes 70% reduction in manual labor costs, 40% increase in win rates, and an average annual savings of $2.4M. With 90% time savings on document processing, your team can focus on strategic activities that drive business growth."
+    },
+    {
+      "id": "support",
+      "question": "What kind of support and training do you provide?",
+      "answer": "We offer comprehensive support including 24/7 live chat, email support with <2 hour response time, and dedicated phone support during business hours. Every deployment includes full onboarding, personalized training sessions, and ongoing support from our customer success team to ensure you maximize the platform's value."
+    }
+  ],
+  "contactSupport": {
+    "title": "Still have questions?",
+    "subtitle": "Our team is here to help",
+    "ctaText": "Contact Support",
+    "ctaHref": "mailto:support@cloudglance.ai"
+  }
+}
