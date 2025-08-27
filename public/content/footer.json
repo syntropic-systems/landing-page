@@ -22,7 +22,7 @@
       { "label": "Privacy Policy", "href": "#privacy" },
       { "label": "Terms of Service", "href": "#terms" },
       { "label": "Security", "href": "#security" },
-      { "label": "SOC2 Compliance", "href": "#compliance" }
+      { "label": "SOC-2 Compliance", "href": "#compliance" }
     ]
   },
   "footerBottom": {

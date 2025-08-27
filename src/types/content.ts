@@ -48,14 +48,51 @@ export interface TrustBarContent {
 }
 
 export interface ComparisonContent {
-  title: string;
-  withoutUs: {
-    heading: string;
-    items: string[];
+  sectionHeader: {
+    title: string;
+    subtitle: string;
   };
-  withUs: {
-    heading: string;
-    items: string[];
+  headline: {
+    main: string;
+    prefix: string;
+    tagline: string;
+  };
+  comparisons: {
+    id: string;
+    category: string;
+    icon: string;
+    without: {
+      value: string;
+      description: string;
+      pain: boolean;
+    };
+    withUs: {
+      value: string;
+      description: string;
+      highlight: string;
+      improvement: string;
+    };
+  }[];
+  visualStyle: {
+    layout: string;
+    withoutSide: {
+      color: string;
+      icon: string;
+      label: string;
+    };
+    withSide: {
+      color: string;
+      icon: string;
+      label: string;
+    };
+  };
+  presentation: {
+    style: string;
+    layout: string;
+    animations: boolean;
+    animationType: string;
+    staggerDelay: number;
+    showArrows: boolean;
   };
 }
 

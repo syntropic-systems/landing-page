@@ -1,0 +1,157 @@
+{
+  "sectionHeader": {
+    "title": "Case Study: A Story of Transformation",
+    "subtitle": "How a Global Engineering Firm Increased Their Win Rate by 40%"
+  },
+  "client": {
+    "industry": "Industrial Automation",
+    "size": "Global Leader",
+    "anonymous": true,
+    "logo": "/case-study-logo.svg"
+  },
+  "challenge": {
+    "title": "The Challenge",
+    "description": "Before CloudGlance, a global leader in industrial automation was struggling. Their manual review process for complex RFPs was slow and prone to error, forcing them to \"no-bid\" valuable opportunities simply due to a lack of bandwidth.",
+    "painPoints": [
+      {
+        "icon": "x-circle",
+        "text": "Manual review taking 3-4 weeks per RFP"
+      },
+      {
+        "icon": "x-circle",
+        "text": "Missing key requirements in 200+ page documents"
+      },
+      {
+        "icon": "x-circle",
+        "text": "No-bidding 60% of opportunities due to bandwidth"
+      },
+      {
+        "icon": "x-circle",
+        "text": "Teams working in silos with no visibility"
+      }
+    ],
+    "quote": {
+      "text": "We were leaving money on the table. Our team was overwhelmed, and we knew we were missing opportunities, but we didn't have the bandwidth to pursue them all.",
+      "author": "VP of Business Development"
+    }
+  },
+  "transformation": {
+    "title": "The Transformation",
+    "description": "After adopting our platform, they began processing 5x more proposals in the first quarter alone. Our Go/No-Go analysis helped them instantly qualify the right opportunities, and the auto-drafting feature enabled their team to create higher-quality bids in a fraction of the time.",
+    "timeline": [
+      {
+        "period": "Week 1",
+        "milestone": "Platform deployed and team onboarded",
+        "icon": "check"
+      },
+      {
+        "period": "Month 1",
+        "milestone": "First AI-assisted bid submitted",
+        "icon": "check"
+      },
+      {
+        "period": "Quarter 1",
+        "milestone": "Processing 5x more proposals",
+        "icon": "check"
+      },
+      {
+        "period": "Year 1",
+        "milestone": "40% increase in win rate achieved",
+        "icon": "check"
+      }
+    ],
+    "features": [
+      "Go/No-Go instant analysis",
+      "Auto-drafting capabilities",
+      "Centralized bid management",
+      "AI-powered content library"
+    ]
+  },
+  "results": {
+    "title": "The Results",
+    "metrics": [
+      {
+        "icon": "rocket",
+        "value": "40%",
+        "label": "increase in bid win rate",
+        "highlight": true,
+        "color": "success"
+      },
+      {
+        "icon": "dollar-sign",
+        "value": "$2.4M",
+        "label": "in saved proposal costs annually",
+        "highlight": true,
+        "color": "primary"
+      },
+      {
+        "icon": "clock",
+        "value": "90%",
+        "label": "reduction in document review time per bid",
+        "highlight": true,
+        "color": "accent"
+      },
+      {
+        "icon": "trending-up",
+        "value": "5x",
+        "label": "more proposals processed per quarter",
+        "color": "info"
+      },
+      {
+        "icon": "users",
+        "value": "0",
+        "label": "additional headcount needed",
+        "color": "secondary"
+      }
+    ],
+    "testimonial": {
+      "quote": "CloudGlance didn't just improve our process—it transformed our entire approach to bidding. We're now pursuing opportunities we would have passed on before, and we're winning them.",
+      "author": "CEO",
+      "company": "Global Engineering Firm",
+      "image": "/testimonial-avatar.jpg"
+    }
+  },
+  "keyTakeaways": {
+    "title": "Key Takeaways",
+    "points": [
+      {
+        "icon": "lightbulb",
+        "text": "Automation freed up 70% of team time for strategic work"
+      },
+      {
+        "icon": "target",
+        "text": "Better go/no-go decisions led to higher quality bids"
+      },
+      {
+        "icon": "users",
+        "text": "Improved collaboration across previously siloed teams"
+      },
+      {
+        "icon": "shield",
+        "text": "Zero compliance issues since implementation"
+      }
+    ]
+  },
+  "callToAction": {
+    "title": "Ready to write your success story?",
+    "subtitle": "Join hundreds of companies transforming their bid process with CloudGlance",
+    "button": {
+      "label": "Start Your Transformation",
+      "variant": "primary",
+      "size": "large",
+      "href": "#demo",
+      "icon": "arrow-right"
+    }
+  },
+  "presentation": {
+    "style": "case-study",
+    "layout": "narrative",
+    "animations": true,
+    "visualElements": {
+      "beforeAfterChart": true,
+      "timelineVisualization": true,
+      "metricsCards": true
+    },
+    "colorScheme": "gradient"
+  }
+}
