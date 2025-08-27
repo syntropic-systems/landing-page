@@ -47,6 +47,18 @@ export interface TrustBarContent {
   clients: string[];
 }
 
+export interface ComparisonContent {
+  title: string;
+  withoutUs: {
+    heading: string;
+    items: string[];
+  };
+  withUs: {
+    heading: string;
+    items: string[];
+  };
+}
+
 export interface ServicesContent {
   sectionHeader: {
     title: string;
