@@ -1,22 +1,45 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import {
+  Clock,
+  TrendingUp,
+  FileSearch,
+  Target,
+  Users,
+  ShieldAlert,
+  Database,
+  GitBranch,
+  X,
+  Check,
+  ArrowRight,
+} from "lucide-react";
 import { useContent } from "../../../hooks/useContent";
 import type { ComparisonContent } from "../../../types/content";
 import styles from "./Comparison.module.css";
 
-// Icon mapping
-const iconMap: { [key: string]: string } = {
-  clock: "⏱️",
-  "trending-up": "📈",
-  "file-search": "📄",
-  target: "🎯",
-  users: "👥",
-  "shield-alert": "🛡️",
-  database: "💾",
-  "git-branch": "🔀",
-  "x-circle": "✕",
-  "check-circle": "✓",
+// Icon mapping based on category names
+const getCategoryIcon = (category: string): React.ComponentType<any> => {
+  const categoryLower = category.toLowerCase();
+
+  if (categoryLower.includes("time") || categoryLower.includes("cycle"))
+    return Clock;
+  if (categoryLower.includes("win") || categoryLower.includes("rate"))
+    return TrendingUp;
+  if (categoryLower.includes("document") || categoryLower.includes("review"))
+    return FileSearch;
+  if (categoryLower.includes("focus") || categoryLower.includes("team"))
+    return Target;
+  if (categoryLower.includes("capacity") || categoryLower.includes("headcount"))
+    return Users;
+  if (categoryLower.includes("compliance") || categoryLower.includes("risk"))
+    return ShieldAlert;
+  if (categoryLower.includes("knowledge") || categoryLower.includes("library"))
+    return Database;
+  if (categoryLower.includes("workflow") || categoryLower.includes("process"))
+    return GitBranch;
+
+  return Target; // default icon
 };
 
 export const Comparison: React.FC = () => {
@@ -29,12 +52,6 @@ export const Comparison: React.FC = () => {
   if (!content) {
     return <section className={styles.comparison}>Loading...</section>;
   }
-
-  // Normalize potential legacy/simple content shapes
-  const visualStyle = (content as any).visualStyle || {
-    withoutSide: { label: "Without Us", icon: "x-circle", color: "" },
-    withSide: { label: "With Us", icon: "check-circle", color: "" },
-  };
 
   const staggerMs: number = (content as any).presentation?.staggerDelay ?? 100;
 
@@ -79,90 +96,63 @@ export const Comparison: React.FC = () => {
           <p className={styles.subtitle}>{content.sectionHeader.subtitle}</p>
         </motion.div>
 
-        <div className={styles.comparisonWrapper}>
-          <motion.div
-            className={styles.comparisonCard}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {/* Headers */}
-            <div className={styles.comparisonHeaders}>
-              <div className={styles.processHeader}>
-                <h3>Process</h3>
-              </div>
-              <div className={styles.withoutHeader}>
-                <h3>{visualStyle.withoutSide?.label}</h3>
-              </div>
-              <div className={styles.withHeader}>
-                <span className={styles.bolt}>⚡</span>
-                <h3>{visualStyle.withSide?.label}</h3>
-              </div>
-            </div>
+        <div className={styles.cardsGrid}>
+          {normalizedComparisons.map((item: any, index: number) => {
+            const IconComponent = getCategoryIcon(item.category);
+            return (
+              <motion.div
+                key={item.id}
+                className={styles.comparisonCard}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.1 + (index * staggerMs) / 1000,
+                }}
+              >
+                <div className={styles.cardHeader}>
+                  <div className={styles.cardIcon}>
+                    <IconComponent size={32} />
+                  </div>
+                  <h3 className={styles.cardCategory}>{item.category}</h3>
+                </div>
 
-            {/* Comparison Items */}
-            <div className={styles.comparisonItems}>
-              {normalizedComparisons.map((item: any, index: number) => (
-                <motion.div
-                  key={item.id}
-                  className={styles.comparisonRow}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.3 + (index * staggerMs) / 1000,
-                  }}
-                >
-                  {/* Process Column with Improvement Badge */}
-                  <div className={styles.processCell}>
-                    <div className={styles.processCellContent}>
-                      <span className={styles.processIcon}>
-                        {iconMap[item.icon] || "📌"}
-                      </span>
-                      <div className={styles.processTextWrapper}>
-                        <span className={styles.processLabel}>
-                          {item.category}
-                        </span>
-                        <div className={styles.improvementBadge}>
-                          {item.withUs.improvement}
-                        </div>
+                <div className={styles.cardContent}>
+                  <div className={styles.comparisonRow}>
+                    <div className={styles.withoutSection}>
+                      <div className={styles.sectionHeader}>
+                        <X size={16} className={styles.xIcon} />
+                        <span className={styles.sectionLabel}>Without</span>
                       </div>
+                      <p className={styles.sectionText}>{item.without.value}</p>
                     </div>
-                  </div>
 
-                  {/* Without Column */}
-                  <div className={styles.withoutCell}>
-                    <span className={styles.iconCross}>
-                      {iconMap[visualStyle.withoutSide?.icon] || "✕"}
-                    </span>
-                    <div className={styles.cellContent}>
-                      <span className={styles.cellValue}>
-                        {item.without.value}
-                      </span>
-                      <span className={styles.cellDescription}>
-                        {item.without.description}
-                      </span>
+                    <div className={styles.arrowContainer}>
+                      <motion.div
+                        className={styles.arrow}
+                        initial={{ x: -10, opacity: 0 }}
+                        animate={inView ? { x: 0, opacity: 1 } : {}}
+                        transition={{
+                          duration: 0.8,
+                          delay: 0.3 + (index * staggerMs) / 1000,
+                        }}
+                      >
+                        <ArrowRight size={16} />
+                      </motion.div>
                     </div>
-                  </div>
 
-                  {/* With Column */}
-                  <div className={styles.withCell}>
-                    <span className={styles.iconCheck}>
-                      {iconMap[visualStyle.withSide?.icon] || "✓"}
-                    </span>
-                    <div className={styles.cellContent}>
-                      <span className={styles.cellValue}>
-                        {item.withUs.value}
-                      </span>
-                      <span className={styles.cellDescription}>
-                        {item.withUs.description}
-                      </span>
+                    <div className={styles.withSection}>
+                      <div className={styles.sectionHeader}>
+                        <Check size={16} className={styles.checkIcon} />
+                        <span className={styles.sectionLabel}>With</span>
+                      </div>
+                      <p className={styles.sectionText}>{item.withUs.value}</p>
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
