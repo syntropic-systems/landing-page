@@ -1,13 +1,13 @@
 {
   "title": {
-    "gradientText": "The AI-Powered Command Centre ",
+    "highlightedText": "The AI-Powered Command Centre ",
     "grayText": "For Your Bid Process"
   },
   "subtitle": "AI-powered document intelligence that processes complex business documents in minutes, not days. Save 75% time on manual analysis while increasing accuracy by 90%.",
   "buttons": [
     {
       "label": "Contact Sales →",
-      "variant": "ghost",
+      "variant": "primary",
       "size": "large",
       "href": "mailto:sales@cloudglancelab.com"
     },

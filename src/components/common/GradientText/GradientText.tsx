@@ -13,7 +13,7 @@ export const GradientText: React.FC<GradientTextProps> = ({
   className = ''
 }) => {
   return (
-    <Component className={`${styles.gradientText} ${className}`}>
+    <Component className={`${styles.highlightedText} ${className}`}>
       {children}
     </Component>
   );

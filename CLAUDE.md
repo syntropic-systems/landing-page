@@ -99,8 +99,37 @@ The project uses a JSON-based content system:
 - Consistent naming conventions
 - Compose with utility classes where appropriate
 
+**Theming**:
+- Fonts used:
+  - Rethink Sans - Primary Font, used for paragraphs and general text
+  - Hedwig Letter Serif - Secondary Font, used for Headings or emphasis
+  - JetBrains Mono - Mono Font, this will be used in tags, badges, buttons
+  _Note_: All fonts are to available on google fonts and thus will be used via the CDN
+
+- Color Pallette:
+  - We use a 5 color color palatte with appropriate changes where necessary, the base five shades are as Follow in order of lightest to darkest contrast
+  - Light theme:
+    1. #DAD7CD
+    2. #A3B18A
+    3. #588157
+    4. #3A5A40
+    5. #344E41
+    6. #FFFFFF (background)
+
+  - Dark Theme:
+    1. #265F41
+    2. #527F5A
+    3. #AED764
+    4. #B0FF88
+    5. #F9F7F0
+    6. #1A1A1A (background)
+
+Color 6. Is used for background for either theme
+Color 4. Is used as accent color, to highlight words on the background
+
 **Key Design Patterns:**
-- Gradient system: Primary (blue-purple), Accent (orange), Border gradients
+- No gradients AT ALL
+- Boxy buttons, no border radius is expected
 - Animation strategy: Scroll-triggered fade-ins, floating elements, smooth transitions
 - Responsive: Mobile-first with breakpoints at 640px, 768px, 1024px, 1280px, 1536px
 
@@ -124,8 +153,21 @@ The project uses a JSON-based content system:
 - Follow mobile-first responsive design
 - Implement animations using Framer Motion for performance
 
+#### Component Design
+  - buttons
+    - primary (default) 
+      [dark] -  bg:aed764 , foreground: aed764, outline: none, 
+      [light] - bg: aed764, foreground: aed764, outline: none,
+    - outline 
+      [dark]  - bg: transparent, foreground: aed764, outline: aed764
+      [light] - bg: transparent, foregrouind: aed764, outline: aed764
+  
+
+
 ### Performance Considerations
 - Components use React 19 features where beneficial
 - Images should be optimized (WebP with fallbacks)
 - Lazy loading implemented for below-fold content
 - CSS Modules enable automatic tree shaking
+
+

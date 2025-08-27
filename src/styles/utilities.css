@@ -157,12 +157,12 @@
 }
 
 /* Gradients */
-.gradient-bg {
-  background: var(--gradient-primary);
+.accent-bg {
+  background: var(--color-accent);
 }
 
-.gradient-bg-accent {
-  background: var(--gradient-accent);
+.surface-bg {
+  background: var(--color-surface-1);
 }
 
 /* Spacing */

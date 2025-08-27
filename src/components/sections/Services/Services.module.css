@@ -1,7 +1,21 @@
 .services {
-  padding: var(--space-4xl) 0;
-  background: #000000;
+  padding: var(--space-2xl) 0;
+  background: var(--color-bg);
   position: relative;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .services {
+    padding: var(--space-3xl) 0;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .services {
+    padding: var(--space-4xl) 0;
+  }
 }
 
 .container {
@@ -12,31 +26,88 @@
 
 .sectionHeader {
   text-align: center;
-  margin-bottom: var(--space-3xl);
-  max-width: 600px;
+  margin-bottom: var(--space-xl);
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Tablet and up */
+@media (min-width: 768px) {
+  .sectionHeader {
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .sectionHeader {
+    margin-bottom: var(--space-3xl);
+  }
+}
+
 .sectionTitle {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-bold);
-  color: var(--color-light);
-  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .sectionTitle {
+    font-size: var(--text-4xl);
+  }
 }
 
 .sectionSubtitle {
-  font-size: var(--text-lg);
-  color: var(--color-gray-400);
-  margin-bottom: var(--space-lg);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .sectionSubtitle {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+  }
 }
 
 .servicesLayout {
   display: flex;
-  gap: var(--space-3xl);
+  flex-direction: column;
+  gap: var(--space-lg);
   align-items: stretch;
-  margin-top: var(--space-3xl);
-  min-height: 500px;
+  margin-top: var(--space-xl);
+  min-height: auto;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .servicesLayout {
+    gap: var(--space-xl);
+    margin-top: var(--space-2xl);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .servicesLayout {
+    flex-direction: row;
+    gap: var(--space-3xl);
+    margin-top: var(--space-3xl);
+    min-height: 500px;
+  }
 }
 
 .servicesContent {
@@ -44,7 +115,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .servicesContent {
+    gap: var(--space-sm);
+  }
 }
 
 .serviceRow {
@@ -52,15 +130,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--space-lg);
-  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border-radius: 0;
   transition: all var(--transition-base);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--color-surface-2);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .serviceRow {
+    padding: var(--space-lg);
+  }
 }
 
 .serviceRow:hover {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--color-surface-1);
+  border-color: var(--color-accent);
 }
 
 .serviceInfo {
@@ -72,14 +157,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: var(--space-lg);
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .animationContainer {
+    margin-top: 0;
+  }
 }
 
 .scrollAnimation {
   position: relative;
-  width: 400px;
-  height: 500px;
-  border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 250px;
+  height: 300px;
+  border-radius: 0;
+  border: 2px solid var(--color-accent);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -87,52 +180,106 @@
   flex-direction: column;
 }
 
+/* Tablet and up */
+@media (min-width: 768px) {
+  .scrollAnimation {
+    width: 350px;
+    height: 400px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .scrollAnimation {
+    width: 400px;
+    height: 500px;
+  }
+}
+
 .scrollImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-xl);
+  border-radius: 0;
   transition: opacity 0.3s ease-in-out;
 }
 
 .imageProgress {
   position: absolute;
-  bottom: var(--space-md);
+  bottom: var(--space-sm);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: var(--space-xs);
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--color-bg);
   padding: var(--space-xs);
-  border-radius: var(--radius-full);
-  backdrop-filter: blur(10px);
+  border-radius: 0;
+  border: 2px solid var(--color-accent);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .imageProgress {
+    bottom: var(--space-md);
+  }
 }
 
 .progressDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+  background: var(--color-surface-2);
   transition: all var(--transition-base);
 }
 
+/* Tablet and up */
+@media (min-width: 768px) {
+  .progressDot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
 .progressDot.active {
-  background: rgba(255, 255, 255, 1);
+  background: var(--color-accent);
   transform: scale(1.2);
 }
 
 .serviceTitle {
-  font-size: var(--text-2xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-bold);
-  color: var(--color-light);
-  margin-bottom: var(--space-sm);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .serviceTitle {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-sm);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .serviceTitle {
+    font-size: var(--text-2xl);
+  }
 }
 
 .serviceDescription {
-  font-size: var(--text-base);
-  color: var(--color-gray-300);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
   line-height: 1.6;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .serviceDescription {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-md);
+  }
 }
 
 .featureList {
@@ -144,52 +291,30 @@
 .feature {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   margin-bottom: var(--space-xs);
-  font-size: var(--text-sm);
-  color: var(--color-gray-400);
+  font-size: var(--text-xs);
+  color: var(--color-text-primary);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .feature {
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+  }
 }
 
 .checkmark {
-  color: var(--color-primary);
+  color: var(--color-accent);
   font-weight: var(--font-bold);
-  font-size: var(--text-base);
+  font-size: var(--text-sm);
 }
 
-/* Mobile */
-@media (max-width: 767px) {
-  .servicesLayout {
-    flex-direction: column;
-    gap: var(--space-2xl);
-    min-height: auto;
-  }
-
-  .servicesContent {
-    gap: var(--space-md);
-  }
-
-  .scrollAnimation {
-    width: 250px;
-    height: 300px;
-  }
-
-  .scrollElement {
-    width: 150px;
-    height: 40px;
+/* Tablet and up */
+@media (min-width: 768px) {
+  .checkmark {
+    font-size: var(--text-base);
   }
 }
 
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .servicesLayout {
-    flex-direction: column;
-    gap: var(--space-2xl);
-  }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .servicesLayout {
-    flex-direction: row;
-  }
-}

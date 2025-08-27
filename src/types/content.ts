@@ -21,7 +21,7 @@ export interface NavbarContent {
 
 export interface HeroContent {
   title: {
-    gradientText: string;
+    highlightedText: string;
     grayText: string;
   };
   subtitle: string;

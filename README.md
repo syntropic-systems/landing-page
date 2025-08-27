@@ -38,7 +38,7 @@ Example content edit:
 // public/content/hero.json
 {
   "title": {
-    "gradientText": "Your Gradient Text",
+    "highlightedText": "Your Gradient Text",
     "grayText": "Your Gray Text"
   },
   "subtitle": "Your subtitle here"

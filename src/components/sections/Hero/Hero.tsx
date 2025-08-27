@@ -21,11 +21,12 @@ export const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className={styles.heroTitle}>
-            <span className={styles.gradientText}>{content.title.gradientText}</span>
-            <br />
-            <span className={styles.grayText}>{content.title.grayText}</span>
-          </h1>
+          <div>
+            <h1 className={styles.heroTitle}>
+              <span className={styles.highlightedText}>{content.title.highlightedText}</span>
+              <span>{content.title.grayText}</span>
+            </h1>
+          </div>
 
           <p className={styles.heroSubtitle}>
             {content.subtitle}
@@ -33,9 +34,9 @@ export const Hero: React.FC = () => {
 
           <div className={styles.heroActions}>
             {content.buttons.map((button, index) => (
-              <Button 
-                key={index} 
-                variant={button.variant as any} 
+              <Button
+                key={index}
+                variant={button.variant as any}
                 size={button.size as any}
                 href={button.href}
               >
@@ -43,6 +44,7 @@ export const Hero: React.FC = () => {
               </Button>
             ))}
           </div>
+
         </motion.div>
 
         <motion.div

@@ -3,9 +3,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  font-family: var(--font-body);
-  font-weight: var(--font-semibold);
-  border-radius: var(--radius-lg);
+  font-family: var(--font-mono);
+  font-weight: var(--font-medium);
+  border-radius: 0;
   transition: all var(--transition-base);
   cursor: pointer;
   border: 2px solid transparent;
@@ -29,63 +29,81 @@
   transform: none;
 }
 
-/* Sizes */
+/* Sizes - Mobile First */
 .small {
-  padding: var(--space-xs) var(--space-sm);
+  padding: 0.5rem 1rem;
   font-size: var(--text-sm);
 }
 
 .medium {
-  padding: 0.75rem 1.5rem;
-  font-size: var(--text-base);
+  padding: 0.625rem 1.25rem;
+  font-size: var(--text-sm);
 }
 
 .large {
-  padding: var(--space-sm) var(--space-lg);
-  font-size: var(--text-lg);
+  padding: 0.5rem 0.75rem;  
+  font-size: var(--text-base);
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .small {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-sm);
+  }
+  
+  .medium {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--text-base);
+  }
+  
+  .large {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-lg);
+  }
 }
 
 /* Variants */
 .primary {
-  background: var(--gradient-accent);
-  color: white;
+  background: var(--button-bg-primary);
+  color: var(--button-color-primary);
   border: none;
 }
 
 .primary:hover {
-  filter: brightness(1.1);
+  background: var(--color-text-tertiary);
 }
 
 .secondary {
-  background: var(--gradient-primary);
-  color: white;
+  background: var(--color-surface-2);
+  color: var(--color-text-primary);
   border: none;
 }
 
 .secondary:hover {
-  filter: brightness(1.1);
+  background: var(--color-surface-3);
 }
 
 .outline {
   background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  color: var(--button-color-outline);
+  border: 2px solid var(--button-outline-border-color);
 }
 
 .outline:hover {
-  background: var(--color-primary);
-  color: white;
+  background: var(--button-outline-border-color);
+  color: var(--button-color-outline-hover);
 }
 
 .ghost {
-  background: #374151;
-  color: var(--color-light);
-  border: 1px solid #4B5563;
+  background: var(--color-surface-1);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-surface-2);
 }
 
 .ghost:hover {
-  background: #4B5563;
-  border-color: #6B7280;
+  background: var(--color-surface-2);
+  border-color: var(--color-surface-3);
 }
 
 /* Full Width */
