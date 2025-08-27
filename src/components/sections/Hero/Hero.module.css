@@ -24,8 +24,8 @@
 .heroContent {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: left;
+  text-align: left;
   gap: var(--space-lg);
   z-index: 10;
   position: relative;
@@ -63,7 +63,7 @@
   display: flex;
   flex-direction: row;
   gap: var(--space-sm);
-  align-items: center;
+  align-items: left;
   width: 100%;
   margin-top: var(--space-md);
 }
@@ -83,12 +83,12 @@
 /* Mobile First - Small phones (default above) */
 
 /* Large phones */
-@media (min-width: 480px) {
+@media (width >= 480px) {
   .heroSubtitle {
     font-size: var(--text-lg);
     max-width: 500px;
   }
-  
+
   .heroActions {
     flex-direction: row;
     justify-content: center;
@@ -102,11 +102,14 @@
   .hero {
     padding-top: 100px;
   }
-  
+
   .heroSubtitle {
     max-width: 600px;
   }
-  
+  .heroActions {
+    justify-content: flex-start;
+  }
+
   .heroContent {
     gap: var(--space-xl);
   }
@@ -118,32 +121,28 @@
     text-align: left;
     max-width: 800px;
   }
-  
+
   .heroContent {
     align-items: flex-start;
     text-align: left;
   }
-  
+
   .heroSubtitle {
     text-align: left;
     max-width: 700px;
-  }
-  
-  .heroActions {
-    justify-content: flex-start;
   }
 }
 
 /* Large laptops and desktops */
 @media (min-width: 1280px) {
   .hero {
-    min-height: 90vh;
+    min-height: 100vh;
   }
-  
+
   .heroTitle {
     max-width: 1000px;
   }
-  
+
   .heroSubtitle {
     max-width: 800px;
   }
@@ -154,11 +153,11 @@
   .heroTitle {
     max-width: 1200px;
   }
-  
+
   .heroSubtitle {
     max-width: 900px;
   }
-  
+
   .heroContent {
     gap: var(--space-2xl);
   }

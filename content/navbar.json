@@ -6,13 +6,19 @@
       "href": "#products",
       "dropdown": [
         { "label": "Enterprise RAG Platform", "href": "#enterprise-rag" },
-        { "label": "Tender Intelligence Suite", "href": "#tender-intelligence" },
-        { "label": "Project Intelligence Platform", "href": "#project-intelligence" }
+        {
+          "label": "Tender Intelligence Suite",
+          "href": "#tender-intelligence"
+        },
+        {
+          "label": "Project Intelligence Platform",
+          "href": "#project-intelligence"
+        }
       ]
     },
     {
       "label": "Solutions",
-      "href": "#solutions", 
+      "href": "#solutions",
       "dropdown": [
         { "label": "Construction & Engineering", "href": "#construction" },
         { "label": "Insurance & Claims", "href": "#insurance" },
@@ -41,7 +47,8 @@
     "cta": {
       "label": "Schedule Demo",
       "variant": "primary",
-      "size": "small"
+      "size": "small",
+      "icon": "arrow-right"
     }
   }
 }

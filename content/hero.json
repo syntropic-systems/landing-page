@@ -6,14 +6,16 @@
   "subtitle": "AI-powered document intelligence that processes complex business documents in minutes, not days. Save 75% time on manual analysis while increasing accuracy by 90%.",
   "buttons": [
     {
-      "label": "Schedule Demo →",
+      "label": "Schedule Demo",
       "variant": "ghost",
-      "size": "large"
+      "size": "large",
+      "icon": "arrow-right"
     },
     {
-      "label": "Try API Sandbox →", 
+      "label": "Try API Sandbox",
       "variant": "outline",
-      "size": "large"
+      "size": "large",
+      "icon": "arrow-right"
     }
   ],
   "metrics": [

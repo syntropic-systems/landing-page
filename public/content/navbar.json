@@ -6,13 +6,19 @@
       "href": "#products",
       "dropdown": [
         { "label": "Enterprise RAG Platform", "href": "#enterprise-rag" },
-        { "label": "Tender Intelligence Suite", "href": "#tender-intelligence" },
-        { "label": "Project Intelligence Platform", "href": "#project-intelligence" }
+        {
+          "label": "Tender Intelligence Suite",
+          "href": "#tender-intelligence"
+        },
+        {
+          "label": "Project Intelligence Platform",
+          "href": "#project-intelligence"
+        }
       ]
     },
     {
       "label": "Solutions",
-      "href": "#solutions", 
+      "href": "#solutions",
       "dropdown": [
         { "label": "Construction & Engineering", "href": "#construction" },
         { "label": "Insurance & Claims", "href": "#insurance" },
@@ -42,7 +48,8 @@
       "label": "Contact Sales",
       "variant": "primary",
       "size": "small",
-      "href": "mailto:sales@cloudglancelab.com"
+      "href": "mailto:sales@cloudglancelab.com",
+      "icon": "arrow-right"
     }
   }
 }

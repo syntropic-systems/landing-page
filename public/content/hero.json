@@ -6,16 +6,17 @@
   "subtitle": "AI-powered document intelligence that processes complex business documents in minutes, not days. Save 75% time on manual analysis while increasing accuracy by 90%.",
   "buttons": [
     {
-      "label": "Contact Sales →",
+      "label": "Contact Sales",
       "variant": "primary",
       "size": "large",
       "href": "mailto:sales@cloudglancelab.com"
     },
     {
-      "label": "Try Demo →", 
+      "label": "Try Demo",
       "variant": "outline",
       "size": "large",
-      "href": "https://app.cloudglancelab.com"
+      "href": "https://app.cloudglancelab.com",
+      "icon": "arrow-right"
     }
   ],
   "metrics": [

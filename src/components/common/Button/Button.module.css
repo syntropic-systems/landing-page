@@ -41,7 +41,7 @@
 }
 
 .large {
-  padding: 0.5rem 0.75rem;  
+  padding: 0.5rem 0.75rem;
   font-size: var(--text-base);
 }
 
@@ -51,12 +51,12 @@
     padding: var(--space-xs) var(--space-sm);
     font-size: var(--text-sm);
   }
-  
+
   .medium {
     padding: 0.75rem 1.5rem;
     font-size: var(--text-base);
   }
-  
+
   .large {
     padding: var(--space-sm) var(--space-lg);
     font-size: var(--text-lg);
@@ -72,6 +72,7 @@
 
 .primary:hover {
   background: var(--color-text-tertiary);
+  color: var(--button-color-primary-hover);
 }
 
 .secondary {
@@ -139,5 +140,10 @@
 .icon {
   display: inline-flex;
   align-items: center;
-  font-size: 1.2em;
+  margin-left: var(--space-xs);
+  transition: transform var(--transition-base);
+}
+
+.button:hover .icon {
+  transform: translateX(2px);
 }

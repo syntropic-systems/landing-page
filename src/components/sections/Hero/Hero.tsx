@@ -1,12 +1,12 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '../../common/Button';
-import { useContent } from '../../../hooks/useContent';
-import type { HeroContent } from '../../../types/content';
-import styles from './Hero.module.css';
+import React from "react";
+import { motion } from "framer-motion";
+import { Button } from "../../common/Button";
+import { useContent } from "../../../hooks/useContent";
+import type { HeroContent } from "../../../types/content";
+import styles from "./Hero.module.css";
 
 export const Hero: React.FC = () => {
-  const content = useContent<HeroContent>('hero.json');
+  const content = useContent<HeroContent>("hero.json");
 
   if (!content) {
     return <section className={styles.hero}>Loading...</section>;
@@ -23,28 +23,34 @@ export const Hero: React.FC = () => {
         >
           <div>
             <h1 className={styles.heroTitle}>
-              <span className={styles.highlightedText}>{content.title.highlightedText}</span>
-              <span>{content.title.grayText}</span>
+              <span className={styles.highlightedText}>
+                {content.title.highlightedText}
+              </span>
+              <span className={styles.grayText}>{content.title.grayText}</span>
             </h1>
           </div>
 
-          <p className={styles.heroSubtitle}>
-            {content.subtitle}
-          </p>
+          <p className={styles.heroSubtitle}>{content.subtitle}</p>
 
           <div className={styles.heroActions}>
             {content.buttons.map((button, index) => (
               <Button
                 key={index}
-                variant={button.variant as any}
-                size={button.size as any}
+                variant={
+                  button.variant as
+                    | "primary"
+                    | "secondary"
+                    | "outline"
+                    | "ghost"
+                }
+                size={button.size as "small" | "medium" | "large"}
                 href={button.href}
+                icon={button.icon}
               >
                 {button.label}
               </Button>
             ))}
           </div>
-
         </motion.div>
 
         <motion.div

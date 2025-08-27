@@ -29,7 +29,7 @@
 }
 
 /* Tablet and up */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .navContent {
     height: 80px;
   }
@@ -56,7 +56,7 @@
 }
 
 /* Tablet and up */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .logoImage {
     height: 40px;
   }
@@ -91,8 +91,8 @@
 }
 
 .chevron {
-  font-size: 0.8em;
   transition: transform var(--transition-base);
+  color: var(--color-text-primary);
 }
 
 .navItem:hover .chevron {
@@ -143,6 +143,11 @@
   gap: var(--space-md);
 }
 
+/* Theme toggle should always be visible */
+.navActions .themeToggle {
+  display: flex;
+}
+
 .themeToggle {
   display: flex;
   align-items: center;
@@ -162,10 +167,19 @@
   border-color: var(--color-accent);
 }
 
+/* Theme toggle icon colors - ensure visibility in both themes */
+.themeToggle svg {
+  color: var(--color-text-primary);
+  transition: color var(--transition-base);
+}
+
+.themeToggle:hover svg {
+  color: var(--color-accent);
+}
+
 /* Mobile Menu Toggle */
 .mobileMenuToggle {
-  display: none;
-  /* display: flex; */
+  display: flex;
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -254,6 +268,16 @@
   color: var(--color-accent);
 }
 
+/* Mobile theme toggle icon colors - ensure visibility in both themes */
+.mobileThemeToggle svg {
+  color: var(--color-text-primary);
+  transition: color var(--transition-base);
+}
+
+.mobileThemeToggle:hover svg {
+  color: var(--color-accent);
+}
+
 /* Large phones and up */
 @media (min-width: 480px) {
   .mobileActions {
@@ -262,7 +286,7 @@
 }
 
 /* Desktop styles */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .navMenu {
     display: flex;
   }
@@ -276,6 +300,24 @@
   }
 
   .mobileMenu {
+    display: none;
+  }
+}
+
+/* Show buttons only on larger screens */
+@media (min-width: 1280px) {
+  .navActions {
+    display: flex;
+  }
+}
+
+/* Hide buttons on smaller screens but keep theme toggle visible */
+@media (max-width: 1279px) {
+  .navActions {
+    display: flex;
+  }
+
+  .navActions > *:not(.themeToggle) {
     display: none;
   }
 }

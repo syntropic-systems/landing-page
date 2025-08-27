@@ -15,6 +15,7 @@ export interface NavbarContent {
       variant: string;
       size: string;
       href?: string;
+      icon?: string;
     };
   };
 }
@@ -30,6 +31,7 @@ export interface HeroContent {
     variant: string;
     size: string;
     href?: string;
+    icon?: string;
   }[];
   metrics: {
     icon: string;
