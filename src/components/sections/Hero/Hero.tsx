@@ -4,6 +4,7 @@ import { Button } from "../../common/Button";
 import { useContent } from "../../../hooks/useContent";
 import type { HeroContent } from "../../../types/content";
 import styles from "./Hero.module.css";
+import { Spotlight } from "../../garnish/spotlight/component";
 
 export const Hero: React.FC = () => {
   const content = useContent<HeroContent>("hero.json");
@@ -11,6 +12,15 @@ export const Hero: React.FC = () => {
   if (!content) {
     return <section className={styles.hero}>Loading...</section>;
   }
+
+  const isTitleString = typeof content.title === "string";
+  const highlightedText = isTitleString
+    ? (content.title as string)
+    : (content.title as { highlightedText: string; grayText: string })
+        .highlightedText;
+  const grayText = isTitleString
+    ? ""
+    : (content.title as { highlightedText: string; grayText: string }).grayText;
 
   return (
     <section className={styles.hero}>
@@ -21,12 +31,11 @@ export const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
+          <Spotlight />
           <div>
             <h1 className={styles.heroTitle}>
-              <span className={styles.highlightedText}>
-                {content.title.highlightedText}
-              </span>
-              <span className={styles.grayText}>{content.title.grayText}</span>
+              <span className={styles.highlightedText}>{highlightedText}</span>
+              {grayText && <span className={styles.grayText}>{grayText}</span>}
             </h1>
           </div>
 

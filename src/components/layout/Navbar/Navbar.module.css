@@ -1,22 +1,26 @@
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 1.5rem;
+  left: 50%;
+  width: var(--navbar-width);
+  transform: translateX(-50%);
   right: 0;
+  border-radius: 50px;
   z-index: var(--z-sticky);
   background: var(--color-bg);
   backdrop-filter: blur(10px);
   transition: all var(--transition-base);
+  padding: 0 var(--container-padding);
+  max-width: var(--container-max);
   /* border-bottom: 2px solid var(--color-accent); */
 }
 
 .navbar.scrolled {
-  background: var(--color-bg);
+  background: var(--color-surface-1);
   box-shadow: var(--shadow-md);
 }
 
 .container {
-  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
@@ -203,7 +207,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background: var(--color-light);
+  background: var(--color-text-primary);
   transition: all var(--transition-base);
 }
 

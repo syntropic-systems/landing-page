@@ -21,15 +21,17 @@ export interface NavbarContent {
 }
 
 export interface HeroContent {
-  title: {
-    highlightedText: string;
-    grayText: string;
-  };
+  title:
+    | {
+        highlightedText: string;
+        grayText: string;
+      }
+    | string;
   subtitle: string;
   buttons: {
     label: string;
     variant: string;
-    size: string;
+    size?: string;
     href?: string;
     icon?: string;
   }[];
@@ -166,12 +168,18 @@ export interface TestimonialsContent {
     title: string;
     subtitle: string;
   };
-  testimonials: {
+  testimonials?: {
     quote: string;
     author: string;
-    title: string;
-    company: string;
+    title?: string;
+    company?: string;
   }[];
+  testimonial?: {
+    quote: string;
+    author: string;
+    title?: string;
+    company?: string;
+  };
 }
 
 export interface FooterContent {

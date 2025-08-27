@@ -1,39 +1,24 @@
 {
   "title": {
     "highlightedText": "The AI-Powered Command Centre ",
-    "grayText": "For Your Bid Process"
+    "grayText": "for Your Bid Process."
   },
-  "subtitle": "AI-powered document intelligence that processes complex business documents in minutes, not days. Save 75% time on manual analysis while increasing accuracy by 90%.",
+  "subtitle": "Transform your entire proposal process with an enterprise-grade intelligence platform. Automate document analysis, generate winning proposals, and empower your team to focus on high-value strategy. Stop chasing deadlines—start dominating your market.",
   "buttons": [
     {
-      "label": "Contact Sales",
+      "label": "Book My Demo",
+      "href": "#contact",
       "variant": "primary",
-      "size": "large",
-      "href": "mailto:sales@cloudglancelab.com"
+      "icon": "right-arrow"
     },
     {
-      "label": "Try Demo",
-      "variant": "outline",
-      "size": "large",
-      "href": "https://app.cloudglancelab.com",
-      "icon": "arrow-right"
+      "label": "See It In Action (Video)",
+      "href": "#video-demo",
+      "variant": "outline"
     }
   ],
-  "metrics": [
-    {
-      "icon": "⚡",
-      "value": "75%",
-      "label": "Time Saved"
-    },
-    {
-      "icon": "🎯",
-      "value": "90%",
-      "label": "Accuracy Boost"
-    },
-    {
-      "icon": "📄",
-      "value": "50x",
-      "label": "Faster Processing"
-    }
-  ]
+  "video": {
+    "src": "https://www.youtube.com/embed/your-video-id",
+    "title": "CloudGlance in Action"
+  }
 }
