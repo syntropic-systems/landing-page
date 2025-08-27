@@ -118,7 +118,7 @@ body {
   --space-4xl: 8rem;
 
   /* Container */
-  --container-max: 1580px;
+  --container-max: 1760px;
   --container-padding: var(--space-lg);
 
   /* Shadows */
@@ -159,12 +159,18 @@ body {
   /* Navbar width - responsive */
   --navbar-width: 95vw;
 
-  --hero-font-size: 36px;
+  --hero-font-size: 28px; /* Smaller for very small screens */
 }
 
 @media (width >= 400px) {
   :root {
-    --hero-font-size: 48px; /* Small phones */
+    --hero-font-size: 36px; /* Small phones */
+  }
+}
+
+@media (width >= 480px) {
+  :root {
+    --hero-font-size: 42px; /* Medium phones */
   }
 }
 

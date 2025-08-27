@@ -9,6 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   icon?: string;
   href?: string;
+  circular?: boolean;
   children: React.ReactNode;
 }
 
@@ -19,6 +20,7 @@ export const Button: React.FC<ButtonProps> = ({
   loading = false,
   icon,
   href,
+  circular = false,
   children,
   className = "",
   disabled,
@@ -30,6 +32,7 @@ export const Button: React.FC<ButtonProps> = ({
     styles[size],
     fullWidth ? styles.fullWidth : "",
     loading ? styles.loading : "",
+    circular ? styles.circular : "",
     className,
   ]
     .filter(Boolean)

@@ -132,8 +132,9 @@ export const Navbar: React.FC = () => {
                   ((content.actions?.cta?.size || content.cta?.size) as
                     | "small"
                     | "medium"
-                    | "large") || "medium"
+                    | "large") || "small"
                 }
+                circular
                 href={content.actions?.cta?.href || content.cta?.href}
                 icon={content.actions?.cta?.icon || content.cta?.icon}
               >

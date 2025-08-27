@@ -12,7 +12,7 @@
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 var(--space-sm); /* Reduced padding for mobile */
   position: relative;
   z-index: 1;
   display: flex;
@@ -74,9 +74,9 @@
 
 .heroActions {
   display: flex;
-  flex-direction: row;
-  gap: var(--space-sm);
-  align-items: left;
+  flex-direction: column; /* Stack buttons vertically on mobile */
+  gap: var(--space-xs);
+  align-items: stretch; /* Full width buttons */
   width: 100%;
   margin-top: var(--space-md);
 }
@@ -154,10 +154,31 @@
   }
 }
 
-/* Mobile First - Small phones (default above) */
+/* Mobile First - Very small phones */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 var(--space-xs); /* Even less padding for very small screens */
+  }
+
+  .heroTitle {
+    font-size: calc(
+      var(--hero-font-size) * 0.85
+    ); /* Further reduce title size */
+  }
+
+  .heroSubtitle {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Small phones (360px-479px uses default styles) */
 
 /* Large phones */
 @media (width >= 480px) {
+  .container {
+    padding: 0 var(--container-padding); /* Restore normal padding */
+  }
+
   .heroSubtitle {
     font-size: var(--text-lg);
     max-width: 500px;
@@ -168,6 +189,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: var(--space-md);
+    align-items: center; /* Reset alignment */
   }
 }
 
