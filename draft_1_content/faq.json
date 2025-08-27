@@ -1,0 +1,28 @@
+{
+  "sectionHeader": {
+    "title": "Frequently Asked Questions",
+    "subtitle": ""
+  },
+  "faqs": [
+    {
+      "question": "How long does it take to get started?",
+      "answer": "It’s surprisingly simple. You can be analyzing your first documents in minutes. For a full enterprise deployment with integrations, our dedicated success team ensures a seamless process that typically takes less than a week."
+    },
+    {
+      "question": "How secure is our data?",
+      "answer": "Security is our top priority. We are in the process of getting SOC 2 Certified and are built with enterprise-grade security protocols. Your data is encrypted both in transit and at rest, giving you bank-grade security and complete peace of mind."
+    },
+    {
+      "question": "How accurate is the AI? Can we trust it?",
+      "answer": "We achieve 99.7% extraction accuracy across all document types. Our RAG technology ensures every answer is 100% verifiable and cited directly to the source document, eliminating any risk of AI 'hallucination.'"
+    },
+    {
+      "question": "Can it handle our company's specific and complex documents?",
+      "answer": "Yes. Our platform is engineered to handle the complexity of documents across demanding industries like engineering, construction, and government. It can also be fine-tuned for your specific needs."
+    },
+    {
+      "question": "What kind of Return on Investment (ROI) can we realistically expect?",
+      "answer": "Our clients typically see a full payback period of under 4 months. This is achieved by drastically reducing manual labor hours, minimizing costly errors, and winning more high-value business."
+    }
+  ]
+} 

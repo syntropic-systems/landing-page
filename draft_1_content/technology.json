@@ -1,0 +1,29 @@
+{
+  "sectionHeader": {
+    "title": "Technology: The RAG-Powered Difference",
+    "subtitle": "Most AI tools just summarize data; ours understands it."
+  },
+  "introduction": "Our platform is engineered on a custom Retrieval-Augmented Generation (RAG) architecture. It doesn't just guess; it retrieves facts from your data first, then intelligently generates answers.",
+  "points": [
+    {
+      "title": "Verifiable, Hallucination-Free Answers",
+      "problem": "Off-the-shelf models are prone to 'hallucinating'—making up facts when they don't know the answer.",
+      "solution": "Every answer is cited back to the exact page and passage in your source documents. No guesswork, just facts."
+    },
+    {
+      "title": "True Customization & Contextual Fit",
+      "problem": "Generic models don't speak your industry's language. Their responses sound like boilerplate AI.",
+      "solution": "Our AI is trained on your bids, specs, and clauses. It learns your unique style and terminology."
+    },
+    {
+      "title": "Unbreakable Security & Control",
+      "problem": "Sending your sensitive bid data to third-party APIs is a massive compliance risk.",
+      "solution": "Your data never leaves our secure environment. We offer flexible on-premise deployment and provide a complete, unchangeable audit trail."
+    },
+    {
+      "title": "Unmatched Speed & Efficiency",
+      "problem": "Standard AI models re-compute every query from scratch, making them slow and inefficient.",
+      "solution": "Our optimized retrieval system and cached memory provide near-instant answers. A 200+ page proposal can be fully analyzed for Q&A in minutes."
+    }
+  ]
+} 
