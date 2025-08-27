@@ -81,10 +81,13 @@ body {
   --gradient-surface: linear-gradient(135deg, #265f41 0%, #344e41 100%);
 
   /* Typography */
-  --font-display: "Hedvig Letters Serif", serif;
-  --font-body: "Rethink Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  --font-serif: "Hedvig Letters Serif", serif;
+  --font-sans: "Rethink Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --font-display: var(--font-serif);
+  --font-body: var(--font-sans);
 
   /* Font Sizes - Fluid Typography */
   --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);

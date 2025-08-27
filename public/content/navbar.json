@@ -2,54 +2,31 @@
   "logo": "Cloud Glance",
   "navLinks": [
     {
-      "label": "Products",
-      "href": "#products",
-      "dropdown": [
-        { "label": "Enterprise RAG Platform", "href": "#enterprise-rag" },
-        {
-          "label": "Tender Intelligence Suite",
-          "href": "#tender-intelligence"
-        },
-        {
-          "label": "Project Intelligence Platform",
-          "href": "#project-intelligence"
-        }
-      ]
+      "label": "Platform",
+      "href": "#platform",
+      "dropdown": true
     },
     {
-      "label": "Solutions",
+      "label": "Solutions by Role",
       "href": "#solutions",
-      "dropdown": [
-        { "label": "Construction & Engineering", "href": "#construction" },
-        { "label": "Insurance & Claims", "href": "#insurance" },
-        { "label": "Government & Tendering", "href": "#government" },
-        { "label": "Legal & Contracts", "href": "#legal" }
-      ]
+      "dropdown": true
     },
-    { "label": "Use Cases", "href": "#use-cases" },
-    { "label": "API", "href": "#api" },
+    {
+      "label": "Technology",
+      "href": "#technology"
+    },
+    {
+      "label": "Integrations",
+      "href": "#integrations"
+    },
     {
       "label": "Resources",
       "href": "#resources",
-      "dropdown": [
-        { "label": "API Documentation", "href": "#api-docs" },
-        { "label": "Case Studies", "href": "#case-studies" },
-        { "label": "ROI Calculator", "href": "#roi-calculator" },
-        { "label": "Support", "href": "#support" }
-      ]
+      "dropdown": true
     }
   ],
-  "actions": {
-    "login": {
-      "label": "Try Demo",
-      "href": "https://app.cloudglancelab.com"
-    },
-    "cta": {
-      "label": "Contact Sales",
-      "variant": "primary",
-      "size": "small",
-      "href": "mailto:sales@cloudglancelab.com",
-      "icon": "arrow-right"
-    }
+  "cta": {
+    "label": "Book a Strategic Demo",
+    "href": "#contact"
   }
-}
+} 

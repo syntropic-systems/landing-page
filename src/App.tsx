@@ -7,6 +7,11 @@ import { Services } from "./components/sections/Services";
 import { Features } from "./components/sections/Features";
 import { Demo } from "./components/sections/Demo";
 import { Testimonials } from "./components/sections/Testimonials";
+import { Technology } from "./components/sections/Technology";
+import { Solutions } from "./components/sections/Solutions";
+import { Workflow } from "./components/sections/Workflow";
+import { FAQ } from "./components/sections/FAQ";
+import { Contact } from "./components/sections/Contact";
 import "./styles/globals.css";
 import "./styles/utilities.css";
 
@@ -20,8 +25,13 @@ function App() {
         <Comparison />
         <Services />
         <Features />
+        <Technology />
+        <Solutions />
+        <Workflow />
         <Demo />
         <Testimonials />
+        <FAQ />
+        <Contact />
       </main>
       <Footer />
     </div>

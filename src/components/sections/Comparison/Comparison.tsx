@@ -1,22 +1,22 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useContent } from '../../../hooks/useContent';
-import type { ComparisonContent } from '../../../types/content';
-import styles from './Comparison.module.css';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useContent } from "../../../hooks/useContent";
+import type { ComparisonContent } from "../../../types/content";
+import styles from "./Comparison.module.css";
 
 // Icon mapping
 const iconMap: { [key: string]: string } = {
-  'clock': '⏱️',
-  'trending-up': '📈',
-  'file-search': '📄',
-  'target': '🎯',
-  'users': '👥',
-  'shield-alert': '🛡️',
-  'database': '💾',
-  'git-branch': '🔀',
-  'x-circle': '✕',
-  'check-circle': '✓'
+  clock: "⏱️",
+  "trending-up": "📈",
+  "file-search": "📄",
+  target: "🎯",
+  users: "👥",
+  "shield-alert": "🛡️",
+  database: "💾",
+  "git-branch": "🔀",
+  "x-circle": "✕",
+  "check-circle": "✓",
 };
 
 export const Comparison: React.FC = () => {
@@ -24,11 +24,47 @@ export const Comparison: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  const content = useContent<ComparisonContent>('comparison.json');
+  const content = useContent<ComparisonContent>("comparison.json");
 
   if (!content) {
     return <section className={styles.comparison}>Loading...</section>;
   }
+
+  // Normalize potential legacy/simple content shapes
+  const visualStyle = (content as any).visualStyle || {
+    withoutSide: { label: "Without Us", icon: "x-circle", color: "" },
+    withSide: { label: "With Us", icon: "check-circle", color: "" },
+  };
+
+  const staggerMs: number = (content as any).presentation?.staggerDelay ?? 100;
+
+  const normalizedComparisons = ((content as any).comparisons || []).map(
+    (item: any, index: number) => {
+      if (
+        item &&
+        typeof item.without === "string" &&
+        typeof item.with === "string"
+      ) {
+        return {
+          id: item.id ?? String(index),
+          category: item.category ?? "",
+          icon: item.icon ?? "target",
+          without: {
+            value: item.without,
+            description: "",
+            pain: true,
+          },
+          withUs: {
+            value: item.with,
+            description: "",
+            highlight: "",
+            improvement: "",
+          },
+        };
+      }
+      return item;
+    }
+  );
 
   return (
     <section className={styles.comparison} ref={ref}>
@@ -39,9 +75,7 @@ export const Comparison: React.FC = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className={styles.title}>
-            {content.sectionHeader.title}
-          </h2>
+          <h2 className={styles.title}>{content.sectionHeader.title}</h2>
           <p className={styles.subtitle}>{content.sectionHeader.subtitle}</p>
         </motion.div>
 
@@ -58,53 +92,71 @@ export const Comparison: React.FC = () => {
                 <h3>Process</h3>
               </div>
               <div className={styles.withoutHeader}>
-                <h3>{content.visualStyle.withoutSide.label}</h3>
+                <h3>{visualStyle.withoutSide?.label}</h3>
               </div>
               <div className={styles.withHeader}>
                 <span className={styles.bolt}>⚡</span>
-                <h3>{content.visualStyle.withSide.label}</h3>
+                <h3>{visualStyle.withSide?.label}</h3>
               </div>
             </div>
 
             {/* Comparison Items */}
             <div className={styles.comparisonItems}>
-              {content.comparisons.map((item, index) => (
+              {normalizedComparisons.map((item: any, index: number) => (
                 <motion.div
                   key={item.id}
                   className={styles.comparisonRow}
                   initial={{ opacity: 0, y: 20 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.3 + (index * content.presentation.staggerDelay / 1000) 
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.3 + (index * staggerMs) / 1000,
                   }}
                 >
                   {/* Process Column with Improvement Badge */}
                   <div className={styles.processCell}>
                     <div className={styles.processCellContent}>
-                      <span className={styles.processIcon}>{iconMap[item.icon] || '📌'}</span>
+                      <span className={styles.processIcon}>
+                        {iconMap[item.icon] || "📌"}
+                      </span>
                       <div className={styles.processTextWrapper}>
-                        <span className={styles.processLabel}>{item.category}</span>
-                        <div className={styles.improvementBadge}>{item.withUs.improvement}</div>
+                        <span className={styles.processLabel}>
+                          {item.category}
+                        </span>
+                        <div className={styles.improvementBadge}>
+                          {item.withUs.improvement}
+                        </div>
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Without Column */}
                   <div className={styles.withoutCell}>
-                    <span className={styles.iconCross}>{iconMap[content.visualStyle.withoutSide.icon]}</span>
+                    <span className={styles.iconCross}>
+                      {iconMap[visualStyle.withoutSide?.icon] || "✕"}
+                    </span>
                     <div className={styles.cellContent}>
-                      <span className={styles.cellValue}>{item.without.value}</span>
-                      <span className={styles.cellDescription}>{item.without.description}</span>
+                      <span className={styles.cellValue}>
+                        {item.without.value}
+                      </span>
+                      <span className={styles.cellDescription}>
+                        {item.without.description}
+                      </span>
                     </div>
                   </div>
-                  
+
                   {/* With Column */}
                   <div className={styles.withCell}>
-                    <span className={styles.iconCheck}>{iconMap[content.visualStyle.withSide.icon]}</span>
+                    <span className={styles.iconCheck}>
+                      {iconMap[visualStyle.withSide?.icon] || "✓"}
+                    </span>
                     <div className={styles.cellContent}>
-                      <span className={styles.cellValue}>{item.withUs.value}</span>
-                      <span className={styles.cellDescription}>{item.withUs.description}</span>
+                      <span className={styles.cellValue}>
+                        {item.withUs.value}
+                      </span>
+                      <span className={styles.cellDescription}>
+                        {item.withUs.description}
+                      </span>
                     </div>
                   </div>
                 </motion.div>
@@ -115,4 +167,4 @@ export const Comparison: React.FC = () => {
       </div>
     </section>
   );
-}; 
+};

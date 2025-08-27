@@ -3,20 +3,27 @@ export interface NavbarContent {
   navLinks: {
     label: string;
     href: string;
-    dropdown?: { label: string; href: string }[];
+    dropdown?: boolean | { label: string; href: string }[];
   }[];
-  actions: {
-    login: {
+  actions?: {
+    login?: {
       label: string;
       href: string;
     };
-    cta: {
+    cta?: {
       label: string;
-      variant: string;
-      size: string;
+      variant?: string;
+      size?: string;
       href?: string;
       icon?: string;
     };
+  };
+  cta?: {
+    label: string;
+    href?: string;
+    variant?: string;
+    size?: string;
+    icon?: string;
   };
 }
 
@@ -197,5 +204,72 @@ export interface FooterContent {
       label: string;
       ariaLabel: string;
     }[];
+  };
+}
+
+export interface TechnologyContent {
+  sectionHeader: {
+    title: string;
+    subtitle: string;
+  };
+  introduction: string;
+  points: {
+    title: string;
+    problem: string;
+    solution: string;
+  }[];
+}
+
+export interface SolutionsContent {
+  sectionHeader: {
+    title: string;
+    subtitle: string;
+  };
+  roles: {
+    role: string;
+    benefit: string;
+  }[];
+}
+
+export interface WorkflowContent {
+  title: string;
+  visual: {
+    description: string;
+  };
+  steps: {
+    title: string;
+    description: string;
+  }[];
+}
+
+export interface FAQContent {
+  sectionHeader: {
+    title: string;
+    subtitle: string;
+  };
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+}
+
+export interface ContactContent {
+  sectionHeader?: {
+    title: string;
+    subtitle?: string;
+  };
+  form?: {
+    fields?: {
+      name: string;
+      label: string;
+      type: string;
+      placeholder?: string;
+      required?: boolean;
+    }[];
+    submit?: {
+      label: string;
+      variant?: string;
+      size?: string;
+    };
   };
 }

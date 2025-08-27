@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
                     <ChevronDown size={16} className={styles.chevron} />
                   )}
                 </a>
-                {link.dropdown && (
+                {Array.isArray(link.dropdown) && (
                   <div className={styles.dropdown}>
                     {link.dropdown.map((item) => (
                       <a
@@ -116,23 +116,30 @@ export const Navbar: React.FC = () => {
             >
               {isDarkTheme ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <Button
-              variant={
-                content.actions.cta.variant as
-                  | "primary"
-                  | "secondary"
-                  | "outline"
-                  | "ghost"
-              }
-              size={content.actions.cta.size as "small" | "medium" | "large"}
-              href={content.actions.cta.href}
-              icon={content.actions.cta.icon}
-            >
-              {content.actions.cta.label}
-            </Button>
-            <a href={content.actions.login.href} className={styles.navLink}>
-              {content.actions.login.label}
-            </a>
+            {content.actions?.login && (
+              <a href={content.actions.login.href} className={styles.navLink}>
+                {content.actions.login.label}
+              </a>
+            )}
+            {(content.actions?.cta || content.cta) && (
+              <Button
+                variant={
+                  (content.actions?.cta?.variant ||
+                    content.cta?.variant ||
+                    "primary") as "primary" | "secondary" | "outline" | "ghost"
+                }
+                size={
+                  ((content.actions?.cta?.size || content.cta?.size) as
+                    | "small"
+                    | "medium"
+                    | "large") || "medium"
+                }
+                href={content.actions?.cta?.href || content.cta?.href}
+                icon={content.actions?.cta?.icon || content.cta?.icon}
+              >
+                {content.actions?.cta?.label || content.cta?.label}
+              </Button>
+            )}
           </div>
 
           <button
@@ -173,26 +180,29 @@ export const Navbar: React.FC = () => {
               {isDarkTheme ? <Sun size={20} /> : <Moon size={20} />}{" "}
               {isDarkTheme ? "Light Mode" : "Dark Mode"}
             </button>
-            <a
-              href={content.actions.login.href}
-              className={styles.mobileNavLink}
-            >
-              {content.actions.login.label}
-            </a>
-            <Button
-              variant={
-                content.actions.cta.variant as
-                  | "primary"
-                  | "secondary"
-                  | "outline"
-                  | "ghost"
-              }
-              size="medium"
-              fullWidth
-              icon={content.actions.cta.icon}
-            >
-              {content.actions.cta.label}
-            </Button>
+            {content.actions?.login && (
+              <a
+                href={content.actions.login.href}
+                className={styles.mobileNavLink}
+              >
+                {content.actions.login.label}
+              </a>
+            )}
+            {(content.actions?.cta || content.cta) && (
+              <Button
+                variant={
+                  (content.actions?.cta?.variant ||
+                    content.cta?.variant ||
+                    "primary") as "primary" | "secondary" | "outline" | "ghost"
+                }
+                size="medium"
+                fullWidth
+                icon={content.actions?.cta?.icon || content.cta?.icon}
+                href={content.actions?.cta?.href || content.cta?.href}
+              >
+                {content.actions?.cta?.label || content.cta?.label}
+              </Button>
+            )}
           </div>
         </div>
       </div>
