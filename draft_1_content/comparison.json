@@ -1,0 +1,48 @@
+{
+  "sectionHeader": {
+    "title": "WITH US / WITHOUT US: The New Standard for Proposal Teams",
+    "subtitle": "From Manual Grind to Strategic Advantage"
+  },
+  "comparisons": [
+    {
+      "category": "Bid Cycle Time",
+      "without": "3–4 weeks of manual work",
+      "with": "Cut to under 1 week with automation."
+    },
+    {
+      "category": "Win Rate",
+      "without": "A static 10–15%",
+      "with": "Lifted by 40% with smarter go/no-go decisions."
+    },
+    {
+      "category": "Document Review",
+      "without": "Manually skimming 200+ pages",
+      "with": "AI highlights key risks in minutes."
+    },
+    {
+      "category": "Team Focus",
+      "without": "70% of time spent copy-pasting",
+      "with": "70% of time spent on strategy."
+    },
+    {
+      "category": "Team Capacity",
+      "without": "4–5 bids per month",
+      "with": "Scale to 15+ bids per month without adding headcount."
+    },
+    {
+      "category": "Compliance Risk",
+      "without": "Costly penalties on missed clauses",
+      "with": "Zero missed requirements with AI risk-flagging."
+    },
+    {
+      "category": "Knowledge Use",
+      "without": "Past proposals buried in folders",
+      "with": "An instantly searchable library, with insights reused in seconds."
+    },
+    {
+      "category": "Workflow",
+      "without": "Messy and scattered workflows",
+      "with": "Organized documents and aligned teams."
+    }
+  ]
+} 

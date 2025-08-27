@@ -67,9 +67,12 @@ These components define the overall layout and structure of the page.
 
 These are the major sections of the landing page. Each section is a self-contained component that fetches its own data.
 
-*   **`Hero`**: The main hero section with a prominent call-to-action.
+*   **`Hero`**: The main hero section with a prominent call-to-action. (Note: The `HeroContent` type has been updated. `title.highlightedText` is now `title.gradientText`.)
 *   **`TrustBar`**: A section to display logos of trusted partners or clients.
+*   **`Comparison`**: A detailed comparison section that showcases the benefits of the product in a two-column layout.
 *   **`Services`**: A section describing the services offered, with a clever scroll-based image animation.
 *   **`Features`**: A section highlighting the key features, with an embedded video and an annotated image.
 *   **`Demo`**: A section for a product demonstration, with a grid of demo cards.
-*   **`Testimonials`**: A section for customer testimonials, displayed in a card grid. 
+*   **`Testimonials`**: A section for customer testimonials, displayed in a card grid.
+
+_A new `FAQ` section is anticipated, as indicated by the addition of the `FAQContent` type._ 
