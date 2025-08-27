@@ -1,0 +1,195 @@
+{
+  "sectionHeader": {
+    "title": "Solutions for Every Role",
+    "subtitle": "Our platform is a force multiplier for your entire team."
+  },
+  "roles": [
+    {
+      "id": "ceo",
+      "title": "For the CEO",
+      "icon": "briefcase",
+      "color": "purple",
+      "benefits": [
+        "Make faster, data-driven decisions on which market opportunities to pursue",
+        "Free up capital and focus strategic resources on winnable projects",
+        "Increase company-wide win rates and revenue"
+      ],
+      "keyMetrics": [
+        {
+          "label": "Decision Speed",
+          "value": "10x faster",
+          "icon": "trending-up"
+        },
+        {
+          "label": "Resource Optimization",
+          "value": "40% improvement",
+          "icon": "target"
+        }
+      ],
+      "quote": {
+        "text": "Finally, I can see all our opportunities in one place and make strategic decisions based on data, not gut feeling.",
+        "author": "CEO, Fortune 500 Engineering Firm"
+      },
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "bid-manager",
+      "title": "For the Bid Manager",
+      "icon": "clipboard",
+      "color": "blue",
+      "benefits": [
+        "Reduce analysis time by up to 90%",
+        "Increase bid volume without adding headcount",
+        "Focus your team on the strategic elements of the win"
+      ],
+      "keyMetrics": [
+        {
+          "label": "Analysis Time",
+          "value": "90% reduction",
+          "icon": "clock"
+        },
+        {
+          "label": "Bid Capacity",
+          "value": "3x increase",
+          "icon": "layers"
+        }
+      ],
+      "features": [
+        "Automated compliance checking",
+        "Smart deadline tracking",
+        "Team workload balancing"
+      ],
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "legal-team",
+      "title": "For the Legal Team",
+      "icon": "shield",
+      "color": "green",
+      "benefits": [
+        "Proactively identify contractual risks and non-compliant clauses",
+        "Review liabilities in minutes, not weeks",
+        "Ensure 100% compliance before submission"
+      ],
+      "keyMetrics": [
+        {
+          "label": "Risk Detection",
+          "value": "100% coverage",
+          "icon": "shield-check"
+        },
+        {
+          "label": "Review Time",
+          "value": "95% faster",
+          "icon": "zap"
+        }
+      ],
+      "capabilities": [
+        "Automatic clause extraction",
+        "Risk scoring and flagging",
+        "Compliance verification"
+      ],
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "sales-lead",
+      "title": "For the Sales Lead",
+      "icon": "trending-up",
+      "color": "orange",
+      "benefits": [
+        "Generate higher-quality proposals with unprecedented speed",
+        "Measurably increase your team's win rate",
+        "Focus on relationship building, not paperwork"
+      ],
+      "keyMetrics": [
+        {
+          "label": "Win Rate",
+          "value": "+40%",
+          "icon": "award"
+        },
+        {
+          "label": "Proposal Quality",
+          "value": "A+ rated",
+          "icon": "star"
+        }
+      ],
+      "results": [
+        "More competitive proposals",
+        "Faster turnaround times",
+        "Higher client satisfaction"
+      ],
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "finance-team",
+      "title": "For the Finance Team",
+      "icon": "dollar-sign",
+      "color": "teal",
+      "benefits": [
+        "Instantly pull pricing data and cost estimates from vast project documents",
+        "Quick review and analysis of financial terms",
+        "Accurate budget forecasting for proposals"
+      ],
+      "keyMetrics": [
+        {
+          "label": "Data Extraction",
+          "value": "Instant",
+          "icon": "download"
+        },
+        {
+          "label": "Accuracy",
+          "value": "99.9%",
+          "icon": "check"
+        }
+      ],
+      "tools": [
+        "Automated cost calculation",
+        "Margin analysis",
+        "Risk-adjusted pricing"
+      ],
+      "animation": "fadeInUp"
+    }
+  ],
+  "commonBenefits": {
+    "title": "Benefits for Everyone",
+    "items": [
+      {
+        "icon": "users",
+        "text": "Better collaboration across teams"
+      },
+      {
+        "icon": "clock",
+        "text": "More time for strategic work"
+      },
+      {
+        "icon": "shield",
+        "text": "Reduced compliance risk"
+      },
+      {
+        "icon": "trending-up",
+        "text": "Improved win rates"
+      }
+    ]
+  },
+  "callToAction": {
+    "text": "See how CloudGlance can transform your role",
+    "button": {
+      "label": "Get Role-Specific Demo",
+      "variant": "primary",
+      "href": "#demo",
+      "icon": "play"
+    }
+  },
+  "presentation": {
+    "style": "role-cards",
+    "layout": "grid",
+    "animations": true,
+    "cardStyle": "elevated",
+    "iconStyle": "colored-background",
+    "expandable": true,
+    "columns": {
+      "desktop": 3,
+      "tablet": 2,
+      "mobile": 1
+    }
+  }
+}

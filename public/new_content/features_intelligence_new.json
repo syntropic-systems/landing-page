@@ -1,0 +1,108 @@
+{
+  "sectionHeader": {
+    "title": "Revolutionary Features, Seamlessly Integrated",
+    "subtitle": "Our platform is a force multiplier, built to automate the mundane and amplify the strategic."
+  },
+  "partHeader": {
+    "title": "Part 1: The AI-Powered Intelligence Engine",
+    "subtitle": "This is the core of our platform, working in the background to turn your scattered documents into a strategic advantage. It's the brain of the operation."
+  },
+  "features": [
+    {
+      "id": "tender-synopsis",
+      "title": "Tender Synopsis",
+      "description": "Instant auto-generated summary of long RFPs/tenders",
+      "icon": "file-text",
+      "benefits": [
+        "Understand 200+ page documents in seconds",
+        "Extract key requirements automatically",
+        "Never miss critical details"
+      ],
+      "highlight": true,
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "go-no-go",
+      "title": "Go/No-Go Instant Analysis",
+      "description": "Pursue the right opportunities. Get a definitive bid/no-bid recommendation in minutes with a clear risk-reward score, empowering you to focus your resources where they'll have the most impact.",
+      "icon": "crosshair",
+      "benefits": [
+        "Clear bid/no-bid recommendations",
+        "Risk-reward scoring",
+        "Resource optimization"
+      ],
+      "metrics": {
+        "timeToDecision": "< 5 minutes",
+        "accuracy": "95%"
+      },
+      "highlight": true,
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "contextual-qa",
+      "title": "Contextual Q&A",
+      "description": "Stop searching, start asking. Pose questions in plain English and get precise answers with source citations from across your entire document library—in seconds.",
+      "icon": "message-circle",
+      "benefits": [
+        "Natural language queries",
+        "Source citations included",
+        "Cross-document search"
+      ],
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "solution-matching",
+      "title": "Intelligent Solution Matching",
+      "description": "Let the AI connect the dots. Our platform learns your product and service suite to suggest the most relevant offering for a specific proposal, ensuring your bid is perfectly aligned with the client's needs.",
+      "icon": "link",
+      "benefits": [
+        "Auto-match products to requirements",
+        "Optimize solution configuration",
+        "Ensure perfect alignment"
+      ],
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "content-library",
+      "title": "AI-Powered Content Library",
+      "description": "Think of it as your organization's collective brain. Our AI creates a dynamic, searchable library of all your past bids, contracts, and documents, making it effortless for your team to find and reuse winning language and data.",
+      "icon": "database",
+      "benefits": [
+        "Searchable knowledge base",
+        "Reuse winning content",
+        "Learn from past bids"
+      ],
+      "metrics": {
+        "documentsIndexed": "Unlimited",
+        "searchSpeed": "< 1 second"
+      },
+      "animation": "fadeInUp"
+    },
+    {
+      "id": "auto-drafting",
+      "title": "Auto-Drafting & Content Generation",
+      "description": "Move from a blank page to a near-final draft in a fraction of the time. Our AI auto-drafts entire sections of your bid by referencing your past proposals and pre-approved content from your library.",
+      "icon": "edit-3",
+      "benefits": [
+        "Generate complete sections",
+        "Maintain your voice and style",
+        "Reduce draft time by 90%"
+      ],
+      "highlight": true,
+      "animation": "fadeInUp"
+    }
+  ],
+  "presentation": {
+    "style": "feature-cards",
+    "layout": "grid",
+    "animations": true,
+    "columns": {
+      "desktop": 3,
+      "tablet": 2,
+      "mobile": 1
+    },
+    "cardStyle": "elevated",
+    "iconPosition": "top",
+    "hoverEffect": "lift"
+  }
+}
