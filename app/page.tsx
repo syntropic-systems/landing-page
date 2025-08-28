@@ -6,7 +6,6 @@ import { SolutionsByRole } from "@/components/solutions-by-role"
 import { TechnologySection } from "@/components/technology-section"
 import { ComparisonSection } from "@/components/comparison-section"
 import { LargeTestimonial } from "@/components/large-testimonial"
-import { TestimonialGridSection } from "@/components/testimonial-grid-section"
 import { FAQSection } from "@/components/faq-section"
 import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
@@ -38,13 +37,6 @@ export default function LandingPage() {
         </AnimatedSection>
         <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
           <LargeTestimonial />
-        </AnimatedSection>
-        <AnimatedSection
-          id="testimonials-section"
-          className="relative z-10 max-w-[1320px] mx-auto mt-16"
-          delay={0.2}
-        >
-          <TestimonialGridSection />
         </AnimatedSection>
         <AnimatedSection id="faq-section" className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
           <FAQSection />
