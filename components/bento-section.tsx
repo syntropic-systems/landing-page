@@ -21,7 +21,7 @@ export function BentoSection() {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full z-10">
           <WobbleCard
-            containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-purple-800 to-purple-900 min-h-[500px] lg:min-h-[300px]"
+            containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-[hsl(210_11%_12%)] to-[hsl(160_14%_8%)] min-h-[500px] lg:min-h-[300px]"
           >
             <div className="max-w-xs">
               <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
@@ -40,7 +40,7 @@ export function BentoSection() {
             />
           </WobbleCard>
           
-          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-green-800 to-green-900">
+          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-[hsl(160_48%_20%)] to-[hsl(165_96%_15%)]">
             <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Go/No-Go Analysis
             </h2>
@@ -49,7 +49,7 @@ export function BentoSection() {
             </p>
           </WobbleCard>
           
-          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-blue-800 to-blue-900">
+          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-[hsl(240_2%_20%)] to-[hsl(160_14%_15%)]">
             <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Contextual Q&A
             </h2>
@@ -58,7 +58,7 @@ export function BentoSection() {
             </p>
           </WobbleCard>
           
-          <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-br from-teal-800 to-teal-900 min-h-[500px] lg:min-h-[300px]">
+          <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-br from-[hsl(165_96%_18%)] to-[hsl(210_11%_12%)] min-h-[500px] lg:min-h-[300px]">
             <div className="max-w-sm">
               <h2 className="max-w-sm md:max-w-lg text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
                 AI-Powered Content Library
@@ -76,7 +76,7 @@ export function BentoSection() {
             />
           </WobbleCard>
           
-          <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-br from-orange-800 to-orange-900 min-h-[500px] lg:min-h-[300px]">
+          <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-br from-[hsl(160_14%_18%)] to-[hsl(160_48%_22%)] min-h-[500px] lg:min-h-[300px]">
             <div className="max-w-xs">
               <h2 className="text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
                 Auto-Drafting & Content Generation
@@ -94,7 +94,7 @@ export function BentoSection() {
             />
           </WobbleCard>
           
-          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-indigo-800 to-indigo-900">
+          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-[hsl(160_14%_25%)] to-[hsl(160_48%_18%)]">
             <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Solution Matching
             </h2>
