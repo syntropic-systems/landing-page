@@ -183,7 +183,7 @@ export function ExpandableCardDemo({ cards }: { cards: any[] }) {
             </div>
             <motion.button
               layoutId={`button-${card.title}-${id}`}
-              className="px-4 py-2 text-sm rounded-full font-bold bg-muted text-foreground hover:bg-primary hover:text-primary-foreground transition-colors mt-4 md:mt-0"
+              className="px-4 py-2 text-sm rounded-full font-bold bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors mt-4 md:mt-0"
             >
               {card.ctaText}
             </motion.button>
