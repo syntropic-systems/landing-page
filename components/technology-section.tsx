@@ -179,7 +179,7 @@ export function TechnologySection() {
             {technologyData.sectionHeader.subtitle}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-primary/60 to-primary/30 mx-auto rounded-full mb-6" />
-          <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+          <p className="text-sm md:text-base lg:text-2xl text-foreground leading-relaxed max-w-4xl mx-auto">
             {technologyData.introduction}
           </p>
         </motion.div>
