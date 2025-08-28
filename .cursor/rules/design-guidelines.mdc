@@ -1,5 +1,0 @@
----
-description: Always remember that this is a mobile first project. Styling should be done such that it is applied to mobiles, then tablets and then finally on large screens.
-globs:
-alwaysApply: true
----
