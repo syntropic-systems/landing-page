@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
+import { ComparisonTimeline } from "@/components/comparison-timeline"
 import { SocialProof } from "@/components/social-proof"
 import { BentoSection } from "@/components/bento-section"
 import { WorkflowSection } from "@/components/workflow-section"
@@ -17,6 +18,9 @@ export default function LandingPage() {
         <main className="max-w-[1320px] mx-auto relative">
           <HeroSection />
         </main>
+        <AnimatedSection id="comparison-timeline-section" className="relative z-10 mx-auto mt-16" delay={0.1}>
+          <ComparisonTimeline />
+        </AnimatedSection>
         <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto px-6 mt-16" delay={0.1}>
           <SocialProof />
         </AnimatedSection>
