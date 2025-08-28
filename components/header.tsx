@@ -17,8 +17,9 @@ import Image from "next/image";
 export function Header() {
   const navItems = [
     { name: "Features", href: "#features-section" },
-    { name: "Pricing", href: "#pricing-section" },
-    { name: "Testimonials", href: "#testimonials-section" }, // Changed from Docs to Testimonials
+    { name: "Solutions", href: "#solutions-section" },
+    { name: "Technology", href: "#technology-section" },
+    { name: "FAQ", href: "#faq-section" },
   ];
 
   const handleScroll = (
@@ -63,13 +64,13 @@ export function Header() {
         </div>
         <div className="flex items-center gap-4">
           <Link
-            href="https://vercel.com/home"
+            href="#demo"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:block"
           >
             <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-              Try for Free
+              Book a Strategic Demo
             </Button>
           </Link>
           <Sheet>
@@ -100,13 +101,13 @@ export function Header() {
                   </Link>
                 ))}
                 <Link
-                  href="https://vercel.com/home"
+                  href="#demo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full mt-4"
                 >
                   <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-                    Try for Free
+                    Book a Strategic Demo
                   </Button>
                 </Link>
               </nav>

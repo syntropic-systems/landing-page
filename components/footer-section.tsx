@@ -54,31 +54,31 @@ export function FooterSection() {
               href="#"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
-              Features
+              AI Intelligence Engine
             </a>
             <a
               href="#"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
-              Pricing
+              Command Center
             </a>
             <a
               href="#"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
-              Integrations
+              Content Library
             </a>
             <a
               href="#"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
-              Real-time Previews
+              Document Analysis
             </a>
             <a
               href="#"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
-              Multi-Agent Coding
+              Proposal Generation
             </a>
           </div>
         </div>
@@ -128,13 +128,7 @@ export function FooterSection() {
               href="#"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
-              Terms of use
-            </a>
-            <a
-              href="#"
-              className="text-foreground text-sm font-normal leading-5 hover:underline"
-            >
-              API Reference
+              Case Studies
             </a>
             <a
               href="#"
@@ -146,13 +140,19 @@ export function FooterSection() {
               href="#"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
-              Community
+              Blog
             </a>
             <a
               href="#"
               className="text-foreground text-sm font-normal leading-5 hover:underline"
             >
               Support
+            </a>
+            <a
+              href="#"
+              className="text-foreground text-sm font-normal leading-5 hover:underline"
+            >
+              Privacy Policy
             </a>
           </div>
         </div>

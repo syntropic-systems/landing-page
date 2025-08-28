@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "./animated-section";
-import technologyData from "@/draft_1_content/technology.json";
+import technologyData from "@/content/technology_new.json";
 import { CloudGlanceIconGreen } from "./ui/cloudglance-icon-green";
 
 // Technology card configurations similar to workflow OutputNode
@@ -34,17 +34,23 @@ const TechnologyCard = ({
   problem,
   solution,
   index,
+  isHighlighted = false,
 }: {
   title: string;
-  problem: string;
-  solution: string;
+  problem: { title: string; description: string; color: string };
+  solution: { title: string; description: string; color: string };
   index: number;
+  isHighlighted?: boolean;
 }) => {
   const config = getTechCardConfig(index);
 
   return (
     <motion.div
-      className={`flex flex-col gap-4 md:gap-6 p-4 md:p-6 rounded-2xl border ${config.borderClass} relative group hover:scale-[1.02] transition-all duration-300 overflow-hidden`}
+      className={`flex flex-col gap-4 md:gap-6 p-4 md:p-6 rounded-2xl border ${
+        config.borderClass
+      } relative group hover:scale-[1.02] transition-all duration-300 overflow-hidden ${
+        isHighlighted ? "ring-2 ring-primary/30" : ""
+      }`}
       style={
         {
           "--realtime-primary-color": "hsl(var(--primary))",
@@ -108,10 +114,10 @@ const TechnologyCard = ({
           />
           <div className="flex-1">
             <p className="text-sm font-semibold text-red-400/90 mb-2">
-              The Generic AI Problem:
+              {problem.title}:
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              {problem}
+              {problem.description}
             </p>
           </div>
         </div>
@@ -138,11 +144,11 @@ const TechnologyCard = ({
                 className="text-sm font-semibold"
                 style={{ color: "var(--realtime-primary-color)" }}
               >
-                The CloudGlance Solution:
+                {solution.title}:
               </p>
             </div>
             <p className="text-sm text-foreground leading-relaxed">
-              {solution}
+              {solution.description}
             </p>
           </div>
         </div>
@@ -186,13 +192,14 @@ export function TechnologySection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.2 }}
         >
-          {technologyData.points.map((point, index) => (
+          {technologyData.differentiators.map((differentiator, index) => (
             <TechnologyCard
-              key={index}
-              title={point.title}
-              problem={point.problem}
-              solution={point.solution}
-              index={index + 1}
+              key={differentiator.id}
+              title={differentiator.title}
+              problem={differentiator.problem}
+              solution={differentiator.solution}
+              index={parseInt(differentiator.number)}
+              isHighlighted={differentiator.highlight}
             />
           ))}
         </motion.div>
@@ -206,13 +213,15 @@ export function TechnologySection() {
           transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.9 }}
         >
           <p className="text-sm md:text-base text-muted-foreground mb-6">
-            This is our core advantage, delivering what other platforms can't
-            match.
+            {technologyData.callToAction.text}
           </p>
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/5 border border-primary/20">
+          <motion.button
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors duration-200"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             <motion.div
-              className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: "var(--realtime-primary-color)" }}
+              className="w-2 h-2 rounded-full bg-primary-foreground"
               animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
               transition={{
                 duration: 2,
@@ -220,10 +229,8 @@ export function TechnologySection() {
                 ease: [0.4, 0, 0.6, 1],
               }}
             />
-            <span className="text-sm font-medium text-foreground">
-              100% Verifiable • Secure • Lightning Fast
-            </span>
-          </div>
+            <span>{technologyData.callToAction.button.label}</span>
+          </motion.button>
         </motion.div>
       </div>
     </section>
