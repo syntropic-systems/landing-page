@@ -173,7 +173,7 @@
   "callToAction": {
     "text": "See how CloudGlance can transform your role",
     "button": {
-      "label": "Get Role-Specific Demo",
+      "label": "Request Role-Specific Demo",
       "variant": "primary",
       "href": "#demo",
       "icon": "play"

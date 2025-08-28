@@ -2,19 +2,17 @@
 
 import type React from "react";
 
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
-import Link from "next/link"; // Import Link for client-side navigation
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { Menu } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
+import { DemoRequestForm } from "@/components/demo-request-form"
+import { useDemoModal } from "@/hooks/use-demo-modal"
 
 export function Header() {
+  const { isOpen, openModal, closeModal } = useDemoModal()
+  
   const navItems = [
     { name: "Features", href: "#features-section" },
     { name: "Solutions", href: "#solutions-section" },
@@ -63,16 +61,12 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link
-            href="#demo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:block"
+          <Button 
+            onClick={openModal}
+            className="hidden md:block bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm"
           >
-            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-              Book a Strategic Demo
-            </Button>
-          </Link>
+            Request Demo
+          </Button>
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon" className="text-foreground">
@@ -100,21 +94,19 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <Link
-                  href="#demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full mt-4"
+                <Button 
+                  onClick={openModal}
+                  className="w-full mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm"
                 >
-                  <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-                    Book a Strategic Demo
-                  </Button>
-                </Link>
+                  Request Demo
+                </Button>
               </nav>
             </SheetContent>
           </Sheet>
         </div>
       </div>
+      
+      <DemoRequestForm isOpen={isOpen} onClose={closeModal} />
     </header>
   );
 }

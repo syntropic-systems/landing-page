@@ -211,13 +211,6 @@ export function SolutionsByRole() {
         {/* Expandable Cards */}
         <ExpandableCardDemo cards={roleCards} />
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">See how CloudGlance can transform your role</p>
-          <button className="px-8 py-3 bg-secondary text-secondary-foreground rounded-full font-medium hover:bg-secondary/90 transition-colors">
-            Get Role-Specific Demo
-          </button>
-        </div>
       </div>
     </section>
   )

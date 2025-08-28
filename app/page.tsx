@@ -1,19 +1,14 @@
-import { HeroSection } from "@/components/hero-section";
-import { DashboardPreview } from "@/components/dashboard-preview";
-import { PricingSection } from "@/components/pricing-section";
-import { TestimonialGridSection } from "@/components/testimonial-grid-section";
-import { CTASection } from "@/components/cta-section";
-import { ComparisonTimeline } from "@/components/comparison-timeline";
-import { SocialProof } from "@/components/social-proof";
-import { BentoSection } from "@/components/bento-section";
-import { WorkflowSection } from "@/components/workflow-section";
-import { SolutionsByRole } from "@/components/solutions-by-role";
-import { TechnologySection } from "@/components/technology-section";
-import { ComparisonSection } from "@/components/comparison-section";
-import { LargeTestimonial } from "@/components/large-testimonial";
-import { FAQSection } from "@/components/faq-section";
-import { FooterSection } from "@/components/footer-section";
-import { AnimatedSection } from "@/components/animated-section";
+import { HeroSection } from "@/components/hero-section"
+import { ComparisonTimeline } from "@/components/comparison-timeline"
+import { SocialProof } from "@/components/social-proof"
+import { BentoSection } from "@/components/bento-section"
+import { WorkflowSection } from "@/components/workflow-section"
+import { SolutionsByRole } from "@/components/solutions-by-role"
+import { TechnologySection } from "@/components/technology-section"
+import { LargeTestimonial } from "@/components/large-testimonial"
+import { FAQSection } from "@/components/faq-section"
+import { FooterSection } from "@/components/footer-section"
+import { AnimatedSection } from "@/components/animated-section"
 
 export default function LandingPage() {
   return (
@@ -63,24 +58,7 @@ export default function LandingPage() {
         >
           <SolutionsByRole />
         </AnimatedSection>
-        <AnimatedSection
-          id="technology-section"
-          className="relative z-10 max-w-[1320px] mx-auto mt-16"
-          delay={0.2}
-        >
-          <TechnologySection />
-        </AnimatedSection>
-        <AnimatedSection
-          id="comparison-section"
-          className="relative z-10 mx-auto mt-16"
-          delay={0.2}
-        >
-          <ComparisonSection />
-        </AnimatedSection>
-        <AnimatedSection
-          className="relative z-10 max-w-[1320px] mx-auto mt-16"
-          delay={0.2}
-        >
+        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
           <LargeTestimonial />
         </AnimatedSection>
         <AnimatedSection

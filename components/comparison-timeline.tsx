@@ -3,6 +3,7 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { Badge } from "./ui/badge";
 
 export function ComparisonTimeline() {
   const data = [
@@ -151,6 +152,7 @@ export function ComparisonTimeline() {
       <div className="max-w-[1320px] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
+          <Badge variant="outline" className="mb-4">WITH US / WITHOUT US</Badge>
           <h2 className="text-foreground text-4xl font-semibold leading-tight mb-4">
             The New Standard for Proposal Teams
           </h2>
@@ -161,13 +163,6 @@ export function ComparisonTimeline() {
 
         {/* Timeline */}
         <Timeline data={data} />
-        
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <button className="px-8 py-3 bg-secondary text-secondary-foreground rounded-full font-medium text-base hover:bg-secondary/90 transition-colors shadow-lg ring-1 ring-white/10">
-            Book My Demo
-          </button>
-        </div>
       </div>
     </section>
   );

@@ -1,9 +1,15 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Header } from "./header";
-import Link from "next/link";
+'use client'
+
+import React from "react"
+import { Button } from "@/components/ui/button"
+import { Header } from "./header"
+import Link from "next/link"
+import { DemoRequestForm } from "@/components/demo-request-form"
+import { useDemoModal } from "@/hooks/use-demo-modal"
 
 export function HeroSection() {
+  const { isOpen, openModal, closeModal } = useDemoModal()
+  
   return (
     <section
       className="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-hidden my-6 py-0 px-4
@@ -575,18 +581,25 @@ export function HeroSection() {
           The AI-Powered Command Centre for Your Bid Process.
         </h1>
         <p className="text-muted-foreground text-base md:text-base lg:text-lg font-medium leading-relaxed max-w-lg mx-auto">
-          Transform your entire proposal process with an enterprise-grade
-          intelligence platform. Automate document analysis, generate winning
-          proposals, and empower your team to focus on high-value strategy. Stop
-          chasing deadlines—start dominating your market.
+          Automate document analysis, generate winning proposals, and empower your team to focus on high-value strategy.
         </p>
       </div>
 
-      <Link href="#demo" target="_blank" rel="noopener noreferrer">
-        <Button className="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10">
-          Book My Demo
+      <div className="flex items-center justify-center gap-x-6">
+        <Button 
+          onClick={openModal}
+          className="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10"
+        >
+          Request Demo
         </Button>
-      </Link>
+        <Link href="https://app.cloudglancelab.com" target="_blank" rel="noopener noreferrer">
+          <Button variant="outline" className="relative z-10 px-8 py-3 rounded-full font-medium text-base border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
+            Try Live Demo
+          </Button>
+        </Link>
+      </div>
+      
+      <DemoRequestForm isOpen={isOpen} onClose={closeModal} />
     </section>
   );
 }
