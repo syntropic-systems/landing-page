@@ -8,9 +8,9 @@ export function FooterSection() {
       {/* Left Section: Logo, Description, Social Links */}
       <div className="flex flex-col justify-start items-start gap-8 p-4 md:p-8">
         <div className="flex gap-3 items-stretch justify-center">
-          <div className="text-center text-foreground text-xl font-semibold leading-4">Pointer</div>
+          <div className="text-center text-foreground text-xl font-semibold leading-4">Cloud Glance</div>
         </div>
-        <p className="text-foreground/90 text-sm font-medium leading-[18px] text-left">Coding made effortless</p>
+        <p className="text-foreground/90 text-sm font-medium leading-[18px] text-left">The AI-Powered Command Centre for Your Bid Process</p>
         <div className="flex justify-start items-start gap-3">
           <a href="#" aria-label="Twitter" className="w-4 h-4 flex items-center justify-center">
             <Twitter className="w-full h-full text-muted-foreground" />
@@ -29,19 +29,19 @@ export function FooterSection() {
           <h3 className="text-muted-foreground text-sm font-medium leading-5">Product</h3>
           <div className="flex flex-col justify-end items-start gap-2">
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Features
+              AI Intelligence Engine
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Pricing
+              Command Center
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Integrations
+              Content Library
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Real-time Previews
+              Document Analysis
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Multi-Agent Coding
+              Proposal Generation
             </a>
           </div>
         </div>
@@ -69,19 +69,19 @@ export function FooterSection() {
           <h3 className="text-muted-foreground text-sm font-medium leading-5">Resources</h3>
           <div className="flex flex-col justify-center items-start gap-2">
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Terms of use
-            </a>
-            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              API Reference
+              Case Studies
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
               Documentation
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
-              Community
+              Blog
             </a>
             <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
               Support
+            </a>
+            <a href="#" className="text-foreground text-sm font-normal leading-5 hover:underline">
+              Privacy Policy
             </a>
           </div>
         </div>

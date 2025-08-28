@@ -1,0 +1,142 @@
+{
+  "sectionHeader": {
+    "title": "Part 2: Your Command & Control Center",
+    "subtitle": "These are the features your team will use every day to manage, collaborate, and win. It's the hands-on control panel for your entire bid process."
+  },
+  "features": [
+    {
+      "id": "centralized-management",
+      "title": "Centralized Opportunity Management",
+      "description": "Eliminate silos. Get a single, centralized dashboard to manage all active opportunities across your organization. Easily compare requirements, deadlines, and scope to prioritize your efforts.",
+      "icon": "layout",
+      "benefits": [
+        "Single dashboard view",
+        "Cross-team visibility",
+        "Priority-based organization"
+      ],
+      "capabilities": [
+        "Track multiple bids simultaneously",
+        "Compare requirements side-by-side",
+        "Set automated deadline reminders"
+      ],
+      "animation": "slideInLeft"
+    },
+    {
+      "id": "file-ingestion",
+      "title": "Ingest Any File Type",
+      "description": "Simply drag and drop any document—PDFs, Word files, complex Excel sheets, images, or even zipped folders of project files. Our AI reads and processes it all, no prep work required.",
+      "icon": "upload",
+      "supportedFormats": [
+        "PDF",
+        "DOCX",
+        "XLSX",
+        "Images (PNG, JPG)",
+        "ZIP archives",
+        "Email attachments"
+      ],
+      "benefits": [
+        "No file preparation needed",
+        "Automatic format detection",
+        "Bulk upload support"
+      ],
+      "animation": "slideInLeft"
+    },
+    {
+      "id": "real-time-collaboration",
+      "title": "Real-Time Alerts & Collaboration",
+      "description": "Stay perfectly in sync. Get notified of critical changes or approaching deadlines, and tag team members on specific questions or sections directly within the platform.",
+      "icon": "bell",
+      "features": [
+        "Smart notifications",
+        "In-platform messaging",
+        "@mentions and tagging",
+        "Activity feed",
+        "Version tracking"
+      ],
+      "benefits": [
+        "Never miss deadlines",
+        "Seamless team coordination",
+        "Instant updates"
+      ],
+      "animation": "slideInLeft"
+    },
+    {
+      "id": "secure-access",
+      "title": "Secure Access & Unbreakable Audit Trails",
+      "description": "You are always in control. Manage user access with granular permissions and maintain a fully auditable trail of every action and AI-generated insight, ensuring total compliance and peace of mind.",
+      "icon": "shield",
+      "security": [
+        "Role-based access control",
+        "Complete audit logs",
+        "Data encryption",
+        "SOC 2 compliance",
+        "GDPR ready"
+      ],
+      "benefits": [
+        "Enterprise-grade security",
+        "Full compliance support",
+        "Peace of mind"
+      ],
+      "highlight": true,
+      "animation": "slideInLeft"
+    },
+    {
+      "id": "integrations",
+      "title": "Service Integrations",
+      "description": "Connection with different services and data sources like Slack, AWS, email, and more for seamless workflow integration.",
+      "icon": "plug",
+      "integrations": [
+        {
+          "name": "Slack",
+          "icon": "message-square",
+          "description": "Real-time notifications"
+        },
+        {
+          "name": "AWS",
+          "icon": "cloud",
+          "description": "Cloud storage"
+        },
+        {
+          "name": "Email",
+          "icon": "mail",
+          "description": "Email sync"
+        },
+        {
+          "name": "SharePoint",
+          "icon": "folder",
+          "description": "Document management"
+        },
+        {
+          "name": "Teams",
+          "icon": "users",
+          "description": "Collaboration"
+        }
+      ],
+      "benefits": [
+        "Unified workflow",
+        "No context switching",
+        "Automated data sync"
+      ],
+      "animation": "slideInLeft"
+    }
+  ],
+  "callToAction": {
+    "enabled": true,
+    "text": "Ready to transform your bid process?",
+    "button": {
+      "label": "See Full Feature List",
+      "variant": "primary",
+      "href": "#all-features",
+      "icon": "arrow-right"
+    }
+  },
+  "presentation": {
+    "style": "feature-list",
+    "layout": "alternating",
+    "animations": true,
+    "showIcons": true,
+    "iconStyle": "gradient",
+    "cardStyle": "bordered",
+    "spacing": "comfortable"
+  }
+}

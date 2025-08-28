@@ -1,0 +1,124 @@
+{
+  "sectionHeader": {
+    "title": "The CloudGlance Intelligence Workflow",
+    "subtitle": "Transform chaos into strategic clarity"
+  },
+  "workflow": {
+    "input": {
+      "title": "Chaotic Inputs",
+      "description": "Various file types flowing into the system",
+      "icon": "cloud",
+      "items": [
+        {
+          "type": "PDF",
+          "icon": "file-text",
+          "color": "red"
+        },
+        {
+          "type": "DOCX",
+          "icon": "file",
+          "color": "blue"
+        },
+        {
+          "type": "Excel",
+          "icon": "table",
+          "color": "green"
+        },
+        {
+          "type": "Images",
+          "icon": "image",
+          "color": "purple"
+        },
+        {
+          "type": "Zip Files",
+          "icon": "archive",
+          "color": "orange"
+        }
+      ],
+      "animation": "scatter-to-center"
+    },
+    "core": {
+      "title": "CloudGlance AI Core",
+      "description": "Intelligent processing engine",
+      "icon": "cpu",
+      "features": [
+        "Document Reading",
+        "Content Analysis",
+        "Pattern Recognition",
+        "Knowledge Extraction"
+      ],
+      "glowEffect": true,
+      "pulseAnimation": true
+    },
+    "knowledgeBase": {
+      "title": "Unified Content Library",
+      "description": "Central knowledge repository",
+      "icon": "database",
+      "connected": true,
+      "bidirectional": true
+    },
+    "outputs": [
+      {
+        "id": "instant-analysis",
+        "title": "Instant Analysis",
+        "description": "Dashboard with GO/NO-GO decision and key metrics",
+        "icon": "activity",
+        "visual": "dashboard-screen",
+        "features": [
+          "GO/NO-GO Button",
+          "Risk Score",
+          "Key Metrics",
+          "Recommendations"
+        ],
+        "color": "green"
+      },
+      {
+        "id": "automated-draft",
+        "title": "Automated Bid Draft",
+        "description": "Auto-populated proposal document",
+        "icon": "edit-3",
+        "visual": "document-preview",
+        "features": [
+          "Pre-filled Sections",
+          "Compliance Check",
+          "Customized Content",
+          "Ready to Review"
+        ],
+        "color": "blue"
+      },
+      {
+        "id": "strategic-comparison",
+        "title": "Strategic Comparison",
+        "description": "Competitive analysis and insights",
+        "icon": "git-merge",
+        "visual": "comparison-nodes",
+        "features": [
+          "Past Bid Analysis",
+          "Win Probability",
+          "Competitor Insights",
+          "Strategy Suggestions"
+        ],
+        "color": "purple"
+      }
+    ]
+  },
+  "flowAnimation": {
+    "enabled": true,
+    "type": "progressive",
+    "showDataFlow": true,
+    "particleEffect": true,
+    "connectionLines": {
+      "animated": true,
+      "style": "gradient",
+      "pulseEffect": true
+    }
+  },
+  "presentation": {
+    "style": "flow-diagram",
+    "layout": "horizontal-flow",
+    "animations": true,
+    "interactive": true,
+    "hoverEffects": true,
+    "responsiveCollapse": "vertical"
+  }
+}

@@ -1,12 +1,7 @@
-import AiCodeReviews from "./bento/ai-code-reviews"
-import RealtimeCodingPreviews from "./bento/real-time-previews"
-import OneClickIntegrationsIllustration from "./bento/one-click-integrations-illustration"
-import MCPConnectivityIllustration from "./bento/mcp-connectivity-illustration" // Updated import
-import EasyDeployment from "./bento/easy-deployment"
-import ParallelCodingAgents from "./bento/parallel-agents" // Updated import
+import { FileText, Target, MessageCircle, Database, Edit3, Link, Upload, Bell, Search, BarChart3 } from "lucide-react"
 
-const BentoCard = ({ title, description, Component }) => (
-  <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative">
+const BentoCard = ({ title, description, icon: Icon, features, highlight }) => (
+  <div className={`overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative ${highlight ? 'ring-2 ring-primary/20' : ''}`}>
     {/* Background with blur effect */}
     <div
       className="absolute inset-0 rounded-2xl"
@@ -19,16 +14,30 @@ const BentoCard = ({ title, description, Component }) => (
     {/* Additional subtle gradient overlay */}
     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl" />
 
-    <div className="self-stretch p-6 flex flex-col justify-start items-start gap-2 relative z-10">
-      <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
-        <p className="self-stretch text-foreground text-lg font-normal leading-7">
-          {title} <br />
-          <span className="text-muted-foreground">{description}</span>
+    <div className="self-stretch p-6 flex flex-col justify-start items-start gap-4 relative z-10 flex-grow">
+      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+        <Icon className="w-6 h-6 text-primary" />
+      </div>
+      
+      <div className="self-stretch flex flex-col justify-start items-start gap-2">
+        <h3 className="text-foreground text-lg font-semibold leading-7">
+          {title}
+        </h3>
+        <p className="text-muted-foreground text-sm leading-6">
+          {description}
         </p>
       </div>
-    </div>
-    <div className="self-stretch h-72 relative -mt-0.5 z-10">
-      <Component />
+
+      {features && (
+        <div className="space-y-2 mt-auto">
+          {features.map((feature, index) => (
+            <div key={index} className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <span className="text-xs text-muted-foreground">{feature}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   </div>
 )
@@ -36,35 +45,68 @@ const BentoCard = ({ title, description, Component }) => (
 export function BentoSection() {
   const cards = [
     {
-      title: "AI-powered code reviews.",
-      description: "Get real-time, smart suggestions for cleaner code.",
-      Component: AiCodeReviews,
+      title: "Tender Synopsis",
+      description: "Instant auto-generated summary of long RFPs/tenders. Understand 200+ page documents in seconds and never miss critical details.",
+      icon: FileText,
+      features: [
+        "Understand 200+ page documents in seconds",
+        "Extract key requirements automatically", 
+        "Never miss critical details"
+      ],
+      highlight: true
     },
     {
-      title: "Real-time coding previews",
-      description: "Chat, collaborate, and instantly preview changes together.",
-      Component: RealtimeCodingPreviews,
+      title: "Go/No-Go Instant Analysis",
+      description: "Get a definitive bid/no-bid recommendation in minutes with a clear risk-reward score, empowering you to focus your resources where they'll have the most impact.",
+      icon: Target,
+      features: [
+        "Clear bid/no-bid recommendations",
+        "Risk-reward scoring",
+        "Resource optimization"
+      ],
+      highlight: true
     },
     {
-      title: "One-click integrations",
-      description: "Easily connect your workflow with popular dev tools.",
-      Component: OneClickIntegrationsIllustration,
+      title: "Contextual Q&A",
+      description: "Stop searching, start asking. Pose questions in plain English and get precise answers with source citations from across your entire document library—in seconds.",
+      icon: MessageCircle,
+      features: [
+        "Natural language queries",
+        "Source citations included",
+        "Cross-document search"
+      ]
     },
     {
-      title: "Flexible MCP connectivity",
-      description: "Effortlessly manage and configure MCP server access.",
-      Component: MCPConnectivityIllustration, // Updated component
+      title: "AI-Powered Content Library",
+      description: "Think of it as your organization's collective brain. Our AI creates a dynamic, searchable library of all your past bids, contracts, and documents.",
+      icon: Database,
+      features: [
+        "Searchable knowledge base",
+        "Reuse winning content", 
+        "Learn from past bids"
+      ]
     },
     {
-      title: "Launch parallel coding agents", // Swapped position
-      description: "Solve complex problems faster with multiple AI agents.",
-      Component: ParallelCodingAgents, // Updated component
+      title: "Auto-Drafting & Content Generation",
+      description: "Move from a blank page to a near-final draft in a fraction of the time. Our AI auto-drafts entire sections by referencing your past proposals.",
+      icon: Edit3,
+      features: [
+        "Generate complete sections",
+        "Maintain your voice and style",
+        "Reduce draft time by 90%"
+      ],
+      highlight: true
     },
     {
-      title: "Deployment made easy", // Swapped position
-      description: "Go from code to live deployment on Vercel instantly.",
-      Component: EasyDeployment,
-    },
+      title: "Intelligent Solution Matching",
+      description: "Let the AI connect the dots. Our platform learns your product and service suite to suggest the most relevant offering for a specific proposal.",
+      icon: Link,
+      features: [
+        "Auto-match products to requirements",
+        "Optimize solution configuration",
+        "Ensure perfect alignment"
+      ]
+    }
   ]
 
   return (
@@ -74,11 +116,10 @@ export function BentoSection() {
         <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
           <div className="flex flex-col justify-start items-center gap-4">
             <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
-              Empower Your Workflow with AI
+              The AI-Powered Intelligence Engine
             </h2>
             <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to
-              streamline your operations.
+              This is the core of our platform, working in the background to turn your scattered documents into a strategic advantage. It's the brain of the operation.
             </p>
           </div>
         </div>

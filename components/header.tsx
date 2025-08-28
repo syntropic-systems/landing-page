@@ -10,8 +10,9 @@ import Link from "next/link" // Import Link for client-side navigation
 export function Header() {
   const navItems = [
     { name: "Features", href: "#features-section" },
-    { name: "Pricing", href: "#pricing-section" },
-    { name: "Testimonials", href: "#testimonials-section" }, // Changed from Docs to Testimonials
+    { name: "Solutions", href: "#solutions-section" },
+    { name: "Technology", href: "#technology-section" },
+    { name: "FAQ", href: "#faq-section" }
   ]
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -28,7 +29,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <span className="text-foreground text-xl font-semibold">Pointer</span>
+            <span className="text-foreground text-xl font-semibold">Cloud Glance</span>
           </div>
           <nav className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
@@ -44,9 +45,9 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="hidden md:block">
+          <Link href="#demo" target="_blank" rel="noopener noreferrer" className="hidden md:block">
             <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-              Try for Free
+              Book a Strategic Demo
             </Button>
           </Link>
           <Sheet>
@@ -71,9 +72,9 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer" className="w-full mt-4">
+                <Link href="#demo" target="_blank" rel="noopener noreferrer" className="w-full mt-4">
                   <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
-                    Try for Free
+                    Book a Strategic Demo
                   </Button>
                 </Link>
               </nav>

@@ -1,0 +1,185 @@
+{
+  "sectionHeader": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about CloudGlance"
+  },
+  "faqs": [
+    {
+      "id": "getting-started",
+      "question": "How long does it take to get started?",
+      "answer": "It's surprisingly simple. You can be analyzing your first documents in minutes. For a full enterprise deployment with integrations, our dedicated success team ensures a seamless process that typically takes less than a week.",
+      "category": "Implementation",
+      "icon": "clock",
+      "highlights": [
+        "Minutes to first document",
+        "Less than a week for full deployment",
+        "Dedicated success team support"
+      ],
+      "priority": 1
+    },
+    {
+      "id": "security",
+      "question": "How secure is our data?",
+      "answer": "Security is our top priority. We are SOC 2 Certified and built with enterprise-grade security protocols. Your data is encrypted both in transit and at rest, giving you bank-grade security and complete peace of mind.",
+      "category": "Security",
+      "icon": "shield",
+      "certifications": [
+        "SOC 2 Certified",
+        "Bank-grade encryption",
+        "GDPR compliant",
+        "ISO 27001 ready"
+      ],
+      "badges": [
+        {
+          "name": "SOC 2",
+          "icon": "award",
+          "verified": true
+        },
+        {
+          "name": "GDPR",
+          "icon": "check-circle",
+          "verified": true
+        }
+      ],
+      "priority": 1
+    },
+    {
+      "id": "accuracy",
+      "question": "How accurate is the AI? Can we trust it?",
+      "answer": "We achieve 99.7% extraction accuracy across all document types. Our RAG technology ensures every answer is 100% verifiable and cited directly to the source document, eliminating any risk of AI \"hallucination.\"",
+      "category": "Technology",
+      "icon": "target",
+      "metrics": [
+        {
+          "label": "Extraction Accuracy",
+          "value": "99.7%"
+        },
+        {
+          "label": "Citation Rate",
+          "value": "100%"
+        },
+        {
+          "label": "Hallucination Risk",
+          "value": "0%"
+        }
+      ],
+      "priority": 1
+    },
+    {
+      "id": "complex-documents",
+      "question": "Can it handle our company's specific and complex documents?",
+      "answer": "Yes. Our platform is engineered to handle the complexity of documents across demanding industries like engineering, construction, and government. It can also be fine-tuned for your specific needs.",
+      "category": "Capabilities",
+      "icon": "file-text",
+      "supportedTypes": [
+        "Technical specifications",
+        "Legal contracts",
+        "Engineering drawings",
+        "Government RFPs",
+        "Multi-format bundles"
+      ],
+      "customization": {
+        "available": true,
+        "description": "Custom training on your specific terminology and formats"
+      },
+      "priority": 2
+    },
+    {
+      "id": "roi",
+      "question": "What kind of Return on Investment (ROI) can we realistically expect?",
+      "answer": "Our clients typically see a full payback period of under 4 months. This is achieved by drastically reducing manual labor hours, minimizing costly errors, and winning more high-value business.",
+      "category": "ROI",
+      "icon": "trending-up",
+      "roiMetrics": [
+        {
+          "metric": "Payback Period",
+          "value": "< 4 months",
+          "icon": "calendar"
+        },
+        {
+          "metric": "Labor Cost Reduction",
+          "value": "70%",
+          "icon": "dollar-sign"
+        },
+        {
+          "metric": "Win Rate Increase",
+          "value": "40%",
+          "icon": "award"
+        },
+        {
+          "metric": "Annual Savings",
+          "value": "$2.4M average",
+          "icon": "piggy-bank"
+        }
+      ],
+      "caseStudyLink": {
+        "text": "See detailed ROI case study",
+        "href": "#case-study"
+      },
+      "priority": 1
+    }
+  ],
+  "additionalQuestions": [
+    {
+      "question": "Does CloudGlance support on-premise deployment?",
+      "answer": "Yes, we offer flexible deployment options including cloud, on-premise, and hybrid solutions.",
+      "category": "Deployment"
+    },
+    {
+      "question": "What file formats are supported?",
+      "answer": "We support all major formats including PDF, DOCX, XLSX, images, and even zipped archives.",
+      "category": "Technical"
+    },
+    {
+      "question": "Can multiple teams use the platform simultaneously?",
+      "answer": "Absolutely. CloudGlance is designed for enterprise-wide collaboration with role-based access control.",
+      "category": "Collaboration"
+    },
+    {
+      "question": "Is training provided?",
+      "answer": "Yes, we provide comprehensive onboarding, training, and ongoing support for all users.",
+      "category": "Support"
+    },
+    {
+      "question": "How does pricing work?",
+      "answer": "We offer flexible pricing based on your organization's size and needs. Contact us for a custom quote.",
+      "category": "Pricing"
+    }
+  ],
+  "contactSupport": {
+    "title": "Still have questions?",
+    "subtitle": "Our team is here to help",
+    "options": [
+      {
+        "icon": "message-circle",
+        "label": "Live Chat",
+        "description": "Chat with our team",
+        "availability": "Available 24/7",
+        "href": "#chat"
+      },
+      {
+        "icon": "mail",
+        "label": "Email Support",
+        "description": "support@cloudglance.ai",
+        "responseTime": "< 2 hours",
+        "href": "mailto:support@cloudglance.ai"
+      },
+      {
+        "icon": "phone",
+        "label": "Phone Support",
+        "description": "1-800-CLOUD-GL",
+        "availability": "Mon-Fri 9am-6pm EST",
+        "href": "tel:1-800-258-6345"
+      }
+    ]
+  },
+  "presentation": {
+    "style": "accordion",
+    "layout": "single-column",
+    "animations": true,
+    "expandBehavior": "single",
+    "searchEnabled": true,
+    "categoryFilter": true,
+    "showIcons": true
+  }
+}

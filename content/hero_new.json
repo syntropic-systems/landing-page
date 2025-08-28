@@ -1,0 +1,75 @@
+{
+  "sectionHeader": {
+    "title": "Hero Section",
+    "subtitle": "Main landing area with value proposition"
+  },
+  "headline": {
+    "main": "The AI-Powered Command Centre for Your Bid Process.",
+    "highlightedText": "AI-Powered Command Centre",
+    "normalText": "for Your Bid Process"
+  },
+  "subheadline": "Transform your entire proposal process with an enterprise-grade intelligence platform. Automate document analysis, generate winning proposals, and empower your team to focus on high-value strategy. Stop chasing deadlines—start dominating your market.",
+  "buttons": [
+    {
+      "label": "Book My Demo",
+      "variant": "primary",
+      "size": "large",
+      "href": "#demo",
+      "icon": "arrow-right",
+      "isPrimary": true
+    },
+    {
+      "label": "See It In Action",
+      "variant": "outline",
+      "size": "large",
+      "href": "#video",
+      "icon": "play-circle",
+      "isVideo": true
+    }
+  ],
+  "video": {
+    "enabled": true,
+    "position": "right",
+    "thumbnail": "/hero-video-thumb.jpg",
+    "videoSrc": "/demo-video.mp4",
+    "autoplay": false,
+    "loop": true,
+    "muted": true,
+    "controls": true,
+    "alt": "Cloud Glance platform demonstration"
+  },
+  "visualElements": {
+    "backgroundPattern": "gradient-mesh",
+    "floatingElements": true,
+    "particleEffect": false
+  },
+  "metrics": {
+    "enabled": true,
+    "position": "floating",
+    "items": [
+      {
+        "value": "90%",
+        "label": "Time Saved",
+        "icon": "clock"
+      },
+      {
+        "value": "40%",
+        "label": "Win Rate Increase",
+        "icon": "trending-up"
+      },
+      {
+        "value": "4 mo",
+        "label": "ROI Payback",
+        "icon": "dollar-sign"
+      }
+    ]
+  },
+  "presentation": {
+    "style": "hero-split",
+    "layout": "horizontal-split",
+    "animations": true,
+    "animationType": "fadeInUp",
+    "staggerChildren": true,
+    "backgroundGradient": true
+  }
+}
