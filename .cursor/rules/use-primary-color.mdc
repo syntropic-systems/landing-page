@@ -1,0 +1,5 @@
+---
+description: use var(--realtime-primary-color) for green or any other place to highlight the color on
+globs:
+alwaysApply: true
+---

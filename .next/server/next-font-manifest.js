@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Volumes/mac-mini-dev/Projects/landing-page/cloud-glance/app/layout\":[\"static/media/5b01f339abf2f1a5.p.woff2\",\"static/media/028c0d39d2e8f589-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/home/siddarth/dev/syntropic/landing-page/app/layout\":[\"static/media/a016ebb1d24af0b4-s.p.woff2\",\"static/media/bb3ef058b751a6ad-s.p.woff2\",\"static/media/e5a4b6cc4d9f838f-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"

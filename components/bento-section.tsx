@@ -1,9 +1,9 @@
-import AiCodeReviews from "./bento/ai-code-reviews"
-import RealtimeCodingPreviews from "./bento/real-time-previews"
-import OneClickIntegrationsIllustration from "./bento/one-click-integrations-illustration"
-import MCPConnectivityIllustration from "./bento/mcp-connectivity-illustration" // Updated import
-import EasyDeployment from "./bento/easy-deployment"
-import ParallelCodingAgents from "./bento/parallel-agents" // Updated import
+import AiCodeReviews from "./bento/ai-code-reviews";
+import RealtimeCodingPreviews from "./bento/real-time-previews";
+import OneClickIntegrationsIllustration from "./bento/one-click-integrations-illustration";
+import MCPConnectivityIllustration from "./bento/mcp-connectivity-illustration"; // Updated import
+import EasyDeployment from "./bento/easy-deployment";
+import ParallelCodingAgents from "./bento/parallel-agents"; // Updated import
 
 const BentoCard = ({ title, description, Component }) => (
   <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative">
@@ -18,7 +18,6 @@ const BentoCard = ({ title, description, Component }) => (
     />
     {/* Additional subtle gradient overlay */}
     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl" />
-
     <div className="self-stretch p-6 flex flex-col justify-start items-start gap-2 relative z-10">
       <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
         <p className="self-stretch text-foreground text-lg font-normal leading-7">
@@ -31,7 +30,7 @@ const BentoCard = ({ title, description, Component }) => (
       <Component />
     </div>
   </div>
-)
+);
 
 export function BentoSection() {
   const cards = [
@@ -65,7 +64,7 @@ export function BentoSection() {
       description: "Go from code to live deployment on Vercel instantly.",
       Component: EasyDeployment,
     },
-  ]
+  ];
 
   return (
     <section className="w-full px-5 flex flex-col justify-center items-center overflow-visible bg-transparent">
@@ -73,12 +72,13 @@ export function BentoSection() {
         <div className="w-[547px] h-[938px] absolute top-[614px] left-[80px] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[130px] z-0" />
         <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
           <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
+            <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl md:leading-[67px]">
               Empower Your Workflow with AI
             </h2>
             <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to
-              streamline your operations.
+              Ask your AI Agent for real-time collaboration, seamless
+              integrations, and actionable insights to streamline your
+              operations.
             </p>
           </div>
         </div>
@@ -89,5 +89,5 @@ export function BentoSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

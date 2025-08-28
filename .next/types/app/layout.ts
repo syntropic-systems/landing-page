@@ -1,4 +1,4 @@
-// File: /Volumes/mac-mini-dev/Projects/landing-page/cloud-glance/app/layout.tsx
+// File: /home/siddarth/dev/syntropic/landing-page/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -47,6 +47,40 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1,
+  h2 {
+    @apply font-serif font-normal;
+  }
+
+  .font-heading {
+    @apply font-serif;
+  }
+}
+
+/* React Flow visual fixes and glow styles */
+@layer base {
+  /* Remove default white backgrounds from nodes */
+  .react-flow__node {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  /* Edge glow helpers */
+  .react-flow__edge.edge-green-glow .react-flow__edge-path {
+    stroke: #10b981 !important; /* emerald-500 */
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8));
+  }
+  .react-flow__edge.edge-blue-glow .react-flow__edge-path {
+    stroke: #3b82f6 !important; /* blue-500 */
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+  }
+  .react-flow__edge.edge-purple-glow .react-flow__edge-path {
+    stroke: #8b5cf6 !important; /* violet-500 */
+    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.8));
   }
 }
