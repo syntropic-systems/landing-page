@@ -38,7 +38,7 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
           ...formData,
           to_email: 'ceo@cloudglancelab.com'
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
       )
       
       // Show success message
