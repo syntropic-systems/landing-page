@@ -25,3 +25,7 @@ dist-ssr
 *.sw?
 
 personal
+
+# Environment variables
+.env.local
+.env.production
