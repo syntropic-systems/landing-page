@@ -123,12 +123,12 @@
     ]
   },
   "callToAction": {
-    "text": "Experience the power of RAG technology",
+    "text": "",
     "button": {
-      "label": "Request Technical Deep Dive",
+      "label": "",
       "variant": "primary",
-      "href": "#technical-demo",
-      "icon": "code"
+      "href": "",
+      "icon": ""
     }
   },
   "presentation": {
