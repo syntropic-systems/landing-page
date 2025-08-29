@@ -30,11 +30,7 @@ export default function LandingPage() {
         >
           <SocialProof />
         </AnimatedSection>
-        <AnimatedSection
-          id="workflow-section"
-          className="relative z-10 max-w-[1320px] mx-auto mt-16"
-          delay={0.2}
-        >
+        <AnimatedSection id="workflow-section" className="" delay={0.2}>
           <WorkflowSection />
         </AnimatedSection>
         <AnimatedSection
@@ -58,7 +54,10 @@ export default function LandingPage() {
         >
           <SolutionsByRole />
         </AnimatedSection>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
+        <AnimatedSection
+          className="relative z-10 max-w-[1320px] mx-auto mt-16"
+          delay={0.2}
+        >
           <LargeTestimonial />
         </AnimatedSection>
         <AnimatedSection

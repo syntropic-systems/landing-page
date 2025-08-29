@@ -17,7 +17,7 @@ export function FooterSection() {
           />
         </div>
         <p className="text-foreground/90 text-sm leading-[18px] text-left">
-          Coding made effortless
+          Analysis made effortless
         </p>
         <div className="flex justify-start items-start gap-3">
           <a
