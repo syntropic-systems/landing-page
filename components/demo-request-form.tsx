@@ -30,6 +30,13 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
     e.preventDefault()
     setIsSubmitting(true)
 
+    // Debug: Log environment variables
+    console.log('🔍 EmailJS Environment Variables:')
+    console.log('SERVICE_ID:', process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID)
+    console.log('TEMPLATE_ID:', process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID)
+    console.log('USER_ID:', process.env.NEXT_PUBLIC_EMAILJS_USER_ID)
+    console.log('All NEXT_PUBLIC env vars:', Object.keys(process.env).filter(key => key.startsWith('NEXT_PUBLIC_')))
+
     try {
       await emailjs.send(
         'service_viny1ap',
