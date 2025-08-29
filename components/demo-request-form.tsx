@@ -32,13 +32,13 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
 
     try {
       await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        'service_viny1ap',
+        'template_khm1fhv',
         {
           ...formData,
           to_email: 'ceo@cloudglancelab.com'
         },
-        process.env.NEXT_PUBLIC_EMAILJS_USER_ID!
+        'lY-EskTLt6cH9eKH2'
       )
       
       // Show success message
