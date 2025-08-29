@@ -33,11 +33,11 @@ export function BentoSection() {
               </p>
             </div>
             <img
-              src="/images/ai-code-reviews.png"
+              src="/images/synopsis.png"
               width={500}
               height={500}
               alt="Document analysis visualization"
-              className="absolute -right-4 lg:-right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
+              className="absolute right-8 grayscale filter bottom-[-30%] object-contain rounded-2xl"
             />
           </WobbleCard>
 
@@ -49,6 +49,13 @@ export function BentoSection() {
               Get definitive bid/no-bid recommendations in minutes with clear
               risk-reward scoring.
             </p>
+            <img
+              src="/images/gonogo.png"
+              width={120}
+              height={120}
+              alt="Go/No-Go analysis dashboard"
+              className="absolute -right-2 -bottom-2 object-contain rounded-lg opacity-80"
+            />
           </WobbleCard>
 
           <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-[hsl(240_2%_20%)] to-[hsl(160_14%_15%)]">
@@ -59,6 +66,13 @@ export function BentoSection() {
               Stop searching, start asking. Get precise answers with source
               citations in seconds.
             </p>
+            <img
+              src="/images/qa.png"
+              width={120}
+              height={120}
+              alt="Contextual Q&A interface"
+              className="absolute -right-2 -bottom-2 object-contain rounded-lg opacity-80"
+            />
           </WobbleCard>
 
           <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-br from-[hsl(165_96%_18%)] to-[hsl(210_11%_12%)] min-h-[500px] lg:min-h-[300px]">
@@ -72,11 +86,11 @@ export function BentoSection() {
               </p>
             </div>
             <img
-              src="/images/mcp-connectivity.png"
-              width={500}
-              height={500}
+              src="/images/contextual.png"
+              width={300}
+              height={300}
               alt="Content library visualization"
-              className="absolute -right-10 md:-right-[40%] lg:-right-[20%] -bottom-10 object-contain rounded-2xl"
+              className="absolute -right-4 md:-right-[30%] lg:-right-[15%] -bottom-4 object-contain rounded-xl opacity-80"
             />
           </WobbleCard>
 
@@ -107,6 +121,13 @@ export function BentoSection() {
               AI connects the dots to suggest the most relevant offerings for
               specific proposals.
             </p>
+            <img
+              src="/images/solutionmatching.png"
+              width={120}
+              height={120}
+              alt="Solution matching visualization"
+              className="absolute -right-2 -bottom-2 object-contain rounded-lg opacity-80"
+            />
           </WobbleCard>
         </div>
       </div>

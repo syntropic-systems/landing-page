@@ -7,7 +7,7 @@ const roleCards = [
   {
     description: "Executive Leadership",
     title: "For the CEO",
-    src: "/images/avatars/robert-fox.png",
+    src: "/images/avatars/ceo.png",
     ctaText: "Learn More",
     ctaLink: "#demo",
     content: () => {
@@ -43,7 +43,7 @@ const roleCards = [
   {
     description: "Bid Management",
     title: "For the Bid Manager",
-    src: "/images/avatars/darlene-robertson.png",
+    src: "/images/avatars/bid.png",
     ctaText: "Learn More",
     ctaLink: "#demo",
     content: () => {
@@ -81,7 +81,7 @@ const roleCards = [
   {
     description: "Legal & Compliance",
     title: "For the Legal Team",
-    src: "/images/avatars/dianne-russell.png",
+    src: "/images/avatars/legal.png",
     ctaText: "Learn More",
     ctaLink: "#demo",
     content: () => {
@@ -119,7 +119,7 @@ const roleCards = [
   {
     description: "Sales Leadership",
     title: "For the Sales Lead",
-    src: "/images/avatars/cameron-williamson.png",
+    src: "/images/avatars/sales.png",
     ctaText: "Learn More",
     ctaLink: "#demo",
     content: () => {
@@ -157,7 +157,7 @@ const roleCards = [
   {
     description: "Finance & Analysis",
     title: "For the Finance Team",
-    src: "/images/avatars/annette-black.png",
+    src: "/images/avatars/finance.png",
     ctaText: "Learn More",
     ctaLink: "#demo",
     content: () => {
