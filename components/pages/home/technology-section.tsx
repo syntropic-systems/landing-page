@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import technologyData from "@/content/technology_new.json";
 import { Section } from "@/components/ui/section";
 import { CloudGlanceIconGreen } from "../../ui/cloudglance-icon-green";
+import { Container } from "@/components/ui/container";
 
 // Technology card configurations similar to workflow OutputNode
 const getTechCardConfig = (index: number) => {
@@ -163,7 +164,7 @@ export function TechnologySection() {
       title={technologyData.sectionHeader.title}
       subtitle={technologyData.sectionHeader.subtitle}
     >
-      <div className="w-full max-w-6xl relative">
+      <Container className="relative">
         {/* Background glow - matches bento section pattern */}
         <div className="w-[300px] h-[400px] md:w-[547px] md:h-[938px] absolute top-[40%] left-[15%] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[100px] md:blur-[130px] z-0" />
 
@@ -188,7 +189,7 @@ export function TechnologySection() {
         </motion.div>
 
         {/* Bottom CTA */}
-      </div>
+      </Container>
     </Section>
   );
 }

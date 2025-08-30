@@ -19,16 +19,16 @@ export default function LandingPage() {
         <main className="relative">
           <HeroSection />
         </main>
-        <div className={`${GUTTERS_MARGIN}`}>
+        <div className={`${GUTTERS_MARGIN} pt-12 sm:pt-16 md:pt-20 xl:pt-40`}>
           <AnimatedSection
             id="comparison-timeline-section"
-            className="relative z-10 mx-auto mt-16"
+            className="relative z-10"
             delay={0.1}
           >
             <ComparisonTimeline />
           </AnimatedSection>
           <AnimatedSection
-            className="relative z-10 max-w-[1320px] mx-auto px-6 mt-16"
+            className="relative z-10 max-w-[1320px] px-6"
             delay={0.1}
           >
             <SocialProof />
@@ -38,42 +38,36 @@ export default function LandingPage() {
           </AnimatedSection>
           <AnimatedSection
             id="technology-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.17}
           >
             <TechnologySection />
           </AnimatedSection>
           <AnimatedSection
             id="features-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <BentoSection />
           </AnimatedSection>
           <AnimatedSection
             id="solutions-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <SolutionsByRole />
           </AnimatedSection>
-          <AnimatedSection
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
-            delay={0.2}
-          >
+          <AnimatedSection className="relative z-10 max-w-[1320px]" delay={0.2}>
             <LargeTestimonial />
           </AnimatedSection>
           <AnimatedSection
             id="faq-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <FAQSection />
           </AnimatedSection>
-          <AnimatedSection
-            className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
-            delay={0.2}
-          >
+          <AnimatedSection className="relative z-10 max-w-[1320px]" delay={0.2}>
             <FooterSection />
           </AnimatedSection>
         </div>

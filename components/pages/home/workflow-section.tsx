@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useMemo, useEffect } from "react";
+import React, { useCallback, useMemo, useEffect, useState } from "react";
 import FileCycleBox from "@/components/animated-file-flow";
 import {
   ReactFlow,
@@ -12,14 +12,58 @@ import {
   Node,
   Handle,
   Position,
+  EdgeChange,
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
 import { Section } from "@/components/ui/section";
+import WorkflowSlider from "./workflow/slider";
+import { WorkflowTextSection } from "./workflow-text-section";
+import { Container } from "@/components/ui/container";
+
+interface WorkflowStep {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export const workflowContent: WorkflowStep[] = [
+  {
+    id: "input",
+    title: "Chaotic Inputs",
+    description: "Various file types flowing into the system",
+  },
+  {
+    id: "core",
+    title: "CloudGlance AI Core",
+    description: "Intelligent processing engine",
+  },
+  {
+    id: "knowledge",
+    title: "Unified Content Library",
+    description: "Central knowledge repository",
+  },
+  {
+    id: "instant-analysis",
+    title: "Instant Analysis",
+    description: "Dashboard with GO/NO-GO decision and key metrics",
+  },
+  {
+    id: "automated-draft",
+    title: "Automated Bid Draft",
+    description: "Auto-populated proposal document",
+  },
+  {
+    id: "strategic-comparison",
+    title: "Strategic Comparison",
+    description: "Competitive analysis and insights",
+  },
+];
 
 export function WorkflowSection() {
   const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const initialNodes: Node[] = useMemo(
     () => [
@@ -106,6 +150,7 @@ export function WorkflowSection() {
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
+
   const nodeTypes = {
     fileNode: FileFlowNode,
     coreNode: CoreNode,
@@ -119,24 +164,76 @@ export function WorkflowSection() {
       title="The CloudGlance Intelligence Workflow"
       subtitle="Transform chaos into strategic clarity"
     >
-      <div className="h-[50vh] w-full">
-        <ReactFlow
-          nodes={nodes}
-          nodeTypes={nodeTypes}
-          edges={edges}
-          panOnDrag={false}
-          zoomOnPinch={false}
-          zoomOnScroll={false}
-          zoomOnDoubleClick={false}
-          preventScrolling={false}
-          onNodesChange={() => {}}
-          onEdgesChange={onEdgesChange}
-          onConnect={onConnect}
-          proOptions={{ hideAttribution: true }}
-          fitView
-        ></ReactFlow>
-      </div>
+      <Container className="flex flex-col lg:flex-row gap-4">
+        <div
+          className="hidden lg:flex flex-col w-[40%] space-y-6 lg:flex-grow lg:flex-shrink-0"
+          onMouseLeave={() => setActiveIndex(null)}
+        >
+          {workflowContent.map((step, index) => (
+            <WorkflowTextSection
+              key={step.id}
+              heading={step.title}
+              subtitle={step.description}
+              index={index}
+              isActive={activeIndex === index}
+              hasAnyHover={activeIndex !== null}
+              onHover={() => setActiveIndex(index)}
+            />
+          ))}
+        </div>
+        <div className="w-full lg:w-[60%] lg:flex-grow lg:flex-shrink-0">
+          <AnimatedGraph
+            nodes={nodes}
+            edges={edges}
+            onEdgesChange={onEdgesChange}
+            onConnect={onConnect}
+          />
+        </div>
+        <div className="lg:hidden">
+          <WorkflowSlider />
+        </div>
+      </Container>
     </Section>
+  );
+}
+
+function AnimatedGraph({
+  nodes,
+  edges,
+  onEdgesChange,
+  onConnect,
+}: {
+  nodes: Node[];
+  edges: Edge[];
+  onEdgesChange: (changes: EdgeChange<Edge>[]) => void;
+  onConnect: (params: Connection) => void;
+}) {
+  const nodeTypes = {
+    fileNode: FileFlowNode,
+    coreNode: CoreNode,
+    goNode: GoNode,
+    contentNode: ContentNode,
+    compareNode: CompareNode,
+  };
+
+  return (
+    <div className="h-[50vh] lg:h-full w-full">
+      <ReactFlow
+        nodes={nodes}
+        nodeTypes={nodeTypes}
+        edges={edges}
+        panOnDrag={false}
+        zoomOnPinch={false}
+        zoomOnScroll={false}
+        zoomOnDoubleClick={false}
+        preventScrolling={false}
+        onNodesChange={() => {}}
+        onEdgesChange={() => {}}
+        onConnect={onConnect}
+        proOptions={{ hideAttribution: true }}
+        fitView
+      ></ReactFlow>
+    </div>
   );
 }
 
