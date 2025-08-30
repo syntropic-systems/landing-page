@@ -23,13 +23,13 @@ export function BentoSection() {
                 200+ page documents in seconds and never miss critical details.
               </p>
             </div>
-            <Image
+            {/* <Image
               src="/images/synopsis.png"
               width={500}
               height={500}
               alt="Document analysis visualization"
               className="absolute right-8 grayscale filter bottom-[-30%] object-contain rounded-2xl"
-            />
+            /> */}
           </WobbleCard>
 
           <WobbleCard containerClassName="col-span-1 h-[400px] bg-gradient-to-br from-[hsl(160_48%_20%)] to-[hsl(165_96%_15%)]">
@@ -41,13 +41,13 @@ export function BentoSection() {
               risk-reward scoring.
             </p>
             <div className="bg-primary-foreground/80 rounded-xl absolute w-[250px] h-[250px] -bottom-[120px] left-1/2 -translate-x-1/2">
-              <Image
+              {/* <Image
                 src="/images/gonogo.png"
                 width={250}
                 height={250}
                 alt="Go/No-Go analysis dashboard"
                 className="w-[250px] h-[250px] object-contain rounded-lg opacity-80"
-              />
+              /> */}
             </div>
           </WobbleCard>
 
@@ -59,13 +59,13 @@ export function BentoSection() {
               Stop searching, start asking. Get precise answers with source
               citations in seconds.
             </p>
-            <Image
+            {/* <Image
               src="/images/qa.png"
               width={120}
               height={120}
               alt="Contextual Q&A interface"
               className="absolute -right-2 -bottom-2 object-contain rounded-lg opacity-80"
-            />
+            /> */}
           </WobbleCard>
 
           <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-br from-[hsl(165_96%_18%)] to-[hsl(210_11%_12%)] min-h-[500px] lg:min-h-[300px]">
@@ -78,13 +78,13 @@ export function BentoSection() {
                 library of all your past bids, contracts, and documents.
               </p>
             </div>
-            <Image
+            {/* <Image
               src="/images/contextual.png"
               width={300}
               height={300}
               alt="Content library visualization"
               className="absolute -right-4 md:-right-[30%] lg:-right-[15%] -bottom-4 object-contain rounded-xl opacity-80"
-            />
+            /> */}
           </WobbleCard>
 
           <WobbleCard containerClassName="col-span-1 lg:col-span-2 bg-gradient-to-br from-[hsl(160_14%_18%)] to-[hsl(160_48%_22%)] min-h-[500px] lg:min-h-[300px]">
@@ -97,13 +97,13 @@ export function BentoSection() {
                 time. Reduce draft time by 90%.
               </p>
             </div>
-            <Image
+            {/* <Image
               src="/images/realtime-coding-previews.png"
               width={500}
               height={500}
               alt="Auto-drafting interface"
               className="absolute -right-4 lg:-right-[40%] grayscale filter -bottom-10 object-contain rounded-2xl"
-            />
+            /> */}
           </WobbleCard>
 
           <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-[hsl(160_14%_25%)] to-[hsl(160_48%_18%)]">
@@ -114,13 +114,13 @@ export function BentoSection() {
               AI connects the dots to suggest the most relevant offerings for
               specific proposals.
             </p>
-            <Image
+            {/* <Image
               src="/images/solutionmatching.png"
               width={120}
               height={120}
               alt="Solution matching visualization"
               className="absolute -right-2 -bottom-2 object-contain rounded-lg opacity-80"
-            />
+            /> */}
           </WobbleCard>
         </div>
       </div>
