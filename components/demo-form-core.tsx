@@ -215,13 +215,15 @@ export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
         `}</style>
       </div>
 
-      <Button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 text-lg font-medium"
-      >
-        {isSubmitting ? 'Sending...' : 'Request Demo'}
-      </Button>
+      <div className="flex justify-center pt-2">
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg font-medium rounded-full"
+        >
+          {isSubmitting ? 'Sending...' : 'Request Demo'}
+        </Button>
+      </div>
     </form>
   )
 }

@@ -29,15 +29,20 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
       {/* Modal Container - Using inset-0 and flex for centering */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         {/* Modal Content */}
-        <div className="relative bg-background rounded-lg shadow-xl w-full max-w-2xl max-h-[85vh] overflow-y-auto border border-border">
-          <div className="flex items-center justify-between p-8 border-b border-border">
-            <h2 className="text-2xl font-semibold text-foreground">Request Demo</h2>
+        <div className="relative bg-background rounded-2xl shadow-xl w-full max-w-2xl max-h-[85vh] overflow-y-auto border border-border">
+          <div className="relative p-8 border-b border-border">
             <button
               onClick={onClose}
-              className="text-muted-foreground hover:text-foreground"
+              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
             >
               <X className="h-5 w-5" />
             </button>
+            <div className="pr-8">
+              <h2 className="text-2xl font-semibold text-foreground mb-2 text-left">Request Demo</h2>
+              <p className="text-muted-foreground text-left">
+                See CloudGlance in action. Fill out the form below and we'll schedule a personalized demo for you.
+              </p>
+            </div>
           </div>
 
           <div className="p-8">

@@ -37,7 +37,6 @@ export function ContactSection() {
                 <div>
                   <h4 className="text-lg font-semibold text-foreground mb-1">Email</h4>
                   <p className="text-muted-foreground">ceo@cloudglancelab.com</p>
-                  <p className="text-sm text-muted-foreground mt-1">We'll respond within 24 hours</p>
                 </div>
               </div>
 
@@ -48,35 +47,6 @@ export function ContactSection() {
                 <div>
                   <h4 className="text-lg font-semibold text-foreground mb-1">Phone</h4>
                   <p className="text-muted-foreground">+1 (555) 123-4567</p>
-                  <p className="text-sm text-muted-foreground mt-1">Monday - Friday, 9 AM - 6 PM EST</p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Office</h4>
-                  <p className="text-muted-foreground">
-                    123 Business District<br />
-                    Suite 456<br />
-                    New York, NY 10001
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Clock className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-1">Business Hours</h4>
-                  <p className="text-muted-foreground">
-                    Monday - Friday: 9:00 AM - 6:00 PM EST<br />
-                    Saturday: 10:00 AM - 4:00 PM EST<br />
-                    Sunday: Closed
-                  </p>
                 </div>
               </div>
             </div>
@@ -105,7 +75,7 @@ export function ContactSection() {
           </div>
 
           {/* Demo Request Form - Right Half */}
-          <div className="bg-card border border-border rounded-lg p-8">
+          <div className="bg-card border border-border rounded-2xl p-8">
             <div className="mb-8">
               <h3 className="text-2xl font-semibold text-foreground mb-2">Request a Demo</h3>
               <p className="text-muted-foreground">
