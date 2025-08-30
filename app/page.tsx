@@ -5,7 +5,7 @@ import { BentoSection } from "@/components/pages/home/bento-section";
 import { WorkflowSection } from "@/components/pages/home/workflow-section";
 import { SolutionsByRole } from "@/components/pages/home/solutions-by-role";
 import { TechnologySection } from "@/components/pages/home/technology-section";
-import { LargeTestimonial } from "@/components/pages/home/large-testimonial";
+import { TestimonialsInfinite } from "@/components/pages/home/testimonials-infinite";
 import { FAQSection } from "@/components/pages/home/faq-section";
 import { FooterSection } from "@/components/footer-section";
 import { AnimatedSection } from "@/components/animated-section";
@@ -61,7 +61,7 @@ export default function LandingPage() {
             className="relative z-10 max-w-[1320px] mx-auto mt-16"
             delay={0.2}
           >
-            <LargeTestimonial />
+            <TestimonialsInfinite />
           </AnimatedSection>
           <AnimatedSection
             id="faq-section"
