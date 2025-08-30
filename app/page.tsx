@@ -1,14 +1,16 @@
-import { HeroSection } from "@/components/hero-section"
-import { ComparisonTimeline } from "@/components/comparison-timeline"
-import { SocialProof } from "@/components/social-proof"
-import { BentoSection } from "@/components/bento-section"
-import { WorkflowSection } from "@/components/workflow-section"
-import { SolutionsByRole } from "@/components/solutions-by-role"
-import { TechnologySection } from "@/components/technology-section"
-import { LargeTestimonial } from "@/components/large-testimonial"
-import { FAQSection } from "@/components/faq-section"
-import { FooterSection } from "@/components/footer-section"
-import { AnimatedSection } from "@/components/animated-section"
+import { HeroSection } from "@/components/pages/home/hero-section";
+import { ComparisonTimeline } from "@/components/pages/home/comparison-timeline";
+import { SocialProof } from "@/components/pages/home/social-proof";
+import { BentoSection } from "@/components/pages/home/bento-section";
+import { WorkflowSection } from "@/components/pages/home/workflow-section";
+import { SolutionsByRole } from "@/components/pages/home/solutions-by-role";
+import { TechnologySection } from "@/components/pages/home/technology-section";
+import { LargeTestimonial } from "@/components/pages/home/large-testimonial";
+import { FAQSection } from "@/components/pages/home/faq-section";
+import { FooterSection } from "@/components/footer-section";
+import { AnimatedSection } from "@/components/animated-section";
+
+export const GUTTERS_MARGIN = "mx-6 md:mx-30 xl:mx-36";
 
 export default function LandingPage() {
   return (
@@ -17,62 +19,64 @@ export default function LandingPage() {
         <main className="max-w-[1320px] mx-auto relative">
           <HeroSection />
         </main>
-        <AnimatedSection
-          id="comparison-timeline-section"
-          className="relative z-10 mx-auto mt-16"
-          delay={0.1}
-        >
-          <ComparisonTimeline />
-        </AnimatedSection>
-        <AnimatedSection
-          className="relative z-10 max-w-[1320px] mx-auto px-6 mt-16"
-          delay={0.1}
-        >
-          <SocialProof />
-        </AnimatedSection>
-        <AnimatedSection id="workflow-section" className="" delay={0.2}>
-          <WorkflowSection />
-        </AnimatedSection>
-        <AnimatedSection
-          id="technology-section"
-          className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
-          delay={0.17}
-        >
-          <TechnologySection />
-        </AnimatedSection>
-        <AnimatedSection
-          id="features-section"
-          className="relative z-10 max-w-[1320px] mx-auto mt-16"
-          delay={0.2}
-        >
-          <BentoSection />
-        </AnimatedSection>
-        <AnimatedSection
-          id="solutions-section"
-          className="relative z-10 max-w-[1320px] mx-auto mt-16"
-          delay={0.2}
-        >
-          <SolutionsByRole />
-        </AnimatedSection>
-        <AnimatedSection
-          className="relative z-10 max-w-[1320px] mx-auto mt-16"
-          delay={0.2}
-        >
-          <LargeTestimonial />
-        </AnimatedSection>
-        <AnimatedSection
-          id="faq-section"
-          className="relative z-10 max-w-[1320px] mx-auto mt-16"
-          delay={0.2}
-        >
-          <FAQSection />
-        </AnimatedSection>
-        <AnimatedSection
-          className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
-          delay={0.2}
-        >
-          <FooterSection />
-        </AnimatedSection>
+        <div className={`${GUTTERS_MARGIN}`}>
+          <AnimatedSection
+            id="comparison-timeline-section"
+            className="relative z-10 mx-auto mt-16"
+            delay={0.1}
+          >
+            <ComparisonTimeline />
+          </AnimatedSection>
+          <AnimatedSection
+            className="relative z-10 max-w-[1320px] mx-auto px-6 mt-16"
+            delay={0.1}
+          >
+            <SocialProof />
+          </AnimatedSection>
+          <AnimatedSection id="workflow-section" className="" delay={0.2}>
+            <WorkflowSection />
+          </AnimatedSection>
+          <AnimatedSection
+            id="technology-section"
+            className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+            delay={0.17}
+          >
+            <TechnologySection />
+          </AnimatedSection>
+          <AnimatedSection
+            id="features-section"
+            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            delay={0.2}
+          >
+            <BentoSection />
+          </AnimatedSection>
+          <AnimatedSection
+            id="solutions-section"
+            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            delay={0.2}
+          >
+            <SolutionsByRole />
+          </AnimatedSection>
+          <AnimatedSection
+            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            delay={0.2}
+          >
+            <LargeTestimonial />
+          </AnimatedSection>
+          <AnimatedSection
+            id="faq-section"
+            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            delay={0.2}
+          >
+            <FAQSection />
+          </AnimatedSection>
+          <AnimatedSection
+            className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+            delay={0.2}
+          >
+            <FooterSection />
+          </AnimatedSection>
+        </div>
       </div>
     </div>
   );

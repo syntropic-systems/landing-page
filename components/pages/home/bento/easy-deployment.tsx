@@ -1,15 +1,19 @@
-import type React from "react"
+import type React from "react";
 
 interface DeploymentEasyProps {
   /** Width of component – number (px) or any CSS size value */
-  width?: number | string
+  width?: number | string;
   /** Height of component – number (px) or any CSS size value */
-  height?: number | string
+  height?: number | string;
   /** Extra Tailwind / CSS classes for root element */
-  className?: string
+  className?: string;
 }
 
-const DeploymentEasy: React.FC<DeploymentEasyProps> = ({ width = "100%", height = "100%", className = "" }) => {
+const DeploymentEasy: React.FC<DeploymentEasyProps> = ({
+  width = "100%",
+  height = "100%",
+  className = "",
+}) => {
   /* ------------------------------------------------------------
    * Theme-based design tokens using global CSS variables
    * ---------------------------------------------------------- */
@@ -19,7 +23,7 @@ const DeploymentEasy: React.FC<DeploymentEasyProps> = ({ width = "100%", height 
     "--deploy-text-color": "hsl(var(--foreground))",
     "--deploy-text-secondary": "hsl(var(--muted-foreground))",
     "--deploy-border-color": "hsl(var(--border))",
-  } as React.CSSProperties
+  } as React.CSSProperties;
 
   /* ------------------------------------------------------------
    * Console log output (static for demo) – can be replaced via props
@@ -45,7 +49,7 @@ const DeploymentEasy: React.FC<DeploymentEasyProps> = ({ width = "100%", height 
     "[16:38:00.585] ○ (Static) prerendered as static content",
     "[16:38:01.099] Build Completed in /vercel/output [30s]",
     "🚀 Deployment complete – Easy!",
-  ]
+  ];
 
   return (
     <div
@@ -71,7 +75,8 @@ const DeploymentEasy: React.FC<DeploymentEasyProps> = ({ width = "100%", height 
           transform: "translate(-50%, -50%)",
           width: "340px",
           height: "239px",
-          background: "linear-gradient(180deg, var(--deploy-background-color) 0%, transparent 100%)",
+          background:
+            "linear-gradient(180deg, var(--deploy-background-color) 0%, transparent 100%)",
           backdropFilter: "blur(7.907px)",
           borderRadius: "10px",
           overflow: "hidden",
@@ -94,7 +99,8 @@ const DeploymentEasy: React.FC<DeploymentEasyProps> = ({ width = "100%", height 
             padding: "8px",
             height: "100%",
             overflow: "hidden",
-            fontFamily: "'Geist Mono', 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace",
+            fontFamily:
+              "'Geist Mono', 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace",
             fontSize: "10px",
             lineHeight: "16px",
             color: "var(--deploy-text-color)",
@@ -139,20 +145,21 @@ const DeploymentEasy: React.FC<DeploymentEasyProps> = ({ width = "100%", height 
           border: "none",
           cursor: "pointer",
           borderRadius: "8.925px",
-          fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          fontFamily:
+            "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
           fontSize: "16.575px",
           lineHeight: "25.5px",
           letterSpacing: "-0.51px",
           fontWeight: 500,
           whiteSpace: "nowrap",
           boxShadow:
-            "0px 42.075px 11.475px rgba(0, 0, 0, 0), 0px 26.775px 10.2px rgba(0, 0, 0, 0.01), 0px 15.3px 8.925px rgba(0, 0, 0, 0.05), 0px 6.375px 6.375px rgba(0, 0, 0, 0.09), 0px 1.275px 3.825px rgba(0, 0, 0, 0.1)",
+            "0px 42.075px 11.475px var(--shadow-black), 0px 26.775px 10.2px var(--shadow-black-10), 0px 15.3px 8.925px var(--shadow-black), 0px 6.375px 6.375px var(--shadow-black-10), 0px 1.275px 3.825px var(--shadow-black-10)",
         }}
       >
         🚀 Deploy on Vercel
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default DeploymentEasy
+export default DeploymentEasy;

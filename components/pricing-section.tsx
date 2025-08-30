@@ -22,7 +22,7 @@ export function PricingSection() {
       ],
       buttonText: "Get Started",
       buttonClass:
-        "bg-zinc-300 shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] outline outline-0.5 outline-[#1e29391f] outline-offset-[-0.5px] text-gray-800 text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-zinc-400",
+        "bg-zinc-300 shadow-[0px_1px_1px_-0.5px_var(--shadow-black-20)] outline outline-0.5 outline-[var(--border-black-08)] outline-offset-[-0.5px] text-gray-800 text-shadow-[0px_1px_1px_var(--shadow-black)] hover:bg-zinc-400",
     },
     {
       name: "Pro",
@@ -40,7 +40,7 @@ export function PricingSection() {
       ],
       buttonText: "Join now",
       buttonClass:
-        "bg-primary-foreground shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-primary text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-primary-foreground/90",
+        "bg-primary-foreground shadow-[0px_1px_1px_-0.5px_var(--shadow-black-20)] text-primary text-shadow-[0px_1px_1px_var(--shadow-black)] hover:bg-primary-foreground/90",
       popular: true,
     },
     {
@@ -57,7 +57,7 @@ export function PricingSection() {
       ],
       buttonText: "Talk to Sales",
       buttonClass:
-        "bg-secondary shadow-[0px_1px_1px_-0.5px_rgba(16,24,40,0.20)] text-secondary-foreground text-shadow-[0px_1px_1px_rgba(16,24,40,0.08)] hover:bg-secondary/90",
+        "bg-secondary shadow-[0px_1px_1px_-0.5px_var(--shadow-black-20)] text-secondary-foreground text-shadow-[0px_1px_1px_var(--shadow-black)] hover:bg-secondary/90",
     },
   ];
 
@@ -75,12 +75,12 @@ export function PricingSection() {
           </p>
         </div>
         <div className="pt-4">
-          <div className="p-0.5 bg-muted rounded-lg outline outline-1 outline-[#0307120a] outline-offset-[-1px] flex justify-start items-center gap-1 md:mt-0">
+          <div className="p-0.5 bg-muted rounded-lg outline outline-1 outline-[var(--border-black-08)] outline-offset-[-1px] flex justify-start items-center gap-1 md:mt-0">
             <button
               onClick={() => setIsAnnual(true)}
               className={`pl-2 pr-1 py-1 flex justify-start items-start gap-2 rounded-md ${
                 isAnnual
-                  ? "bg-accent shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.08)]"
+                  ? "bg-accent shadow-[0px_1px_1px_-0.5px_var(--shadow-black)]"
                   : ""
               }`}
             >
@@ -96,7 +96,7 @@ export function PricingSection() {
               onClick={() => setIsAnnual(false)}
               className={`px-2 py-1 flex justify-start items-start rounded-md ${
                 !isAnnual
-                  ? "bg-accent shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.08)]"
+                  ? "bg-accent shadow-[0px_1px_1px_-0.5px_var(--shadow-black)]"
                   : ""
               }`}
             >
@@ -117,7 +117,7 @@ export function PricingSection() {
             key={plan.name}
             className={`flex-1 p-4 overflow-hidden rounded-xl flex flex-col justify-start items-start gap-6 ${
               plan.popular
-                ? "bg-primary shadow-[0px_4px_8px_-2px_rgba(0,0,0,0.10)]"
+                ? "bg-primary shadow-[0px_4px_8px_-2px_var(--shadow-black-10)]"
                 : "bg-gradient-to-b from-gray-50/5 to-gray-50/0"
             }`}
             style={

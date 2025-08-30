@@ -2,25 +2,16 @@
 
 import React from "react";
 import { WobbleCard } from "@/components/ui/wobble-card";
+import Image from "next/image";
+import { Section } from "@/components/ui/section";
 
 export function BentoSection() {
   return (
-    <section className="w-full px-5 flex flex-col justify-center items-center overflow-visible bg-transparent">
-      <div className="w-full py-8 md:py-16 relative flex flex-col justify-start items-start gap-6">
-        <div className="w-[547px] h-[938px] absolute top-[614px] left-[80px] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[130px] z-0" />
-        <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
-          <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl leading-tight md:leading-[66px]">
-              The AI-Powered Intelligence Engine
-            </h2>
-            <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              This is the core of our platform, working in the background to
-              turn your scattered documents into a strategic advantage. It's the
-              brain of the operation.
-            </p>
-          </div>
-        </div>
-
+    <Section
+      title="The AI-Powered Intelligence Engine"
+      subtitle="This is the core of our platform, working in the background to turn your scattered documents into a strategic advantage. It's the brain of the operation."
+    >
+      <div className="w-full relative flex flex-col justify-start items-start gap-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full z-10">
           <WobbleCard containerClassName="col-span-1 lg:col-span-2 h-full bg-gradient-to-br from-[hsl(210_11%_12%)] to-[hsl(160_14%_8%)] min-h-[500px] lg:min-h-[300px]">
             <div className="max-w-xs">
@@ -32,7 +23,7 @@ export function BentoSection() {
                 200+ page documents in seconds and never miss critical details.
               </p>
             </div>
-            <img
+            <Image
               src="/images/synopsis.png"
               width={500}
               height={500}
@@ -50,8 +41,10 @@ export function BentoSection() {
               risk-reward scoring.
             </p>
             <div className="bg-primary-foreground/80 rounded-xl absolute w-[250px] h-[250px] -bottom-[120px] left-1/2 -translate-x-1/2">
-              <img
+              <Image
                 src="/images/gonogo.png"
+                width={250}
+                height={250}
                 alt="Go/No-Go analysis dashboard"
                 className="w-[250px] h-[250px] object-contain rounded-lg opacity-80"
               />
@@ -66,7 +59,7 @@ export function BentoSection() {
               Stop searching, start asking. Get precise answers with source
               citations in seconds.
             </p>
-            <img
+            <Image
               src="/images/qa.png"
               width={120}
               height={120}
@@ -81,11 +74,11 @@ export function BentoSection() {
                 AI-Powered Content Library
               </h2>
               <p className="mt-4 max-w-[26rem] text-left text-base/6 text-neutral-200">
-                Your organization's collective brain. A dynamic, searchable
+                Your organization&apos;s collective brain. A dynamic, searchable
                 library of all your past bids, contracts, and documents.
               </p>
             </div>
-            <img
+            <Image
               src="/images/contextual.png"
               width={300}
               height={300}
@@ -104,7 +97,7 @@ export function BentoSection() {
                 time. Reduce draft time by 90%.
               </p>
             </div>
-            <img
+            <Image
               src="/images/realtime-coding-previews.png"
               width={500}
               height={500}
@@ -121,7 +114,7 @@ export function BentoSection() {
               AI connects the dots to suggest the most relevant offerings for
               specific proposals.
             </p>
-            <img
+            <Image
               src="/images/solutionmatching.png"
               width={120}
               height={120}
@@ -131,6 +124,6 @@ export function BentoSection() {
           </WobbleCard>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

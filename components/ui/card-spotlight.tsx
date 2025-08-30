@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 export const CardSpotlight = ({
   children,
   radius = 350,
-  color = "#262626",
+  color = "var(--ui-dark)",
   className,
   ...props
 }: {
@@ -54,11 +54,12 @@ export const CardSpotlight = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "relative rounded-3xl border border-neutral-800 bg-neutral-950 p-8",
+        "relative overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-950 p-8",
         className
       )}
       {...props}
     >
+      {children}
       <div
         className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
         style={{
@@ -66,7 +67,6 @@ export const CardSpotlight = ({
           background: `radial-gradient(${radius}px circle at ${position.x}px ${position.y}px, ${color}, transparent 40%)`,
         }}
       />
-      {children}
     </div>
   );
 };

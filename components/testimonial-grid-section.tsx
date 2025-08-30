@@ -67,7 +67,7 @@ const TestimonialCard = ({ quote, name, company, avatar, type }) => {
     : "rounded-[30.75px]";
   const padding = isLargeCard ? "p-6" : "p-[30px]";
 
-  let cardClasses = `flex flex-col justify-between items-start overflow-hidden rounded-[10px] shadow-[0px_2px_4px_rgba(0,0,0,0.08)] relative ${padding}`;
+  let cardClasses = `flex flex-col justify-between items-start overflow-hidden rounded-[10px] shadow-[0px_2px_4px_var(--shadow-black)] relative ${padding}`;
   let quoteClasses = "";
   let nameClasses = "";
   let companyClasses = "";
@@ -92,7 +92,7 @@ const TestimonialCard = ({ quote, name, company, avatar, type }) => {
       />
     );
   } else if (type === "large-light") {
-    cardClasses += " bg-[rgba(231,236,235,0.12)]";
+    cardClasses += " bg-[var(--bg-overlay-12)]";
     quoteClasses += " text-foreground text-2xl font-medium leading-8";
     nameClasses += " text-foreground text-base font-normal leading-6";
     companyClasses += " text-muted-foreground text-base font-normal leading-6";
@@ -131,7 +131,7 @@ const TestimonialCard = ({ quote, name, company, avatar, type }) => {
           className={`w-${avatarSize / 4} h-${
             avatarSize / 4
           } ${avatarBorderRadius}`}
-          style={{ border: "1px solid rgba(255, 255, 255, 0.08)" }}
+          style={{ border: "1px solid var(--border-white-08)" }}
         />
         <div className="flex flex-col justify-start items-start gap-0.5">
           <div className={nameClasses}>{name}</div>

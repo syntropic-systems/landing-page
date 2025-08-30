@@ -7,9 +7,6 @@ import {
   useNodesState,
   useEdgesState,
   addEdge,
-  Background,
-  Controls,
-  MiniMap,
   Connection,
   Edge,
   Node,
@@ -18,6 +15,7 @@ import {
 } from "@xyflow/react";
 
 import "@xyflow/react/dist/style.css";
+import { Section } from "@/components/ui/section";
 
 export function WorkflowSection() {
   const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
@@ -117,17 +115,11 @@ export function WorkflowSection() {
   };
 
   return (
-    <div>
-      <div className="flex flex-col justify-start items-center gap-4">
-        <h2 className="w-full max-w-[1200px] text-center text-foreground text-4xl md:text-6xl leading-tight md:leading-[66px]">
-          The CloudGlance Intelligence Workflow
-        </h2>
-        <p className="w-full max-w-[800px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-          Transform chaos into strategic clarity
-        </p>
-      </div>
-
-      <div className="h-[50vh] w-[95vw] xl:w-[100vw]">
+    <Section
+      title="The CloudGlance Intelligence Workflow"
+      subtitle="Transform chaos into strategic clarity"
+    >
+      <div className="h-[50vh] w-full">
         <ReactFlow
           nodes={nodes}
           nodeTypes={nodeTypes}
@@ -137,18 +129,18 @@ export function WorkflowSection() {
           zoomOnScroll={false}
           zoomOnDoubleClick={false}
           preventScrolling={false}
-          onNodesChange={onNodesChange}
+          onNodesChange={() => {}}
           onEdgesChange={onEdgesChange}
           onConnect={onConnect}
           proOptions={{ hideAttribution: true }}
           fitView
         ></ReactFlow>
       </div>
-    </div>
+    </Section>
   );
 }
 
-function FileFlowNode(props) {
+function FileFlowNode() {
   return (
     <>
       <Handle type="target" position={Position.Left} />
@@ -158,7 +150,7 @@ function FileFlowNode(props) {
   );
 }
 
-function CoreNode(props) {
+function CoreNode() {
   return (
     <div className="bg-none text-black p-4 rounded-lg w-fit relative">
       <Handle type="target" position={Position.Left} />
@@ -230,7 +222,7 @@ function CoreNode(props) {
   );
 }
 
-function GoNode(props) {
+function GoNode() {
   return (
     <div className="text-black p-4 rounded-lg w-fit relative">
       <Handle type="target" position={Position.Left} />
@@ -305,7 +297,7 @@ function GoNode(props) {
     </div>
   );
 }
-function ContentNode(props) {
+function ContentNode() {
   return (
     <div className="text-black p-4 rounded-lg w-fit relative">
       <Handle type="target" position={Position.Left} />
@@ -396,7 +388,7 @@ function ContentNode(props) {
     </div>
   );
 }
-function CompareNode(props) {
+function CompareNode() {
   return (
     <div className="text-black p-4 rounded-lg w-fit relative">
       <Handle type="target" position={Position.Left} />

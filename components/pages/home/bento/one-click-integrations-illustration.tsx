@@ -11,7 +11,7 @@ const OneClickIntegrationsIllustration: React.FC<OneClickIntegrationsIllustratio
     "--oci-foreground-color": "hsl(var(--foreground))",
     "--oci-muted-foreground-color": "hsl(var(--muted-foreground))",
     "--oci-border-color": "hsl(var(--border))",
-    "--oci-shadow-color": "rgba(0, 0, 0, 0.12)",
+    "--oci-shadow-color": "var(--shadow-black-12)",
     "--oci-gradient-light-gray-start": "hsl(var(--foreground) / 0.2)",
     "--oci-gradient-light-gray-end": "transparent",
   } as React.CSSProperties

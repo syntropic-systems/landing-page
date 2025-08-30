@@ -1,10 +1,12 @@
-import type React from "react"
+import type React from "react";
 
 interface ParallelCodingAgentsProps {
-  className?: string
+  className?: string;
 }
 
-const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({ className = "" }) => {
+const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({
+  className = "",
+}) => {
   // Theme-based CSS variables using global theme
   const themeVars = {
     "--pca-background-color": "hsl(var(--background))",
@@ -15,11 +17,11 @@ const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({ className =
     "--pca-text-secondary": "hsl(var(--muted-foreground))",
     "--pca-border-color": "hsl(var(--border))",
     "--pca-border-main": "hsl(var(--border))",
-    "--pca-shadow-color": "rgba(0, 0, 0, 0.12)", // Keeping as is, common shadow
+    "--pca-shadow-color": "var(--shadow-black-12)", // Keeping as is, common shadow
     "--pca-container-background": "hsl(var(--card) / 0.4)",
     "--pca-container-gradient-start": "hsl(var(--card) / 0.4)",
     "--pca-container-gradient-end": "transparent",
-  }
+  };
 
   const CheckmarkIcon = () => (
     <svg
@@ -38,7 +40,7 @@ const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({ className =
         opacity="0.8"
       />
     </svg>
-  )
+  );
 
   const RefreshIcon = () => (
     <svg
@@ -65,7 +67,7 @@ const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({ className =
         opacity="0.8"
       />
     </svg>
-  )
+  );
 
   const SparklesIcon = () => (
     <svg
@@ -84,7 +86,7 @@ const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({ className =
         opacity="0.8"
       />
     </svg>
-  )
+  );
 
   const agents = [
     {
@@ -108,7 +110,7 @@ const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({ className =
       model: "o3",
       branch: "pointer/update-pain...",
     },
-  ]
+  ];
 
   return (
     <div
@@ -141,7 +143,8 @@ const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({ className =
           padding: "20px",
           height: "100%",
           width: "calc(100% - 48px)", // Adjusted width for 24px margin on both sides
-          background: "linear-gradient(180deg, hsl(var(--primary) / 0.05) 0%, transparent 100%)", // Updated background property
+          background:
+            "linear-gradient(180deg, hsl(var(--primary) / 0.05) 0%, transparent 100%)", // Updated background property
           backdropFilter: "blur(16px)",
           borderRadius: "9.628px",
           border: "0.802px solid hsl(var(--border))",
@@ -253,7 +256,7 @@ const ParallelCodingAgents: React.FC<ParallelCodingAgentsProps> = ({ className =
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ParallelCodingAgents
+export default ParallelCodingAgents;

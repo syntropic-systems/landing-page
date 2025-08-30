@@ -26,7 +26,7 @@ export function CloudGlanceAICore({
         cx="100.874"
         cy="51.3933"
         r="31.6666"
-        stroke="#00A07E"
+        stroke="var(--svg-primary)"
         strokeWidth="4.15299"
       />
       <path
@@ -35,7 +35,7 @@ export function CloudGlanceAICore({
       />
       <path
         d="M84 46.4864C84.0323 46.2013 84.0646 45.9188 84.1018 45.6362C84.3653 43.4813 85.2377 41.4478 86.6154 39.7773C88.5947 37.2933 91.434 35.655 94.5634 35.1913C98.155 34.6136 101.481 35.3388 104.474 37.4418C106.014 38.5302 107.275 39.9708 108.155 41.6453C108.208 41.7337 108.286 41.8049 108.378 41.8503C108.627 41.9779 108.897 42.0679 109.123 42.2129C109.383 42.3584 109.679 42.4252 109.975 42.4055C111.792 42.3608 113.579 42.8717 115.102 43.8708C117.133 45.2111 118.432 47.0691 118.845 49.4946C119.162 51.3069 118.828 53.1736 117.903 54.7608C117.815 54.8946 117.769 55.0526 117.772 55.2135C117.881 56.4871 117.806 57.7701 117.548 59.0218C116.654 63.0228 114.195 65.5234 110.328 66.6936C108.67 67.1578 106.938 67.2953 105.229 67.0987C103.442 66.9489 101.714 66.383 100.182 65.4458C98.4401 64.369 97.0386 62.8157 96.1406 60.9673C95.8624 60.4122 95.6439 59.827 95.4129 59.2519C95.4019 59.2101 95.3773 59.1731 95.3432 59.1469C95.309 59.1206 95.2671 59.1065 95.2241 59.1069C92.4136 58.8078 89.7787 57.5865 87.7256 55.6311C86.0593 54.0991 84.8841 52.1021 84.3502 49.8947C84.1912 49.2346 84.1341 48.5469 84.0323 47.8767C84.0248 47.8317 84 47.7967 84 47.7442V46.4864Z"
-        fill="#5BBD8F"
+        fill="var(--svg-secondary)"
       />
       <defs>
         <linearGradient
@@ -46,8 +46,12 @@ export function CloudGlanceAICore({
           y2="104.835"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#2A554D" stopOpacity="0.51" />
-          <stop offset="1" stopColor="#203935" stopOpacity="0.5" />
+          <stop stopColor="var(--svg-dark-green)" stopOpacity="0.51" />
+          <stop
+            offset="1"
+            stopColor="var(--svg-darker-green)"
+            stopOpacity="0.5"
+          />
         </linearGradient>
         <linearGradient
           id="paint1_linear_57_117"
@@ -57,9 +61,9 @@ export function CloudGlanceAICore({
           y2="158"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="#4E806D" />
-          <stop offset="0.5" stopColor="#516B63" />
-          <stop offset="1" stopColor="#3F755A" />
+          <stop stopColor="var(--svg-muted-green)" />
+          <stop offset="0.5" stopColor="var(--svg-gray-green)" />
+          <stop offset="1" stopColor="var(--svg-light-green)" />
         </linearGradient>
       </defs>
     </svg>

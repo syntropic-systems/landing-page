@@ -4,41 +4,162 @@
 
 @layer base {
   :root {
+    --brand-1: hsl(160 48% 87%);
+    --brand-2: hsl(165 96% 71%);
+    --brand-3: hsl(160 100% 50%);
+    --brand-4: hsl(160 14% 93%);
+    --brand-5: hsl(165 14% 8%);
+
     /* Themeable Colors - Restored to Original Vibe */
-    --background: 210 11% 7%; /* #0f1211 */
-    --foreground: 160 14% 93%; /* #e7eceb */
+    --background: hsl(210 11% 7%); /* #0f1211 */
+    --foreground: hsl(160 14% 93%); /* #e7eceb */
+    --surface: hsl(210 11% 7%); /* #0f1211 */
+    --surface-foreground: hsla(
+      0 0% 100% / 0.08
+    ); /* rgba(255, 255, 255, 0.08) */
 
-    --muted: 240 2% 16%; /* #27272a */
-    --muted-foreground: 160 14% 93% / 0.7; /* rgba(231, 236, 235, 0.7) */
-    --muted-foreground-light: 160 14% 93% / 0.5; /* rgba(231, 236, 235, 0.5) */
-    --muted-foreground-dark: 160 14% 93% / 0.6; /* rgba(231, 236, 235, 0.6) */
+    --muted: hsl(240 2% 16%); /* #27272a */
+    --muted-foreground: hsl(160 14% 93% / 0.7); /* rgba(231, 236, 235, 0.7) */
 
-    --card: 220 17% 98% / 0.01;
-    --card-foreground: 160 14% 93%;
+    /* Legacy */
+    --card-foreground: var(--foreground);
 
-    --popover: 210 11% 7%;
-    --popover-foreground: 160 14% 93%;
+    --popover: hsl(210 11% 7%);
+    --popover-foreground: hsl(160 14% 93%);
+
+    --ui-card-foreground: var(--foreground);
+    --popover: var(--background);
+    --ui-popover-foreground: hsl(160 14% 93%);
 
     /* Primary Accent Colors */
-    --primary: 165 96% 71%; /* #78fcd6 */
-    --primary-foreground: 160 8% 6%; /* #0d0f0e */
-    --primary-dark: 160 100% 50%; /* #00ffb6 */
-    --primary-light: 160 48% 87%; /* New variable for lighter teal/green shades */
+    --primary: var(--brand-3); /* #78fcd6 */
+    --primary-foreground: hsl(160 8% 6%); /* #0d0f0e */
 
     /* Secondary Accent Colors (for buttons, etc.) */
-    --secondary: 160 14% 93%; /* #e7eceb */
-    --secondary-foreground: 165 14% 8%; /* #141a18 */
+    --secondary: var(--brand-4); /* #e7eceb */
+    --secondary-foreground: var(--brand-5); /* #141a18 */
 
-    --accent: 240 2% 25%; /* #3f3f42 */
-    --accent-foreground: 240 2% 96%; /* #f4f4f5 */
+    --accent: hsl(240 2% 25%); /* #3f3f42 */
+    --accent-foreground: hsl(240 2% 96%); /* #f4f4f5 */
 
-    --border: 240 100% 100% / 0.08; /* rgba(255, 255, 255, 0.08) */
-    --border-light: 210 17% 6% / 0.1; /* rgba(16,24,40,0.1) */
-    --border-dark: 210 17% 6% / 0.05; /* rgba(16,24,40,0.05) */
+    --border: hsl(240 100% 100% / 0.08); /* rgba(255, 255, 255, 0.08) */
 
-    --ring: 165 96% 71%;
+    --ring: var(--brand-3);
 
-    --radius: 0.5rem;
+    /* Additional Colors Found in Codebase */
+    --primary-dark: hsl(160 100% 40%);
+    --primary-light: hsl(160 48% 87%);
+
+    /* SVG and Icon Colors */
+    --svg-primary: #00a07e;
+    --svg-secondary: #5bbd8f;
+    --svg-dark-green: #2a554d;
+    --svg-darker-green: #203935;
+    --svg-muted-green: #4e806d;
+    --svg-gray-green: #516b63;
+    --svg-light-green: #3f755a;
+
+    /* Status Colors */
+    --success: #10b981;
+    --success-light: #22c55e;
+    --success-dark: #025411;
+    --success-muted: #31ff6b;
+    --success-accent: #b0ff88;
+
+    /* Gray Scale */
+    --gray-300: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+
+    /* Neutral Colors */
+    --neutral-200: #e5e7eb;
+    --neutral-700: #374151;
+
+    /* UI Colors */
+    --ui-gray: #888888;
+    --ui-light-gray: #c7c7c7;
+    --ui-dark: #262626;
+    --ui-zinc-300: #d4d4d8;
+    --ui-zinc-400: #a1a1aa;
+
+    /* Blue Colors */
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-700: #1d4ed8;
+    --blue-800: #1e40af;
+    --blue-900: #1e3a8a;
+
+    /* Purple Colors */
+    --purple-500: #8b5cf6;
+    --purple-600: #7c3aed;
+    --purple-700: #6d28d9;
+    --purple-800: #5b21b6;
+    --purple-900: #4c1d95;
+
+    /* Shadow Colors */
+    --shadow-black: rgba(0, 0, 0, 0.08);
+    --shadow-black-10: rgba(0, 0, 0, 0.1);
+    --shadow-black-12: rgba(0, 0, 0, 0.12);
+    --shadow-black-16: rgba(0, 0, 0, 0.16);
+    --shadow-black-20: rgba(0, 0, 0, 0.2);
+    --shadow-white: rgba(255, 255, 255, 0.08);
+    --shadow-white-13: rgba(255, 255, 255, 0.13);
+
+    /* Border Colors */
+    --border-black-08: rgba(0, 0, 0, 0.08);
+    --border-white-08: rgba(255, 255, 255, 0.08);
+
+    /* Background Overlays */
+    --bg-overlay-08: rgba(231, 236, 235, 0.08);
+    --bg-overlay-12: rgba(231, 236, 235, 0.12);
+
+    /* Card Colors */
+    --card: hsl(210 11% 12%);
+    --card-light: hsl(160 14% 8%);
+    --card-muted: hsl(240 2% 20%);
+    --card-accent: hsl(160 14% 15%);
+    --card-brand: hsl(165 96% 18%);
+    --card-surface: hsl(160 14% 18%);
+    --card-surface-light: hsl(160 48% 22%);
+    --card-surface-muted: hsl(160 14% 25%);
+    --card-surface-accent: hsl(160 48% 18%);
+
+    /* Emerald Colors */
+    --emerald-500: #10b981;
+    --emerald-600: #059669;
+    --emerald-700: #047857;
+
+    /* Violet Colors */
+    --violet-500: #8b5cf6;
+    --violet-600: #7c3aed;
+    --violet-700: #6d28d9;
+
+    /* Chart Colors */
+    --chart-grid: #ccc;
+    --chart-white: #fff;
+
+    /* Workflow Colors */
+    --workflow-blue: #4e7ff2;
+    --workflow-blue-light: #6ca3f7;
+    --workflow-blue-lighter: #99c3fb;
+    --workflow-blue-lightest: #bcddff;
+    --workflow-purple: #402861;
+    --workflow-purple-light: #cac2dc;
+    --workflow-purple-dark: #272a3a;
+    --workflow-purple-darker: #432953;
+    --workflow-purple-muted: #53336e;
+    --workflow-purple-accent: #8e81b6;
+    --workflow-purple-surface: #9d90ba;
+    --workflow-purple-surface-light: #8d67df;
+
+    /* React Flow Colors */
+    --react-flow-emerald: #10b981;
+    --react-flow-blue: #3b82f6;
+    --react-flow-violet: #8b5cf6;
   }
 }
 
@@ -72,15 +193,133 @@
 
   /* Edge glow helpers */
   .react-flow__edge.edge-green-glow .react-flow__edge-path {
-    stroke: #10b981 !important; /* emerald-500 */
+    stroke: var(--react-flow-emerald) !important;
     filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8));
   }
   .react-flow__edge.edge-blue-glow .react-flow__edge-path {
-    stroke: #3b82f6 !important; /* blue-500 */
+    stroke: var(--react-flow-blue) !important;
     filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
   }
   .react-flow__edge.edge-purple-glow .react-flow__edge-path {
-    stroke: #8b5cf6 !important; /* violet-500 */
+    stroke: var(--react-flow-violet) !important;
     filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.8));
+  }
+}
+
+/* Gradient Classes */
+@layer components {
+  .gradient-bento-primary {
+    background: linear-gradient(135deg, var(--card) 0%, var(--card-light) 100%);
+  }
+
+  .gradient-bento-secondary {
+    background: linear-gradient(
+      135deg,
+      hsl(160 48% 20%) 0%,
+      hsl(165 96% 15%) 100%
+    );
+  }
+
+  .gradient-bento-muted {
+    background: linear-gradient(
+      135deg,
+      var(--card-muted) 0%,
+      var(--card-accent) 100%
+    );
+  }
+
+  .gradient-bento-brand {
+    background: linear-gradient(135deg, var(--card-brand) 0%, var(--card) 100%);
+  }
+
+  .gradient-bento-surface {
+    background: linear-gradient(
+      135deg,
+      var(--card-surface) 0%,
+      var(--card-surface-light) 100%
+    );
+  }
+
+  .gradient-bento-surface-muted {
+    background: linear-gradient(
+      135deg,
+      var(--card-surface-muted) 0%,
+      var(--card-surface-accent) 100%
+    );
+  }
+
+  .gradient-overlay-light {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  }
+
+  .gradient-overlay-dark {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.05) 0%,
+      transparent 100%
+    );
+  }
+
+  .gradient-overlay-primary {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary) / 0.05) 0%,
+      transparent 100%
+    );
+  }
+
+  .gradient-overlay-white {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+  }
+
+  .gradient-timeline {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--neutral-200) 10%,
+      var(--neutral-200) 90%,
+      transparent 100%
+    );
+  }
+
+  .gradient-timeline-dark {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--neutral-700) 10%,
+      var(--neutral-700) 90%,
+      transparent 100%
+    );
+  }
+
+  .gradient-timeline-primary {
+    background: linear-gradient(
+      to top,
+      var(--primary) 0%,
+      var(--primary) 10%,
+      transparent 100%
+    );
+  }
+
+  .gradient-mask-radial {
+    mask-image: radial-gradient(#fff, transparent, 75%);
+  }
+
+  .gradient-mask-linear {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
   }
 }

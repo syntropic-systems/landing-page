@@ -1,16 +1,16 @@
 "use client";
 
 import React from "react";
+import { Section } from "@/components/ui/section";
 import { Timeline } from "@/components/ui/timeline";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
-import { Badge } from "./ui/badge";
 
 export function ComparisonTimeline() {
   const data = [
     {
       title: "Bid Cycle Time",
       leftContent: (
-        <CardSpotlight className="h-full w-full" color="#10b981">
+        <CardSpotlight className="h-full w-full" color="var(--success)">
           <div className="text-xs font-medium text-emerald-400 mb-3">
             With Us
           </div>
@@ -24,7 +24,7 @@ export function ComparisonTimeline() {
         </CardSpotlight>
       ),
       rightContent: (
-        <CardSpotlight className="h-full w-full" color="#6b7280">
+        <CardSpotlight className="h-full w-full" color="var(--gray-500)">
           <div className="text-xs font-medium text-gray-500 mb-3">
             Without Us
           </div>
@@ -41,7 +41,7 @@ export function ComparisonTimeline() {
     {
       title: "Win Rate",
       leftContent: (
-        <CardSpotlight className="h-full w-full" color="#10b981">
+        <CardSpotlight className="h-full w-full" color="var(--success)">
           <div className="text-xs font-medium text-emerald-400 mb-3">
             With Us
           </div>
@@ -57,7 +57,7 @@ export function ComparisonTimeline() {
         </CardSpotlight>
       ),
       rightContent: (
-        <CardSpotlight className="h-full w-full" color="#6b7280">
+        <CardSpotlight className="h-full w-full" color="var(--gray-500)">
           <div className="text-xs font-medium text-gray-500 mb-3">
             Without Us
           </div>
@@ -74,7 +74,7 @@ export function ComparisonTimeline() {
     {
       title: "Document Review",
       leftContent: (
-        <CardSpotlight className="h-full w-full" color="#10b981">
+        <CardSpotlight className="h-full w-full" color="var(--success)">
           <div className="text-xs font-medium text-emerald-400 mb-3">
             With Us
           </div>
@@ -88,7 +88,7 @@ export function ComparisonTimeline() {
         </CardSpotlight>
       ),
       rightContent: (
-        <CardSpotlight className="h-full w-full" color="#6b7280">
+        <CardSpotlight className="h-full w-full" color="var(--gray-500)">
           <div className="text-xs font-medium text-gray-500 mb-3">
             Without Us
           </div>
@@ -105,7 +105,7 @@ export function ComparisonTimeline() {
     {
       title: "Team Focus",
       leftContent: (
-        <CardSpotlight className="h-full w-full" color="#10b981">
+        <CardSpotlight className="h-full w-full" color="var(--success)">
           <div className="text-xs font-medium text-emerald-400 mb-3">
             With Us
           </div>
@@ -119,7 +119,7 @@ export function ComparisonTimeline() {
         </CardSpotlight>
       ),
       rightContent: (
-        <CardSpotlight className="h-full w-full" color="#6b7280">
+        <CardSpotlight className="h-full w-full" color="var(--gray-500)">
           <div className="text-xs font-medium text-gray-500 mb-3">
             Without Us
           </div>
@@ -136,7 +136,7 @@ export function ComparisonTimeline() {
     {
       title: "Team Capacity",
       leftContent: (
-        <CardSpotlight className="h-full w-full" color="#10b981">
+        <CardSpotlight className="h-full w-full" color="var(--success)">
           <div className="text-xs font-medium text-emerald-400 mb-3">
             With Us
           </div>
@@ -152,7 +152,7 @@ export function ComparisonTimeline() {
         </CardSpotlight>
       ),
       rightContent: (
-        <CardSpotlight className="h-full w-full" color="#6b7280">
+        <CardSpotlight className="h-full w-full" color="var(--gray-500)">
           <div className="text-xs font-medium text-gray-500 mb-3">
             Without Us
           </div>
@@ -169,7 +169,7 @@ export function ComparisonTimeline() {
     {
       title: "Compliance Risk",
       leftContent: (
-        <CardSpotlight className="h-full w-full" color="#10b981">
+        <CardSpotlight className="h-full w-full" color="var(--success)">
           <div className="text-xs font-medium text-emerald-400 mb-3">
             With Us
           </div>
@@ -185,7 +185,7 @@ export function ComparisonTimeline() {
         </CardSpotlight>
       ),
       rightContent: (
-        <CardSpotlight className="h-full w-full" color="#6b7280">
+        <CardSpotlight className="h-full w-full" color="var(--gray-500)">
           <div className="text-xs font-medium text-gray-500 mb-3">
             Without Us
           </div>
@@ -202,24 +202,13 @@ export function ComparisonTimeline() {
   ];
 
   return (
-    <section className="w-full py-16 px-5 relative bg-background">
-      <div className="max-w-[1320px] mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12">
-          <Badge variant="outline" className="mb-4">
-            WITH US / WITHOUT US
-          </Badge>
-          <h2 className="text-foreground text-4xl font-semibold leading-tight mb-4">
-            The New Standard for Proposal Teams
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            From Manual Grind to Strategic Advantage
-          </p>
-        </div>
-
-        {/* Timeline */}
+    <Section
+      title="The New Standard for Proposal Teams"
+      subtitle="From Manual Grind to Strategic Advantage"
+    >
+      <div>
         <Timeline data={data} />
       </div>
-    </section>
+    </Section>
   );
 }
