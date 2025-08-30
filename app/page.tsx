@@ -7,6 +7,7 @@ import { SolutionsByRole } from "@/components/pages/home/solutions-by-role";
 import { TechnologySection } from "@/components/pages/home/technology-section";
 import { TestimonialsInfinite } from "@/components/pages/home/testimonials-infinite";
 import { FAQSection } from "@/components/pages/home/faq-section";
+import { CTASection } from "@/components/pages/home/cta-section";
 import { FooterSection } from "@/components/footer-section";
 import { AnimatedSection } from "@/components/animated-section";
 
@@ -69,6 +70,13 @@ export default function LandingPage() {
             delay={0.2}
           >
             <FAQSection />
+          </AnimatedSection>
+          <AnimatedSection
+            id="cta-section"
+            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            delay={0.2}
+          >
+            <CTASection />
           </AnimatedSection>
           <AnimatedSection
             className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"

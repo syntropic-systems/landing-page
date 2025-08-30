@@ -69,7 +69,7 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Button
             onClick={openModal}
-            className="hidden md:block bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm"
+            className="hidden md:inline-flex bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10"
           >
             Request Demo
           </Button>
@@ -102,7 +102,7 @@ export function Header() {
                 ))}
                 <Button
                   onClick={openModal}
-                  className="w-full mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm"
+                  className="w-full mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10"
                 >
                   Request Demo
                 </Button>
