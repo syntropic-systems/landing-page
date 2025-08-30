@@ -2,17 +2,23 @@
 
 import type React from "react";
 
-import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { DemoRequestForm } from "@/components/demo-request-form"
-import { useDemoModal } from "@/hooks/use-demo-modal"
+import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { DemoRequestForm } from "@/components/demo-request-form";
+import { useDemoModal } from "@/hooks/use-demo-modal";
 
 export function Header() {
-  const { isOpen, openModal, closeModal } = useDemoModal()
-  
+  const { isOpen, openModal, closeModal } = useDemoModal();
+
   const navItems = [
     { name: "Features", href: "#features-section" },
     { name: "Solutions", href: "#solutions-section" },
@@ -41,8 +47,8 @@ export function Header() {
               <Image
                 src="/logos/Logo Full.svg"
                 alt="Logo"
-                width={120}
-                height={24}
+                width={120 * 0.8}
+                height={24 * 0.8}
                 priority
               />
             </Link>
@@ -61,7 +67,7 @@ export function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Button 
+          <Button
             onClick={openModal}
             className="hidden md:block bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm"
           >
@@ -94,7 +100,7 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
-                <Button 
+                <Button
                   onClick={openModal}
                   className="w-full mt-4 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm"
                 >
@@ -105,7 +111,7 @@ export function Header() {
           </Sheet>
         </div>
       </div>
-      
+
       <DemoRequestForm isOpen={isOpen} onClose={closeModal} />
     </header>
   );

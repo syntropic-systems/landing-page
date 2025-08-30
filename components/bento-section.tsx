@@ -10,7 +10,7 @@ export function BentoSection() {
         <div className="w-[547px] h-[938px] absolute top-[614px] left-[80px] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[130px] z-0" />
         <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
           <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
+            <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl leading-tight md:leading-[66px]">
               The AI-Powered Intelligence Engine
             </h2>
             <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
@@ -41,7 +41,7 @@ export function BentoSection() {
             />
           </WobbleCard>
 
-          <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-[hsl(160_48%_20%)] to-[hsl(165_96%_15%)]">
+          <WobbleCard containerClassName="col-span-1 h-[400px] bg-gradient-to-br from-[hsl(160_48%_20%)] to-[hsl(165_96%_15%)]">
             <h2 className="max-w-80 text-left text-balance text-base md:text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Go/No-Go Analysis
             </h2>
@@ -49,13 +49,13 @@ export function BentoSection() {
               Get definitive bid/no-bid recommendations in minutes with clear
               risk-reward scoring.
             </p>
-            <img
-              src="/images/gonogo.png"
-              width={120}
-              height={120}
-              alt="Go/No-Go analysis dashboard"
-              className="absolute -right-2 -bottom-2 object-contain rounded-lg opacity-80"
-            />
+            <div className="bg-primary-foreground/80 rounded-xl absolute w-[250px] h-[250px] -bottom-[120px] left-1/2 -translate-x-1/2">
+              <img
+                src="/images/gonogo.png"
+                alt="Go/No-Go analysis dashboard"
+                className="w-[250px] h-[250px] object-contain rounded-lg opacity-80"
+              />
+            </div>
           </WobbleCard>
 
           <WobbleCard containerClassName="col-span-1 min-h-[300px] bg-gradient-to-br from-[hsl(240_2%_20%)] to-[hsl(160_14%_15%)]">

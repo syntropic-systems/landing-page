@@ -1,19 +1,19 @@
-'use client'
+"use client";
 
-import React from "react"
-import { Button } from "@/components/ui/button"
-import { Header } from "./header"
-import Link from "next/link"
-import { DemoRequestForm } from "@/components/demo-request-form"
-import { useDemoModal } from "@/hooks/use-demo-modal"
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Header } from "./header";
+import Link from "next/link";
+import { DemoRequestForm } from "@/components/demo-request-form";
+import { useDemoModal } from "@/hooks/use-demo-modal";
 
 export function HeroSection() {
-  const { isOpen, openModal, closeModal } = useDemoModal()
-  
+  const { isOpen, openModal, closeModal } = useDemoModal();
+
   return (
     <section
-      className="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-hidden my-6 py-0 px-4
-         w-full h-[400px] md:w-[1220px] md:h-[600px] lg:h-[810px] md:px-0"
+      className="flex flex-col items-center text-center relative mx-auto rounded-b-2xl md:rounded-2xl overflow-hidden my-0 xl:my-6 py-0 px-4
+         w-full h-[100vh] xl:w-[1220px] md:h-[600px] lg:h-[810px] md:px-0"
     >
       {/* SVG Background */}
       <div className="absolute inset-0 z-0">
@@ -576,29 +576,39 @@ export function HeroSection() {
         <Header />
       </div>
 
-      <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-16 md:mt-[120px] lg:mt-[160px] px-4">
-        <h1 className="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
-          The AI-Powered Command Centre for Your Bid Process.
-        </h1>
-        <p className="text-muted-foreground text-base md:text-base lg:text-lg font-medium leading-relaxed max-w-lg mx-auto">
-          Automate document analysis, generate winning proposals, and empower your team to focus on high-value strategy.
-        </p>
+      <div className="absolute top-1/2 -translate-y-1/2">
+        <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] xl:max-w-[1000px] mt-16 px-4">
+          <h1 className="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
+            The AI-Powered Command Centre for Your Bid Process.
+          </h1>
+          <p className="text-muted-foreground text-base md:text-base lg:text-lg font-medium leading-relaxed max-w-lg mx-auto">
+            Automate document analysis, generate winning proposals, and empower
+            your team to focus on high-value strategy.
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 items-center justify-center gap-x-6">
+          <Button
+            onClick={openModal}
+            className="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10"
+          >
+            Request Demo
+          </Button>
+          <Link
+            href="https://app.cloudglancelab.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="outline"
+              className="relative z-10 px-8 py-3 rounded-full font-medium text-base border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              Try Live Demo
+            </Button>
+          </Link>
+        </div>
       </div>
 
-      <div className="flex items-center justify-center gap-x-6">
-        <Button 
-          onClick={openModal}
-          className="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10"
-        >
-          Request Demo
-        </Button>
-        <Link href="https://app.cloudglancelab.com" target="_blank" rel="noopener noreferrer">
-          <Button variant="outline" className="relative z-10 px-8 py-3 rounded-full font-medium text-base border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-colors">
-            Try Live Demo
-          </Button>
-        </Link>
-      </div>
-      
       <DemoRequestForm isOpen={isOpen} onClose={closeModal} />
     </section>
   );

@@ -11,8 +11,12 @@ export function ComparisonTimeline() {
       title: "Bid Cycle Time",
       leftContent: (
         <CardSpotlight className="h-full w-full" color="#10b981">
-          <div className="text-xs font-medium text-emerald-400 mb-3">With Us</div>
-          <p className="text-2xl font-bold text-white mb-2">Under 1 week</p>
+          <div className="text-xs font-medium text-emerald-400 mb-3">
+            With Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-white mb-2">
+            Under 1 week
+          </p>
           <p className="text-neutral-300 mb-4">With automation</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-300">
             75% faster
@@ -21,8 +25,12 @@ export function ComparisonTimeline() {
       ),
       rightContent: (
         <CardSpotlight className="h-full w-full" color="#6b7280">
-          <div className="text-xs font-medium text-gray-500 mb-3">Without Us</div>
-          <p className="text-2xl font-bold text-gray-300 mb-2">3-4 weeks</p>
+          <div className="text-xs font-medium text-gray-500 mb-3">
+            Without Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-gray-300 mb-2">
+            3-4 weeks
+          </p>
           <p className="text-gray-500 mb-4">Manual work</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800/50 text-gray-400">
             Slow & tedious
@@ -34,9 +42,15 @@ export function ComparisonTimeline() {
       title: "Win Rate",
       leftContent: (
         <CardSpotlight className="h-full w-full" color="#10b981">
-          <div className="text-xs font-medium text-emerald-400 mb-3">With Us</div>
-          <p className="text-2xl font-bold text-white mb-2">Lifted by 40%</p>
-          <p className="text-neutral-300 mb-4">With smarter go/no-go decisions</p>
+          <div className="text-xs font-medium text-emerald-400 mb-3">
+            With Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-white mb-2">
+            Lifted by 40%
+          </p>
+          <p className="text-neutral-300 mb-4">
+            With smarter go/no-go decisions
+          </p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-300">
             +40% improvement
           </div>
@@ -44,8 +58,12 @@ export function ComparisonTimeline() {
       ),
       rightContent: (
         <CardSpotlight className="h-full w-full" color="#6b7280">
-          <div className="text-xs font-medium text-gray-500 mb-3">Without Us</div>
-          <p className="text-2xl font-bold text-gray-300 mb-2">10-15%</p>
+          <div className="text-xs font-medium text-gray-500 mb-3">
+            Without Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-gray-300 mb-2">
+            10-15%
+          </p>
           <p className="text-gray-500 mb-4">Static win rate</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800/50 text-gray-400">
             Stagnant
@@ -57,8 +75,12 @@ export function ComparisonTimeline() {
       title: "Document Review",
       leftContent: (
         <CardSpotlight className="h-full w-full" color="#10b981">
-          <div className="text-xs font-medium text-emerald-400 mb-3">With Us</div>
-          <p className="text-2xl font-bold text-white mb-2">Minutes</p>
+          <div className="text-xs font-medium text-emerald-400 mb-3">
+            With Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-white mb-2">
+            Minutes
+          </p>
           <p className="text-neutral-300 mb-4">AI highlights key risks</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-300">
             99% faster
@@ -67,8 +89,12 @@ export function ComparisonTimeline() {
       ),
       rightContent: (
         <CardSpotlight className="h-full w-full" color="#6b7280">
-          <div className="text-xs font-medium text-gray-500 mb-3">Without Us</div>
-          <p className="text-2xl font-bold text-gray-300 mb-2">Hours</p>
+          <div className="text-xs font-medium text-gray-500 mb-3">
+            Without Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-gray-300 mb-2">
+            Hours
+          </p>
           <p className="text-gray-500 mb-4">200+ pages manually skimming</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800/50 text-gray-400">
             Mind-numbing
@@ -80,8 +106,12 @@ export function ComparisonTimeline() {
       title: "Team Focus",
       leftContent: (
         <CardSpotlight className="h-full w-full" color="#10b981">
-          <div className="text-xs font-medium text-emerald-400 mb-3">With Us</div>
-          <p className="text-2xl font-bold text-white mb-2">70% Strategy</p>
+          <div className="text-xs font-medium text-emerald-400 mb-3">
+            With Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-white mb-2">
+            70% Strategy
+          </p>
           <p className="text-neutral-300 mb-4">Time spent on high-value work</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-300">
             Reversed ratio
@@ -90,8 +120,12 @@ export function ComparisonTimeline() {
       ),
       rightContent: (
         <CardSpotlight className="h-full w-full" color="#6b7280">
-          <div className="text-xs font-medium text-gray-500 mb-3">Without Us</div>
-          <p className="text-2xl font-bold text-gray-300 mb-2">70% Manual</p>
+          <div className="text-xs font-medium text-gray-500 mb-3">
+            Without Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-gray-300 mb-2">
+            70% Manual
+          </p>
           <p className="text-gray-500 mb-4">Time spent copy-pasting</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800/50 text-gray-400">
             Soul-crushing
@@ -103,9 +137,15 @@ export function ComparisonTimeline() {
       title: "Team Capacity",
       leftContent: (
         <CardSpotlight className="h-full w-full" color="#10b981">
-          <div className="text-xs font-medium text-emerald-400 mb-3">With Us</div>
-          <p className="text-2xl font-bold text-white mb-2">15+ bids</p>
-          <p className="text-neutral-300 mb-4">Per month without adding headcount</p>
+          <div className="text-xs font-medium text-emerald-400 mb-3">
+            With Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-white mb-2">
+            15+ bids
+          </p>
+          <p className="text-neutral-300 mb-4">
+            Per month without adding headcount
+          </p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-300">
             3x capacity
           </div>
@@ -113,8 +153,12 @@ export function ComparisonTimeline() {
       ),
       rightContent: (
         <CardSpotlight className="h-full w-full" color="#6b7280">
-          <div className="text-xs font-medium text-gray-500 mb-3">Without Us</div>
-          <p className="text-2xl font-bold text-gray-300 mb-2">4-5 bids</p>
+          <div className="text-xs font-medium text-gray-500 mb-3">
+            Without Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-gray-300 mb-2">
+            4-5 bids
+          </p>
           <p className="text-gray-500 mb-4">Per month</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800/50 text-gray-400">
             Bottlenecked
@@ -126,9 +170,15 @@ export function ComparisonTimeline() {
       title: "Compliance Risk",
       leftContent: (
         <CardSpotlight className="h-full w-full" color="#10b981">
-          <div className="text-xs font-medium text-emerald-400 mb-3">With Us</div>
-          <p className="text-2xl font-bold text-white mb-2">Zero missed</p>
-          <p className="text-neutral-300 mb-4">Requirements with AI risk-flagging</p>
+          <div className="text-xs font-medium text-emerald-400 mb-3">
+            With Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-white mb-2">
+            Zero missed
+          </p>
+          <p className="text-neutral-300 mb-4">
+            Requirements with AI risk-flagging
+          </p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-emerald-500/20 text-emerald-300">
             100% compliance
           </div>
@@ -136,8 +186,12 @@ export function ComparisonTimeline() {
       ),
       rightContent: (
         <CardSpotlight className="h-full w-full" color="#6b7280">
-          <div className="text-xs font-medium text-gray-500 mb-3">Without Us</div>
-          <p className="text-2xl font-bold text-gray-300 mb-2">Costly penalties</p>
+          <div className="text-xs font-medium text-gray-500 mb-3">
+            Without Us
+          </div>
+          <p className="text-lg lg:text-xl font-bold text-gray-300 mb-2">
+            Costly penalties
+          </p>
           <p className="text-gray-500 mb-4">On missed clauses</p>
           <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-800/50 text-gray-400">
             High risk
@@ -152,7 +206,9 @@ export function ComparisonTimeline() {
       <div className="max-w-[1320px] mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <Badge variant="outline" className="mb-4">WITH US / WITHOUT US</Badge>
+          <Badge variant="outline" className="mb-4">
+            WITH US / WITHOUT US
+          </Badge>
           <h2 className="text-foreground text-4xl font-semibold leading-tight mb-4">
             The New Standard for Proposal Teams
           </h2>
