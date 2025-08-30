@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useDemoModal } from "@/hooks/use-demo-modal";
 import { DemoRequestForm } from "@/components/demo-request-form";
+import { CyclingTypewriter } from "@/components/ui/cycling-typewriter";
 import Link from "next/link";
 
 export function CTASection() {
@@ -24,7 +25,12 @@ export function CTASection() {
           <div className="relative z-20 text-center py-12 md:py-16">
             {/* Headline */}
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Ready to Transform Your Bid Process?
+              <CyclingTypewriter
+                staticText="Ready to Transform Your"
+                cyclingPhrases={["Bid Process?", "Tender Management?", "Proposal Strategy?"]}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground"
+                highlightClassName="text-primary"
+              />
             </h2>
             
             {/* Subheadline */}
