@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { X } from 'lucide-react'
 import emailjs from '@emailjs/browser'
 import { Button } from '@/components/ui/button'
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 interface DemoRequestFormProps {
   isOpen: boolean
@@ -18,12 +20,13 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
     lastName: '',
     company: '',
     email: '',
-    jobTitle: '',
     phone: '',
-    companySize: '',
-    primaryUseCase: '',
-    monthlyBidVolume: '',
-    biggestChallenge: ''
+    // Default values for fields not shown in form but needed for email template
+    jobTitle: 'Not specified',
+    companySize: 'Not specified',
+    primaryUseCase: 'General Inquiry',
+    monthlyBidVolume: 'Not specified',
+    biggestChallenge: 'Not specified'
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -48,12 +51,13 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
         lastName: '',
         company: '',
         email: '',
-        jobTitle: '',
         phone: '',
-        companySize: '',
-        primaryUseCase: '',
-        monthlyBidVolume: '',
-        biggestChallenge: ''
+        // Reset to default values for hidden fields
+        jobTitle: 'Not specified',
+        companySize: 'Not specified',
+        primaryUseCase: 'General Inquiry',
+        monthlyBidVolume: 'Not specified',
+        biggestChallenge: 'Not specified'
       })
       
       // Close modal after 2 seconds
@@ -89,7 +93,7 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
       {/* Modal Container - Using inset-0 and flex for centering */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         {/* Modal Content */}
-        <div className="relative bg-background rounded-lg shadow-xl w-full max-w-lg max-h-[85vh] overflow-y-auto border border-border">
+        <div className="relative bg-background rounded-lg shadow-xl w-full max-w-2xl max-h-[85vh] overflow-y-auto border border-border">
           {showSuccess ? (
             // Success Message
             <div className="p-8 text-center">
@@ -103,7 +107,7 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
             </div>
           ) : (
             <>
-              <div className="flex items-center justify-between p-6 border-b border-border">
+              <div className="flex items-center justify-between p-8 border-b border-border">
                 <h2 className="text-2xl font-semibold text-foreground">Request Demo</h2>
                 <button
                   onClick={onClose}
@@ -113,10 +117,10 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
                 </button>
               </div>
 
-          <form onSubmit={handleSubmit} className="p-6 space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+          <form onSubmit={handleSubmit} className="p-8 space-y-6">
+            <div className="grid grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   First Name *
                 </label>
                 <input
@@ -125,12 +129,12 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
                   required
                   value={formData.firstName}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1">
+                <label className="block text-sm font-medium text-foreground mb-2">
                   Last Name *
                 </label>
                 <input
@@ -139,13 +143,13 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
                   required
                   value={formData.lastName}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1">
+              <label className="block text-sm font-medium text-foreground mb-2">
                 Company *
               </label>
               <input
@@ -154,12 +158,12 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
                 required
                 value={formData.company}
                 onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1">
+              <label className="block text-sm font-medium text-foreground mb-2">
                 Email *
               </label>
               <input
@@ -168,114 +172,72 @@ export function DemoRequestForm({ isOpen, onClose }: DemoRequestFormProps) {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-foreground mb-1">
-                Job Title *
-              </label>
-              <input
-                type="text"
-                name="jobTitle"
-                required
-                value={formData.jobTitle}
-                onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-1">
+              <label className="block text-sm font-medium text-foreground mb-2">
                 Phone
               </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-1">
-                Company Size *
-              </label>
-              <select
-                name="companySize"
-                required
-                value={formData.companySize}
-                onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              >
-                <option value="">Select size</option>
-                <option value="1-10">1-10 employees</option>
-                <option value="11-50">11-50 employees</option>
-                <option value="51-200">51-200 employees</option>
-                <option value="201-1000">201-1000 employees</option>
-                <option value="1000+">1000+ employees</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-1">
-                Primary Use Case *
-              </label>
-              <select
-                name="primaryUseCase"
-                required
-                value={formData.primaryUseCase}
-                onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              >
-                <option value="">Select use case</option>
-                <option value="Government Contracting">Government Contracting</option>
-                <option value="Construction Bidding">Construction Bidding</option>
-                <option value="Professional Services">Professional Services</option>
-                <option value="Engineering">Engineering & Consulting</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-1">
-                Monthly Bid Volume *
-              </label>
-              <select
-                name="monthlyBidVolume"
-                required
-                value={formData.monthlyBidVolume}
-                onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-              >
-                <option value="">Select volume</option>
-                <option value="1-5">1-5 bids/month</option>
-                <option value="6-15">6-15 bids/month</option>
-                <option value="16-50">16-50 bids/month</option>
-                <option value="50+">50+ bids/month</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-1">
-                Biggest Challenge
-              </label>
-              <textarea
-                name="biggestChallenge"
-                rows={3}
-                value={formData.biggestChallenge}
-                onChange={handleChange}
-                className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Tell us about your main pain points..."
-              />
+              <div className="phone-input-wrapper">
+                <PhoneInput
+                  placeholder="Enter phone number"
+                  value={formData.phone}
+                  onChange={(value) => setFormData({ ...formData, phone: value || '' })}
+                  defaultCountry="IN"
+                  international
+                  withCountryCallingCode
+                  countryCallingCodeEditable={false}
+                  className="w-full"
+                />
+              </div>
+              <style jsx>{`
+                .phone-input-wrapper :global(.PhoneInput) {
+                  --PhoneInput-color--focus: hsl(var(--primary));
+                  --PhoneInputCountryFlag-aspectRatio: 1.33;
+                  --PhoneInputCountryFlag-height: 1.2em;
+                  --PhoneInputCountrySelectArrow-color: hsl(var(--muted-foreground));
+                  --PhoneInputCountrySelectArrow-opacity: 1;
+                }
+                
+                .phone-input-wrapper :global(.PhoneInputInput) {
+                  background: hsl(var(--background));
+                  color: hsl(var(--foreground));
+                  border: 1px solid hsl(var(--border));
+                  border-radius: 6px;
+                  padding: 12px 16px;
+                  font-size: 16px;
+                  width: 100%;
+                  outline: none;
+                  transition: border-color 0.2s, box-shadow 0.2s;
+                }
+                
+                .phone-input-wrapper :global(.PhoneInputInput:focus) {
+                  border-color: hsl(var(--primary));
+                  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+                }
+                
+                .phone-input-wrapper :global(.PhoneInputCountry) {
+                  background: hsl(var(--background));
+                  border: 1px solid hsl(var(--border));
+                  border-right: none;
+                  border-radius: 6px 0 0 6px;
+                  padding: 12px 8px;
+                }
+                
+                .phone-input-wrapper :global(.PhoneInputInput) {
+                  border-left: none;
+                  border-radius: 0 6px 6px 0;
+                  padding-left: 12px;
+                }
+              `}</style>
             </div>
 
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 text-lg font-medium"
             >
               {isSubmitting ? 'Sending...' : 'Request Demo'}
             </Button>

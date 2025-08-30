@@ -227,4 +227,4 @@ Breaking these guidelines will result in:
 - **TypeScript**: Strict mode enabled, uses `@/*` path alias
 - **Tailwind**: Custom color system using CSS variables, container configuration
 - **Next.js**: Images unoptimized, ESLint/TypeScript errors ignored during build
-- We will be making lots of UI chnmages section by section. Make surre to create the page for it and follow the global fonts and styling. Aftereach implementation use playwright mcp server to check the implemetation. Dev server is always running. No need to run it.
+- We will be making lots of UI chnmages section by section. Make surre to create the page for it and follow the global fonts and styling. Dev server is always running. No need to run it.
