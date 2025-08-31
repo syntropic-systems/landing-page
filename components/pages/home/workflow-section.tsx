@@ -1,7 +1,18 @@
 "use client";
 
 import React, { useCallback, useMemo, useEffect, useState } from "react";
-import FileCycleBox from "@/components/animated-file-flow";
+import {
+  ImageFileBox,
+  PdfFileBox,
+  ExcelFileBox,
+  DocxFileBox,
+  PngFileBox,
+  WebpFileBox,
+  AwsConnectorBox,
+  SlackConnectorBox,
+  SqlDatabaseConnectorBox,
+  MailConnectorBox,
+} from "@/components/animated-file-flow";
 import {
   ReactFlow,
   useNodesState,
@@ -69,37 +80,85 @@ export function WorkflowSection() {
     () => [
       {
         id: "1",
-        type: "fileNode",
-        position: { x: 100, y: 100 },
+        type: "imageFileNode",
+        position: { x: 100, y: -100 },
         data: { label: "Node 1" },
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
       },
       {
         id: "2",
-        type: "coreNode",
-        position: { x: 400, y: 100 },
+        type: "pdfFileNode",
+        position: { x: 100, y: 10 },
         data: { label: "Node 2" },
         sourcePosition: Position.Right,
         targetPosition: Position.Left,
       },
       {
         id: "3",
-        type: "goNode",
-        position: { x: 700, y: -100 },
+        type: "excelFileNode",
+        position: { x: 100, y: 120 },
         data: { label: "Node 3" },
+        sourcePosition: Position.Right,
+        targetPosition: Position.Left,
       },
       {
         id: "4",
-        type: "contentNode",
-        position: { x: 700, y: 100 },
+        type: "docxFileNode",
+        position: { x: 100, y: 230 },
         data: { label: "Node 4" },
+        sourcePosition: Position.Right,
+        targetPosition: Position.Left,
       },
       {
-        id: "5",
+        id: "7",
+        type: "coreNode",
+        position: { x: 400, y: 0 },
+        data: { label: "Node 7" },
+        sourcePosition: Position.Right,
+        targetPosition: Position.Left,
+      },
+      {
+        id: "8",
+        type: "goNode",
+        position: { x: 700, y: -180 },
+        data: { label: "Node 8" },
+      },
+      {
+        id: "9",
+        type: "contentNode",
+        position: { x: 700, y: 0 },
+        data: { label: "Node 9" },
+      },
+      {
+        id: "10",
         type: "compareNode",
-        position: { x: 700, y: 300 },
-        data: { label: "Node 5" },
+        position: { x: 700, y: 180 },
+        data: { label: "Node 10" },
+      },
+      {
+        id: "aws",
+        type: "awsConnectorNode",
+        position: { x: 420, y: -130 },
+        data: { label: "Node aws" },
+      },
+      {
+        id: "slack",
+        type: "slackConnectorNode",
+        position: { x: 520, y: -130 },
+        data: { label: "Node slack" },
+      },
+      {
+        id: "database",
+        type: "sqlDatabaseConnectorNode",
+        position: { x: 420, y: 230 },
+        data: { label: "Node database" },
+      },
+      {
+        id: "mail",
+        type: "mailConnectorNode",
+        position: { x: 520, y: 230 },
+        data: { label: "Node mail" },
       },
     ],
     []
@@ -108,33 +167,73 @@ export function WorkflowSection() {
   const initialEdges: Edge[] = useMemo(
     () => [
       {
-        id: "e1-2",
+        id: "e1-7",
         source: "1",
-        target: "3",
+        target: "7",
         animated: true,
       },
       {
-        id: "e1-2",
-        source: "1",
-        target: "2",
-        animated: true,
-      },
-      {
-        id: "e2-3",
+        id: "e2-7",
         source: "2",
-        target: "3",
+        target: "7",
         animated: true,
       },
       {
-        id: "e2-4",
-        source: "2",
-        target: "4",
+        id: "e3-7",
+        source: "3",
+        target: "7",
         animated: true,
       },
       {
-        id: "e2-5",
-        source: "2",
-        target: "5",
+        id: "e4-7",
+        source: "4",
+        target: "7",
+        animated: true,
+      },
+      {
+        id: "e7-8",
+        source: "7",
+        target: "8",
+        animated: true,
+      },
+      {
+        id: "e7-9",
+        source: "7",
+        target: "9",
+        animated: true,
+      },
+      {
+        id: "e7-10",
+        source: "7",
+        target: "10",
+        animated: true,
+      },
+      {
+        id: "e7-aws",
+        source: "aws",
+        targetHandle: "top",
+        target: "7",
+        animated: true,
+      },
+      {
+        id: "e7-slack",
+        source: "slack",
+        targetHandle: "top",
+        target: "7",
+        animated: true,
+      },
+      {
+        id: "e7-database",
+        source: "database",
+        targetHandle: "bottom",
+        target: "7",
+        animated: true,
+      },
+      {
+        id: "e7-mail",
+        source: "mail",
+        targetHandle: "bottom",
+        target: "7",
         animated: true,
       },
     ],
@@ -152,7 +251,7 @@ export function WorkflowSection() {
   );
 
   const nodeTypes = {
-    fileNode: FileFlowNode,
+    fileNode: ImageFileNode,
     coreNode: CoreNode,
     goNode: GoNode,
     contentNode: ContentNode,
@@ -209,15 +308,24 @@ function AnimatedGraph({
   onConnect: (params: Connection) => void;
 }) {
   const nodeTypes = {
-    fileNode: FileFlowNode,
+    imageFileNode: ImageFileNode,
+    pdfFileNode: PdfFileNode,
+    excelFileNode: ExcelFileNode,
+    docxFileNode: DocxFileNode,
+    pngFileNode: PngFileNode,
+    webpFileNode: WebpFileNode,
     coreNode: CoreNode,
     goNode: GoNode,
     contentNode: ContentNode,
     compareNode: CompareNode,
+    awsConnectorNode: AwsNode,
+    slackConnectorNode: SlackNode,
+    sqlDatabaseConnectorNode: DatabaseNode,
+    mailConnectorNode: EmailNode,
   };
 
   return (
-    <div className="h-[50vh] lg:h-full w-full">
+    <div className="h-[30vh] md:h-[50vh] lg:h-full w-full">
       <ReactFlow
         nodes={nodes}
         nodeTypes={nodeTypes}
@@ -231,17 +339,104 @@ function AnimatedGraph({
         onEdgesChange={() => {}}
         onConnect={onConnect}
         proOptions={{ hideAttribution: true }}
-        fitView
+        fitView={true}
+        minZoom={0.1}
       ></ReactFlow>
     </div>
   );
 }
 
-function FileFlowNode() {
+function AwsNode() {
+  return (
+    <>
+      <AwsConnectorBox />
+      <Handle type="source" position={Position.Bottom} />
+    </>
+  );
+}
+
+function SlackNode() {
+  return (
+    <>
+      <SlackConnectorBox />
+      <Handle type="source" position={Position.Bottom} />
+    </>
+  );
+}
+
+function DatabaseNode() {
+  return (
+    <>
+      <Handle type="source" position={Position.Top} />
+      <SqlDatabaseConnectorBox />
+    </>
+  );
+}
+
+function EmailNode() {
+  return (
+    <>
+      <Handle type="source" position={Position.Top} />
+      <MailConnectorBox />
+    </>
+  );
+}
+
+function PdfFileNode() {
   return (
     <>
       <Handle type="target" position={Position.Left} />
-      <FileCycleBox />
+      <PdfFileBox />
+      <Handle type="source" position={Position.Right} />
+    </>
+  );
+}
+
+function ImageFileNode() {
+  return (
+    <>
+      <Handle type="target" position={Position.Left} />
+      <ImageFileBox />
+      <Handle type="source" position={Position.Right} />
+    </>
+  );
+}
+
+function ExcelFileNode() {
+  return (
+    <>
+      <Handle type="target" position={Position.Left} />
+      <ExcelFileBox />
+      <Handle type="source" position={Position.Right} />
+    </>
+  );
+}
+
+function DocxFileNode() {
+  return (
+    <>
+      <Handle type="target" position={Position.Left} />
+      <DocxFileBox />
+      <Handle type="source" position={Position.Right} />
+    </>
+  );
+}
+
+function PngFileNode() {
+  return (
+    <>
+      <Handle type="target" position={Position.Left} />
+      <PngFileBox />
+      <Handle type="source" position={Position.Right} />
+    </>
+  );
+}
+
+function WebpFileNode() {
+  return (
+    <>
+      <Handle type="target" position={Position.Left} />
+      <WebpFileBox />
       <Handle type="source" position={Position.Right} />
     </>
   );
@@ -250,7 +445,9 @@ function FileFlowNode() {
 function CoreNode() {
   return (
     <div className="bg-none text-black p-4 rounded-lg w-fit relative">
-      <Handle type="target" position={Position.Left} />
+      <Handle type="target" position={Position.Left} id="left" />
+      <Handle type="target" position={Position.Bottom} id="bottom" />
+      <Handle type="target" position={Position.Top} id="top" />
       <svg
         width="203"
         height="158"

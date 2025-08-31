@@ -36,7 +36,7 @@ export const Section = React.forwardRef<HTMLDivElement, SectionProps>(
     <section
       ref={ref}
       className={cn(
-        `relative overflow-hidden flex flex-col pb-12 sm:pb-16 md:pb-20 xl:pb-40 m-0 gap-y-6 md:gap-y-10 xl:gap-y-12 sm:px-6 md:px-30 xl:px-36`,
+        `relative overflow-hidden flex flex-col pb-12 sm:pb-16 md:pb-32 xl:pb-40 m-0 gap-y-6 md:gap-y-10 xl:gap-y-12 sm:px-6 md:px-30 xl:px-36`,
         className
       )}
       {...props}
