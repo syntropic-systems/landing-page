@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
+import { Section } from "@/components/ui/section";
+import { Container } from "@/components/ui/container";
 
 const content = [
   {
@@ -71,20 +73,26 @@ const content = [
 
 export function TechnologySection() {
   return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            The RAG-Powered Difference
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+    <Section
+      title="The RAG-Powered Difference"
+      subtitle="Most AI tools just summarize data; ours understands it."
+    >
+      <Container className="relative">
+        {/* Background glow - matches bento section pattern */}
+        <div className="w-[300px] h-[400px] md:w-[547px] md:h-[938px] absolute top-[40%] left-[15%] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[100px] md:blur-[130px] z-0" />
+        
+        {/* Introduction text */}
+        <div className="relative z-10 text-center mb-8 max-w-4xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground">
             Our platform is engineered on a custom Retrieval-Augmented Generation (RAG) architecture. It doesn't just guess; it retrieves facts from your data first, then intelligently generates answers. This is our core advantage, and it delivers on four promises other platforms can't match:
           </p>
         </div>
-        <div className="w-full">
+
+        {/* Sticky Scroll Component */}
+        <div className="relative z-10 w-full">
           <StickyScroll content={content} />
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

@@ -1,10 +1,11 @@
+import { Header } from "@/components/header";
 import { HeroSection } from "@/components/pages/home/hero-section";
 import { ComparisonTimeline } from "@/components/pages/home/comparison-timeline";
 import { SocialProof } from "@/components/pages/home/social-proof";
-import { BentoSection } from "@/components/pages/home/bento-section";
 import { WorkflowSection } from "@/components/pages/home/workflow-section";
-import { SolutionsByRole } from "@/components/pages/home/solutions-by-role";
 import { TechnologySection } from "@/components/pages/home/technology-section";
+import { BentoSection } from "@/components/pages/home/bento-section";
+import { SolutionsByRole } from "@/components/pages/home/solutions-by-role";
 import { TestimonialsInfinite } from "@/components/pages/home/testimonials-infinite";
 import { FAQSection } from "@/components/pages/home/faq-section";
 import { CTASection } from "@/components/pages/home/cta-section";
@@ -21,16 +22,16 @@ export default function LandingPage() {
         <main className="relative">
           <HeroSection />
         </main>
-        <div className={`${GUTTERS_MARGIN}`}>
+        <div className={`${GUTTERS_MARGIN} pt-12 sm:pt-16 md:pt-20 xl:pt-40`}>
           <AnimatedSection
             id="comparison-timeline-section"
-            className="relative z-10 mx-auto mt-16"
+            className="relative z-10"
             delay={0.1}
           >
             <ComparisonTimeline />
           </AnimatedSection>
           <AnimatedSection
-            className="relative z-10 max-w-[1320px] mx-auto px-6 mt-16"
+            className="relative z-10 max-w-[1320px] px-6"
             delay={0.1}
           >
             <SocialProof />
@@ -40,54 +41,54 @@ export default function LandingPage() {
           </AnimatedSection>
           <AnimatedSection
             id="technology-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.17}
           >
             <TechnologySection />
           </AnimatedSection>
           <AnimatedSection
             id="features-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <BentoSection />
           </AnimatedSection>
           <AnimatedSection
             id="solutions-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <SolutionsByRole />
           </AnimatedSection>
           <AnimatedSection
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <TestimonialsInfinite />
           </AnimatedSection>
           <AnimatedSection
             id="faq-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <FAQSection />
           </AnimatedSection>
           <AnimatedSection
             id="cta-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <CTASection />
           </AnimatedSection>
           <AnimatedSection
             id="contact-section"
-            className="relative z-10 mt-16"
+            className="relative z-10"
             delay={0.2}
           >
             <ContactSection />
           </AnimatedSection>
           <AnimatedSection
-            className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+            className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <FooterSection />

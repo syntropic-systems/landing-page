@@ -24,7 +24,7 @@ function HeroContent() {
           </Subtitle>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 items-center justify-center gap-x-6">
+        <div className="flex flex-col md:flex-row gap-y-4 pt-8 xl:pt-0 md:gap-y-0 items-center justify-center gap-x-6">
           <Button
             onClick={openModal}
             className="relative z-10 bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3 rounded-full font-medium text-base shadow-lg ring-1 ring-white/10"

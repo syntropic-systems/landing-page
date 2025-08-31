@@ -44,7 +44,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   }, [scrollYProgress, data.length]);
 
   return (
-    <div className="w-full bg-background font-sans px-4" ref={containerRef}>
+    <div className="w-full bg-background font-sans" ref={containerRef}>
       <div className="max-w-7xl mx-auto px-0">
         <div ref={ref} className="relative max-w-7xl pb-10">
           {data.map((item, index) => (
