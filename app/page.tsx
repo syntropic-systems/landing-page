@@ -33,18 +33,18 @@ export default function LandingPage() {
             <WorkflowSection />
           </AnimatedSection>
           <AnimatedSection
-            id="technology-section"
-            className="relative z-10 max-w-[1320px]"
-            delay={0.17}
-          >
-            <TechnologySection />
-          </AnimatedSection>
-          <AnimatedSection
             id="features-section"
             className="relative z-10 max-w-[1320px]"
             delay={0.2}
           >
             <BentoSection />
+          </AnimatedSection>
+          <AnimatedSection
+            id="technology-section"
+            className="relative z-10 max-w-[1320px]"
+            delay={0.17}
+          >
+            <TechnologySection />
           </AnimatedSection>
           <AnimatedSection
             id="solutions-section"

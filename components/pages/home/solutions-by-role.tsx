@@ -7,7 +7,7 @@ const roles = [
     id: "ceo",
     title: "For the CEO",
     description: "Executive Leadership",
-    src: "/images/avatars/ceo.png",
+    src: "/images/avatars/ceo2.png",
     content: {
       benefits: [
         "Make faster, data-driven decisions on which market opportunities to pursue",
@@ -24,7 +24,7 @@ const roles = [
     id: "bid-manager",
     title: "For the Bid Manager", 
     description: "Bid Management",
-    src: "/images/avatars/bid.png",
+    src: "/images/avatars/bid2.png",
     content: {
       benefits: [
         "Reduce analysis time by up to 90%",
@@ -41,7 +41,7 @@ const roles = [
     id: "legal",
     title: "For the Legal Team",
     description: "Legal & Compliance", 
-    src: "/images/avatars/legal.png",
+    src: "/images/avatars/legal2.png",
     content: {
       benefits: [
         "Proactively identify contractual risks and non-compliant clauses",
@@ -58,7 +58,7 @@ const roles = [
     id: "sales",
     title: "For the Sales Lead",
     description: "Sales Leadership",
-    src: "/images/avatars/sales.png",
+    src: "/images/avatars/sales2.png",
     content: {
       benefits: [
         "Generate higher-quality proposals with unprecedented speed",
@@ -75,7 +75,7 @@ const roles = [
     id: "finance",
     title: "For the Finance Team",
     description: "Finance & Analysis",
-    src: "/images/avatars/finance.png",
+    src: "/images/avatars/finance2.png",
     content: {
       benefits: [
         "Instantly pull pricing data and cost estimates from vast project documents",
@@ -133,13 +133,13 @@ export function SolutionsByRole() {
         {/* Tab Content */}
         <div className="max-w-6xl mx-auto">
           <div className="bg-muted/20 rounded-xl p-6 md:p-8">
-            <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
+            <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
               {/* Left side - Large Image */}
               <div className="flex-shrink-0">
                 <img
                   src={activeRole.src}
                   alt={activeRole.title}
-                  className="w-48 h-48 md:w-64 md:h-64 rounded-lg object-cover mx-auto md:mx-0"
+                  className="w-72 h-72 md:w-96 md:h-96 rounded-lg object-cover mx-auto md:mx-0"
                 />
               </div>
 

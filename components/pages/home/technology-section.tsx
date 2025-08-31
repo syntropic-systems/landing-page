@@ -6,13 +6,13 @@ import { Container } from "@/components/ui/container";
 
 const content = [
   {
-    title: "AI-Powered Analysis",
+    title: "The Foundation: Your Intelligent Data Core",
     description:
-      "Our RAG system intelligently analyzes your documents, contracts, and legal data in real-time. Using advanced machine learning algorithms, we extract key insights and provide instant answers to complex legal questions with unprecedented accuracy.",
+      "Instead of generic summaries, our RAG system builds a deep, contextual understanding of your entire document library. It reads, classifies, and connects every clause, contract, and past proposal to create a secure, centralized knowledge base—your organization's single source of truth.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
         <img
-          src="/images/avatars/ceo.png"
+          src="/images/features/foundation2.png"
           width={300}
           height={300}
           className="h-full w-full object-contain rounded-lg"
@@ -22,13 +22,13 @@ const content = [
     ),
   },
   {
-    title: "Real-time Legal Insights",
+    title: "The Application: Precision Contract Intelligence",
     description:
-      "Get instant access to relevant legal precedents, regulations, and case law. Our RAG technology continuously updates its knowledge base, ensuring you always have the most current and accurate legal information at your fingertips.",
+      "Leverage your intelligent data core to review contracts with unparalleled accuracy. The AI doesn't just find keywords; it understands legal nuance to proactively flag risks, identify non-compliant clauses, and highlight missing obligations in minutes, not weeks.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
         <img
-          src="/images/avatars/legal.png"
+          src="/images/features/application.png"
           width={300}
           height={300}
           className="h-full w-full object-contain rounded-lg"
@@ -38,13 +38,13 @@ const content = [
     ),
   },
   {
-    title: "Smart Contract Review",
+    title: "The Augmentation: Instant, Verifiable Answers",
     description:
-      "Transform your contract review process with our intelligent RAG system. Automatically identify risks, missing clauses, and compliance issues. Our AI understands context and nuance, providing detailed explanations and recommendations for every document.",
+      "Move beyond simple search. Ask complex questions in plain English and get precise, verifiable answers cited directly to the source document. Our system retrieves facts first, then generates hallucination-free responses your entire team can trust.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
         <img
-          src="/images/avatars/finance.png"
+          src="images/features/augment.png"
           width={300}
           height={300}
           className="h-full w-full object-contain rounded-lg"
@@ -54,13 +54,13 @@ const content = [
     ),
   },
   {
-    title: "Seamless Team Collaboration",
+    title: "The Collaboration: A Unified Intelligence Layer",
     description:
-      "Enable your entire team to leverage RAG-powered insights. Sales, legal, and finance teams can access the same intelligent analysis, ensuring consistent decision-making across your organization. Share insights, collaborate on documents, and maintain alignment effortlessly.",
+      "Extend this trusted intelligence across your entire organization. Legal, Sales, and Finance teams all work from the same AI-powered insights, ensuring total alignment. Share analysis, collaborate on drafts, and make faster, smarter decisions together.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
         <img
-          src="/images/avatars/sales.png"
+          src="/images/features/collab.png"
           width={300}
           height={300}
           className="h-full w-full object-contain rounded-lg"
