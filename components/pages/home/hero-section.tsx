@@ -5,12 +5,11 @@ import { H1, Subtitle } from "@/components/ui/typography";
 import { Button } from "@/components/ui/button";
 import { Header } from "../../header";
 import Link from "next/link";
-import { DemoRequestForm } from "@/components/demo-request-form";
 import { useDemoModal } from "@/hooks/use-demo-modal";
 import ShaderBackground from "@/components/shader-background";
 
 function HeroContent() {
-  const { isOpen, openModal, closeModal } = useDemoModal();
+  const { openModal } = useDemoModal();
 
   return (
     <>
@@ -46,8 +45,6 @@ function HeroContent() {
           </Link>
         </div>
       </div>
-
-      <DemoRequestForm isOpen={isOpen} onClose={closeModal} />
     </>
   );
 }

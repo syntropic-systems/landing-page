@@ -5,6 +5,7 @@ import {
   JetBrains_Mono,
 } from "next/font/google";
 import "./globals.css";
+import { ClientLayoutWrapper } from "./client-layout-wrapper";
 
 // Configure the fonts
 const rethinkSans = Rethink_Sans({
@@ -40,7 +41,9 @@ export default function RootLayout({
       lang="en"
       className={`${rethinkSans.variable} ${hedvigLettersSerif.variable} ${jetbrainsMono.variable}`}
     >
-      <body className={rethinkSans.className}>{children}</body>
+      <body className={rethinkSans.className}>
+        <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+      </body>
     </html>
   );
 }
