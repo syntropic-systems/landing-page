@@ -31,7 +31,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   // Calculate which timeline item should be active based on scroll progress
   useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((latest) => {
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
       const newActiveIndex = Math.floor(latest * data.length);
       const clampedIndex = Math.min(
         Math.max(newActiveIndex, 0),
