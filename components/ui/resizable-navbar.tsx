@@ -14,7 +14,6 @@ import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-
 interface NavbarProps {
   children: React.ReactNode;
   className?: string;
@@ -80,7 +79,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
           ? React.cloneElement(child as React.ReactElement<any>, {
               visible,
             })
-          : child,
+          : child
       )}
     </motion.div>
   );
@@ -118,7 +117,7 @@ export const NavBody = React.forwardRef<
         ease: easeInOutQuart,
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 py-2 xl:flex",
+        "relative z-[60] py-4 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 xl:flex",
         className
       )}
     >
@@ -126,6 +125,8 @@ export const NavBody = React.forwardRef<
     </motion.div>
   );
 });
+
+NavBody.displayName = "NavBody";
 
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -135,7 +136,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
       onMouseLeave={() => setHovered(null)}
       className={cn(
         "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium text-zinc-600 transition duration-200 hover:text-zinc-800 lg:flex lg:space-x-2",
-        className,
+        className
       )}
     >
       {items.map((item, idx) => (
@@ -169,7 +170,7 @@ export const MobileNav = ({
   visible?: boolean;
 }) => {
   const { scrollY } = useScroll();
-  
+
   // Animation transforms for mobile nav
   const y = useTransform(scrollY, [0, 100], [0, 10]);
   const backdropFilter = useTransform(
@@ -185,8 +186,8 @@ export const MobileNav = ({
         backdropFilter,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 xl:hidden",
-        className,
+        "relative z-50 rounded-lg overflow-hidden mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 xl:hidden",
+        className
       )}
     >
       {children}
@@ -202,7 +203,7 @@ export const MobileNavHeader = ({
     <div
       className={cn(
         "relative z-50 flex w-full flex-row items-center justify-between px-4 py-2",
-        className,
+        className
       )}
     >
       {children}
@@ -236,7 +237,7 @@ export const MobileNavMenu = ({
               "fixed left-4 right-4 top-20 z-50 mt-2 flex flex-col gap-4 rounded-2xl p-6",
               "bg-white/80 backdrop-blur-xl dark:bg-neutral-950/80",
               "border border-neutral-200/50 dark:border-neutral-800/50",
-              className,
+              className
             )}
           >
             {children}
@@ -255,9 +256,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="text-black dark:text-white" onClick={onClick} />
+    <IconX className="text-primary dark:text-white" onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-black dark:text-white" onClick={onClick} />
+    <IconMenu2 className="text-primary dark:text-white" onClick={onClick} />
   );
 };
 
@@ -316,8 +317,7 @@ export const NavbarButton = ({
     "px-4 py-2 rounded-full bg-white button bg-white text-black text-base font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
   const variantStyles = {
-    primary:
-      "shadow-none",
+    primary: "shadow-none",
     secondary: "bg-transparent shadow-none dark:text-white",
     dark: "bg-black text-white shadow-none",
     gradient:
@@ -333,4 +333,4 @@ export const NavbarButton = ({
       {children}
     </Tag>
   );
-}; 
+};

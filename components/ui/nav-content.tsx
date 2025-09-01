@@ -10,17 +10,17 @@ interface NavContentProps {
 
 export function NavContent({ children, className }: NavContentProps) {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 100], [0, 8]); // Downward movement
+  const y = useTransform(scrollY, [0, 100], [8, 0]); // Downward movement
 
   return (
     <motion.div
       style={{ y }}
       className={cn(
         "absolute inset-0 hidden lg:flex xl:hidden 2xl:flex items-center justify-center",
-        className,
+        className
       )}
     >
       {children}
     </motion.div>
   );
-} 
+}
