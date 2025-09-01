@@ -31,13 +31,20 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   // Calculate which timeline item should be active based on scroll progress
   useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((latest) => {
-      const clampedIndex = Math.min(Math.max(height, 0), data.length - 1);
+    const unsubscribe = scrollYProgress.on("change", (latest) => {
+      console.log(latest);
+      console.log({ latest, height, heightTransform: heightTransform.get() });
+
+      const clampedIndex = Math.min(
+        Math.max(heightTransform.get(), 0),
+        heightTransform.get() * (data.length - 1)
+      );
+
       setActiveIndex(clampedIndex);
     });
 
     return () => unsubscribe();
-  }, [scrollYProgress, height, data.length]);
+  }, [scrollYProgress, data.length]);
 
   return (
     <div className="w-full bg-background font-sans" ref={containerRef}>
@@ -90,7 +97,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     style={{
                       filter:
                         activeIndex >= index
-                          ? "drop-shadow(0 0 20px var(--react-flow-emerald) / 0.3) drop-shadow(0 0 40px var(--react-flow-emerald) / 0.15)"
+                          ? "drop-shadow(0 0 20px var(--emerald-500) / 0.3) drop-shadow(0 0 40px var(--emerald-500) / 0.15)"
                           : "none",
                     }}
                   >
