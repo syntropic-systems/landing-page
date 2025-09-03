@@ -35,18 +35,17 @@ export const StickyScroll = ({
         }
         return acc;
       },
-      0,
+      0
     );
     setActiveCard(closestBreakpointIndex);
   });
-
 
   return (
     <div
       className="relative flex h-[30rem] justify-between items-start gap-8 lg:gap-16 overflow-y-auto rounded-md p-6 md:p-10 scrollbar-hide"
       style={{
-        scrollbarWidth: 'none', // Firefox
-        msOverflowStyle: 'none', // IE and Edge
+        scrollbarWidth: "none", // Firefox
+        msOverflowStyle: "none", // IE and Edge
       }}
       ref={ref}
     >
@@ -84,10 +83,21 @@ export const StickyScroll = ({
       <div
         className={cn(
           "sticky top-10 hidden h-96 w-full max-w-md xl:max-w-lg overflow-hidden rounded-lg lg:block",
-          contentClassName,
+          contentClassName
         )}
       >
-        {content[activeCard].content ?? null}
+        <div className="relative h-full w-full">
+          {content.map((item, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-300 ${
+                activeCard === index ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              {item.content}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
