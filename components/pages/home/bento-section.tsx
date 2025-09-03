@@ -9,7 +9,7 @@ export function BentoSection() {
   return (
     <Section
       title="The AI-Powered Intelligence Engine"
-      subtitle="This is the core of our platform, working in the background to turn your scattered documents into a strategic advantage. It's the brain of the operation."
+      subtitle="This is the core of our platform, transforming your scattered documents into a strategic advantage. It's the brain of your operation."
     >
       <div className="w-full relative flex flex-col justify-start items-start gap-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 max-w-7xl mx-auto w-full z-10">

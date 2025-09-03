@@ -90,12 +90,12 @@ export const InfiniteMovingCards = ({
             className="relative w-[380px] max-w-full shrink-0 rounded-2xl border border-border bg-card/20 backdrop-blur-sm px-8 py-8 md:w-[480px] md:py-10 lg:py-12 shadow-lg hover:bg-card/30 transition-all duration-300 h-[280px] md:h-[300px] lg:h-[320px]"
             key={item.name}
           >
-            <blockquote className="flex flex-col h-full">
+            <blockquote className="flex flex-col justify-center h-full">
               <div
                 aria-hidden="true"
                 className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)] rounded-2xl bg-gradient-to-br from-primary/10 to-transparent opacity-50"
               ></div>
-              <span className="relative z-20 text-base md:text-lg leading-[1.6] font-normal text-foreground flex-1">
+              <span className="relative z-20 text-base md:text-lg leading-[1.6] font-normal text-foreground flex-1 flex items-center">
                 "{item.quote}"
               </span>
               <div className="relative z-20 flex flex-row items-center mt-6">
