@@ -13,47 +13,47 @@ const roles = [
       benefits: [
         "Make faster, data-driven decisions on which market opportunities to pursue",
         "Free up capital and focus strategic resources on winnable projects",
-        "Increase company-wide win rates and revenue"
+        "Increase company-wide win rates and revenue",
       ],
       metrics: [
         { value: "10x faster", label: "Decision Speed" },
-        { value: "40% improvement", label: "Resource Optimization" }
-      ]
-    }
+        { value: "40% improvement", label: "Resource Optimization" },
+      ],
+    },
   },
   {
     id: "bid-manager",
-    title: "For the Bid Manager", 
+    title: "For the Bid Manager",
     description: "Bid Management",
     src: "/images/avatars/bid2.png",
     content: {
       benefits: [
         "Reduce analysis time by up to 90%",
         "Increase bid volume without adding headcount",
-        "Focus your team on the strategic elements of the win"
+        "Focus your team on the strategic elements of the win",
       ],
       metrics: [
         { value: "90% reduction", label: "Analysis Time" },
-        { value: "3x increase", label: "Bid Capacity" }
-      ]
-    }
+        { value: "3x increase", label: "Bid Capacity" },
+      ],
+    },
   },
   {
     id: "legal",
     title: "For the Legal Team",
-    description: "Legal & Compliance", 
+    description: "Legal & Compliance",
     src: "/images/avatars/legal2.png",
     content: {
       benefits: [
         "Proactively identify contractual risks and non-compliant clauses",
         "Review liabilities in minutes, not weeks",
-        "Ensure 100% compliance before submission"
+        "Ensure 100% compliance before submission",
       ],
       metrics: [
         { value: "100% coverage", label: "Risk Detection" },
-        { value: "95% faster", label: "Review Time" }
-      ]
-    }
+        { value: "95% faster", label: "Review Time" },
+      ],
+    },
   },
   {
     id: "sales",
@@ -64,13 +64,13 @@ const roles = [
       benefits: [
         "Generate higher-quality proposals with unprecedented speed",
         "Measurably increase your team's win rate",
-        "Focus on relationship building, not paperwork"
+        "Focus on relationship building, not paperwork",
       ],
       metrics: [
         { value: "+40%", label: "Win Rate" },
-        { value: "A+ rated", label: "Proposal Quality" }
-      ]
-    }
+        { value: "A+ rated", label: "Proposal Quality" },
+      ],
+    },
   },
   {
     id: "finance",
@@ -81,27 +81,19 @@ const roles = [
       benefits: [
         "Instantly pull pricing data and cost estimates from vast project documents",
         "Quick review and analysis of financial terms",
-        "Accurate budget forecasting for proposals"
+        "Accurate budget forecasting for proposals",
       ],
       metrics: [
         { value: "Instant", label: "Data Extraction" },
-        { value: "99.9%", label: "Accuracy" }
-      ]
-    }
+        { value: "99.9%", label: "Accuracy" },
+      ],
+    },
   },
 ];
 
 export function SolutionsByRole() {
   const [activeTab, setActiveTab] = useState(roles[0].id);
-  const activeRole = roles.find(role => role.id === activeTab) || roles[0];
-
-  // Preload all role images on component mount
-  useEffect(() => {
-    roles.forEach(role => {
-      const img = new window.Image();
-      img.src = role.src;
-    });
-  }, []);
+  const activeRole = roles.find((role) => role.id === activeTab) || roles[0];
 
   return (
     <section className="py-16 bg-background">
@@ -114,7 +106,7 @@ export function SolutionsByRole() {
             Our platform is a force multiplier for your entire team.
           </p>
         </div>
-        
+
         {/* Tab Navigation */}
         <div className="mb-8">
           <div className="flex flex-wrap justify-between gap-4 md:gap-6 max-w-5xl mx-auto">
@@ -122,11 +114,6 @@ export function SolutionsByRole() {
               <button
                 key={role.id}
                 onClick={() => setActiveTab(role.id)}
-                onMouseEnter={() => {
-                  // Preload image on hover for instant switching
-                  const img = new window.Image();
-                  img.src = role.src;
-                }}
                 className={`relative px-4 py-3 transition-all duration-200 ${
                   activeTab === role.id
                     ? "text-foreground"
@@ -151,16 +138,25 @@ export function SolutionsByRole() {
               {/* Left side - Large Image */}
               <div className="flex-shrink-0">
                 <div className="w-72 h-72 md:w-96 md:h-96 relative mx-auto md:mx-0">
-                  <Image
-                    src={activeRole.src}
-                    alt={activeRole.title}
-                    width={384}
-                    height={384}
-                    sizes="(max-width: 768px) 288px, 384px"
-                    className="rounded-lg object-cover"
-                    priority
-                    quality={85}
-                  />
+                  {roles.map((role) => (
+                    <div
+                      key={role.id}
+                      className={`absolute inset-0 transition-opacity duration-300 ${
+                        activeTab === role.id ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <Image
+                        src={role.src}
+                        alt={role.title}
+                        width={384}
+                        height={384}
+                        sizes="(max-width: 768px) 288px, 384px"
+                        className="rounded-lg object-cover"
+                        priority
+                        quality={85}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -175,7 +171,8 @@ export function SolutionsByRole() {
                     {activeRole.description}
                   </p>
                   <div className="text-sm text-primary font-medium">
-                    {activeRole.content.metrics[0]?.value} {activeRole.content.metrics[0]?.label}
+                    {activeRole.content.metrics[0]?.value}{" "}
+                    {activeRole.content.metrics[0]?.label}
                   </div>
                 </div>
 
@@ -186,9 +183,16 @@ export function SolutionsByRole() {
                   </h4>
                   <ul className="space-y-3">
                     {activeRole.content.benefits.map((benefit, index) => (
-                      <li key={index} className="text-muted-foreground flex items-start gap-3">
-                        <span className="text-primary font-bold mt-1 text-lg">•</span>
-                        <span className="text-base leading-relaxed">{benefit}</span>
+                      <li
+                        key={index}
+                        className="text-muted-foreground flex items-start gap-3"
+                      >
+                        <span className="text-primary font-bold mt-1 text-lg">
+                          •
+                        </span>
+                        <span className="text-base leading-relaxed">
+                          {benefit}
+                        </span>
                       </li>
                     ))}
                   </ul>
