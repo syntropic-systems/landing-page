@@ -132,6 +132,7 @@ const TestimonialCard = ({ quote, name, company, avatar, type }) => {
             avatarSize / 4
           } ${avatarBorderRadius}`}
           style={{ border: "1px solid var(--border-white-08)" }}
+          loading="lazy"
         />
         <div className="flex flex-col justify-start items-start gap-0.5">
           <div className={nameClasses}>{name}</div>

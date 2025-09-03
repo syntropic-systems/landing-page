@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const roles = [
   {
@@ -94,6 +95,14 @@ export function SolutionsByRole() {
   const [activeTab, setActiveTab] = useState(roles[0].id);
   const activeRole = roles.find(role => role.id === activeTab) || roles[0];
 
+  // Preload all role images on component mount
+  useEffect(() => {
+    roles.forEach(role => {
+      const img = new window.Image();
+      img.src = role.src;
+    });
+  }, []);
+
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
@@ -113,6 +122,11 @@ export function SolutionsByRole() {
               <button
                 key={role.id}
                 onClick={() => setActiveTab(role.id)}
+                onMouseEnter={() => {
+                  // Preload image on hover for instant switching
+                  const img = new window.Image();
+                  img.src = role.src;
+                }}
                 className={`relative px-4 py-3 transition-all duration-200 ${
                   activeTab === role.id
                     ? "text-foreground"
@@ -136,11 +150,18 @@ export function SolutionsByRole() {
             <div className="flex flex-col md:flex-row gap-8 items-center justify-between">
               {/* Left side - Large Image */}
               <div className="flex-shrink-0">
-                <img
-                  src={activeRole.src}
-                  alt={activeRole.title}
-                  className="w-72 h-72 md:w-96 md:h-96 rounded-lg object-cover mx-auto md:mx-0"
-                />
+                <div className="w-72 h-72 md:w-96 md:h-96 relative mx-auto md:mx-0">
+                  <Image
+                    src={activeRole.src}
+                    alt={activeRole.title}
+                    width={384}
+                    height={384}
+                    sizes="(max-width: 768px) 288px, 384px"
+                    className="rounded-lg object-cover"
+                    priority
+                    quality={85}
+                  />
+                </div>
               </div>
 
               {/* Right side - Title, Description, and Key Benefits */}

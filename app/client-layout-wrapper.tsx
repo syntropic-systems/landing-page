@@ -1,8 +1,13 @@
 "use client";
 
 import { useDemoModal } from "@/hooks/use-demo-modal";
-import { DemoRequestForm } from "@/components/demo-request-form";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+
+const DemoRequestForm = dynamic(
+  () => import("@/components/demo-request-form").then((m) => m.DemoRequestForm),
+  { ssr: false }
+);
 
 export function ClientLayoutWrapper({
   children,
@@ -22,4 +27,4 @@ export function ClientLayoutWrapper({
       {isClient && <DemoRequestForm isOpen={isOpen} onClose={closeModal} />}
     </>
   );
-} 
+}

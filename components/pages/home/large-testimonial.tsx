@@ -24,6 +24,7 @@ export function LargeTestimonial() {
                   height={48}
                   className="w-12 h-12 relative rounded-full"
                   style={{ border: "1px solid var(--border-black-08)" }}
+                  loading="lazy"
                 />
                 <div className="flex flex-col justify-start items-start">
                   <div className="text-foreground text-base font-medium leading-6">

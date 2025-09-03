@@ -1,100 +1,118 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Button } from '@/components/ui/button'
-import PhoneInput from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
-import emailjs from '@emailjs/browser'
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 interface DemoFormCoreProps {
-  onSuccess?: () => void
-  className?: string
+  onSuccess?: () => void;
+  className?: string;
 }
 
 export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    company: '',
-    email: '',
-    phone: '',
+    firstName: "",
+    lastName: "",
+    company: "",
+    email: "",
+    phone: "",
     // Default values for fields not shown in form but needed for email template
-    jobTitle: 'Not specified',
-    companySize: 'Not specified',
-    primaryUseCase: 'General Inquiry',
-    monthlyBidVolume: 'Not specified',
-    biggestChallenge: 'Not specified'
-  })
+    jobTitle: "Not specified",
+    companySize: "Not specified",
+    primaryUseCase: "General Inquiry",
+    monthlyBidVolume: "Not specified",
+    biggestChallenge: "Not specified",
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
+      const emailjs = (await import("@emailjs/browser")).default;
       await emailjs.send(
-        'service_viny1ap',
-        'template_khm1fhv',
+        "service_viny1ap",
+        "template_khm1fhv",
         {
           ...formData,
-          to_email: 'ceo@cloudglancelab.com'
+          to_email: "ceo@cloudglancelab.com",
         },
-        'lY-EskTLt6cH9eKH2'
-      )
-      
+        "lY-EskTLt6cH9eKH2"
+      );
+
       // Show success message
-      setShowSuccess(true)
+      setShowSuccess(true);
       setFormData({
-        firstName: '',
-        lastName: '',
-        company: '',
-        email: '',
-        phone: '',
+        firstName: "",
+        lastName: "",
+        company: "",
+        email: "",
+        phone: "",
         // Reset to default values for hidden fields
-        jobTitle: 'Not specified',
-        companySize: 'Not specified',
-        primaryUseCase: 'General Inquiry',
-        monthlyBidVolume: 'Not specified',
-        biggestChallenge: 'Not specified'
-      })
-      
+        jobTitle: "Not specified",
+        companySize: "Not specified",
+        primaryUseCase: "General Inquiry",
+        monthlyBidVolume: "Not specified",
+        biggestChallenge: "Not specified",
+      });
+
       // Call onSuccess callback if provided
       if (onSuccess) {
-        onSuccess()
+        onSuccess();
       }
-      
+
       // Hide success message after 3 seconds for embedded form
       setTimeout(() => {
-        setShowSuccess(false)
-      }, 3000)
+        setShowSuccess(false);
+      }, 3000);
     } catch (error) {
       // Silently handle error - you may want to show an inline error message instead
-      console.error('Failed to send email:', error)
+      console.error("Failed to send email:", error);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   if (showSuccess) {
     return (
       <div className="text-center py-8">
         <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-          <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          <svg
+            className="w-8 h-8 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-foreground mb-2">Thank You!</h3>
-        <p className="text-muted-foreground">We've received your demo request and will contact you within 24 hours.</p>
+        <h3 className="text-xl font-semibold text-foreground mb-2">
+          Thank You!
+        </h3>
+        <p className="text-muted-foreground">
+          We've received your demo request and will contact you within 24 hours.
+        </p>
       </div>
-    )
+    );
   }
 
   return (
@@ -113,7 +131,7 @@ export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
             className="w-full px-4 py-3 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
-        
+
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
             Last Name *
@@ -165,7 +183,9 @@ export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
           <PhoneInput
             placeholder="Enter phone number"
             value={formData.phone}
-            onChange={(value) => setFormData({ ...formData, phone: value || '' })}
+            onChange={(value) =>
+              setFormData({ ...formData, phone: value || "" })
+            }
             defaultCountry="IN"
             international
             withCountryCallingCode
@@ -181,7 +201,7 @@ export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
             --PhoneInputCountrySelectArrow-color: hsl(var(--muted-foreground));
             --PhoneInputCountrySelectArrow-opacity: 1;
           }
-          
+
           .phone-input-wrapper :global(.PhoneInputInput) {
             background: hsl(var(--background));
             color: hsl(var(--foreground));
@@ -193,12 +213,12 @@ export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
             outline: none;
             transition: border-color 0.2s, box-shadow 0.2s;
           }
-          
+
           .phone-input-wrapper :global(.PhoneInputInput:focus) {
             border-color: hsl(var(--primary));
             box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
           }
-          
+
           .phone-input-wrapper :global(.PhoneInputCountry) {
             background: hsl(var(--background));
             border: 1px solid hsl(var(--border));
@@ -206,7 +226,7 @@ export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
             border-radius: 6px 0 0 6px;
             padding: 12px 8px;
           }
-          
+
           .phone-input-wrapper :global(.PhoneInputInput) {
             border-left: none;
             border-radius: 0 6px 6px 0;
@@ -221,9 +241,9 @@ export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
           disabled={isSubmitting}
           className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-lg font-medium rounded-full"
         >
-          {isSubmitting ? 'Sending...' : 'Request Demo'}
+          {isSubmitting ? "Sending..." : "Request Demo"}
         </Button>
       </div>
     </form>
-  )
+  );
 }

@@ -15,6 +15,7 @@ export function SocialProof() {
             width={400}
             height={120}
             className="w-full max-w-[400px] h-auto object-contain grayscale opacity-70"
+            priority
           />
         ))}
       </div>

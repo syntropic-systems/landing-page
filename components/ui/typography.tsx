@@ -23,7 +23,7 @@ export const H2 = React.forwardRef<HTMLHeadingElement, HProps>(
     <h2
       ref={ref}
       className={cn(
-        "text-foreground text-center leading-tight relative font-serif overflow-hidden text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl",
+        "text-foreground text-center leading-tight relative font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl",
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ export const H3 = React.forwardRef<HTMLHeadingElement, HProps>(
     <h3
       ref={ref}
       className={cn(
-        "relative text-center overflow-hidden text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl",
+        "relative text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl",
         className
       )}
       {...props}
@@ -53,7 +53,7 @@ export const H4 = React.forwardRef<HTMLHeadingElement, HProps>(
     <h4
       ref={ref}
       className={cn(
-        "relative overflow-hidden text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl",
+        "relative text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl",
         className
       )}
       {...props}
