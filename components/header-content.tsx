@@ -12,8 +12,7 @@ import { NavContent } from "@/components/ui/nav-content";
 import { useState } from "react";
 import navbarData from "@/content/navbar_new.json";
 import { useDemoModal } from "@/hooks/use-demo-modal";
-import { AnimatePresence, motion } from "framer-motion";
-import { useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 
 export function HeaderContent({ visible }: { visible?: boolean }) {
   const { navLinks, actions, brand } = navbarData;

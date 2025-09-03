@@ -8,7 +8,7 @@ import {
   useMotionValueEvent,
   useTransform,
   cubicBezier,
-} from "framer-motion";
+} from "motion/react";
 
 import React, { useRef, useState } from "react";
 import Image from "next/image";
@@ -32,12 +32,6 @@ interface NavItemsProps {
   }[];
   className?: string;
   onItemClick?: () => void;
-}
-
-interface MobileNavProps {
-  children: React.ReactNode;
-  className?: string;
-  visible?: boolean;
 }
 
 interface MobileNavHeaderProps {
@@ -110,6 +104,7 @@ export const NavBody = React.forwardRef<
         width,
         y,
         backdropFilter,
+        border: visible ? "1px solid #ffffff2e" : "none",
       }}
       transition={{
         type: "tween",
@@ -117,7 +112,7 @@ export const NavBody = React.forwardRef<
         ease: easeInOutQuart,
       }}
       className={cn(
-        "relative z-[60] py-4 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 xl:flex",
+        "relative z-[60] py-4 mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-[16px] px-4 xl:flex",
         className
       )}
     >
@@ -184,9 +179,10 @@ export const MobileNav = ({
       style={{
         y,
         backdropFilter,
+        border: visible ? "1px solid #ffffff2e" : "none",
       }}
       className={cn(
-        "relative z-50 rounded-lg overflow-hidden mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 xl:hidden",
+        "relative z-50 rounded-[16px] overflow-hidden mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-0 xl:hidden",
         className
       )}
     >
@@ -290,6 +286,7 @@ export const NavbarLogo = ({
           alt={logoAlt}
           width={logoWidth}
           height={logoHeight}
+          priority
         />
       </Link>
     </motion.div>

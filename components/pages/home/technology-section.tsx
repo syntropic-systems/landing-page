@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
@@ -11,12 +12,14 @@ const content = [
       "Instead of generic summaries, our RAG system builds a deep, contextual understanding of your entire document library. It reads, classifies, and connects every clause, contract, and past proposal to create a secure, centralized knowledge base—your organization's single source of truth.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
-        <img
+        <Image
           src="/images/features/foundation2.png"
-          width={300}
-          height={300}
+          width={600}
+          height={900}
+          sizes="(max-width: 768px) 100vw, 600px"
           className="h-full w-full object-contain rounded-lg"
           alt="CEO demonstrating AI analysis"
+          priority
         />
       </div>
     ),
@@ -27,12 +30,14 @@ const content = [
       "Leverage your intelligent data core to review contracts with unparalleled accuracy. The AI doesn't just find keywords; it understands legal nuance to proactively flag risks, identify non-compliant clauses, and highlight missing obligations in minutes, not weeks.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
-        <img
+        <Image
           src="/images/features/application.png"
-          width={300}
-          height={300}
+          width={600}
+          height={600}
+          sizes="(max-width: 768px) 100vw, 600px"
           className="h-full w-full object-contain rounded-lg"
           alt="Legal professional using real-time insights"
+          priority
         />
       </div>
     ),
@@ -43,12 +48,14 @@ const content = [
       "Move beyond simple search. Ask complex questions in plain English and get precise, verifiable answers cited directly to the source document. Our system retrieves facts first, then generates hallucination-free responses your entire team can trust.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
-        <img
-          src="images/features/augment.png"
-          width={300}
-          height={300}
+        <Image
+          src="/images/features/augment.png"
+          width={600}
+          height={600}
+          sizes="(max-width: 768px) 100vw, 600px"
           className="h-full w-full object-contain rounded-lg"
           alt="Finance team reviewing contracts"
+          priority
         />
       </div>
     ),
@@ -59,12 +66,14 @@ const content = [
       "Extend this trusted intelligence across your entire organization. Legal, Sales, and Finance teams all work from the same AI-powered insights, ensuring total alignment. Share analysis, collaborate on drafts, and make faster, smarter decisions together.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
-        <img
+        <Image
           src="/images/features/collab.png"
-          width={300}
-          height={300}
+          width={600}
+          height={600}
+          sizes="(max-width: 768px) 100vw, 600px"
           className="h-full w-full object-contain rounded-lg"
           alt="Sales team collaborating"
+          priority
         />
       </div>
     ),
