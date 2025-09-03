@@ -7,30 +7,34 @@ import { Section } from "@/components/ui/section";
 
 const faqData = [
   {
-    question: "How long does it take to get started?",
+    question: "How does CloudGlance handle complex, multi-document tenders?",
     answer:
-      "It's surprisingly simple. You can be analyzing your first documents in minutes. For a full enterprise deployment with integrations, our dedicated success team ensures a seamless process that typically takes less than a week.",
+      "Our platform is specifically engineered for this. You can upload all related documents—the main RFP, all annexures, technical drawings, and spreadsheets—into a single project. Our AI then reads and connects the information across all files, ensuring that a requirement on page 347 of the main document is linked to the relevant table in Annexure 9.",
   },
   {
-    question: "How secure is our data?",
+    question: "Can we customize the AI's analysis for our specific industry and needs?",
     answer:
-      "Security is our top priority. We are SOC 2 Certified and built with enterprise-grade security protocols. Your data is encrypted both in transit and at rest, giving you bank-grade security and complete peace of mind.",
+      "Absolutely. While our AI has been trained on thousands of public tenders across various industries, you can create custom 'Keyword Groups' and 'Analysis Templates.' This allows you to teach the AI what's most important to your business, whether it's specific technical standards, legal clauses, or financial terms.",
   },
   {
-    question: "How accurate is the AI? Can we trust it?",
+    question: "Is our data used to train models for other customers?",
     answer:
-      'We achieve 99.7% extraction accuracy across all document types. Our RAG technology ensures every answer is 100% verifiable and cited directly to the source document, eliminating any risk of AI "hallucination."',
+      "No. Your data is yours alone. We use a single-tenant architecture, meaning your data is completely isolated in its own secure environment. It is never used to train our core models or for any other customer's benefit. We also offer on-premise deployment options for maximum control.",
   },
   {
-    question: "Can it handle our company's specific and complex documents?",
+    question: "How does the 'Go/No-Go' analysis actually work?",
     answer:
-      "Yes. Our platform is engineered to handle the complexity of documents across demanding industries like engineering, construction, and government. It can also be fine-tuned for your specific needs.",
+      "Our Go/No-Go feature provides a data-driven recommendation by scoring the tender against key business drivers. It analyzes factors like your technical fit, the commercial viability, potential risks, and strategic alignment based on your company's profile and past performance. This moves your decision-making from 'gut feel' to a quantifiable, defensible choice.",
   },
   {
-    question:
-      "What kind of Return on Investment (ROI) can we realistically expect?",
+    question: "What does the implementation process look like?",
     answer:
-      "Our clients typically see a full payback period of under 4 months. This is achieved by drastically reducing manual labor hours, minimizing costly errors, and winning more high-value business.",
+      "You can be analyzing your first document within 5 minutes of signing up. For a full enterprise rollout, our dedicated success team will guide you through a one-week process that includes integration planning with your existing systems (like SharePoint or Salesforce), data migration, and a comprehensive training program for your team.",
+  },
+  {
+    question: "How is CloudGlance different from a generic AI chatbot?",
+    answer:
+      "Generic chatbots are designed for broad, conversational queries and are prone to 'hallucinating' or making up answers. Our platform uses a custom RAG (Retrieval-Augmented Generation) architecture. This means it is specifically designed to first retrieve factual information from your documents and then generate an answer, which is always cited back to the source. It’s an expert system, not a generalist.",
   },
 ];
 
@@ -87,15 +91,9 @@ const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
 };
 
 export function FAQSection() {
-  const [openItems, setOpenItems] = useState<Set<number>>(new Set());
+  const [openItem, setOpenItem] = useState<number | null>(null);
   const toggleItem = (index: number) => {
-    const newOpenItems = new Set(openItems);
-    if (newOpenItems.has(index)) {
-      newOpenItems.delete(index);
-    } else {
-      newOpenItems.add(index);
-    }
-    setOpenItems(newOpenItems);
+    setOpenItem(openItem === index ? null : index);
   };
   return (
     <Section
@@ -107,7 +105,7 @@ export function FAQSection() {
           <FAQItem
             key={index}
             {...faq}
-            isOpen={openItems.has(index)}
+            isOpen={openItem === index}
             onToggle={() => toggleItem(index)}
           />
         ))}

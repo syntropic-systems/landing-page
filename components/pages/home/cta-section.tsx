@@ -9,10 +9,11 @@ import Link from "next/link";
 export function CTASection() {
   const { isOpen, openModal, closeModal } = useDemoModal();
 
+  // REVISED: More credible and industry-specific stats
   const stats = [
-    "500+ Companies",
-    "$5B+ Won", 
-    "99.7% Accuracy"
+    "Trusted by Leaders in Engineering & Construction",
+    "90% Reduction in Manual Work",
+    "99.7% AI Accuracy"
   ];
 
   return (
@@ -35,8 +36,7 @@ export function CTASection() {
             
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-8">
-              Join 500+ companies who've eliminated 90% of manual work and increased win rates by 40%. 
-              See why industry leaders choose CloudGlance.
+              Join our early adopters in transforming the bid process. Experience firsthand how our AI eliminates manual work and dramatically improves proposal quality, giving you a competitive edge from day one.
             </p>
             
             {/* CTA Buttons */}

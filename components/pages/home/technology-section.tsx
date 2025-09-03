@@ -9,7 +9,7 @@ const content = [
   {
     title: "The Foundation: Your Intelligent Data Core",
     description:
-      "Instead of generic summaries, our RAG system builds a deep, contextual understanding of your entire document library. It reads, classifies, and connects every clause, contract, and past proposal to create a secure, centralized knowledge base—your organization's single source of truth.",
+      "Our RAG system builds a deep, contextual understanding of your document library. It reads, classifies, and connects every clause and contract to create a secure, centralized knowledge base, your organization's single source of truth.",
     content: (
       <div className="flex h-full w-full items-center justify-center">
         <Image

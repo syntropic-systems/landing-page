@@ -182,7 +182,7 @@ export const MobileNav = ({
         border: visible ? "1px solid #ffffff2e" : "none",
       }}
       className={cn(
-        "relative z-50 rounded-[16px] overflow-hidden mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-0 xl:hidden",
+        "relative z-50 rounded-[16px] overflow-visible mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-4 xl:hidden",
         className
       )}
     >
@@ -221,7 +221,7 @@ export const MobileNavMenu = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/20"
+            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
@@ -251,10 +251,19 @@ export const MobileNavToggle = ({
   isOpen: boolean;
   onClick: () => void;
 }) => {
-  return isOpen ? (
-    <IconX className="text-primary dark:text-white" onClick={onClick} />
-  ) : (
-    <IconMenu2 className="text-primary dark:text-white" onClick={onClick} />
+  return (
+    <button
+      onClick={onClick}
+      className="p-2 cursor-pointer z-50 relative"
+      type="button"
+      aria-label={isOpen ? "Close menu" : "Open menu"}
+    >
+      {isOpen ? (
+        <IconX className="text-white w-6 h-6" />
+      ) : (
+        <IconMenu2 className="text-white w-6 h-6" />
+      )}
+    </button>
   );
 };
 

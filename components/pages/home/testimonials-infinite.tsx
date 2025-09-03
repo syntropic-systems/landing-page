@@ -31,15 +31,15 @@ export function TestimonialsInfinite() {
 const testimonials = [
   {
     quote:
-      "CloudGlance transformed our entire bid process. We went from analyzing 200+ page documents in weeks to getting actionable insights in minutes. Our win rate increased by 40% in the first quarter alone.",
-    name: "Sarah Chen",
-    title: "VP Business Development, Global Engineering Firm",
+      "Implementing CloudGlance was a strategic turning point for us. We've cut our tender analysis time from weeks to just a couple of days, allowing my team to focus on high-value strategy instead of low-value paperwork. Our bid capacity has tripled, and we're pursuing deals we previously couldn't even consider.",
+    name: "Manish Bhari",
+    title: "CEO, Cortex Construction Solutions",
   },
   {
     quote:
-      "The legal risk detection is phenomenal. What used to take our team weeks of document review now happens in minutes. We caught compliance issues that could have cost us millions.",
-    name: "Michael Rodriguez",
-    title: "Chief Legal Counsel, Infrastructure Solutions Inc.",
+      "In our first month, the AI flagged a critical compliance risk in a high value bid that would have led to an immediate disqualification. That one catch alone made the platform worth it. It’s a true game changer for ensuring our bids are flawless.",
+    name: "Shayak Ganguly",
+    title: "Tender Manager, CCS",
   },
   {
     quote:

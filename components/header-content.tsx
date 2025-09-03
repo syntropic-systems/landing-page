@@ -42,15 +42,13 @@ export function HeaderContent({ visible }: { visible?: boolean }) {
     <>
       {/* Desktop Navigation */}
       <NavBody visible={visible}>
-        <motion.div style={{ x: translateX, y }}>
-          <NavbarLogo
-            logoSrc="/logos/Logo Full.svg"
-            logoAlt={brand.logo.alt}
-            href={brand.href}
-            logoWidth={96}
-            logoHeight={20}
-          />
-        </motion.div>
+        <NavbarLogo
+          logoSrc="/logos/Logo Full.svg"
+          logoAlt={brand.logo.alt}
+          href={brand.href}
+          logoWidth={96}
+          logoHeight={20}
+        />
         <NavContent>
           <div className="flex items-center gap-x-8">
             {navLinks.map((link) => (
