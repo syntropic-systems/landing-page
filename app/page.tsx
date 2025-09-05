@@ -65,20 +65,20 @@ export default function LandingPage() {
             <ComparisonTimeline />
           </AnimatedSection>
           <AnimatedSection
-            id="workflow-section"
-            className=""
-            delay={0.2}
-            style={{ contentVisibility: "auto", containIntrinsicSize: "600px" }}
-          >
-            <WorkflowSection />
-          </AnimatedSection>
-          <AnimatedSection
             id="features-section"
             className="relative z-10 max-w-[1320px]"
             delay={0.2}
             style={{ contentVisibility: "auto", containIntrinsicSize: "600px" }}
           >
             <BentoSection />
+          </AnimatedSection>
+          <AnimatedSection
+            id="workflow-section"
+            className=""
+            delay={0.2}
+            style={{ contentVisibility: "auto", containIntrinsicSize: "600px" }}
+          >
+            <WorkflowSection />
           </AnimatedSection>
           <AnimatedSection
             id="technology-section"
