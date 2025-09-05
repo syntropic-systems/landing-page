@@ -41,10 +41,10 @@ const testimonials = [
     name: "Shayak Ganguly",
     title: "Tender Manager, CCS",
   },
-  {
-    quote:
-      "As a CEO, I needed fast, data-driven insights to make strategic decisions. CloudGlance gives me exactly that - clear recommendations on which opportunities to pursue and which to pass on.",
-    name: "Jennifer Park",
-    title: "CEO, Advanced Construction Technologies",
-  },
+  // {
+  //   quote:
+  //     "As a CEO, I needed fast, data-driven insights to make strategic decisions. CloudGlance gives me exactly that - clear recommendations on which opportunities to pursue and which to pass on.",
+  //   name: "Jennifer Park",
+  //   title: "CEO, Advanced Construction Technologies",
+  // },
 ];
