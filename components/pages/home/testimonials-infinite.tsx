@@ -32,7 +32,7 @@ const testimonials = [
   {
     quote:
       "Implementing CloudGlance was a strategic turning point for us. We've cut our tender analysis time from weeks to just a couple of days, allowing my team to focus on high-value strategy instead of low-value paperwork. Our bid capacity has tripled, and we're pursuing deals we previously couldn't even consider.",
-    name: "Manish Bhari",
+    name: "Manish Bharti",
     title: "CEO, Cortex Construction Solutions",
   },
   {
