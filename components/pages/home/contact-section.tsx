@@ -36,7 +36,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-foreground mb-1">Email</h4>
-                  <p className="text-muted-foreground">ceo@cloudglancelab.com</p>
+                  <p className="text-muted-foreground">sales@cloudglancelab.com</p>
                 </div>
               </div>
 

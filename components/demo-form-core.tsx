@@ -38,7 +38,7 @@ export function DemoFormCore({ onSuccess, className }: DemoFormCoreProps) {
         "template_khm1fhv",
         {
           ...formData,
-          to_email: "ceo@cloudglancelab.com",
+          to_email: "sales@cloudglancelab.com",
         },
         "lY-EskTLt6cH9eKH2"
       );
