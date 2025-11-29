@@ -36,7 +36,7 @@ export default function AutomationsPage() {
                 - Automated Form Filling
                 - Product & BOQ Matching
                 - Risk & Compliance Checks`}
-                image="/images/automations/tender-bidding.png"
+                image="/automation/bidding.png"
                 primaryCta={{ text: "Learn More", href: "/automations/tender-bidding" }}
             />
             <FeatureSide
@@ -47,13 +47,13 @@ export default function AutomationsPage() {
                 - AI Bid Comparison
                 - Deviation & Compliance Scoring
                 - Scorecards & Evaluation Reports`}
-                image="/images/automations/tender-evaluation.png"
+                image="/automation/evaluation.png"
                 primaryCta={{ text: "Learn More", href: "/automations/tender-evaluation" }}
             />
             <FeatureSide
                 title="Contract Review"
                 description="Transform complex contracts into clear, actionable insights. CloudGlance extracts clauses, highlights risks, and maps obligations so teams can review agreements faster and make informed decisions with confidence."
-                image="/images/automations/contract-review.png"
+                image="/automation/contract_review.png"
                 primaryCta={{ text: "Coming Soon" }}
             />
 

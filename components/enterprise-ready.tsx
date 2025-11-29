@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
 
@@ -83,9 +84,17 @@ export default function EnterpriseReady() {
 }
 
 function EnterpriseSkeletonOne() {
+  const infraVendors = [
+    { name: "Azure", src: "/integrations/azure.svg" },
+    { name: "AWS S3", src: "/integrations/aws.svg" },
+    { name: "GCP", src: "/integrations/google cloud.svg" },
+    { name: "Cloudflare", src: "/integrations/cloudflare.svg" },
+    { name: "Vercel", src: "/integrations/vercel.svg" },
+  ];
+
   const badges = [
-    { label: "SOC 2 Type II", status: "Alligned" },
-    { label: "ISO 27001", status: "Alligned" },
+    { label: "SOC 2 Type II", status: "Aligned" },
+    { label: "ISO 27001", status: "Aligned" },
     { label: "GDPR", status: "Ready" },
   ];
 
@@ -105,25 +114,50 @@ function EnterpriseSkeletonOne() {
             className="flex items-center gap-3 rounded-full border border-border/60 bg-muted px-4 py-2 text-sm uppercase tracking-wide"
           >
             <span className="font-semibold">{badge.label}</span>
-            <span className="text-muted-foreground font-normal">
-              {badge.status}
-            </span>
+            <span className="text-muted-foreground font-normal">{badge.status}</span>
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        {controls.map((control) => (
-          <div
-            key={control.label}
-            className="rounded-xl border border-border/50 bg-gradient-to-br from-accent/50 to-background p-4"
-          >
-            <p className="text-xs uppercase text-muted-foreground">
-              {control.label}
-            </p>
-            <p className="text-xl font-semibold mt-2">{control.value}</p>
-          </div>
-        ))}
+
+      <div>
+        <p className="text-lg md:text-xl text-foreground leading-snug">
+          We leverage world-class infrastructure providers to ensure your data is
+          encrypted, protected, and available. Security isn’t an afterthought; it’s
+          our foundation.
+        </p>
       </div>
+
+      <div className="rounded-2xl border border-border/70 bg-gradient-to-br from-accent/30 to-background p-4 lg:p-5 shadow-inner">
+        <p className="text-xs uppercase tracking-wide text-muted-foreground font-semibold">
+          Built on audited, industry-leading infrastructure
+        </p>
+        <div className="mt-4 flex flex-wrap items-center gap-4">
+          {infraVendors.map((vendor) => (
+            <div
+              key={vendor.name}
+              className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-3 py-2"
+            >
+              {vendor.src ? (
+                <Image
+                  src={vendor.src}
+                  alt={`${vendor.name} logo`}
+                  width={20}
+                  height={20}
+                  className="h-5 w-5 object-contain"
+                />
+              ) : (
+                <span className="flex h-5 w-5 items-center justify-center rounded-sm bg-primary/10 text-[0.65rem] font-semibold uppercase text-primary">
+                  {vendor.name.charAt(0)}
+                </span>
+              )}
+              <span className="text-xs font-semibold text-foreground/80">
+                {vendor.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 }
@@ -173,60 +207,42 @@ function EnterpriseSkeletonTwo() {
 }
 
 function EnterpriseSkeletonThree() {
-  const checklist = [
+  const operationalControls = [
     {
-      step: "01",
-      title: "Observability",
-      description: "Full audit trails with immutable event history.",
+      title: "Hosted on Azure",
+      description:
+        "We host on Azure, leveraging their physical security, environmental controls, and redundant power systems for availability.",
     },
     {
-      step: "02",
-      title: "Automation Guardrails",
-      description: "Role-based approvals before actions are executed.",
+      title: "Data Encryption",
+      description:
+        "Application data, databases, and storage buckets are encrypted at rest with AES-256 and in transit with TLS 1.3.",
     },
     {
-      step: "03",
-      title: "Dedicated Success",
-      description: "Launch engineers embedded with your team.",
+      title: "Network Protection",
+      description:
+        "Cloudflare provides WAF rules, DDoS protection, and global CDN acceleration for every request before it reaches our edge.",
+    },
+    {
+      title: "Strict Access Control",
+      description:
+        "Internal production access is restricted, auditable, and short-lived. Least-privilege IAM governs every credential.",
     },
   ];
 
   return (
-    <div className="flex flex-col lg:flex-row lg:items-start">
-      <div className="flex-1 space-y-6 mt-6">
-        {checklist.map((item) => (
-          <div key={item.step} className="flex gap-4 items-start">
-            <span className="h-8 w-8 flex items-center justify-center rounded-full bg-primary/10 text-primary text-sm font-semibold">
-              {item.step}
-            </span>
-            <div>
-              <p className="font-semibold text-base">{item.title}</p>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="w-full lg:w-72 rounded-2xl border border-border/60 bg-gradient-to-br from-accent/50 to-background p-6 shadow-lg">
-        <p className="text-xs uppercase text-muted-foreground tracking-wide">
-          Reliability Snapshot
-        </p>
-        <p className="text-4xl font-semibold mt-3">99.95%</p>
-        <p className="text-sm text-muted-foreground">12-month uptime</p>
-        <div className="mt-6 space-y-3 text-sm">
-          <div className="flex justify-between">
-            <span className="text-muted-foreground">Support SLA</span>
-            <span className="font-semibold">15 min</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-muted-foreground">Data retention</span>
-            <span className="font-semibold">7 years</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-muted-foreground">Backups</span>
-            <span className="font-semibold">4x daily</span>
-          </div>
+    <div className="grid gap-4 lg:grid-cols-2">
+      {operationalControls.map((item) => (
+        <div
+          key={item.title}
+          className="rounded-2xl border border-border/60 bg-gradient-to-br from-accent/30 to-background p-5 shadow-sm"
+        >
+          <p className="text-base font-semibold text-foreground">{item.title}</p>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+            {item.description}
+          </p>
         </div>
-      </div>
+      ))}
     </div>
   );
 }

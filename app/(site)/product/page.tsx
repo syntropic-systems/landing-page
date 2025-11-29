@@ -6,6 +6,7 @@ import { InfiniteMovingLogos } from '@/components/ui/infinite-moving-logos';
 import FeaturesSectionDemo from '@/components/features-section-demo-3';
 import { Card } from '@/components/ui/card';
 import { ThemeAwareImage } from '@/components/theme-aware-image';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,6 +24,20 @@ export const metadata: Metadata = {
 };
 
 export default function ProductPage() {
+    const securityBadges = [
+        { label: "SOC 2 Type II", status: "Aligned" },
+        { label: "ISO 27001", status: "Aligned" },
+        { label: "GDPR", status: "Ready" },
+    ];
+
+    const infraVendors = [
+        { name: "Azure", src: "/integrations/azure.svg" },
+        { name: "AWS S3", src: "/integrations/aws.svg" },
+        { name: "GCP", src: "/integrations/google cloud.svg" },
+        { name: "Cloudflare", src: "/integrations/cloudflare.svg" },
+        { name: "Vercel", src: "/integrations/vercel.svg" },
+    ];
+
     return (
         <div>
             {/* Hero Section */}
@@ -110,23 +125,82 @@ export default function ProductPage() {
             <Section
                 id="security"
                 title="Security & Governance"
-                description={`Your data is safe with us. Cloudglance is built with enterprise-grade security at every layer —> encryption, access control, and transparent activity logs come by default. \n\n We follow strict handling practices for sensitive information and maintain full traceability for all actions on the platform. Each client's data is isolated, and we are currently in the process of aligning with major compliance frameworks. Hence, your documents stay private and your work stays protected.`}
+                description={`We leverage world-class infrastructure providers to make sure your data stays encrypted, protected, and always available. CloudGlance runs on Azure’s audited data centers, Cloudflare shields every edge, and encryption plus least-privilege access guard every action end to end.`}
             >
+                <div className="mb-8 grid gap-4 lg:grid-cols-2">
+                    <div className="flex flex-wrap gap-4 rounded-2xl border border-border/60 bg-gradient-to-br from-accent/30 to-background p-4">
+                        {securityBadges.map((badge) => (
+                            <div
+                                key={badge.label}
+                                className="inline-flex h-fit items-center gap-3 rounded-full border border-border/60 bg-card px-4 py-2 text-sm uppercase tracking-wide my-auto mx-auto"
+                            >
+                                <span className="font-semibold">{badge.label}</span>
+                                <span className="text-muted-foreground font-normal">
+                                    {badge.status}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="rounded-2xl border border-border/70 bg-gradient-to-br from-accent/30 to-background p-4 lg:p-5 shadow-inner">
+                        <p className="text-xs uppercase tracking-wide text-muted-foreground font-semibold">
+                            Built on audited, industry-leading infrastructure
+                        </p>
+                        <div className="mt-4 flex flex-wrap items-center gap-4">
+                            {infraVendors.map((vendor) => (
+                                <div
+                                    key={vendor.name}
+                                    className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-3 py-2"
+                                >
+                                    {vendor.src ? (
+                                        <Image
+                                            src={vendor.src}
+                                            alt={`${vendor.name} logo`}
+                                            width={20}
+                                            height={20}
+                                            className="h-5 w-5 object-contain"
+                                        />
+                                    ) : (
+                                        <span className="flex h-5 w-5 items-center justify-center rounded-sm bg-primary/10 text-[0.65rem] font-semibold uppercase text-primary">
+                                            {vendor.name.charAt(0)}
+                                        </span>
+                                    )}
+                                    <span className="text-xs font-semibold text-foreground/80">
+                                        {vendor.name}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
                 <FeatureGrid columns={4}>
                     {[
-                        { label: "Encryption", value: "AES-256" },
-                        { label: "Key Mgmt", value: "KMS / HSM" },
-                        { label: "SSO", value: "SAML / SCIM" },
-                        { label: "Audit", value: "Real-time" },
-                    ].map((control) => (
+                        {
+                            title: "Hosted on Azure",
+                            description: "We inherit Azure’s physical security, environmental controls, redundant power, and compliance baseline.",
+                        },
+                        {
+                            title: "Data Encryption",
+                            description: "Every payload is encrypted at rest with AES-256 and in transit via TLS 1.3 across public networks.",
+                        },
+                        {
+                            title: "Network Protection",
+                            description: "Cloudflare provides WAF coverage, DDoS mitigation, and global CDN acceleration before traffic reaches us.",
+                        },
+                        {
+                            title: "Strict Access Control",
+                            description: "Production access is least-privilege, short-lived, fully logged, and reviewed to keep actions traceable.",
+                        },
+                    ].map((item) => (
                         <div
-                            key={control.label}
-                            className="rounded-xl border border-border/50 bg-gradient-to-br from-accent/50 to-background p-6 hover:border-primary transition-colors"
+                            key={item.title}
+                            className="rounded-xl border border-border/60 bg-gradient-to-br from-accent/40 to-background p-6 hover:border-primary transition-colors"
                         >
-                            <p className="text-xs uppercase text-muted-foreground mb-2">
-                                {control.label}
+                            <p className="text-base font-semibold text-foreground mb-2">
+                                {item.title}
                             </p>
-                            <p className="text-xl font-semibold">{control.value}</p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                {item.description}
+                            </p>
                         </div>
                     ))}
                 </FeatureGrid>
