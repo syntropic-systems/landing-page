@@ -15,6 +15,16 @@ import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
 import { InfiniteMovingLogos } from '@/components/ui/infinite-moving-logos';
 import { faqs } from '@/data/faqs';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'CloudGlance - AI-Powered Document Intelligence Platform',
+  description:
+    'Complete document-heavy workflows in minutes, not days. CloudGlance cuts 80% of time spent on tender bidding, vendor evaluation, and contract review with AI-powered automation.',
+  alternates: {
+    canonical: 'https://cloudglancelab.com',
+  },
+};
 
 export default function Home() {
   const workflows = [

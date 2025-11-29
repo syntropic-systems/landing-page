@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
@@ -7,6 +8,20 @@ import { FeatureCard, FeatureGrid } from "@/components/feature-card";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/page-header";
 import { ShieldCheck, Timer, Zap } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Tender Bidding Automation",
+  description:
+    "Automate your tender bidding process with AI. Tender search, eligibility checks, form extraction, automated filling, BOQ matching, and compliance verification.",
+  alternates: {
+    canonical: "https://cloudglancelab.com/automations/tender-bidding",
+  },
+  openGraph: {
+    title: "Tender Bidding Automation - CloudGlance",
+    description:
+      "Win more bids faster with AI-powered tender search, extraction, and automated form filling.",
+  },
+};
 
 const workflowSteps = [
   {

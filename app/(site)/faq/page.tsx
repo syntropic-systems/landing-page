@@ -8,12 +8,44 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { faqs } from '@/data/faqs';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'FAQ - Frequently Asked Questions',
+  description:
+    'Find answers to common questions about CloudGlance AI-powered document intelligence platform, features, onboarding, integrations, and more.',
+  alternates: {
+    canonical: 'https://cloudglancelab.com/faq',
+  },
+  openGraph: {
+    title: 'CloudGlance FAQ',
+    description:
+      'Answers to common questions about CloudGlance document intelligence platform.',
+  },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 
 export default function FAQPage() {
-
   return (
-    <div>
-      <PageHeader
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <div>
+        <PageHeader
         title="Frequently Asked Questions"
         description="Find answers to common questions about CloudGlance, our features, and how we can help your team."
       />
@@ -37,7 +69,8 @@ export default function FAQPage() {
         primaryCta={{ text: 'Book a Demo', href: '/contact' }}
         secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}
       />
-    </div>
+      </div>
+    </>
   );
 }
 

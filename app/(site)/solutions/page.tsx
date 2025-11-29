@@ -2,6 +2,21 @@ import { Hero2 } from '@/components/hero-2';
 import { Section } from '@/components/section';
 import { CTASection } from '@/components/cta-section';
 import { TabSection } from '@/components/tab-section';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Solutions - By Team & Industry',
+  description:
+    'CloudGlance solutions for Operations, Procurement, Sales, and Legal teams across Infrastructure, Manufacturing, IT Services, and Government sectors.',
+  alternates: {
+    canonical: 'https://cloudglancelab.com/solutions',
+  },
+  openGraph: {
+    title: 'CloudGlance Solutions - By Team & Industry',
+    description:
+      'Discover how CloudGlance transforms document workflows for different teams and industries.',
+  },
+};
 
 type SolutionsPageProps = {
     searchParams?: Promise<Record<string, string | string[] | undefined>> | Record<string, string | string[] | undefined>;

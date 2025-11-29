@@ -4,6 +4,21 @@ import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { TeamMemberCard } from "@/components/team-member-card";
 import { Target, ShieldCheck } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Company - About CloudGlance",
+  description:
+    "Learn about CloudGlance, our mission to transform document intelligence, and meet the team building the future of AI-powered document workflows.",
+  alternates: {
+    canonical: "https://cloudglancelab.com/company",
+  },
+  openGraph: {
+    title: "About CloudGlance - The People Behind Document Intelligence",
+    description:
+      "Meet the team building AI-powered document intelligence solutions for enterprise workflows.",
+  },
+};
 
 export default function CompanyPage() {
     return (

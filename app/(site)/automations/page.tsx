@@ -2,6 +2,21 @@ import { Hero2 } from '@/components/hero-2';
 import { Section } from '@/components/section';
 import { CTASection } from '@/components/cta-section';
 import { FeatureSide } from '@/components/feature-side';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Automations - Tender & Evaluation Workflows',
+  description:
+    'Automate tender bidding, vendor evaluation, and contract review with CloudGlance AI. Reduce manual effort by 80% across your document workflows.',
+  alternates: {
+    canonical: 'https://cloudglancelab.com/automations',
+  },
+  openGraph: {
+    title: 'CloudGlance Automations - AI-Powered Workflow Automation',
+    description:
+      'Let AI handle repetitive tasks across bidding, evaluation, and contract review workflows.',
+  },
+};
 
 export default function AutomationsPage() {
     return (

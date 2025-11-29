@@ -6,6 +6,21 @@ import { InfiniteMovingLogos } from '@/components/ui/infinite-moving-logos';
 import FeaturesSectionDemo from '@/components/features-section-demo-3';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Product - AI Document Intelligence Platform',
+  description:
+    'Explore CloudGlance platform features: document repository, AI-powered extraction, chat interface, and seamless integrations. Turn messy documents into structured, actionable data.',
+  alternates: {
+    canonical: 'https://cloudglancelab.com/product',
+  },
+  openGraph: {
+    title: 'CloudGlance Product - AI Document Intelligence Platform',
+    description:
+      'Turn messy, multi-format documents into structured, actionable data with CloudGlance AI-powered platform.',
+  },
+};
 
 export default function ProductPage() {
     return (

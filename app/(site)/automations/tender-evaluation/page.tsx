@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
@@ -7,6 +8,20 @@ import { FeatureCard, FeatureGrid } from "@/components/feature-card";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/page-header";
 import { BadgeCheck, CheckCircle, LayoutPanelLeft} from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Tender Evaluation Automation",
+  description:
+    "Automate vendor evaluation with AI. Bid comparison, compliance scoring, deviation analysis, and automated scorecards for faster, objective procurement decisions.",
+  alternates: {
+    canonical: "https://cloudglancelab.com/automations/tender-evaluation",
+  },
+  openGraph: {
+    title: "Tender Evaluation Automation - CloudGlance",
+    description:
+      "Choose the best vendor faster with AI-powered bid comparison, compliance checks, and scorecards.",
+  },
+};
 
 const workflowSteps = [
   {

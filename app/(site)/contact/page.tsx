@@ -2,6 +2,21 @@ import { ContactForm } from '@/components/contact-form';
 import { Mail, Phone } from 'lucide-react';
 import { PageHeader } from '@/components/page-header';
 import { Section } from '@/components/section';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  description:
+    'Get in touch with CloudGlance. Schedule a demo, ask questions, or learn how AI-powered document intelligence can transform your workflows.',
+  alternates: {
+    canonical: 'https://cloudglancelab.com/contact',
+  },
+  openGraph: {
+    title: 'Contact CloudGlance',
+    description:
+      'Schedule a demo or get in touch with our team to learn how CloudGlance can automate your document workflows.',
+  },
+};
 
 export default function ContactPage() {
     return (
