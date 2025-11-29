@@ -25,6 +25,9 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
 
     // Intersection Observer to detect when component is in view
     useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -38,14 +41,10 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
             }
         );
 
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
-        }
+        observer.observe(container);
 
         return () => {
-            if (containerRef.current) {
-                observer.unobserve(containerRef.current);
-            }
+            observer.unobserve(container);
         };
     }, []);
 
@@ -64,9 +63,6 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
             return;
         }
 
-        // Reset progress when step changes
-        setProgress(0);
-
         // Clear existing intervals
         if (intervalRef.current) {
             clearTimeout(intervalRef.current);
@@ -76,11 +72,13 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
         }
 
         // Progress bar animation (updates every 50ms for smooth animation)
+        let currentProgress = 0;
         progressIntervalRef.current = setInterval(() => {
-            setProgress((prev) => {
-                const newProgress = prev + (100 / (STEP_DURATION / 50));
-                return newProgress >= 100 ? 100 : newProgress;
-            });
+            currentProgress += (100 / (STEP_DURATION / 50));
+            if (currentProgress >= 100) {
+                currentProgress = 100;
+            }
+            setProgress(currentProgress);
         }, 50);
 
         // Auto-advance to next step after STEP_DURATION

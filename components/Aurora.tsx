@@ -327,8 +327,7 @@ export default function Aurora(props: AuroraProps) {
   const resolvedBaseColor = colorStopToRGB(mergedSettings.baseColor ?? DEFAULT_BASE_COLOR, DEFAULT_BASE_COLOR);
   const resolvedBaseStrength = clamp01(mergedSettings.baseStrength ?? DEFAULT_BASE_STRENGTH);
 
-  const propsRef = useRef<AuroraRuntimeState | null>(null);
-  propsRef.current = {
+  const propsRef = useRef<AuroraRuntimeState>({
     colorStops: resolvedColorStops,
     amplitude: resolvedAmplitude,
     blend: resolvedBlend,
@@ -339,7 +338,22 @@ export default function Aurora(props: AuroraProps) {
     baseStrength: resolvedBaseStrength,
     time,
     speed
-  };
+  });
+
+  useEffect(() => {
+    propsRef.current = {
+      colorStops: resolvedColorStops,
+      amplitude: resolvedAmplitude,
+      blend: resolvedBlend,
+      bias: resolvedBias,
+      midPoint: resolvedMidPoint,
+      intensityScale: resolvedIntensityScale,
+      baseColor: resolvedBaseColor,
+      baseStrength: resolvedBaseStrength,
+      time,
+      speed
+    };
+  }, [resolvedColorStops, resolvedAmplitude, resolvedBlend, resolvedBias, resolvedMidPoint, resolvedIntensityScale, resolvedBaseColor, resolvedBaseStrength, time, speed]);
 
   const ctnDom = useRef<HTMLDivElement>(null);
 
@@ -359,15 +373,15 @@ export default function Aurora(props: AuroraProps) {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = 'transparent';
 
-    let program: Program | undefined;
+    const programRef: { current: Program | undefined } = { current: undefined };
 
     function resize() {
       if (!ctn) return;
       const width = ctn.offsetWidth;
       const height = ctn.offsetHeight;
       renderer.setSize(width, height);
-      if (program) {
-        program.uniforms.uResolution.value = [width, height];
+      if (programRef.current) {
+        programRef.current.uniforms.uResolution.value = [width, height];
       }
     }
     window.addEventListener('resize', resize);
@@ -379,7 +393,7 @@ export default function Aurora(props: AuroraProps) {
 
     const colorStopsArray = runtime.colorStops.map((stop, index) => colorStopToRGB(stop, fallbackStop(index)));
 
-    program = new Program(gl, {
+    programRef.current = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
       uniforms: {
@@ -396,14 +410,15 @@ export default function Aurora(props: AuroraProps) {
       }
     });
 
-    const mesh = new Mesh(gl, { geometry, program });
+    const mesh = new Mesh(gl, { geometry, program: programRef.current });
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
     const update = (t: number) => {
       animateId = requestAnimationFrame(update);
       const current = propsRef.current;
-      if (program && current) {
+      if (programRef.current && current) {
+        const program = programRef.current;
         const currentTime = current.time ?? t * 0.01;
         const currentSpeed = current.speed ?? 1.0;
         program.uniforms.uTime.value = currentTime * currentSpeed * 0.1;

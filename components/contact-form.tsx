@@ -84,7 +84,7 @@ export function ContactForm() {
                         </div>
                         <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
                         <p className="text-muted-foreground">
-                            We've received your message and will get back to you soon.
+                            We&apos;ve received your message and will get back to you soon.
                         </p>
                     </div>
                 </CardContent>

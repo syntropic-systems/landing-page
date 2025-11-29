@@ -33,24 +33,25 @@ export function TabSection({
     tabsTriggerClassName,
     tabsContentClassName,
 }: TabSectionProps) {
-    if (!tabs?.length) {
-        return null;
-    }
-
     const initialValue =
-        defaultValue && tabs.some((tab) => tab.value === defaultValue)
+        defaultValue && tabs?.some((tab) => tab.value === defaultValue)
             ? defaultValue
-            : tabs[0].value;
+            : tabs?.[0]?.value ?? "";
 
     const [activeTab, setActiveTab] = React.useState(initialValue);
 
     React.useEffect(() => {
+        if (!tabs?.length) return;
         if (defaultValue && tabs.some((tab) => tab.value === defaultValue)) {
             setActiveTab(defaultValue);
         } else {
             setActiveTab(tabs[0].value);
         }
     }, [defaultValue, tabs]);
+
+    if (!tabs?.length) {
+        return null;
+    }
 
     return (
         <div className={cn("w-full space-y-6", className)}>
