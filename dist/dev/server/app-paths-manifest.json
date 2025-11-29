@@ -1,0 +1,6 @@
+{
+  "/(site)/automations/tender-evaluation/page": "app/(site)/automations/tender-evaluation/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/apple-icon/route": "app-edge-has-no-entrypoint",
+  "/icon/route": "app-edge-has-no-entrypoint"
+}

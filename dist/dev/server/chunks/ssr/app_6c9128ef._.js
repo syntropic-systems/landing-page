@@ -1,0 +1,102 @@
+module.exports = [
+"[project]/app/apple-icon.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "contentType",
+    ()=>contentType,
+    "default",
+    ()=>Icon,
+    "runtime",
+    ()=>runtime,
+    "size",
+    ()=>size
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.0.3_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$og$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.0.3_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/og.js [app-rsc] (ecmascript)");
+;
+;
+const runtime = "edge";
+const size = {
+    width: 180,
+    height: 180
+};
+const contentType = "image/png";
+function Icon() {
+    return new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$og$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ImageResponse"](/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#ffffff",
+            borderRadius: 40
+        },
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+            width: "140",
+            height: "140",
+            viewBox: "0 0 101 101",
+            fill: "none",
+            xmlns: "http://www.w3.org/2000/svg",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                d: "M101 50.4787C101 52.1843 100.917 53.8684 100.751 55.5312C99.4959 67.9933 93.6555 79.5446 84.3631 87.9428C75.0708 96.341 62.9894 100.987 50.4644 100.979C22.722 100.957 0.0213787 78.2568 0 50.5144C-1.22147e-05 39.0122 3.92541 27.8544 11.1272 18.886C18.3291 9.91748 28.376 3.67537 39.6068 1.19173C50.8376 -1.29192 62.5798 0.131642 72.8918 5.22703C83.2037 10.3224 91.468 18.7845 96.3181 29.2141C96.4971 29.5991 96.5763 30.023 96.5482 30.4467C96.5201 30.8703 96.3856 31.2801 96.1573 31.638C95.9289 31.996 95.614 32.2907 95.2417 32.4947C94.8694 32.6988 94.4516 32.8058 94.027 32.8057H88.383C87.9252 32.8055 87.4761 32.6807 87.0838 32.4447C86.6915 32.2087 86.3708 31.8703 86.1561 31.466C81.9019 23.4877 75.0944 17.1669 66.8229 13.5152C58.5515 9.86352 49.2941 9.0919 40.5323 11.3238C31.7704 13.5558 24.0104 18.6622 18.494 25.8261C12.9777 32.99 10.0238 41.7973 10.105 50.8386C10.2974 72.7696 28.2199 90.692 50.1508 90.8809C59.5197 90.9596 68.6249 87.7816 75.9099 81.89C83.1949 75.9985 88.2072 67.7593 90.0898 58.5813C90.1664 58.2132 90.1602 57.8328 90.0716 57.4675C89.983 57.1022 89.8142 56.7611 89.5775 56.4691C89.3408 56.1771 89.042 55.9415 88.7029 55.7793C88.3638 55.617 87.9929 55.5323 87.617 55.5312H76.7423C74.9629 55.5379 73.2163 56.0117 71.6775 56.9052C70.1386 57.7988 68.8614 59.0808 67.9735 60.6229C65.7393 64.4696 62.2977 67.4712 58.1829 69.1618C54.0682 70.8523 49.5105 71.1372 45.2172 69.9723C40.924 68.8074 37.1353 66.2579 34.4394 62.7194C31.7435 59.1809 30.291 54.8514 30.3075 50.4029C30.324 45.9545 31.8086 41.6359 34.5307 38.1175C37.2528 34.5991 41.0603 32.0777 45.3621 30.9447C49.6639 29.8118 54.2193 30.1305 58.3214 31.8515C62.4235 33.5726 65.8427 36.5996 68.0483 40.4628C68.9315 41.984 70.2012 43.2446 71.7287 44.1169C73.2561 44.9891 74.987 45.4421 76.7459 45.4298H98.4061C99.0542 45.4298 99.6775 45.6786 100.148 46.1248C100.618 46.571 100.899 47.1806 100.932 47.8278C100.975 48.7043 101 49.588 101 50.4787Z",
+                fill: "#2E587D"
+            }, void 0, false, {
+                fileName: "[project]/app/apple-icon.tsx",
+                lineNumber: 32,
+                columnNumber: 11
+            }, this)
+        }, void 0, false, {
+            fileName: "[project]/app/apple-icon.tsx",
+            lineNumber: 25,
+            columnNumber: 9
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/app/apple-icon.tsx",
+        lineNumber: 14,
+        columnNumber: 7
+    }, this), {
+        ...size
+    });
+}
+}),
+"[project]/app/apple-icon--metadata.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$apple$2d$icon$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/apple-icon.tsx [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$lib$2f$metadata$2f$get$2d$metadata$2d$route$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/.pnpm/next@16.0.3_@babel+core@7.28.5_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/lib/metadata/get-metadata-route.js [app-rsc] (ecmascript)");
+;
+;
+const imageModule = {
+    contentType: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$apple$2d$icon$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["contentType"],
+    runtime: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$apple$2d$icon$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["runtime"],
+    size: __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$apple$2d$icon$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["size"]
+};
+async function __TURBOPACK__default__export__(props) {
+    const { __metadata_id__: _, ...params } = await props.params;
+    const imageUrl = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$babel$2b$core$40$7$2e$28$2e$5_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$lib$2f$metadata$2f$get$2d$metadata$2d$route$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["fillMetadataSegment"])("/", params, "apple-icon");
+    function getImageMetadata(imageMetadata, idParam) {
+        const data = {
+            alt: imageMetadata.alt,
+            type: imageMetadata.contentType || 'image/png',
+            url: imageUrl + (idParam ? '/' + idParam : '') + "?fbd8d6429de958aa"
+        };
+        const { size } = imageMetadata;
+        if (size) {
+            data.sizes = `${size.width}x${size.height}`;
+        }
+        return data;
+    }
+    return [
+        getImageMetadata(imageModule, '')
+    ];
+}
+}),
+];
+
+//# sourceMappingURL=app_6c9128ef._.js.map
