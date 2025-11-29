@@ -153,10 +153,6 @@ const navItems: NavItem[] = [
                             href: "/solutions?section=industry&tab=energy#by-industry",
                         },
                         {
-                            label: "Power & Utilities",
-                            href: "/solutions?section=industry&tab=power-utilities#by-industry",
-                        },
-                        {
                             label: "Manufacturing",
                             href: "/solutions?section=industry&tab=manufacturing#by-industry",
                         },

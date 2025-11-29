@@ -2,7 +2,8 @@ import { FeatureCard, FeatureGrid } from "@/components/feature-card";
 import { Hero2 } from "@/components/hero-2";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
-import { Target, User, ShieldCheck } from "lucide-react";
+import { TeamMemberCard } from "@/components/team-member-card";
+import { Target, ShieldCheck } from "lucide-react";
 
 export default function CompanyPage() {
     return (
@@ -23,7 +24,7 @@ export default function CompanyPage() {
                 title="Our Mission"
                 description="Yash needs to write here"
             >
-                <FeatureGrid columns={3}>
+                <FeatureGrid columns={2}>
                     <FeatureCard
                         icon={<Target className="text-primary" />}
                         title="Vision"
@@ -40,19 +41,46 @@ export default function CompanyPage() {
             <Section
                 id="team"
                 title="Our Team"
-                description="Our team brings together experts in AI, engineering, operations, and procurement who have seen firsthand how slow, manual document work holds organizations back. We’re united by a simple goal: helping teams move faster, reduce risk, and deliver exceptional results with the same resources."
+                description="Our team brings together experts in AI, engineering, operations, and procurement who have seen firsthand how slow, manual document work holds organizations back. We're united by a simple goal: helping teams move faster, reduce risk, and deliver exceptional results with the same resources."
             >
-                <FeatureGrid columns={4}>
-                    {Array.from({ length: 8 }).map((_, i) => (
-                        <div
-                            key={i}
-                            className="aspect-square bg-muted/30 rounded-lg border-2 border-border flex flex-col items-center justify-center p-6 hover:border-primary transition-colors"
-                        >
-                            <User className="w-8 h-8 text-primary mb-3" />
-                            <p className="text-sm font-medium text-center">Team Member {i + 1}</p>
-                        </div>
-                    ))}
-                </FeatureGrid>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <TeamMemberCard
+                        image="/team/manish bharti.png"
+                        name="Manish Bharti"
+                        position="Director"
+                        description="Providing strategic leadership and governance to guide CloudGlance's mission of transforming document intelligence for organizations worldwide."
+                    />
+                    <TeamMemberCard
+                        image="/team/dr. kk bajpal.png"
+                        name="Dr. KK Bajpal"
+                        position="Director"
+                        description="Bringing deep expertise and strategic oversight to ensure CloudGlance delivers innovative solutions that meet the evolving needs of our clients."
+                    />
+                    <TeamMemberCard
+                        image="/team/abhishek gautam.png"
+                        name="Abhishek Gautam"
+                        position="CTO & Co-Founder"
+                        description="Architecting and building the AI-powered infrastructure that makes CloudGlance's document intelligence platform fast, reliable, and scalable."
+                    />
+                    <TeamMemberCard
+                        image="/team/pravalika puram.png"
+                        name="Pravalika Puram"
+                        position="Strategy & Sales"
+                        description="Driving growth through strategic partnerships and helping organizations discover how CloudGlance can transform their document workflows."
+                    />
+                    <TeamMemberCard
+                        image="/team/siddharth saha.png"
+                        name="Siddharth Saha"
+                        position="Founding Engineer"
+                        description="Crafting intuitive and accessible user experiences that make complex document intelligence tools simple and powerful for everyone."
+                    />
+                    <TeamMemberCard
+                        image="/team/swapnish sahare.png"
+                        name="Swapnish Sahare"
+                        position="Design Consultant"
+                        description="Consulting on design strategy and user experience to ensure CloudGlance's interface is both powerful and intuitive for all users."
+                    />
+                </div>
             </Section>
 
             <CTASection

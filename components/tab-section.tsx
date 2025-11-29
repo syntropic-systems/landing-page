@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -40,9 +42,19 @@ export function TabSection({
             ? defaultValue
             : tabs[0].value;
 
+    const [activeTab, setActiveTab] = React.useState(initialValue);
+
+    React.useEffect(() => {
+        if (defaultValue && tabs.some((tab) => tab.value === defaultValue)) {
+            setActiveTab(defaultValue);
+        } else {
+            setActiveTab(tabs[0].value);
+        }
+    }, [defaultValue, tabs]);
+
     return (
         <div className={cn("w-full space-y-6", className)}>
-            <Tabs defaultValue={initialValue} className="w-full">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                 <TabsList
                     className={cn(
                         "flex flex-wrap gap-3 w-full justify-start bg-transparent p-0 h-auto text-muted-foreground",

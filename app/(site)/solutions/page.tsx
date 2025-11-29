@@ -19,7 +19,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "operations",
             label: "Operations & Project",
             title: "Operations & Project Teams",
-            image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Operations & Project Teams",
             highlights: [
                 {
@@ -40,7 +40,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "business",
             label: "Business Development & Sales",
             title: "Business Development & Sales Teams",
-            image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Business Development & Sales Teams",
             highlights: [
                 {
@@ -61,7 +61,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "compliance",
             label: "Compliance, Legal & Risk",
             title: "Compliance, Legal & Risk Teams",
-            image: "https://images.unsplash.com/photo-1487611459768-bd414656ea10?auto=format&fit=crop&w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Compliance, Legal & Risk Teams",
             highlights: [
                 {
@@ -82,7 +82,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "management",
             label: "Management",
             title: "Management & Decision-Makers",
-            image: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1600&q=80",
+            image: "https://source.unsplash.com/jfR5wu2hMI0/1600x900",
             imageAlt: "Management & Decision-Makers",
             highlights: [
                 {
@@ -106,7 +106,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "construction",
             label: "Construction & Infrastructure",
             title: "Construction & Infrastructure",
-            image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Construction & Infrastructure",
             highlights: [
                 {
@@ -119,7 +119,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "technology",
             label: "Technology & IT",
             title: "Technology & IT",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Technology & IT",
             highlights: [
                 {
@@ -132,7 +132,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "energy",
             label: "Energy",
             title: "Energy",
-            image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Energy",
             highlights: [
                 {
@@ -142,23 +142,10 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             ],
         },
         {
-            value: "power-utilities",
-            label: "Power & Utilities",
-            title: "Power & Utilities",
-            image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
-            imageAlt: "Power & Utilities",
-            highlights: [
-                {
-                    subtitle: "How CloudGlance Help",
-                    body: "Handle dense regulatory and standards-driven documents effortlessly. CloudGlance automates compliance checks, extracts key data points, and ensures submissions are complete, consistent, and audit-ready.",
-                },
-            ],
-        },
-        {
             value: "manufacturing",
             label: "Manufacturing",
             title: "Manufacturing",
-            image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Manufacturing",
             highlights: [
                 {
@@ -171,7 +158,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "real-estate",
             label: "Real Estate & Property Development",
             title: "Real Estate & Property Development",
-            image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Real Estate & Property Development",
             highlights: [
                 {

@@ -2,7 +2,6 @@ import { Hero2 } from '@/components/hero-2';
 import { FeatureGrid } from '@/components/feature-card';
 import { Section } from '@/components/section';
 import { CTASection } from '@/components/cta-section';
-import { Shield } from 'lucide-react';
 import { InfiniteMovingLogos } from '@/components/ui/infinite-moving-logos';
 import FeaturesSectionDemo from '@/components/features-section-demo-3';
 import { Card } from '@/components/ui/card';
@@ -28,13 +27,14 @@ export default function ProductPage() {
                 description="Cloudglance is built around the way organisations actually work with documents. From storage and understanding to collaboration and execution, every part of the platform is designed to operate as one connected system. Each module below is part of the same platform, built to work together seamlessly."
             >
                 <div>
-                    <Card className="w-full overflow-hidden border-0 shadow-xl">
-                        <div className="aspect-[16/9] relative w-full">
+                    <Card className="w-full border-0 shadow-xl">
+                        <div className="relative w-full">
                             <Image
-                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80"
+                                src="/product/main-page.jpg"
                                 alt="CloudGlance Platform"
-                                fill
-                                className="object-contain"
+                                width={1600}
+                                height={900}
+                                className="w-full h-auto object-contain"
                                 sizes="100vw"
                             />
                         </div>
@@ -94,16 +94,23 @@ export default function ProductPage() {
             <Section
                 id="security"
                 title="Security & Governance"
-                description={`Your data is safe with us. Cloudglance is built with enterprise-grade security at every layer —> encryption, access control, and transparent activity logs come by default. \n\n We follow strict handling practices for sensitive information and maintain full traceability for all actions on the platform. Each client’s data is isolated, and we are currently in the process of aligning with major compliance frameworks. Hence, your documents stay private and your work stays protected.`}
+                description={`Your data is safe with us. Cloudglance is built with enterprise-grade security at every layer —> encryption, access control, and transparent activity logs come by default. \n\n We follow strict handling practices for sensitive information and maintain full traceability for all actions on the platform. Each client's data is isolated, and we are currently in the process of aligning with major compliance frameworks. Hence, your documents stay private and your work stays protected.`}
             >
                 <FeatureGrid columns={4}>
-                    {Array.from({ length: 4 }).map((_, i) => (
+                    {[
+                        { label: "Encryption", value: "AES-256" },
+                        { label: "Key Mgmt", value: "KMS / HSM" },
+                        { label: "SSO", value: "SAML / SCIM" },
+                        { label: "Audit", value: "Real-time" },
+                    ].map((control) => (
                         <div
-                            key={i}
-                            className="aspect-square bg-muted/30 rounded-lg border-2 border-border flex flex-col items-center justify-center p-6 hover:border-primary transition-colors"
+                            key={control.label}
+                            className="rounded-xl border border-border/50 bg-gradient-to-br from-accent/50 to-background p-6 hover:border-primary transition-colors"
                         >
-                            <Shield className="w-8 h-8 text-primary mb-3" />
-                            <p className="text-sm font-medium text-center">Security Feature {i + 1}</p>
+                            <p className="text-xs uppercase text-muted-foreground mb-2">
+                                {control.label}
+                            </p>
+                            <p className="text-xl font-semibold">{control.value}</p>
                         </div>
                     ))}
                 </FeatureGrid>
