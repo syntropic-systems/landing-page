@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
@@ -73,30 +74,63 @@ export function TabSection({
                             <Card className="w-full p-6 border-border/60 shadow-md">
                                 <div
                                     className={cn(
-                                        "grid items-stretch md:grid-cols-2 md:gap-10"
+                                        "grid items-start gap-6 lg:grid-cols-2 lg:gap-10"
                                     )}
                                 >
-                                    <div className="flex flex-col gap-3 py-8">
-                                        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-semibold mb-8">
+                                    <div className="flex flex-col gap-3 pt-2">
+                                        <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-semibold mb-2">
                                             {tab.title}
                                         </h3>
                                         {tab.highlights?.length ? (
                                             <div className="space-y-6">
-                                                {tab.highlights.slice(0, 3).map((item, idx) => (
-                                                    <div key={`${tab.value}-highlight-${idx}`}>
-                                                        <p className="text-lg md:text-xl font-semibold text-foreground mb-1">
-                                                            {item.subtitle}
-                                                        </p>
-                                                        <p className="text-sm md:text-base text-muted-foreground">
-                                                            {item.body}
-                                                        </p>
-                                                    </div>
-                                                ))}
+                                                {tab.highlights.slice(0, 3).map((item, idx) => {
+                                                    // Parse body to handle bullet points
+                                                    const parseBody = (body: string) => {
+                                                        const normalized = body.replace(/\r\n/g, '\n');
+                                                        const lines = normalized.split('\n').filter(line => line.trim() !== '');
+                                                        
+                                                        const hasBullets = lines.some(line => line.trim().startsWith('-'));
+                                                        
+                                                        if (hasBullets) {
+                                                            return (
+                                                                <ul className="list-disc list-outside space-y-2 my-2 ml-5 pl-2">
+                                                                    {lines.map((line, lineIdx) => {
+                                                                        const trimmedLine = line.trim();
+                                                                        if (trimmedLine.startsWith('-')) {
+                                                                            const bulletText = trimmedLine.substring(1).trim();
+                                                                            return (
+                                                                                <li key={lineIdx} className="text-sm md:text-base text-muted-foreground">
+                                                                                    {bulletText}
+                                                                                </li>
+                                                                            );
+                                                                        }
+                                                                        return null;
+                                                                    })}
+                                                                </ul>
+                                                            );
+                                                        }
+                                                        
+                                                        return (
+                                                            <p className="text-sm md:text-base text-muted-foreground">
+                                                                {body}
+                                                            </p>
+                                                        );
+                                                    };
+                                                    
+                                                    return (
+                                                        <div key={`${tab.value}-highlight-${idx}`}>
+                                                            <p className="text-lg md:text-xl font-semibold text-foreground mb-1">
+                                                                {item.subtitle}
+                                                            </p>
+                                                            {parseBody(item.body)}
+                                                        </div>
+                                                    );
+                                                })}
                                             </div>
                                         ) : null}
                                     </div>
 
-                                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
+                                    <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg border border-border bg-muted">
                                         <Image
                                             src={tab.image}
                                             alt={tab.imageAlt || tab.title}

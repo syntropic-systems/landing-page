@@ -1,39 +1,51 @@
 import { Hero2 } from '@/components/hero-2';
-import { FeatureCard, FeatureGrid } from '@/components/feature-card';
+import { FeatureGrid } from '@/components/feature-card';
 import { Section } from '@/components/section';
 import { CTASection } from '@/components/cta-section';
-import { FileText, Zap, Brain, Database, Shield, Users } from 'lucide-react';
+import { Shield } from 'lucide-react';
 import { InfiniteMovingLogos } from '@/components/ui/infinite-moving-logos';
 import FeaturesSectionDemo from '@/components/features-section-demo-3';
+import { Card } from '@/components/ui/card';
+import Image from 'next/image';
 
 export default function ProductPage() {
     return (
         <div>
             {/* Hero Section */}
             <Hero2
-                title="A Document Intelligence Platform for your workflows to run on"
-                description="Fill out various customer & vendor forms within seconds with automatic matching and retrieval of information from documents to contract fields."
+                title="AI-Powered Document Intelligence Platform for High-Stake Workflows"
+                description="Turn messy, multi-format documents into structured, actionable data so your tender, evaluation, and review processes run end-to-end without manual effort."
             />
 
             {/* Platform Section */}
             <Section
                 id="platform"
-                title="CloudGlance Platform"
-                description="CloudGlance is a document intelligence platform that provides powerful solutions through innovative document processing and AI capabilities."
+                title={
+                    <>
+                      The CloudGlance <span className="text-primary">Platform</span>
+                    </>
+                  }
+                description="Cloudglance is built around the way organisations actually work with documents. From storage and understanding to collaboration and execution, every part of the platform is designed to operate as one connected system. Each module below is part of the same platform, built to work together seamlessly."
             >
-                <div className="grid md:grid-cols-2 gap-12">
-                    <div>
-                        <h3 className="text-2xl font-semibold">Document Intelligence</h3>
-                        <p className="text-muted-foreground">CloudGlance is a document intelligence platform that provides powerful solutions through innovative document processing and AI capabilities.</p>
-                    </div>
+                <div>
+                    <Card className="w-full overflow-hidden border-0 shadow-xl">
+                        <div className="aspect-[16/9] relative w-full">
+                            <Image
+                                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80"
+                                alt="CloudGlance Platform"
+                                fill
+                                className="object-contain"
+                                sizes="100vw"
+                            />
+                        </div>
+                    </Card>
                 </div>
             </Section>
 
             {/* Features Section */}
             <Section
                 id="features"
-                title="Pre-meet Intelligence"
-                description="CloudGlance provides powerful solutions through innovative document processing and AI capabilities."
+                title={<>The <span className='text-primary'>Building Blocks</span> of Platform</>}
             >
                 <FeaturesSectionDemo />
             </Section>
@@ -46,27 +58,31 @@ export default function ProductPage() {
                 className="bg-muted"
             >
                 <InfiniteMovingLogos
-                items={[{ src: '/client logos/logo01.svg', alt: 'Integration logo 1' },
-                { src: '/client logos/logo02.svg', alt: 'Integration logo 2' },
-                { src: '/client logos/logo03.svg', alt: 'Integration logo 3' }]}
+                items={[
+                    { src: '/integrations/gmail.svg', alt: 'Integration logo 1' },
+                    { src: '/integrations/outlook.svg', alt: 'Integration logo 2' },
+                    { src: '/integrations/whatsapp.svg', alt: 'Integration logo 3' }]}
                 direction="right"
                 speed="normal"
                 pauseOnHover
                 variant="infinite"
                 />
                 <InfiniteMovingLogos
-                items={[{ src: '/client logos/logo01.svg', alt: 'Integration logo 1' },
-                { src: '/client logos/logo02.svg', alt: 'Integration logo 2' },
-                { src: '/client logos/logo03.svg', alt: 'Integration logo 3' }]}
+                items={[
+                { src: '/integrations/azure.svg', alt: 'Integration logo 4' },
+                { src: '/integrations/google cloud.svg', alt: 'Integration logo 5' },
+                { src: '/integrations/aws.svg', alt: 'Integration logo 6' },
+                { src: '/integrations/postgresql.svg', alt: 'Integration logo 7' }]}
                 direction="left"
                 speed="normal"
                 pauseOnHover
                 variant="infinite"
                 />
                 <InfiniteMovingLogos
-                items={[{ src: '/client logos/logo01.svg', alt: 'Integration logo 1' },
-                { src: '/client logos/logo02.svg', alt: 'Integration logo 2' },
-                { src: '/client logos/logo03.svg', alt: 'Integration logo 3' }]}
+                items={[
+                { src: '/integrations/slack.svg', alt: 'Integration logo 8' },
+                { src: '/integrations/teams.svg', alt: 'Integration logo 9' },
+                { src: '/integrations/linear.svg', alt: 'Integration logo 10' }]}
                 direction="right"
                 speed="normal"
                 pauseOnHover
@@ -81,7 +97,7 @@ export default function ProductPage() {
                 description={`Your data is safe with us. Cloudglance is built with enterprise-grade security at every layer —> encryption, access control, and transparent activity logs come by default. \n\n We follow strict handling practices for sensitive information and maintain full traceability for all actions on the platform. Each client’s data is isolated, and we are currently in the process of aligning with major compliance frameworks. Hence, your documents stay private and your work stays protected.`}
             >
                 <FeatureGrid columns={4}>
-                    {Array.from({ length: 8 }).map((_, i) => (
+                    {Array.from({ length: 4 }).map((_, i) => (
                         <div
                             key={i}
                             className="aspect-square bg-muted/30 rounded-lg border-2 border-border flex flex-col items-center justify-center p-6 hover:border-primary transition-colors"
@@ -95,7 +111,7 @@ export default function ProductPage() {
 
             {/* CTA Section */}
             <CTASection
-                title="Experience CloudGlance in action"
+                title="Let's make your Documents work for you"
                 description="See how CloudGlance can accelerate your document workflows and unlock the full potential of your team."
                 primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
                 secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}

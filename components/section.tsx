@@ -2,7 +2,7 @@ import { Fragment, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 interface SectionProps {
-    children: ReactNode;
+    children?: ReactNode;
     title?: string | ReactNode;
     description?: string;
     className?: string;

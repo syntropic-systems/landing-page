@@ -31,7 +31,7 @@ export function Footer() {
             main: { name: 'Automations', href: '/automations' },
             links: [
                 { name: 'Tender Bidding', href: '/automations/tender-bidding' },
-                { name: 'Tender Issuing', href: '/automations/tender-issuing' },
+                { name: 'Tender Evaluation', href: '/automations/tender-evaluation' },
                 { name: 'Contract Review', href: '/automations#contract-review' },
             ],
         },

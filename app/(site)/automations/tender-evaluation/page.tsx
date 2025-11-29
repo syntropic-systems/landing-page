@@ -6,7 +6,7 @@ import { CTASection } from "@/components/cta-section";
 import { FeatureCard, FeatureGrid } from "@/components/feature-card";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/page-header";
-import { CheckCircle, FileSignature, Workflow } from "lucide-react";
+import { BadgeCheck, CheckCircle, LayoutPanelLeft} from "lucide-react";
 
 const workflowSteps = [
   {
@@ -29,29 +29,29 @@ const workflowSteps = [
   }
 ];
 
-const issuingBenefits = [
+const evaluationBenefits = [
   {
-    icon: <Workflow className="text-primary" />,
-    title: "Coordinated Teams",
-    description: "Legal, finance, and procurement collaborate in-line with version control and approvals.",
-  },
-  {
-    icon: <FileSignature className="text-primary" />,
-    title: "Policy Enforcement",
-    description: "Templates, clauses, and scoring rubrics are centrally managed so every event stays compliant.",
+    icon: <LayoutPanelLeft className="text-primary" />,
+    title: "Faster Bid Evaluation",
+    description: "Evaluate bids faster with clean, side-by-side comparisons of vendor responses.",
   },
   {
     icon: <CheckCircle className="text-primary" />,
-    title: "Audit Ready",
-    description: "Every clarification, attachment, and decision is time-stamped for auditors and partners.",
+    title: "Reduced Errors & Bias",
+    description: "Apply structured scoring and automated checks to minimize mistakes and subjective bias.",
+  },
+  {
+    icon: <BadgeCheck className="text-primary" />,
+    title: "More Confident Decisions",
+    description: "Make evidence-backed decisions with clear scoring trails and auditable insights.",
   },
 ];
 
-export default function TenderIssuingPage() {
+export default function TenderEvaluationPage() {
   return (
     <div>
       <PageHeader
-        title="Tender Issuing with Zero Bottlenecks"
+        title="Tender Evaluation with Zero Bottlenecks"
         description="Standardize how you publish, manage, and award tenders with guided workflows and AI assistance."
         button={{
           text: "View All Automations",
@@ -100,12 +100,16 @@ export default function TenderIssuingPage() {
       </Section>
 
       <Section
-        title="Why Sourcing Leaders Choose CloudGlance"
-        description="Bring consistency to global tender programs while giving every region the flexibility they need."
+        title={
+          <>
+            Why Choose CloudGlance for <span className="text-primary">Evaluating Your Bids</span>
+          </>
+        }
+        description="CloudGlance helps evaluation teams compare vendors faster, reduce scoring errors, and make confident, evidence-backed decisions."
         className="bg-muted/40"
       >
         <FeatureGrid columns={3}>
-          {issuingBenefits.map((benefit) => (
+          {evaluationBenefits.map((benefit) => (
             <FeatureCard
               key={benefit.title}
               icon={benefit.icon}
@@ -117,9 +121,9 @@ export default function TenderIssuingPage() {
       </Section>
 
       <CTASection
-        title="Publish Your Next Tender with CloudGlance"
-        description="We will configure your templates, workflows, and vendor rosters so that the next event goes live in minutes."
-        primaryCta={{ text: "Schedule a Session", href: "/contact" }}
+        title="Experience smarter Tender Evaluation with CloudGlance"
+        description="See how CloudGlance can streamline your evaluation process and make smarter, faster decisions."
+        primaryCta={{ text: "See it in Action", href: "https://app.cloudglancelab.com" }}
         secondaryCta={{ text: "Talk to Sales", href: "/contact" }}
       />
     </div>

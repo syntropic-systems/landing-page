@@ -99,9 +99,9 @@ const navItems: NavItem[] = [
                     src: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=400&q=80",
                 },
                 {
-                    title: "Tender Issuing",
-                    description: "Generate tender documents from templates with AI-powered content suggestions.",
-                    href: "/automations/tender-issuing",
+                    title: "Tender Evaluation",
+                    description: "Compare bids with AI-driven scoring, compliance checks, and reporting.",
+                    href: "/automations/tender-evaluation",
                     src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=400&q=80",
                 },
             ],
@@ -141,20 +141,28 @@ const navItems: NavItem[] = [
                     title: "By industry",
                     links: [
                         {
-                            label: "B2B SaaS",
-                            href: "/solutions?section=industry&tab=b2b-saas#by-industry",
-                        },
-                        {
-                            label: "Marketplaces",
-                            href: "/solutions?section=industry&tab=marketplaces#by-industry",
-                        },
-                        {
-                            label: "Construction",
+                            label: "Construction & Infrastructure",
                             href: "/solutions?section=industry&tab=construction#by-industry",
                         },
                         {
-                            label: "Healthcare",
-                            href: "/solutions?section=industry&tab=healthcare#by-industry",
+                            label: "Technology & IT",
+                            href: "/solutions?section=industry&tab=technology#by-industry",
+                        },
+                        {
+                            label: "Energy",
+                            href: "/solutions?section=industry&tab=energy#by-industry",
+                        },
+                        {
+                            label: "Power & Utilities",
+                            href: "/solutions?section=industry&tab=power-utilities#by-industry",
+                        },
+                        {
+                            label: "Manufacturing",
+                            href: "/solutions?section=industry&tab=manufacturing#by-industry",
+                        },
+                        {
+                            label: "Real Estate & Property Development",
+                            href: "/solutions?section=industry&tab=real-estate#by-industry",
                         },
                     ],
                 },
@@ -339,11 +347,11 @@ export function SiteHeader() {
         };
     }, []);
 
-    // Determine which logos to use based on theme
+    // Determine which logo to use based on theme
     const isDark = mounted && resolvedTheme === "dark";
     const logoSrc = isDark
-        ? { sm: "/logo dark_sm.svg", lg: "/logo dark_lg.svg" }
-        : { sm: "/logo light_sm.svg", lg: "/logo light_lg.svg" };
+        ? "/logo dark_lg.svg"
+        : "/logo light_lg.svg";
 
     const headerClassName = cn(
         "fixed top-0 z-50 w-full backdrop-blur-md supports-[backdrop-filter]:bg-card/50 transition-all duration-300 border-b transform-gpu ease-in-out",
@@ -361,23 +369,12 @@ export function SiteHeader() {
                         href="/"
                         className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm min-w-0"
                     >
-                        {/* Small logo for mobile/medium screens - shown up to lg breakpoint */}
                         <Image
-                            src={logoSrc.sm}
-                            alt="Logo"
-                            width={101}
-                            height={101}
-                            className="h-8 w-8 flex-shrink-0 block lg:hidden"
-                            priority
-                            unoptimized
-                        />
-                        {/* Large logo for large screens - shown at lg breakpoint and up */}
-                        <Image
-                            src={logoSrc.lg}
+                            src={logoSrc}
                             alt="Logo"
                             width={546}
                             height={101}
-                            className="h-8 w-auto flex-shrink-0 hidden lg:block"
+                            className="h-8 w-auto flex-shrink-0"
                             priority
                             unoptimized
                         />
@@ -387,7 +384,7 @@ export function SiteHeader() {
                     <NavbarMenu
                         aria-label="Main navigation"
                         setActive={setActiveDropdown}
-                        className="hidden gap-1 rounded-none border-none bg-transparent px-0 py-0 text-sm shadow-none backdrop-blur-none md:relative md:flex md:items-center md:gap-2"
+                        className="hidden gap-1 rounded-none border-none bg-transparent px-0 py-0 text-sm shadow-none backdrop-blur-none lg:relative lg:flex lg:items-center lg:gap-2"
                     >
                         {navItems.map((item) => {
                             const isActive = pathname === item.href;
@@ -415,7 +412,7 @@ export function SiteHeader() {
 
                 {/* Right side actions */}
                 <div className="flex items-center gap-2">
-                    <div className="hidden md:flex items-center gap-2">
+                    <div className="hidden lg:flex items-center gap-2">
                         <Button
                             variant="default"
                             className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -441,7 +438,7 @@ export function SiteHeader() {
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="md:hidden h-9 w-9"
+                                className="lg:hidden h-9 w-9"
                                 aria-label="Open menu"
                             >
                                 <MenuIcon className="h-5 w-5" />

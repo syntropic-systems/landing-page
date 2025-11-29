@@ -8,7 +8,7 @@ const features = [
   {
     title: "Security",
     description:
-      "Enterprise-grade protection with encryption, isolation and strong data handling",
+      "Enterprise-grade protection with encryption, isolation and strict data privacy controls.",
     skeleton: <EnterpriseSkeletonOne />,
     className: "col-span-1 lg:col-span-3 border-border/80 border-b lg:border-r",
   },
@@ -84,8 +84,8 @@ export default function EnterpriseReady() {
 
 function EnterpriseSkeletonOne() {
   const badges = [
-    { label: "SOC 2 Type II", status: "Continuous" },
-    { label: "ISO 27001", status: "Certified" },
+    { label: "SOC 2 Type II", status: "Alligned" },
+    { label: "ISO 27001", status: "Alligned" },
     { label: "GDPR", status: "Ready" },
   ];
 
@@ -97,12 +97,12 @@ function EnterpriseSkeletonOne() {
   ];
 
   return (
-    <div className="flex flex-col gap-6 h-full">
-      <div className="flex flex-wrap gap-2">
+    <div className="flex flex-col gap-12">
+      <div className="flex flex-wrap gap-4">
         {badges.map((badge) => (
           <div
             key={badge.label}
-            className="flex items-center gap-2 rounded-full border border-border/60 bg-muted/40 px-3 py-1 text-xs uppercase tracking-wide"
+            className="flex items-center gap-3 rounded-full border border-border/60 bg-muted px-4 py-2 text-sm uppercase tracking-wide"
           >
             <span className="font-semibold">{badge.label}</span>
             <span className="text-muted-foreground font-normal">
@@ -111,11 +111,11 @@ function EnterpriseSkeletonOne() {
           </div>
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-4 mt-auto">
+      <div className="grid grid-cols-2 gap-4">
         {controls.map((control) => (
           <div
             key={control.label}
-            className="rounded-xl border border-border/50 bg-background/80 p-4 shadow-sm"
+            className="rounded-xl border border-border/50 bg-gradient-to-br from-accent/50 to-background p-4"
           >
             <p className="text-xs uppercase text-muted-foreground">
               {control.label}
@@ -130,11 +130,21 @@ function EnterpriseSkeletonOne() {
 
 function EnterpriseSkeletonTwo() {
   const logos = [
-    { src: '/client logos/logo01.svg', alt: 'Integration logo 1' },
-    { src: '/client logos/logo02.svg', alt: 'Integration logo 2' },
-    { src: '/client logos/logo03.svg', alt: 'Integration logo 3' }
+    { src: '/integrations/gmail.svg', alt: 'Integration logo 1' },
+    { src: '/integrations/outlook.svg', alt: 'Integration logo 2' },
+    { src: '/integrations/whatsapp.svg', alt: 'Integration logo 3' },
   ];
-
+  const logos2 = [
+    { src: '/integrations/azure.svg', alt: 'Integration logo 1' },
+    { src: '/integrations/google cloud.svg', alt: 'Integration logo 2' },
+    { src: '/integrations/aws.svg', alt: 'Integration logo 3' },
+    { src: '/integrations/postgresql.svg', alt: 'Integration logo 4' }
+  ];
+  const logos3 = [
+    { src: '/integrations/slack.svg', alt: 'Integration logo 1' },
+    { src: '/integrations/teams.svg', alt: 'Integration logo 2' },
+    { src: '/integrations/linear.svg', alt: 'Integration logo 3' }
+  ];
   return (
     <div className="flex flex-col h-full">
       <InfiniteMovingLogos
@@ -145,14 +155,14 @@ function EnterpriseSkeletonTwo() {
         variant="infinite"
       />
       <InfiniteMovingLogos
-        items={logos}
+        items={logos2}
         direction="right"
         speed="normal"
         pauseOnHover
         variant="infinite"
       />
       <InfiniteMovingLogos
-        items={logos}
+        items={logos3}
         direction="left"
         speed="normal"
         pauseOnHover
@@ -182,8 +192,8 @@ function EnterpriseSkeletonThree() {
   ];
 
   return (
-    <div className="flex flex-col gap-8 lg:flex-row lg:items-center h-full">
-      <div className="flex-1 space-y-6">
+    <div className="flex flex-col lg:flex-row lg:items-start">
+      <div className="flex-1 space-y-6 mt-6">
         {checklist.map((item) => (
           <div key={item.step} className="flex gap-4 items-start">
             <span className="h-8 w-8 flex items-center justify-center rounded-full bg-primary/10 text-primary text-sm font-semibold">
@@ -196,7 +206,7 @@ function EnterpriseSkeletonThree() {
           </div>
         ))}
       </div>
-      <div className="w-full lg:w-72 rounded-2xl border border-border/60 bg-card/60 p-6 shadow-lg">
+      <div className="w-full lg:w-72 rounded-2xl border border-border/60 bg-gradient-to-br from-accent/50 to-background p-6 shadow-lg">
         <p className="text-xs uppercase text-muted-foreground tracking-wide">
           Reliability Snapshot
         </p>

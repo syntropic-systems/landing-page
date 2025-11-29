@@ -24,15 +24,15 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             highlights: [
                 {
                     subtitle: "The Pain",
-                    body: "Searching team manually reading vendors, assigning bidders, and filing forms.",
+                    body: "Teams spend hours digging through files, coordinating tasks, and fixing avoidable mistakes.",
                 },
                 {
-                    subtitle: "How We Help",
-                    body: "CloudGlance automates data extraction and form-filling.",
+                    subtitle: "How CloudGlance Help",
+                    body: "- Pulls the required information from long files in seconds\n- Keeps tasks, documents, and stages connected to avoid slowdowns\n- Reduces errors by giving teams structured, reliable data to work with",
                 },
                 {
                     subtitle: "The Outcome",
-                    body: "Finish vendor responses 72% faster.",
+                    body: "Projects move faster with fewer mistakes and far smoother execution.",
                 },
             ],
         },
@@ -45,15 +45,15 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             highlights: [
                 {
                     subtitle: "The Pain",
-                    body: "Deploy guardrails, audit logs, and permissions suited for global programs.",
+                    body: "Opportunities are lost due to slow discovery, missed requirements, and manual processes that drag out responses.",
                 },
                 {
-                    subtitle: "How We Help",
-                    body: "Eliminate repetitive steps so teams focus on decisions—not paperwork.",
+                    subtitle: "How CloudGlance Help",
+                    body: "- Identifies relevant opportunities automatically\n- Highlights scope fit, risks, and key requirements upfront\n- Speeds up responses by eliminating the manual work that slows teams down",
                 },
                 {
                     subtitle: "The Outcome",
-                    body: "Bring every region onto the same process without slowing innovation.",
+                    body: "Teams respond quickly, confidently, and with far greater accuracy—leading to more wins.",
                 },
             ],
         },
@@ -66,15 +66,15 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             highlights: [
                 {
                     subtitle: "The Pain",
-                    body: "Capture every change and citation to satisfy regulators and auditors.",
+                    body: "Critical details are often buried deep in documents, leading to missed risks and inconsistent checks.",
                 },
                 {
-                    subtitle: "How We Help",
-                    body: "Move faster without sacrificing precision in contracts or tenders.",
+                    subtitle: "How CloudGlance Help",
+                    body: "- Spots hidden risks early so nothing in the fine print is overlooked\n- Checks all requirements automatically and flags missing documents or responses\n- Maintains a clean audit trail for internal reviews and compliance",
                 },
                 {
                     subtitle: "The Outcome",
-                    body: "Keep headquarters and field teams working from the same source of truth.",
+                    body: "Reviews become more reliable, consistent, and audit-ready—without extra effort.",
                 },
             ],
         },
@@ -87,15 +87,15 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             highlights: [
                 {
                     subtitle: "The Pain",
-                    body: "Get a clear view of all projects, risks, and opportunities across the organization.",
+                    body: "High operational costs, frequent errors, slow turnaround times, and the need for larger teams to maintain output.",
                 },
                 {
-                    subtitle: "How We Help",
-                    body: "Make informed decisions based on real-time data and analytics.",
+                    subtitle: "How CloudGlance Help",
+                    body: "- Cuts nearly 80% of manual effort across document-heavy processes\n- Reduces mistakes, rework, and escalations\n- Enables smaller teams to accomplish significantly more",
                 },
                 {
                     subtitle: "The Outcome",
-                    body: "Keep headquarters and field teams working from the same source of truth.",
+                    body: "Lower costs, faster cycles, fewer errors, and better margins across the entire operation.",
                 },
             ],
         },
@@ -103,86 +103,80 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
 
     const industryTabs = [
         {
-            value: "b2b-saas",
-            label: "B2B SaaS",
-            title: "B2B SaaS Companies",
-            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
-            imageAlt: "B2B SaaS Companies",
-            highlights: [
-                {
-                    subtitle: "The Pain",
-                    body: "Manual document processing slows down sales cycles and customer onboarding processes.",
-                },
-                {
-                    subtitle: "How We Help",
-                    body: "Automate contract reviews, vendor evaluations, and customer document processing to accelerate deals.",
-                },
-                {
-                    subtitle: "The Outcome",
-                    body: "Reduce sales cycle time by 40% and streamline customer onboarding workflows.",
-                },
-            ],
-        },
-        {
-            value: "marketplaces",
-            label: "Marketplaces",
-            title: "Online Marketplaces",
-            image: "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=80",
-            imageAlt: "Online Marketplaces",
-            highlights: [
-                {
-                    subtitle: "The Pain",
-                    body: "Managing vendor applications, compliance documents, and onboarding processes at scale.",
-                },
-                {
-                    subtitle: "How We Help",
-                    body: "Automate vendor evaluation, document verification, and compliance checks for faster marketplace growth.",
-                },
-                {
-                    subtitle: "The Outcome",
-                    body: "Process 3x more vendor applications with the same team and ensure consistent quality standards.",
-                },
-            ],
-        },
-        {
             value: "construction",
-            label: "Construction",
-            title: "Construction & Engineering",
+            label: "Construction & Infrastructure",
+            title: "Construction & Infrastructure",
             image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1600&q=80",
-            imageAlt: "Construction & Engineering",
+            imageAlt: "Construction & Infrastructure",
             highlights: [
                 {
-                    subtitle: "The Pain",
-                    body: "Complex tender documents, technical drawings, and compliance requirements slow project approvals.",
-                },
-                {
-                    subtitle: "How We Help",
-                    body: "Extract and structure information from tender documents, technical specs, and drawings automatically.",
-                },
-                {
-                    subtitle: "The Outcome",
-                    body: "Respond to tenders 60% faster and ensure all technical requirements are captured accurately.",
+                    subtitle: "How CloudGlance Help",
+                    body: "Manage large, complex tender packages with ease. CloudGlance extracts BOQs, technical specs, and requirements instantly, reducing coordination delays and helping teams deliver accurate bids on time.",
                 },
             ],
         },
         {
-            value: "healthcare",
-            label: "Healthcare",
-            title: "Healthcare & Life Sciences",
-            image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1600&q=80",
-            imageAlt: "Healthcare & Life Sciences",
+            value: "technology",
+            label: "Technology & IT",
+            title: "Technology & IT",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+            imageAlt: "Technology & IT",
             highlights: [
                 {
-                    subtitle: "The Pain",
-                    body: "Regulatory compliance, vendor qualification, and contract management require meticulous documentation.",
+                    subtitle: "How CloudGlance Help",
+                    body: "Accelerate responses to RFPs, security questionnaires, and compliance-heavy documents. CloudGlance reads technical files, maps requirements, and generates structured responses far faster than manual processes.",
                 },
+            ],
+        },
+        {
+            value: "energy",
+            label: "Energy",
+            title: "Energy",
+            image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
+            imageAlt: "Energy",
+            highlights: [
                 {
-                    subtitle: "How We Help",
-                    body: "Automate compliance checks, vendor evaluations, and contract reviews while maintaining audit trails.",
+                    subtitle: "How CloudGlance Help",
+                    body: "Simplify evaluation and bidding for highly regulated projects. CloudGlance surfaces risks, highlights deviations, and keeps all documents connected so teams can respond and review with greater accuracy.",
                 },
+            ],
+        },
+        {
+            value: "power-utilities",
+            label: "Power & Utilities",
+            title: "Power & Utilities",
+            image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80",
+            imageAlt: "Power & Utilities",
+            highlights: [
                 {
-                    subtitle: "The Outcome",
-                    body: "Ensure regulatory compliance while reducing administrative overhead by 50%.",
+                    subtitle: "How CloudGlance Help",
+                    body: "Handle dense regulatory and standards-driven documents effortlessly. CloudGlance automates compliance checks, extracts key data points, and ensures submissions are complete, consistent, and audit-ready.",
+                },
+            ],
+        },
+        {
+            value: "manufacturing",
+            label: "Manufacturing",
+            title: "Manufacturing",
+            image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80",
+            imageAlt: "Manufacturing",
+            highlights: [
+                {
+                    subtitle: "How CloudGlance Help",
+                    body: "Eliminate manual work in product and BOQ matching. CloudGlance interprets specifications, quantities, and materials, enabling faster quote preparation and more precise tender responses.",
+                },
+            ],
+        },
+        {
+            value: "real-estate",
+            label: "Real Estate & Property Development",
+            title: "Real Estate & Property Development",
+            image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
+            imageAlt: "Real Estate & Property Development",
+            highlights: [
+                {
+                    subtitle: "How CloudGlance Help",
+                    body: "Manage high-volume contracts, proposals, and project documents smoothly. CloudGlance pulls out clauses, costs, obligations, and risks—giving teams clearer insights for evaluation and decision-making.",
                 },
             ],
         },
@@ -195,15 +189,14 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
         <div>
             {/* Hero Section */}
             <Hero2
-                title="Built for Teams who live inside Documents"
-                description="Different teams see different pains, but they all stop drowning in documents."
+                title="Built for Every Team, Across Every Document-Heavy Industry"
+                description="CloudGlance supports analysts, operations, and decision-makers with AI that reads documents, structures information, and powers complete workflows across sectors."
             />
 
             {/* Tab Section - By Team */}
             <Section
             id="by-team"
             title="By Team"
-            description="Streamline your business-to-institution workflows"
             >
                 <TabSection
                     key={validDefaultTeamTab ?? "default"}
@@ -227,8 +220,8 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
 
             {/* CTA Section */}
             <CTASection
-                title="Ready to transform your workflow?"
-                description="See how CloudGlance can read your documents, structure the information and power your tender or evaluation workflows end-to-end."
+                title="Ready to Streamline how your Teams Work?"
+                description="See how CloudGlance automates the heavy lifting across bids, evaluations, and reviews so your team can focus on decisions, not documents."
                 primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
                 secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}
             />

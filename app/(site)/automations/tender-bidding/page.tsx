@@ -4,9 +4,9 @@ import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { FeatureCard, FeatureGrid } from "@/components/feature-card";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/page-header";
-import { Clock, Layers, ShieldCheck, Zap } from "lucide-react";
+import { ShieldCheck, Timer, Zap } from "lucide-react";
 
 const workflowSteps = [
   {
@@ -49,22 +49,22 @@ const workflowSteps = [
 
 const automationHighlights = [
   {
-    icon: <Layers className="text-primary" />,
-    title: "Unified Workspace",
+    icon: <Timer className="text-primary" />,
+    title: "Faster Document Reviews",
     description:
-      "Content, collaboration, and compliance reviews live in a single audit-ready canvas.",
-  },
-  {
-    icon: <Zap className="text-primary" />,
-    title: "Reusable Playbooks",
-    description:
-      "Spin up playbooks for public sector, enterprise, or strategic bids with role-based tasks.",
+      "Cut review cycles from days to hours with AI-powered extraction and comparison.",
   },
   {
     icon: <ShieldCheck className="text-primary" />,
-    title: "Guardrails",
+    title: "Fewer Errors & Mismatches",
     description:
-      "SOC 2 aligned access controls with full traceability on every edit, attachment, and sign-off.",
+      "Automatically catch inconsistencies and reduce manual mistakes before submission.",
+  },
+  {
+    icon: <Zap className="text-primary" />,
+    title: "Handle More Tenders",
+    description:
+      "Increase your team’s bidding capacity without adding extra workload.",
   },
 ];
 
@@ -138,8 +138,12 @@ export default function TenderBiddingPage() {
       </Section>
 
       <Section
-        title="Built-in Automations"
-        description="CloudGlance ships with the guardrails and AI assistance tender teams expect."
+        title={
+          <>
+            Why Choose CloudGlance for <span className="text-primary">Your Tender Bidding</span>
+          </>
+        }
+        description="CloudGlance speeds up your bid process, eliminates manual errors, and helps your team handle more tenders with confidence."
         className="bg-muted/40"
       >
         <FeatureGrid columns={3}>
@@ -155,9 +159,9 @@ export default function TenderBiddingPage() {
       </Section>
 
       <CTASection
-        title="Walk Through Your Tender Flow"
-        description="Bring a current bid and we will show you how CloudGlance would execute it."
-        primaryCta={{ text: "See Tender Demo", href: "https://app.cloudglancelab.com" }}
+        title="Respond to Tenders Faster with Confidence"
+        description="See how CloudGlance can accelerate your bidding workflows and unlock the full potential."
+        primaryCta={{ text: "See it in Action", href: "https://app.cloudglancelab.com" }}
         secondaryCta={{ text: "Talk to Sales", href: "/contact" }}
       />
     </div>

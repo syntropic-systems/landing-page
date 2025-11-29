@@ -49,13 +49,13 @@ export function HeroSection({
             </div>
             <div className="container relative z-10">
                 <div className="max-w-7xl mx-auto">
-                    <div className="max-w-3xl text-left space-y-6 lg:space-y-10">
+                    <div className="max-w-4xl text-left space-y-6 lg:space-y-10">
                         {badge && (
-                            <span className="inline-flex items-center px-3 py-1 rounded-full border border-primary/70 bg-accent/60 text-accent-foreground text-sm font-semibold tracking-wide backdrop-blur">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full border border-primary/70 bg-accent/60 text-accent-foreground text-sm font-semibold tracking-wider backdrop-blur uppercase">
                                 {badge}
                             </span>
                         )}
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight">
                             {title}
                         </h1>
                         {description && (

@@ -157,12 +157,12 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
 
             {/* Right side - Image */}
             <div className="sticky top-24">
-                <div className="rounded-xl shadow-lg overflow-hidden bg-muted aspect-[4/3] flex items-center justify-center relative">
+                <div className="overflow-hidden bg-transparent aspect-[4/3] flex items-center justify-center relative">
                     {activeStepData?.image && (
                         <img
                             src={activeStepData.image}
                             alt={activeStepData.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                         />
                     )}
                 </div>

@@ -22,25 +22,25 @@ export default function Home() {
       step: '1',
       title: 'Centralized Data',
       description: 'All files related to the organization and projects, across formats like PDF, Excel, Word, drawings, images, forms and technical documents, are maintained centrally.',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80',
+      image: '/workflow steps/01.png',
     },
     {
       step: '2',
       title: 'Structured Understanding',
       description: 'AI reads and interprets content across formats, extracting key information and converting unstructured data into structured, connected data the system can act.',
-      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1200&q=80',
+      image: '/workflow steps/02.png',
     },
     {
       step: '3',
       title: 'Intelligence to Automation',
       description: 'Structured Information powers all the processes, for tender bidding and vendor evaluation today & automating contract review, financial checks & more tomorrow.',
-      image: 'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80',
+      image: '/workflow steps/03.png',
     },
     {
       step: '4',
       title: 'Review & Finalize',
       description: 'Teams review the AI outputs, collaborate on answers, clear pending items, validate final decisions and close projects end-to-end with accountability across every stage.',
-      image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80',
+      image: '/workflow steps/04.png',
     }
   ];
 
@@ -52,45 +52,44 @@ export default function Home() {
       cta: { label: 'Learn more', href: '/automations/tender-bidding' },
     },
     {
-      title: 'Tender Issuing',
+      title: 'Tender Evaluation',
       description: 'Choose the best vendor in a fraction of the usual time.',
       bullets: ['AI bid comparison', 'Compliance checks', 'Scorecards & reports'],
-      cta: { label: 'Learn more', href: '/automations/tender-issuing' },
+      cta: { label: 'Learn more', href: '/automations/tender-evaluation' },
     },
     {
       title: 'Contract Review',
       description: 'Turn long contracts into clear summaries, risks and obligations.',
       bullets: ['Clause extraction', 'Risk identification', 'Obligation mapping'],
-      cta: { label: 'Join waitlist', href: '/contact' },
-      badge: 'Coming soon',
+      cta: { label: 'Coming Soon', href:'/contact' },	
     },
   ];
 
   const testimonials = [
     {
       quote:
-        "CloudGlance reduced our tender response time from 2 weeks to 3 days. We're now able to bid on 3x more opportunities.",
-      name: 'Sarah Johnson',
-      title: 'Procurement Director, TechCorp Industries',
+        "In our first month, the AI flagged a critical compliance risk in a high value bid that would have led to an immediate disqualification. That one catch alone made the platform worth it. It’s a true game changer for ensuring our bids are flawless.",
+      name: 'Shayak Ganguly',
+      title: 'Tender Manager, Cortex Consulting Solutions',
+    },
+    {
+      quote:
+        "Implementing CloudGlance was a strategic turning point for us. We have cut our tender analysis time from weeks to just a couple of days, allowing our team to focus on high-value strategy instead of low-value paperwork. Our bid capacity has tripled, and we’re pursuing deals we previously couldn't even consider.",
+      name: 'Bipin Dimiri',
+      title: 'Head of Business Development, Cortex Consulting Solutions',
     },
     {
       quote:
         "The AI-powered document extraction is incredibly accurate. It's like having an extra team member who never sleeps.",
-      name: 'Michael Chen',
-      title: 'Operations Manager, Global Solutions Ltd',
-    },
-    {
-      quote:
-        "We've seen a 72% improvement in efficiency. CloudGlance pays for itself within the first month.",
-      name: 'Emily Rodriguez',
-      title: 'Head of Business Development, Innovation Partners',
+      name: 'Manish Bharti',
+      title: 'CEO, Cortex Consulting Solutions',
     },
   ];
 
   const logos = [
-    { src: '/client logos/logo01.svg', alt: 'Client logo 1' },
-    { src: '/client logos/logo02.svg', alt: 'Client logo 2' },
-    { src: '/client logos/logo03.svg', alt: 'Client logo 3' },
+    { src: '/client logos/Cortex_client_logo.svg', alt: 'Client logo 1' },
+    { src: '/client logos/ABB_client_logo.svg', alt: 'Client logo 2' },
+    { src: '/client logos/Welspun_client_logo.svg', alt: 'Client logo 3' },
   ];
 
   // Show only first 5 FAQs on home page
@@ -100,11 +99,11 @@ export default function Home() {
     <div>
       {/* Hero Section */}
       <HeroSection
-        badge="AI Document Intelligence Platform"
-        title="Complete document-heavy workflows in minutes, not days"
-        description="CloudGlance cuts 80% of the time spent on tender bidding, vendor evaluation, and contract review. Turn PDFs, Excels and Technical files into structured data instantly."
+        badge="AI-Powered Document Intelligence Platform"
+        title="Complete Document-Heavy Workflows in Minutes, not Days"
+        description="CloudGlance cuts 80% of the time spent on tender bidding, vendor evaluation, contract review and more by turning PDFs, Excels and Technical files into structured data and automated processes instantly."
         primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
-        secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}
+        secondaryCta={{ text: 'Talk to Our Team', href: '/contact' }}
       />
 
       {/* What Changes */}
@@ -118,9 +117,9 @@ export default function Home() {
       >
         <div className="grid md:grid-cols-3 gap-12 text-center mx-auto pt-8">
           <div>
-            <div className="text-7xl font-semibold text-primary mb-4">72%</div>
+            <div className="text-7xl font-semibold text-primary mb-4">80%</div>
             <div className="text-2xl text-foreground font-semibold pb-2">Faster Response Time</div>
-            <div className="text-base text-muted-foreground">AI reads and understands documents, organizing required information instantly and solving the slowest parts of review, preparation and analysis.</div>
+            <div className="text-base text-muted-foreground">AI reads and understands documents, organizing required information instantly & solving review, preparation and analysis faster.</div>
           </div>
           <div>
             <div className="text-7xl font-semibold text-primary mb-4">3x</div>
@@ -128,7 +127,7 @@ export default function Home() {
             <div className="text-base text-muted-foreground">AI detects every requirement, clause and attachment, even those buried in fine print, with the same consistency, so nothing gets missed.</div>
           </div>
           <div>
-            <div className="text-7xl font-semibold text-primary mb-4">100%</div>
+            <div className="text-7xl font-semibold text-primary mb-4">99.7%</div>
             <div className="text-2xl text-foreground font-semibold pb-2">Accuracy</div>
             <div className="text-base text-muted-foreground">With AI handling time-consuming and repetitive manual processes, teams can take on more projects without extra hiring or burnout.</div>
           </div>
@@ -161,11 +160,6 @@ export default function Home() {
             <div key={automation.title} className="rounded-xl bg-card text-card-foreground border border-border/40 shadow-sm flex flex-col p-6">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-2xl font-semibold">{automation.title}</h3>
-                {automation.badge && (
-                  <span className="text-xs font-semibold uppercase tracking-wide bg-muted px-3 py-1 rounded-full text-muted-foreground">
-                    {automation.badge}
-                  </span>
-                )}
               </div>
               <p className="text-sm text-muted-foreground mb-6">{automation.description}</p>
               <ul className="space-y-3 text-sm text-muted-foreground flex-1 mb-8">
@@ -254,8 +248,8 @@ export default function Home() {
 
       {/* Final CTA Section */}
       <CTASection
-        title="Be a proposer: Catch Up Once & Automate"
-        description="Stop drowning in documents. Start winning more bids. Experience CloudGlance today."
+        title="Ready to Transform the Way your Team Works with Documents?"
+        description="Stop wasting time on manual review. See how CloudGlance automates bids, evaluations, and contract workflows from end to end."
         primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
         secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}
       />
