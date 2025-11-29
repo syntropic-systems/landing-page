@@ -48,7 +48,7 @@ export function Footer() {
             { name: 'About Us', href: '/company#about-us' },
             { name: 'Our Mission', href: '/company#our-mission' },
             { name: 'Our Team', href: '/company#team' },
-            { name: 'Contact', href: '/contact' },
+            { name: 'Contact Us', href: '/contact' },
         ],
         },
         resources: {
@@ -57,9 +57,7 @@ export function Footer() {
     };
 
     const socialLinks = [
-        { name: 'LinkedIn', href: '#', icon: Linkedin },
-        { name: 'X / Twitter', href: '#', icon: Twitter },
-        { name: 'GitHub', href: '#', icon: Github },
+        { name: 'LinkedIn', href: 'https://www.linkedin.com/company/cloudglance-lab-pvt-ltd', icon: Linkedin }
     ];
 
     return (

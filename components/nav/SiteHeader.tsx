@@ -188,6 +188,10 @@ const navItems: NavItem[] = [
                             label: "Our Team",
                             href: "/company#team",
                         },
+                        {
+                            label: "Contact Us",
+                            href: "/contact",
+                        }
                     ],
                 },
             ],
@@ -198,7 +202,6 @@ const navItems: NavItem[] = [
         },
     },
     { href: "/faq", label: "FAQ" },
-    { href: "/contact", label: "Contact Us" },
 ];
 
 function DropdownContent({
@@ -444,22 +447,73 @@ export function SiteHeader() {
                             <nav className="flex flex-col gap-2 mt-6" role="navigation" aria-label="Mobile navigation">
                                 {navItems.map((item) => {
                                     const isActive = pathname === item.href;
+                                    const hasDropdown = Boolean(item.dropdown);
+                                    
                                     return (
-                                        <Link
-                                            key={item.href}
-                                            href={item.href}
-                                            onClick={() => setIsOpen(false)}
-                                            className={cn(
-                                                "px-4 py-3 text-base font-medium rounded-md transition-colors",
-                                                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                                                isActive
-                                                    ? "bg-accent text-accent-foreground cursor-default pointer-events-none"
-                                                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                                        <div key={item.href} className="flex flex-col">
+                                            <Link
+                                                href={item.href}
+                                                onClick={() => setIsOpen(false)}
+                                                className={cn(
+                                                    "px-4 py-3 text-base font-medium rounded-md transition-colors",
+                                                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                                                    isActive
+                                                        ? "bg-accent text-accent-foreground cursor-default pointer-events-none"
+                                                        : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                                                )}
+                                                aria-current={isActive ? "page" : undefined}
+                                            >
+                                                {item.label}
+                                            </Link>
+                                            {hasDropdown && item.dropdown && (
+                                                <div className="pl-4 pb-2 flex flex-col gap-1">
+                                                    {item.dropdown.sections?.map((section, sectionIndex) => (
+                                                        <div key={sectionIndex} className="flex flex-col gap-1">
+                                                            {section.links.map((link) => {
+                                                                const linkIsActive = pathname === link.href;
+                                                                return (
+                                                                    <Link
+                                                                        key={link.href}
+                                                                        href={link.href}
+                                                                        onClick={() => setIsOpen(false)}
+                                                                        className={cn(
+                                                                            "px-4 py-2 text-sm rounded-md transition-colors",
+                                                                            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                                                                            linkIsActive
+                                                                                ? "bg-accent text-accent-foreground font-medium"
+                                                                                : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
+                                                                        )}
+                                                                        aria-current={linkIsActive ? "page" : undefined}
+                                                                    >
+                                                                        {link.label}
+                                                                    </Link>
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    ))}
+                                                    {item.dropdown.highlights?.map((highlight) => {
+                                                        const highlightIsActive = pathname === highlight.href;
+                                                        return (
+                                                            <Link
+                                                                key={highlight.href}
+                                                                href={highlight.href}
+                                                                onClick={() => setIsOpen(false)}
+                                                                className={cn(
+                                                                    "px-4 py-2 text-sm rounded-md transition-colors",
+                                                                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                                                                    highlightIsActive
+                                                                        ? "bg-accent text-accent-foreground font-medium"
+                                                                        : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
+                                                                )}
+                                                                aria-current={highlightIsActive ? "page" : undefined}
+                                                            >
+                                                                {highlight.title}
+                                                            </Link>
+                                                        );
+                                                    })}
+                                                </div>
                                             )}
-                                            aria-current={isActive ? "page" : undefined}
-                                        >
-                                            {item.label}
-                                        </Link>
+                                        </div>
                                     );
                                 })}
                                 <div className="flex flex-col gap-2 pt-4 border-t">

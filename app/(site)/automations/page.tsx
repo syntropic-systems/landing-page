@@ -83,7 +83,7 @@ export default function AutomationsPage() {
 
             {/* CTA Section */}
             <CTASection
-                title="Let's start with the Workflow that Hurts the Most"
+                title="Let's start with the Workflow that Hurts the Most."
                 description="Experience how CloudGlance transforms your most painful tender workflows into streamlined, automated processes."
                 primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
                 secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}

@@ -48,7 +48,7 @@ type TransformState = {
 const ScrollStack: React.FC<ScrollStackProps> = ({
   children,
   className = '',
-  itemDistance = 40,
+  itemDistance = 60,
   itemScale = 0.03,
   itemStackDistance = 10,
   stackPosition = '20%',
@@ -68,6 +68,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const cardsRef = useRef<HTMLElement[]>([]);
   const lastTransformsRef = useRef(new Map<number, TransformState>());
   const isUpdatingRef = useRef(false);
+  const rafScheduledRef = useRef(false);
+  const cardPositionsRef = useRef(new Map<HTMLElement, number>());
 
   const calculateProgress = useCallback((scrollTop: number, start: number, end: number) => {
     if (scrollTop < start) return 0;
@@ -99,13 +101,38 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     }
   }, [useWindowScroll]);
 
+  const recalculateCardPositions = useCallback(() => {
+    cardPositionsRef.current.clear();
+    cardsRef.current.forEach((card) => {
+      if (card) {
+        if (useWindowScroll) {
+          const rect = card.getBoundingClientRect();
+          cardPositionsRef.current.set(card, rect.top + window.scrollY);
+        } else {
+          cardPositionsRef.current.set(card, card.offsetTop);
+        }
+      }
+    });
+  }, [useWindowScroll]);
+
   const getElementOffset = useCallback(
-    (element: HTMLElement) => {
+    (element: HTMLElement, useCache = true) => {
+      if (useCache && cardPositionsRef.current.has(element)) {
+        return cardPositionsRef.current.get(element)!;
+      }
       if (useWindowScroll) {
         const rect = element.getBoundingClientRect();
-        return rect.top + window.scrollY;
+        const offset = rect.top + window.scrollY;
+        if (useCache) {
+          cardPositionsRef.current.set(element, offset);
+        }
+        return offset;
       } else {
-        return element.offsetTop;
+        const offset = element.offsetTop;
+        if (useCache) {
+          cardPositionsRef.current.set(element, offset);
+        }
+        return offset;
       }
     },
     [useWindowScroll]
@@ -124,12 +151,17 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       ? (document.querySelector('.scroll-stack-end') as HTMLElement | null)
       : (scrollerRef.current?.querySelector('.scroll-stack-end') as HTMLElement | null);
 
-    const endElementTop = endElement ? getElementOffset(endElement) : 0;
+    const endElementTop = endElement ? getElementOffset(endElement, false) : 0;
+
+    // Batch DOM reads
+    const cardTops = cardsRef.current.map((card) => 
+      card ? getElementOffset(card, true) : 0
+    );
 
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
 
-      const cardTop = getElementOffset(card);
+      const cardTop = cardTops[i];
       const triggerStart = cardTop - stackPositionPx - itemStackDistance * i;
       const triggerEnd = cardTop - scaleEndPositionPx;
       const pinStart = cardTop - stackPositionPx - itemStackDistance * i;
@@ -144,7 +176,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       if (blurAmount) {
         let topCardIndex = 0;
         for (let j = 0; j < cardsRef.current.length; j++) {
-          const jCardTop = getElementOffset(cardsRef.current[j]);
+          const jCardTop = cardTops[j];
           const jTriggerStart = jCardTop - stackPositionPx - itemStackDistance * j;
           if (scrollTop >= jTriggerStart) {
             topCardIndex = j;
@@ -220,7 +252,13 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   ]);
 
   const handleScroll = useCallback(() => {
-    updateCardTransforms();
+    if (rafScheduledRef.current) return;
+    
+    rafScheduledRef.current = true;
+    requestAnimationFrame(() => {
+      rafScheduledRef.current = false;
+      updateCardTransforms();
+    });
   }, [updateCardTransforms]);
 
   const setupLenis = useCallback(() => {
@@ -291,7 +329,9 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     stackCompletedRef.current = false;
     cardsRef.current = [];
     lastTransformsRef.current.clear();
+    cardPositionsRef.current.clear();
     isUpdatingRef.current = false;
+    rafScheduledRef.current = false;
   }, []);
 
   useLayoutEffect(() => {
@@ -316,18 +356,40 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       card.style.webkitPerspective = '1000px';
     });
 
+    // Recalculate positions when cards are set up
+    recalculateCardPositions();
+
     const cleanup = () => {
       resetStackState();
     };
 
+    // Handle window resize to recalculate positions
+    const handleResize = () => {
+      recalculateCardPositions();
+      updateCardTransforms();
+    };
+
+    const resizeTarget = useWindowScroll ? window : scrollerRef.current;
+    if (resizeTarget) {
+      resizeTarget.addEventListener('resize', handleResize, { passive: true });
+    }
+
     if (enableSmoothScroll) {
       setupLenis();
       updateCardTransforms();
-      return cleanup;
+      return () => {
+        if (resizeTarget) {
+          resizeTarget.removeEventListener('resize', handleResize);
+        }
+        cleanup();
+      };
     }
 
     const target = useWindowScroll ? window : scrollerRef.current;
     if (!target) {
+      if (resizeTarget) {
+        resizeTarget.removeEventListener('resize', handleResize);
+      }
       return cleanup;
     }
 
@@ -340,6 +402,9 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
     return () => {
       target.removeEventListener('scroll', handleNativeScroll);
+      if (resizeTarget) {
+        resizeTarget.removeEventListener('resize', handleResize);
+      }
       cleanup();
     };
   }, [
@@ -358,7 +423,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     setupLenis,
     updateCardTransforms,
     handleScroll,
-    resetStackState
+    resetStackState,
+    recalculateCardPositions
   ]);
 
   return (

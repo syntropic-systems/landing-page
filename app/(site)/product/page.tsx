@@ -5,7 +5,7 @@ import { CTASection } from '@/components/cta-section';
 import { InfiniteMovingLogos } from '@/components/ui/infinite-moving-logos';
 import FeaturesSectionDemo from '@/components/features-section-demo-3';
 import { Card } from '@/components/ui/card';
-import Image from 'next/image';
+import { ThemeAwareImage } from '@/components/theme-aware-image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -42,10 +42,11 @@ export default function ProductPage() {
                 description="Cloudglance is built around the way organisations actually work with documents. From storage and understanding to collaboration and execution, every part of the platform is designed to operate as one connected system. Each module below is part of the same platform, built to work together seamlessly."
             >
                 <div>
-                    <Card className="w-full border-0 shadow-xl">
+                    <Card className="w-full shadow-2xl overflow-hidden rounded-xl shadow-primary/20">
                         <div className="relative w-full">
-                            <Image
-                                src="/product/main-page.jpg"
+                            <ThemeAwareImage
+                                src="/product/home_white.png"
+                                srcDark="/product/home_black.png"
                                 alt="CloudGlance Platform"
                                 width={1600}
                                 height={900}
@@ -133,7 +134,7 @@ export default function ProductPage() {
 
             {/* CTA Section */}
             <CTASection
-                title="Let's make your Documents work for you"
+                title="Let's make your Documents work for You!"
                 description="See how CloudGlance can accelerate your document workflows and unlock the full potential of your team."
                 primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
                 secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}

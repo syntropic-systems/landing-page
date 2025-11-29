@@ -8,6 +8,7 @@ import { FeatureCard, FeatureGrid } from "@/components/feature-card";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/page-header";
 import { BadgeCheck, CheckCircle, LayoutPanelLeft} from "lucide-react";
+import { ThemeAwareImage } from "@/components/theme-aware-image";
 
 export const metadata: Metadata = {
   title: "Tender Evaluation Automation",
@@ -28,20 +29,23 @@ const workflowSteps = [
     title: "Bid Comparison",
     description:
       "Upon uploading the tender submissions to the platform, AI reads every vendor's submission and brings their responses into a common, comparable format. Technical, commercial and contractual details that normally sit in separate files appear side by side, giving teams a clear view of how each vendor is approaching the scope without digging through individual documents. This speeds up the first level of evaluation, removing hours of manual sorting.",
-    image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=800&q=80",
+    image: "/evaluation/bid_comparison_white.png",
+    imageDark: "/evaluation/bid_comparison_black.png",
   },
   {
     title: "Deviation and Compliance Scoring",
     description:
       "AI checks each bid against the requirements in the tender or RFP and highlights vendor compliance, deviations and any missing documents or responses. It also surfaces gaps or risks that could affect delivery, pricing or contractual obligations, making it clear where vendors may fall short or introduce uncertainty. This gives evaluation teams a straightforward view of which vendors closely match the scope, which ones need clarification and where potential issues may appear later in the project.",
-    image: "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=800&q=80",
+    image: "/evaluation/deviation_white.png",
+    imageDark: "/evaluation/deviation_black.png",
   },
   {
     title: "Scorecards and Reports",
     description:
       "Organisations can feed their bid scoring metrics into the platform, and AI applies those rules to evaluate every bid. Each response is scored and ranked objectively, giving teams a clear view of how vendors compare and which ones are the strongest fit. The results can be downloaded or shared as reports for approvals and audits, making the evaluation process faster, consistent and completely traceable.",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=80",
-  }
+    image: "/evaluation/scorecards_white.png",
+    imageDark: "/evaluation/scorecards_black.png",
+  },
 ];
 
 const evaluationBenefits = [
@@ -88,20 +92,18 @@ export default function TenderEvaluationPage() {
       </Section>
 
       <Section className="!pt-0">
-        <ScrollStack
-            className="h-[90vh]"
-            useWindowScroll
-            >
+        <ScrollStack>
           {workflowSteps.map((step) => (
-            <ScrollStackItem key={step.title} itemClassName="bg-card h-[70vh]">
-              <div className="grid h-full gap-6 md:grid-cols-2 items-start">
-                <div className="flex flex-col justify-center space-y-3">
+            <ScrollStackItem key={step.title} itemClassName="bg-card h-auto">
+              <div className="grid gap-6 md:grid-cols-3 items-start">
+                <div className="flex flex-col justify-center space-y-3 md:col-span-1">
                   <p className="text-2xl font-semibold text-primary">{step.title}</p>
                   <p className="text-base text-foreground">{step.description}</p>
                 </div>
-                <div className="relative h-full w-full overflow-hidden rounded-2xl">
-                  <Image
+                <div className="relative w-full aspect-video overflow-hidden rounded-lg border border-border shadow-md md:col-span-2">
+                  <ThemeAwareImage
                     src={step.image}
+                    srcDark={step.imageDark}
                     alt={step.title}
                     fill
                     className="object-cover"
@@ -136,7 +138,7 @@ export default function TenderEvaluationPage() {
       </Section>
 
       <CTASection
-        title="Experience smarter Tender Evaluation with CloudGlance"
+        title="Experience smarter Tender Evaluation with CloudGlance."
         description="See how CloudGlance can streamline your evaluation process and make smarter, faster decisions."
         primaryCta={{ text: "See it in Action", href: "https://app.cloudglancelab.com" }}
         secondaryCta={{ text: "Talk to Sales", href: "/contact" }}

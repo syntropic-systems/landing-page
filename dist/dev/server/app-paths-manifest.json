@@ -1,6 +1,14 @@
 {
+  "/(site)/automations/page": "app/(site)/automations/page.js",
+  "/(site)/automations/tender-bidding/page": "app/(site)/automations/tender-bidding/page.js",
   "/(site)/automations/tender-evaluation/page": "app/(site)/automations/tender-evaluation/page.js",
+  "/(site)/company/page": "app/(site)/company/page.js",
+  "/(site)/faq/page": "app/(site)/faq/page.js",
+  "/(site)/page": "app/(site)/page.js",
+  "/(site)/product/page": "app/(site)/product/page.js",
+  "/(site)/solutions/page": "app/(site)/solutions/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/apple-icon/route": "app-edge-has-no-entrypoint",
-  "/icon/route": "app-edge-has-no-entrypoint"
+  "/icon-192/route": "app-edge-has-no-entrypoint",
+  "/icon/route": "app-edge-has-no-entrypoint",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js"
 }

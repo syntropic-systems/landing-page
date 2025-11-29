@@ -16,3 +16,4 @@ export { Footer } from './footer';
 // Theme components
 export { ThemeProvider } from './theme-provider';
 export { ThemeToggle } from './theme-toggle';
+export { ThemeAwareImage } from './theme-aware-image';

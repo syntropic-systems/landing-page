@@ -90,6 +90,12 @@ export default function CompanyPage() {
                         description="Crafting intuitive and accessible user experiences that make complex document intelligence tools simple and powerful for everyone."
                     />
                     <TeamMemberCard
+                        image="/team/debabrata kar.png"
+                        name="Debabrata Kar"
+                        position="Product"
+                        description="Crafting intuitive and accessible user experiences that make complex document intelligence tools simple and powerful for everyone."
+                    />
+                    <TeamMemberCard
                         image="/team/swapnish sahare.png"
                         name="Swapnish Sahare"
                         position="Design Consultant"

@@ -35,5 +35,13 @@ export const faqs = [
     question: 'Is Cloudglance secure?',
     answer: 'Enterprise-grade security by default: encryption at rest and in transit, tenant isolation, role-based access, audit logs and strict data handling. We\'re also in the process of SOC2 and ISO certification applications.',
   },
+  {
+    question: 'Does Cloudglance hold a SOC 2 Type II Report?',
+    answer: 'We are currently in our observation period for SOC 2 Type II and expect to receive our attestation later this year. However, our entire underlying infrastructure (Azure, Vercel, AWS S3) is fully SOC 2 Type II compliant.',
+  },
+  {	
+    question: 'Does Cloudglance encrypt data?',
+    answer: 'Yes. All data is encrypted at rest using AES-256 standards and in transit using TLS 1.3. We enforce HTTPS for all connections.',
+  }
 ];
 

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
+import { ThemeAwareImage } from "@/components/theme-aware-image";
 
 
 export default function FeaturesSectionDemo() {
@@ -105,10 +106,11 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 export const SkeletonOne = () => {
   return (
     <div className="relative w-full">
-      <div className="w-full mx-auto bg-card shadow-2xl shadow-primary/20 group">
+      <div className="w-full mx-auto shadow-2xl border border-border overflow-hidden rounded-lg shadow-primary/20 group">
         <div className="flex flex-1 w-full flex-col">
-          <img
-            src="/product/document-intelligence.jpg"
+          <ThemeAwareImage
+            src="/product/document_white.png"
+            srcDark="/product/document_black.png"
             alt="Document Intelligence"
             width={1600}
             height={900}
@@ -123,10 +125,11 @@ export const SkeletonOne = () => {
 export const SkeletonThree = () => {
   return (
     <div className="relative w-full">
-      <div className="w-full mx-auto bg-card shadow-2xl shadow-primary/20 group">
+      <div className="w-full mx-auto shadow-2xl border border-border overflow-hidden rounded-lg shadow-primary/20 group">
         <div className="flex flex-1 w-full flex-col">
-          <img
-            src="/product/file-repository.jpg"
+          <ThemeAwareImage
+            src="/product/file_manager_white.png"
+            srcDark="/product/file_manager_black.png"
             alt="Centralized Repository"
             width={1600}
             height={900}
@@ -141,10 +144,11 @@ export const SkeletonThree = () => {
 export const SkeletonTwo = () => {
   return (
     <div className="relative w-full">
-      <div className="w-full mx-auto bg-card shadow-2xl shadow-primary/20 group">
+      <div className="w-full mx-auto shadow-2xl border border-border overflow-hidden rounded-lg shadow-primary/20 group">
         <div className="flex flex-1 w-full flex-col">
-          <img
-            src="/product/projects.jpg"
+          <ThemeAwareImage
+            src="/product/projects_white.png"
+            srcDark="/product/projects_black.png"
             alt="Project Spaces"
             width={1600}
             height={900}
@@ -159,10 +163,11 @@ export const SkeletonTwo = () => {
 export const SkeletonFour = () => {
   return (
     <div className="relative w-full">
-      <div className="w-full mx-auto shadow-2xl shadow-primary/20 group">
+      <div className="w-full mx-auto shadow-2xl border border-border overflow-hidden rounded-lg shadow-primary/20 group">
         <div className="flex flex-1 w-full flex-col bg-transparent">
-          <img
-            src="/product/chat.jpg"
+          <ThemeAwareImage
+            src="/product/chat_white.png"
+            srcDark="/product/chat_black.png"
             alt="AI Assistant"
             width={1600}
             height={900}

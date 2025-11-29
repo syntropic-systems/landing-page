@@ -64,10 +64,10 @@ export default function FAQPage() {
         </div>
       </Section>
       <CTASection
-        title="Ready to see CloudGlance in action?"
-        description="Book a demo with our team to experience the platform firsthand and see how it can transform your document workflows."
-        primaryCta={{ text: 'Book a Demo', href: '/contact' }}
-        secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}
+        title="Still have questions? We're here to help."
+        description="Talk to our team or see a live demo of CloudGlance in action."
+        primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
+        secondaryCta={{ text: 'Talk to Our Team', href: '/contact' }}
       />
       </div>
     </>
