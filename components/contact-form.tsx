@@ -13,11 +13,46 @@ export function ContactForm() {
         companyName: '',
         message: '',
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-        // Handle form submission here
+        setIsSubmitting(true);
+
+        try {
+            const emailjs = (await import('@emailjs/browser')).default;
+            await emailjs.send(
+                'service_viny1ap',
+                'template_khm1fhv',
+                {
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    company: formData.companyName,
+                    message: formData.message,
+                    to_email: 'sales@cloudglancelab.com',
+                },
+                'lY-EskTLt6cH9eKH2'
+            );
+
+            setShowSuccess(true);
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                companyName: '',
+                message: '',
+            });
+
+            setTimeout(() => {
+                setShowSuccess(false);
+            }, 5000);
+        } catch (error) {
+            console.error('Failed to send email:', error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -26,6 +61,36 @@ export function ContactForm() {
             [e.target.name]: e.target.value,
         });
     };
+
+    if (showSuccess) {
+        return (
+            <Card>
+                <CardContent className="pt-6">
+                    <div className="text-center py-8">
+                        <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                            <svg
+                                className="w-8 h-8 text-green-600"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M5 13l4 4L19 7"
+                                />
+                            </svg>
+                        </div>
+                        <h3 className="text-xl font-semibold mb-2">Thank You!</h3>
+                        <p className="text-muted-foreground">
+                            We've received your message and will get back to you soon.
+                        </p>
+                    </div>
+                </CardContent>
+            </Card>
+        );
+    }
 
     return (
         <Card>
@@ -107,8 +172,8 @@ export function ContactForm() {
                         />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full">
-                        Send Message
+                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                        {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                 </form>
             </CardContent>

@@ -188,10 +188,6 @@ const navItems: NavItem[] = [
                             label: "Our Team",
                             href: "/company#team",
                         },
-                        {
-                            label: "Contact Us",
-                            href: "/contact",
-                        },
                     ],
                 },
             ],
@@ -202,6 +198,7 @@ const navItems: NavItem[] = [
         },
     },
     { href: "/faq", label: "FAQ" },
+    { href: "/contact", label: "Contact Us" },
 ];
 
 function DropdownContent({
