@@ -36,8 +36,6 @@ export default function CompanyPage() {
             
             <Section
                 id="our-mission"
-                title="Our Mission"
-                description="Yash needs to write here"
             >
                 <FeatureGrid columns={3}>
                     <FeatureCard
