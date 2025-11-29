@@ -3,7 +3,7 @@ import { Hero2 } from "@/components/hero-2";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { TeamMemberCard } from "@/components/team-member-card";
-import { Target, ShieldCheck } from "lucide-react";
+import { Flag, Target, ShieldCheck } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -39,7 +39,11 @@ export default function CompanyPage() {
                 title="Our Mission"
                 description="Yash needs to write here"
             >
-                <FeatureGrid columns={2}>
+                <FeatureGrid columns={3}>
+                    <FeatureCard
+                        icon={<Flag className="text-primary" />}
+                        title="Mission"
+                        description= "We exist to make complex documents powerless by arming every team in every industry with instant, flawless intelligence."
                     <FeatureCard
                         icon={<Target className="text-primary" />}
                         title="Vision"
