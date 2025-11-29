@@ -97,7 +97,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             value: "management",
             label: "Management",
             title: "Management & Decision-Makers",
-            image: "https://source.unsplash.com/jfR5wu2hMI0/1600x900",
+            image: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?auto=format&fit=crop&w=1600&q=80",
             imageAlt: "Management & Decision-Makers",
             highlights: [
                 {
