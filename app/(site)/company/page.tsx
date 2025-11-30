@@ -41,7 +41,8 @@ export default function CompanyPage() {
                     <FeatureCard
                         icon={<Flag className="text-primary" />}
                         title="Mission"
-                        description= "We exist to make complex documents powerless by arming every team in every industry with instant, flawless intelligence."
+                        description="We exist to make complex documents powerless by arming every team in every industry with instant, flawless intelligence."
+                    />
                     <FeatureCard
                         icon={<Target className="text-primary" />}
                         title="Vision"
