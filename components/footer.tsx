@@ -64,30 +64,21 @@ export function Footer() {
         <footer className="border-t bg-card">
             <div className="container pt-12 md:pt-16 lg:pt-20">
                 <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-10">
+                <div className="flex flex-col gap-4 mb-10">
                     <Link href="/" className="flex items-center space-x-2" aria-label="CloudGlance home">
                         <Image
                             src={logoSrc}
                             alt="CloudGlance logo"
                             width={546}
                             height={101}
-                            className="h-10 w-auto flex-shrink-0"
+                            className="h-12 w-auto flex-shrink-0"
                             priority
                             unoptimized
                         />
                     </Link>
-                    <div className="flex items-center gap-4 sm:mt-0 mt-2">
-                        {socialLinks.map(({ name, href, icon: Icon }) => (
-                            <Link
-                                key={name}
-                                href={href}
-                                aria-label={name}
-                                className="text-muted-foreground transition-colors hover:text-foreground"
-                            >
-                                <Icon className="h-4 w-4" />
-                            </Link>
-                        ))}
-                    </div>
+                    <p className="text-sm text-muted-foreground max-w-2xl">
+                        CloudGlance is an AI-powered document intelligence platform that transforms document-heavy workflows into automated, efficient processes.
+                    </p>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8">
                     {/* Product */}
@@ -189,9 +180,23 @@ export function Footer() {
                     </div>
                 </div>
 
-                {/* Copyright */}
-                <div className="py-3 border-t text-left text-sm text-muted-foreground">
-                    © {new Date().getFullYear()} CloudGlance. All rights reserved.
+                {/* Copyright and Social */}
+                <div className="py-3 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                        {socialLinks.map(({ name, href, icon: Icon }) => (
+                            <Link
+                                key={name}
+                                href={href}
+                                aria-label={name}
+                                className="text-muted-foreground transition-colors hover:text-foreground"
+                            >
+                                <Icon className="h-4 w-4" style={{ fill: 'currentColor', stroke: 'none' }} />
+                            </Link>
+                        ))}
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                        © {new Date().getFullYear()} CloudGlance Sensing Lab Pvt. Ltd. All rights reserved.
+                    </p>
                 </div>
                 </div>
             </div>

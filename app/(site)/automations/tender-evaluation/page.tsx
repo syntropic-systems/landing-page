@@ -1,14 +1,13 @@
-import Image from "next/image";
 import type { Metadata } from "next";
 
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { FeatureCard, FeatureGrid } from "@/components/feature-card";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/page-header";
 import { BadgeCheck, CheckCircle, LayoutPanelLeft} from "lucide-react";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
+import { WorkflowStepCards } from "@/components/workflow-step-cards";
 
 export const metadata: Metadata = {
   title: "Tender Evaluation Automation",
@@ -80,21 +79,13 @@ export default function TenderEvaluationPage() {
       />
 
       <Section className="!pb-0">
-        <div className="grid gap-4 md:grid-cols-3">
-          {workflowSteps.map((step) => (
-            <Card key={step.title} className="bg-gradient-to-br from-accent/50 to-card text-center border-none shadow-sm p-3">
-              <CardHeader className="p-0">
-                <CardTitle className="text-lg">{step.title}</CardTitle>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
+        <WorkflowStepCards steps={workflowSteps} />
       </Section>
 
       <Section className="!pt-0">
         <ScrollStack>
           {workflowSteps.map((step) => (
-            <ScrollStackItem key={step.title} itemClassName="bg-card h-auto">
+            <ScrollStackItem key={step.title} itemClassName="bg-card h-auto" data-step-id={step.title}>
               <div className="grid gap-6 md:grid-cols-3 items-start">
                 <div className="flex flex-col justify-center space-y-3 md:col-span-1">
                   <p className="text-2xl font-semibold text-primary">{step.title}</p>

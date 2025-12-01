@@ -91,24 +91,15 @@ export const InfiniteMovingLogos = ({
 
 
   return (
-    <>
-      <style>{`
-        .dark .logo-image {
-          filter: grayscale(1) invert(1) !important;
-        }
-        .dark .logo-image:hover {
-          filter: none !important;
-        }
-      `}</style>
-      <div
-        ref={isStatic ? undefined : containerRef}
-        className={cn(
-          isStatic
-            ? "relative z-20 mx-auto flex w-full justify-center"
-            : "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,var(--background)_15%,var(--background)_85%,transparent)]",
-          className,
-        )}
-      >
+    <div
+      ref={isStatic ? undefined : containerRef}
+      className={cn(
+        isStatic
+          ? "relative z-20 mx-auto flex w-full justify-center"
+          : "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,var(--background)_15%,var(--background)_85%,transparent)]",
+        className,
+      )}
+    >
       <ul
         ref={isStatic ? undefined : scrollerRef}
         className={cn(
@@ -127,7 +118,7 @@ export const InfiniteMovingLogos = ({
         {items.map((item, index) => (
           <li
             key={`${item.src}-${index}`}
-            className="flex h-20 w-20 items-center justify-center transition-colors md:w-32"
+            className="flex h-20 w-20 items-center justify-center transition-all md:w-32"
             aria-label={item.alt ?? "Client logo"}
           >
             <Image
@@ -135,14 +126,13 @@ export const InfiniteMovingLogos = ({
               alt={item.alt ?? "Client logo"}
               width={item.width ?? 140}
               height={item.height ?? 48}
-              className="logo-image h-10 w-auto object-contain opacity-100 grayscale transition hover:opacity-100 hover:grayscale-0"
+              className="h-10 w-auto object-contain opacity-80 transition-all duration-300 hover:opacity-100 "
               draggable={false}
             />
           </li>
         ))}
       </ul>
     </div>
-    </>
   );
 };
 

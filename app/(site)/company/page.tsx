@@ -29,6 +29,7 @@ export default function CompanyPage() {
             />
             <Section
                 id="about-us"
+                className="!pb-0"
                 title="About Us"
                 description="We started Cloudglance to solve a simple but widespread problem: too much important information is trapped in messy, disconnected documents. This leads to enormous waste of time, money and human effort across teams. Our aim is to help organisations organise, understand and act on this information more effectively, without forcing them to change the way they already work.We started Cloudglance to solve a simple but widespread problem: too much important information is trapped in messy, disconnected documents. This leads to enormous waste of time, money and human effort across teams. Our aim is to help organisations organise, understand and act on this information more effectively, without forcing them to change the way they already work."
             >
@@ -63,46 +64,60 @@ export default function CompanyPage() {
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <TeamMemberCard
-                        image="/team/manish bharti.png"
-                        name="Manish Bharti"
-                        position="Director"
-                        description="Providing strategic leadership and governance to guide CloudGlance's mission of transforming document intelligence for organizations worldwide."
-                    />
-                    <TeamMemberCard
-                        image="/team/dr. kk bajpal.png"
-                        name="Dr. KK Bajpal"
-                        position="Director"
-                        description="Bringing deep expertise and strategic oversight to ensure CloudGlance delivers innovative solutions that meet the evolving needs of our clients."
+                        image="/team/yash tiwari.png"
+                        name="Yash Tiwari"
+                        linkedin="https://www.linkedin.com/in/yash-tiwari-565044190/"
+                        position="CEO & Co-Founder"
+                        description="Sets product direction and business strategy, aligning engineering and operations so CloudGlance turns messy documents into usable workflows."
                     />
                     <TeamMemberCard
                         image="/team/abhishek gautam.png"
                         name="Abhishek Gautam"
+                        linkedin="https://www.linkedin.com/in/abhishekgautam03/"
                         position="CTO & Co-Founder"
-                        description="Architecting and building the AI-powered infrastructure that makes CloudGlance's document intelligence platform fast, reliable, and scalable."
+                        description="Builds and scales the platform infrastructure that processes large document collections, turning complex formats into dependable systems."
+                    />
+                    <TeamMemberCard
+                        image="/team/manish bharti.png"
+                        name="Manish Bharti"
+                        linkedin="https://www.linkedin.com/in/mbharti/"
+                        position="Director"
+                        description="Leads governance and strategic partnerships, ensuring the company’s roadmap translates into real operational value for enterprise customers."
+                    />
+                    <TeamMemberCard
+                        image="/team/dr. kk bajpal.png"
+                        name="Dr. KK Bajpai"
+                        linkedin="https://www.linkedin.com/in/kk-bajpai-7b56611a1/"
+                        position="Director"
+                        description="Provides senior advisory on domain strategy and quality assurance, helping shape solutions that meet rigorous enterprise standards."
                     />
                     <TeamMemberCard
                         image="/team/pravalika puram.png"
                         name="Pravalika Puram"
+                        linkedin="https://www.linkedin.com/in/pravalikapuram1998/"
                         position="Strategy & Sales"
-                        description="Driving growth through strategic partnerships and helping organizations discover how CloudGlance can transform their document workflows."
+                        description="Drives customer growth by translating client needs into practical solutions and partnership opportunities that improve document workflows."
                     />
                     <TeamMemberCard
                         image="/team/siddharth saha.png"
                         name="Siddharth Saha"
+                        linkedin="https://www.linkedin.com/in/siddarth-saha-a02b64222/"
                         position="Founding Engineer"
-                        description="Crafting intuitive and accessible user experiences that make complex document intelligence tools simple and powerful for everyone."
+                        description="Designs and ships core features, focusing on reliable, user-friendly tooling that makes document tasks faster and less error-prone."
                     />
                     <TeamMemberCard
                         image="/team/debabrata kar.png"
                         name="Debabrata Kar"
+                        linkedin="https://www.linkedin.com/in/debabrata-kar-/"
                         position="Product"
-                        description="Crafting intuitive and accessible user experiences that make complex document intelligence tools simple and powerful for everyone."
+                        description="Shapes the product roadmap and priorities by listening to customers, turning user problems into clear, testable product bets."
                     />
                     <TeamMemberCard
                         image="/team/swapnish sahare.png"
                         name="Swapnish Sahare"
+                        linkedin="https://www.linkedin.com/in/swapnishsahare/"
                         position="Design Consultant"
-                        description="Consulting on design strategy and user experience to ensure CloudGlance's interface is both powerful and intuitive for all users."
+                        description="Crafts the product’s visual and interaction language, simplifying complex flows so teams can use the product without a manual."
                     />
                 </div>
             </Section>

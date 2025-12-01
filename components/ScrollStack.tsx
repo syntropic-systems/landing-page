@@ -7,15 +7,18 @@ import Lenis from 'lenis';
 export interface ScrollStackItemProps {
   itemClassName?: string;
   children: ReactNode;
+  'data-step-id'?: string;
+  [key: string]: any;
 }
 
-export const ScrollStackItem: React.FC<ScrollStackItemProps> = ({ children, itemClassName = '' }) => (
+export const ScrollStackItem: React.FC<ScrollStackItemProps> = ({ children, itemClassName = '', ...props }) => (
   <div
     className={`scroll-stack-card relative w-full h-80 my-8 p-8 rounded-2xl shadow-2xl border border-border/40 origin-top will-change-transform ${itemClassName}`.trim()}
     style={{
       backfaceVisibility: 'hidden',
       transformStyle: 'preserve-3d'
     }}
+    {...props}
   >
     {children}
   </div>
@@ -428,8 +431,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   ]);
 
   return (
-    <div className={`relative w-full h-full ${className}`.trim()} ref={scrollerRef}>
-      <div className="scroll-stack-inner min-h-screen overflow-visible">
+    <div className={`relative w-full ${className}`.trim()} ref={scrollerRef}>
+      <div className="scroll-stack-inner overflow-visible">
         {children}
         {/* Spacer so the last pin can release cleanly */}
         <div className="scroll-stack-end w-full h-px pb-20" />

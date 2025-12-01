@@ -38,10 +38,10 @@ export default function ContactPage() {
                                 <div>
                                     <p className="font-medium mb-1">Email</p>
                                     <a
-                                        href="mailto:info@cloudglance.labs"
+                                        href="mailto:sales@cloudglancelab.com"
                                         className="text-muted-foreground hover:text-foreground transition-colors"
                                     >
-                                        info@cloudglance.labs
+                                        sales@cloudglancelab.com
                                     </a>
                                 </div>
                             </div>
@@ -53,10 +53,10 @@ export default function ContactPage() {
                                 <div>
                                     <p className="font-medium mb-1">Phone</p>
                                     <a
-                                        href="tel:+919876543210"
+                                        href="tel:+919951810706"
                                         className="text-muted-foreground hover:text-foreground transition-colors"
                                     >
-                                        +91 9876 543 210
+                                        +91 9951 810 706
                                     </a>
                                 </div>
                             </div>

@@ -16,6 +16,8 @@ import { InfiniteMovingLogos } from '@/components/ui/infinite-moving-logos';
 import { faqs } from '@/data/faqs';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { Card } from '@/components/ui/card';
+import { ThemeAwareImage } from '@/components/theme-aware-image';
 
 export const metadata: Metadata = {
   title: 'CloudGlance - AI-Powered Document Intelligence Platform',
@@ -78,21 +80,20 @@ export default function Home() {
   const testimonials = [
     {
       quote:
-        "In our first month, the AI flagged a critical compliance risk in a high value bid that would have led to an immediate disqualification. That one catch alone made the platform worth it. It’s a true game changer for ensuring our bids are flawless.",
-      name: 'Shayak Ganguly',
-      title: 'Tender Manager, Cortex Consulting Solutions',
-    },
-    {
-      quote:
         "Implementing CloudGlance was a strategic turning point for us. We have cut our tender analysis time from weeks to just a couple of days, allowing our team to focus on high-value strategy instead of low-value paperwork. Our bid capacity has tripled, and we’re pursuing deals we previously couldn't even consider.",
       name: 'Bipin Dimiri',
       title: 'Head of Business Development, Cortex Consulting Solutions',
     },
     {
       quote:
-        "The AI-powered document extraction is incredibly accurate. It's like having an extra team member who never sleeps.",
-      name: 'Manish Bharti',
-      title: 'CEO, Cortex Consulting Solutions',
+        "CloudGlance freed our team from document analysis. We now bid on every opportunity worth pursuing, and our engineers focus on high-value work instead of manual reviews",
+      name: 'Shamanth',
+      title: 'Marketing Manager, ABB',
+    },    {
+      quote:
+        "In our first month, the AI flagged a critical compliance risk in a high value bid that would have led to an immediate disqualification. That one catch alone made the platform worth it. It’s a true game changer for ensuring our bids are flawless.",
+      name: 'Gaurav Jaitak',
+      title: 'VP Engineering, Welspun',
     },
   ];
 
@@ -116,6 +117,24 @@ export default function Home() {
         secondaryCta={{ text: 'Talk to Our Team', href: '/contact' }}
       />
 
+      <Section id="Platform Image">
+          <div>
+            <Card className="w-full shadow-2xl overflow-hidden rounded-xl shadow-primary/20">
+          <div className="relative w-full">
+          <ThemeAwareImage
+            src="/product/home_white.png"
+            srcDark="/product/home_black.png"
+            alt="CloudGlance Platform"
+            width={1600}
+            height={900}
+            className="w-full h-auto object-contain"
+            sizes="100vw"
+          />
+          </div>
+          </Card>
+          </div>
+      </Section>
+
       {/* What Changes */}
       <Section
         title={
@@ -134,12 +153,12 @@ export default function Home() {
           <div>
             <div className="text-7xl font-semibold text-primary mb-4">3x</div>
             <div className="text-2xl text-foreground font-semibold pb-2">More Opportunities</div>
-            <div className="text-base text-muted-foreground">AI detects every requirement, clause and attachment, even those buried in fine print, with the same consistency, so nothing gets missed.</div>
+            <div className="text-base text-muted-foreground">With AI handling time-consuming and repetitive manual processes, teams can take on more projects without extra hiring or burnout.</div>
           </div>
           <div>
             <div className="text-7xl font-semibold text-primary mb-4">99.7%</div>
             <div className="text-2xl text-foreground font-semibold pb-2">Accuracy</div>
-            <div className="text-base text-muted-foreground">With AI handling time-consuming and repetitive manual processes, teams can take on more projects without extra hiring or burnout.</div>
+            <div className="text-base text-muted-foreground">AI detects every requirement, clause and attachment, even those buried in fine print, with the same consistency, so nothing gets missed.</div>
           </div>
         </div>
       </Section>

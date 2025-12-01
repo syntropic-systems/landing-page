@@ -4,10 +4,10 @@ import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { FeatureCard, FeatureGrid } from "@/components/feature-card";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader } from "@/components/page-header";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { ShieldCheck, Timer, Zap } from "lucide-react";
+import { WorkflowStepCards } from "@/components/workflow-step-cards";
 
 export const metadata: Metadata = {
   title: "Tender Bidding Automation",
@@ -24,13 +24,6 @@ export const metadata: Metadata = {
 };
 
 const workflowSteps = [
-  {
-    title: "Tender Search",
-    description:
-      "Tender Search gathers all public tenders in one place and reads the organisation's profile, past work and preferences to automatically suggest the opportunities that fit. New releases appear the moment they go live, so relevant tenders are surfaced without the constant effort of checking multiple portals.\n\nTeams can still use their own keywords and filters whenever they want, and the platform highlights the required documents along with key financial and technical criteria. This keeps the team from missing suitable opportunities, reduces time spent scanning external sites and helps them focus only on tenders that are feasible for them.",
-    image: "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=800&q=80",
-    imageDark: undefined,
-  },
   {
     title: "Eligibility & Go / No-Go Check",
     description:
@@ -65,6 +58,13 @@ const workflowSteps = [
       "AI runs a complete review of the tender response against the tender documents before submission. It checks compliance with mandatory requirements, flags risks hidden in technical, commercial or contractual clauses and verifies that all required forms and documents are in place.\n\nThis single pass highlights what could lead to rejection now or create problems later, giving teams a clear view of what needs to be fixed before the bid goes out.",
     image: "/bidding/risk_compliance_white.png",
     imageDark: "/bidding/risk_compliance_black.png",
+  },
+  {
+    title: "Tender Search",
+    description:
+      "Tender Search gathers all public tenders in one place and reads the organisation's profile, past work and preferences to automatically suggest the opportunities that fit. New releases appear the moment they go live, so relevant tenders are surfaced without the constant effort of checking multiple portals.\n\nTeams can still use their own keywords and filters whenever they want, and the platform highlights the required documents along with key financial and technical criteria. This keeps the team from missing suitable opportunities, reduces time spent scanning external sites and helps them focus only on tenders that are feasible for them.",
+    image: "/bidding/tender_search_white.png",
+    imageDark: "/bidding/tender_search_black.png",
   },
 ];
 
@@ -123,21 +123,13 @@ export default function TenderBiddingPage() {
         }}
       />
       <Section className="!pb-0">
-        <div className="grid gap-4 md:grid-cols-3">
-          {workflowSteps.map((step) => (
-            <Card key={step.title} className="bg-gradient-to-br from-accent/50 to-card text-center border-none shadow-sm p-3">
-              <CardHeader className="p-0">
-                <CardTitle className="text-lg">{step.title}</CardTitle>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
+        <WorkflowStepCards steps={workflowSteps} />
       </Section>
 
       <Section className="!pt-0">
         <ScrollStack>
           {workflowSteps.map((step) => (
-            <ScrollStackItem key={step.title} itemClassName="bg-card h-auto">
+            <ScrollStackItem key={step.title} itemClassName="bg-card h-auto" data-step-id={step.title}>
               <div className="grid gap-6 md:grid-cols-3 items-start">
                 <div className="flex flex-col justify-center space-y-3 md:col-span-1">
                   <p className="text-2xl font-semibold text-primary">{step.title}</p>

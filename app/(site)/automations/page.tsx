@@ -30,12 +30,12 @@ export default function AutomationsPage() {
             <FeatureSide
                 title="Tender Bidding"
                 description={`Win more bids with a faster, more controlled response process. CloudGlance streamlines how your team discovers opportunities, validates eligibility, assembles responses, and ensures every submission is complete and compliant.
-                - Tender Search
                 - Eligibility & Go/No-Go Checks
                 - Information & Form Extraction
                 - Automated Form Filling
                 - Product & BOQ Matching
-                - Risk & Compliance Checks`}
+                - Risk & Compliance Checks
+                - Tender Search`}
                 image="/automation/bidding.png"
                 primaryCta={{ text: "Learn More", href: "/automations/tender-bidding" }}
             />
@@ -71,12 +71,12 @@ export default function AutomationsPage() {
                     <div>
                         <div className="text-7xl font-semibold text-primary mb-4">3x</div>
                         <div className="text-2xl text-foreground font-semibold pb-2">More Opportunities</div>
-                        <div className="text-base text-muted-foreground">AI detects every requirement, clause and attachment, even those buried in fine print, with the same consistency, so nothing gets missed.</div>
+                        <div className="text-base text-muted-foreground">With AI handling time-consuming and repetitive manual processes, teams can take on more projects without extra hiring or burnout.</div>
                     </div>
                     <div>
                         <div className="text-7xl font-semibold text-primary mb-4">99.7%</div>
                         <div className="text-2xl text-foreground font-semibold pb-2">Accuracy</div>
-                        <div className="text-base text-muted-foreground">With AI handling time-consuming and repetitive manual processes, teams can take on more projects without extra hiring or burnout.</div>
+                        <div className="text-base text-muted-foreground">AI detects every requirement, clause and attachment, even those buried in fine print, with the same consistency, so nothing gets missed.</div>
                     </div>
                 </div>
             </Section>
