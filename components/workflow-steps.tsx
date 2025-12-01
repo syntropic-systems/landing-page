@@ -14,14 +14,43 @@ interface WorkflowStepsProps {
     steps: WorkflowStep[];
 }
 
+// Baseline values at 1920px width
+const BASELINE_WIDTH = 1920;
+const BASELINE_Y_OFFSETS = [0, -120, -354, -640];
+const BASELINE_SCALES = [1.1, 0.85, 0.70, 0.9];
+
 export function WorkflowSteps({ steps }: WorkflowStepsProps) {
     const [activeStep, setActiveStep] = useState(0);
     const [progress, setProgress] = useState(0);
     const [isInView, setIsInView] = useState(false);
+    const [multiplier, setMultiplier] = useState(1);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
     const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
+    const imageContainerRef = useRef<HTMLDivElement>(null);
     const STEP_DURATION = 7000; // 7 seconds
+
+    // Track container width and calculate multiplier
+    useEffect(() => {
+        const updateMultiplier = () => {
+            if (imageContainerRef.current) {
+                const width = imageContainerRef.current.offsetWidth;
+                setMultiplier(width / (BASELINE_WIDTH / 2)); // Divide by 2 since container is half of viewport
+            }
+        };
+
+        updateMultiplier();
+        window.addEventListener('resize', updateMultiplier);
+        return () => window.removeEventListener('resize', updateMultiplier);
+    }, []);
+
+    // Calculate transform based on multiplier
+    const getTransform = (index: number) => {
+        const yOffset = BASELINE_Y_OFFSETS[index] * multiplier;
+        const baseScale = BASELINE_SCALES[index];
+        const scale = 1 + (baseScale - 1) * multiplier;
+        return `translateY(${yOffset}px) scale(${scale})`;
+    };
 
     // Intersection Observer to detect when component is in view
     useEffect(() => {
@@ -101,8 +130,6 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
         setProgress(0); // Reset progress when manually clicking
     };
 
-    const activeStepData = steps[activeStep];
-
     return (
         <div ref={containerRef} className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Left side - Steps list */}
@@ -153,19 +180,25 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
                 })}
             </div>
 
-            {/* Right side - Image */}
-            <div className="sticky top-24">
-                <div className="overflow-hidden bg-transparent aspect-[4/3] flex items-center justify-center relative">
-                    {activeStepData?.image && (
-                        <img
-                            src={activeStepData.image}
-                            alt={activeStepData.title}
-                            className="w-full h-full object-contain"
-                        />
-                    )}
+            {/* Right side - Stacked Images */}
+            <div className="sticky top-24 mt-[200px] lg:mt-0">
+                <div ref={imageContainerRef} className="overflow-visible bg-transparent aspect-square flex items-start justify-start relative">
+                    {steps.slice(0, activeStep + 1).map((step, index) => (
+                        step.image && (
+                            <img
+                                key={step.step}
+                                src={step.image}
+                                alt={step.title}
+                                className="absolute w-full h-full object-contain transition-all duration-500 animate-fade-in"
+                                style={{
+                                    transform: getTransform(index),
+                                    zIndex: index,
+                                }}
+                            />
+                        )
+                    ))}
                 </div>
             </div>
         </div>
     );
 }
-
