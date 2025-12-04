@@ -63,12 +63,19 @@ export default function CompanyPage() {
                 description="Our team brings together experts in AI, engineering, operations, and procurement who have seen firsthand how slow, manual document work holds organizations back. We're united by a simple goal: helping teams move faster, reduce risk, and deliver exceptional results with the same resources."
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <TeamMemberCard
+                    {/* <TeamMemberCard
                         image="/team/yash tiwari.png"
                         name="Yash Tiwari"
                         linkedin="https://www.linkedin.com/in/yash-tiwari-565044190/"
                         position="CEO & Co-Founder"
                         description="Sets product direction and business strategy, aligning engineering and operations so CloudGlance turns messy documents into usable workflows."
+                    /> */}
+                    <TeamMemberCard
+                        image="/team/manish bharti.png"
+                        name="Manish Bharti"
+                        linkedin="https://www.linkedin.com/in/mbharti/"
+                        position="CEO & Co-Founder"
+                        description="Leads governance and strategic partnerships, ensuring the company’s roadmap translates into real operational value for enterprise customers."
                     />
                     <TeamMemberCard
                         image="/team/abhishek gautam.png"
@@ -76,13 +83,6 @@ export default function CompanyPage() {
                         linkedin="https://www.linkedin.com/in/abhishekgautam03/"
                         position="CTO & Co-Founder"
                         description="Builds and scales the platform infrastructure that processes large document collections, turning complex formats into dependable systems."
-                    />
-                    <TeamMemberCard
-                        image="/team/manish bharti.png"
-                        name="Manish Bharti"
-                        linkedin="https://www.linkedin.com/in/mbharti/"
-                        position="Director"
-                        description="Leads governance and strategic partnerships, ensuring the company’s roadmap translates into real operational value for enterprise customers."
                     />
                     <TeamMemberCard
                         image="/team/dr. kk bajpal.png"
