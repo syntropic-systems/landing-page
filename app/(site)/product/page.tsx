@@ -90,9 +90,9 @@ export default function ProductPage() {
             >
                 <InfiniteMovingLogos
                 items={[
-                    { src: '/integrations/gmail.svg', alt: 'Integration logo 1' },
-                    { src: '/integrations/outlook.svg', alt: 'Integration logo 2' },
-                    { src: '/integrations/whatsapp.svg', alt: 'Integration logo 3' }]}
+                    { src: '/integrations/gmail.svg', alt: 'Gmail' },
+                    { src: '/integrations/outlook.svg', alt: 'Outlook' },
+                    { src: '/integrations/whatsapp.svg', alt: 'WhatsApp' }]}
                 direction="right"
                 speed="normal"
                 pauseOnHover
@@ -100,10 +100,10 @@ export default function ProductPage() {
                 />
                 <InfiniteMovingLogos
                 items={[
-                { src: '/integrations/azure.svg', alt: 'Integration logo 4' },
-                { src: '/integrations/google cloud.svg', alt: 'Integration logo 5' },
-                { src: '/integrations/aws.svg', alt: 'Integration logo 6' },
-                { src: '/integrations/postgresql.svg', alt: 'Integration logo 7' }]}
+                { src: '/integrations/azure.svg', alt: 'Azure' },
+                { src: '/integrations/google cloud.svg', alt: 'Google Cloud' },
+                { src: '/integrations/aws.svg', alt: 'AWS' },
+                { src: '/integrations/postgresql.svg', alt: 'PostgreSQL' }]}
                 direction="left"
                 speed="normal"
                 pauseOnHover
@@ -111,9 +111,9 @@ export default function ProductPage() {
                 />
                 <InfiniteMovingLogos
                 items={[
-                { src: '/integrations/slack.svg', alt: 'Integration logo 8' },
-                { src: '/integrations/teams.svg', alt: 'Integration logo 9' },
-                { src: '/integrations/linear.svg', alt: 'Integration logo 10' }]}
+                { src: '/integrations/slack.svg', alt: 'Slack' },
+                { src: '/integrations/teams.svg', alt: 'Microsoft Teams' },
+                { src: '/integrations/linear.svg', alt: 'Linear' }]}
                 direction="right"
                 speed="normal"
                 pauseOnHover

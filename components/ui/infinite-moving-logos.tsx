@@ -1,11 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { ThemeAwareImage } from "@/components/theme-aware-image";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import React, { useEffect, useState } from "react";
 
 type LogoItem = {
   src: string;
+  srcDark?: string;
   alt?: string;
   width?: number;
   height?: number;
@@ -33,35 +35,14 @@ export const InfiniteMovingLogos = ({
   const [start, setStart] = useState(false);
   const isStatic = variant === "static";
   const infiniteGapOffset = "1.25rem"; // half of gap-10 spacing
+  // Render 6 copies for seamless infinite scrolling
+  const duplicationCount = isStatic ? 1 : 7;
 
   useEffect(() => {
     if (isStatic) return;
 
     const initAnimation = () => {
       if (!scrollerRef.current || !containerRef.current) return;
-
-      const scrollerEl = scrollerRef.current;
-      const containerEl = containerRef.current;
-      const originalChildrenCount = scrollerEl.children.length;
-
-      const ensureFullWidth = () => {
-        let totalWidth = scrollerEl.scrollWidth;
-        const clonedChildren = Array.from(scrollerEl.children);
-
-        // Duplicate content until we can cover at least two full widths.
-        while (
-          totalWidth < containerEl.offsetWidth * 2 &&
-          scrollerEl.children.length < originalChildrenCount * 6
-        ) {
-          clonedChildren.forEach((child) => {
-            const duplicatedItem = child.cloneNode(true);
-            scrollerEl.appendChild(duplicatedItem);
-          });
-          totalWidth = scrollerEl.scrollWidth;
-        }
-      };
-
-      ensureFullWidth();
 
       containerRef.current.style.setProperty(
         "--animation-direction",
@@ -76,63 +57,66 @@ export const InfiniteMovingLogos = ({
     };
 
     initAnimation();
-
-    return () => {
-      if (!scrollerRef.current) return;
-      const scrollerEl = scrollerRef.current;
-      const originalLength = items.length;
-
-      while (scrollerEl.children.length > originalLength) {
-        scrollerEl.removeChild(scrollerEl.lastChild as ChildNode);
-      }
-      setStart(false);
-    };
-  }, [direction, speed, isStatic, items.length]);
+  }, [direction, speed, isStatic]);
 
 
   return (
-    <div
-      ref={isStatic ? undefined : containerRef}
-      className={cn(
-        isStatic
-          ? "relative z-20 mx-auto flex w-full justify-center"
-          : "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,var(--background)_15%,var(--background)_85%,transparent)]",
-        className,
-      )}
-    >
-      <ul
-        ref={isStatic ? undefined : scrollerRef}
+    <TooltipProvider>
+      <div
+        ref={isStatic ? undefined : containerRef}
         className={cn(
           isStatic
-            ? "flex flex-wrap items-center justify-center gap-20"
-            : "flex w-max min-w-full shrink-0 flex-nowrap gap-0 py-4",
-          !isStatic && start && "animate-scroll",
-          !isStatic && pauseOnHover && "hover:[animation-play-state:paused]",
+            ? "relative z-20 mx-auto flex w-full justify-center"
+            : "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,var(--background)_15%,var(--background)_85%,transparent)]",
+          className,
         )}
-        style={
-          !isStatic
-            ? ({ "--scroll-offset": infiniteGapOffset } as React.CSSProperties)
-            : undefined
-        }
       >
-        {items.map((item, index) => (
-          <li
-            key={`${item.src}-${index}`}
-            className="flex h-20 w-20 items-center justify-center transition-all md:w-32"
-            aria-label={item.alt ?? "Client logo"}
-          >
-            <Image
-              src={item.src}
-              alt={item.alt ?? "Client logo"}
-              width={item.width ?? 140}
-              height={item.height ?? 48}
-              className="h-10 w-auto object-contain opacity-80 transition-all duration-300 hover:opacity-100 "
-              draggable={false}
-            />
-          </li>
-        ))}
-      </ul>
-    </div>
+        <ul
+          ref={isStatic ? undefined : scrollerRef}
+          className={cn(
+            isStatic
+              ? "flex flex-wrap items-center justify-center gap-20"
+              : "flex w-max min-w-full shrink-0 flex-nowrap gap-0 py-4",
+            !isStatic && start && "animate-scroll",
+            !isStatic && pauseOnHover && "hover:[animation-play-state:paused]",
+          )}
+          style={
+            !isStatic
+              ? ({ "--scroll-offset": infiniteGapOffset } as React.CSSProperties)
+              : undefined
+          }
+        >
+          {Array.from({ length: isStatic ? 1 : duplicationCount }).map((_, copyIndex) =>
+            items.map((item, index) => (
+              <li
+                key={`${item.src}-${copyIndex}-${index}`}
+                className="flex h-20 w-20 items-center justify-center transition-all md:w-32"
+                aria-label={item.alt ?? "Client logo"}
+              >
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="cursor-pointer">
+                      <ThemeAwareImage
+                        src={item.src}
+                        srcDark={item.srcDark}
+                        alt={item.alt ?? "Client logo"}
+                        width={item.width ?? 140}
+                        height={item.height ?? 48}
+                        className={cn("w-auto object-contain", isStatic ? "h-12" : "h-10")}
+                        draggable={false}
+                      />
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{item.alt ?? "Client logo"}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </li>
+            ))
+          )}
+        </ul>
+      </div>
+    </TooltipProvider>
   );
 };
 

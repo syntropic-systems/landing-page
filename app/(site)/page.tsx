@@ -86,21 +86,29 @@ export default function Home() {
     },
     {
       quote:
-        "CloudGlance freed our team from document analysis. We now bid on every opportunity worth pursuing, and our engineers focus on high-value work instead of manual reviews",
+        "CloudGlance freed our team from document analysis. We now bid on every opportunity worth pursuing, and our engineers focus on high-value work instead of manual reviews.",
       name: 'Shamanth',
       title: 'Marketing Manager, ABB',
     },    {
       quote:
-        "In our first month, the AI flagged a critical compliance risk in a high value bid that would have led to an immediate disqualification. That one catch alone made the platform worth it. It’s a true game changer for ensuring our bids are flawless.",
+        "CloudGlance has streamlined our bid evaluation process by enabling quick, side-by-side comparisons based on key criteria, making our decisions faster and more organised. We’re especially impressed by how smoothly it handles large volumes of documents across multiple vendors without compromising accuracy or speed.",
       name: 'Gaurav Jaitak',
       title: 'VP Engineering, Welspun',
+    },
+    {
+      quote:
+        "My team and I have saved a lot of time on each tender application since using CloudGlance. Especially its information-extraction automation which processes hundreds of pages and gives me the summaries and answers I need instantly. Overall, it has saved us a huge amount of time and effort that used to go into reading documents.",
+      name: 'Pushpa Kumari',
+      title: 'Tender Team, SSA Techno Construction',
     },
   ];
 
   const logos = [
-    { src: '/client logos/Cortex_client_logo.svg', alt: 'Client logo 1' },
-    { src: '/client logos/ABB_client_logo.svg', alt: 'Client logo 2' },
-    { src: '/client logos/Welspun_client_logo.svg', alt: 'Client logo 3' },
+    { src: '/client logos/Jha_client_logo.svg', alt: 'Jha Construction' },
+    { src: '/client logos/Cortex_client_logo_black.svg', srcDark: '/client logos/Cortex_client_logo_white.svg', alt: 'Cortex Construction Solutions' },
+    { src: '/client logos/ABB_client_logo.svg', alt: 'ABB, India' },
+    { src: '/client logos/Welspun_client_logo.png', srcDark: '/client logos/Welspun_client_logo_white.png', alt: 'Welspun' },
+    { src: '/client logos/SSA_client_logo.svg', alt: 'SSA Techno Construction' },
   ];
 
   // Show only first 5 FAQs on home page

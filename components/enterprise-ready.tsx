@@ -98,13 +98,6 @@ function EnterpriseSkeletonOne() {
     { label: "GDPR", status: "Ready" },
   ];
 
-  const controls = [
-    { label: "Encryption", value: "AES-256" },
-    { label: "Key Mgmt", value: "KMS / HSM" },
-    { label: "SSO", value: "SAML / SCIM" },
-    { label: "Audit", value: "Real-time" },
-  ];
-
   return (
     <div className="flex flex-col gap-12">
       <div className="flex flex-wrap gap-4">
@@ -164,20 +157,20 @@ function EnterpriseSkeletonOne() {
 
 function EnterpriseSkeletonTwo() {
   const logos = [
-    { src: '/integrations/gmail.svg', alt: 'Integration logo 1' },
-    { src: '/integrations/outlook.svg', alt: 'Integration logo 2' },
-    { src: '/integrations/whatsapp.svg', alt: 'Integration logo 3' },
+    { src: '/integrations/gmail.svg', alt: 'Gmail' },
+    { src: '/integrations/outlook.svg', alt: 'Outlook' },
+    { src: '/integrations/whatsapp.svg', alt: 'WhatsApp' },
   ];
   const logos2 = [
-    { src: '/integrations/azure.svg', alt: 'Integration logo 1' },
-    { src: '/integrations/google cloud.svg', alt: 'Integration logo 2' },
-    { src: '/integrations/aws.svg', alt: 'Integration logo 3' },
-    { src: '/integrations/postgresql.svg', alt: 'Integration logo 4' }
+    { src: '/integrations/azure.svg', alt: 'Azure' },
+    { src: '/integrations/google cloud.svg', alt: 'Google Cloud' },
+    { src: '/integrations/aws.svg', alt: 'AWS' },
+    { src: '/integrations/postgresql.svg', alt: 'PostgreSQL' }
   ];
   const logos3 = [
-    { src: '/integrations/slack.svg', alt: 'Integration logo 1' },
-    { src: '/integrations/teams.svg', alt: 'Integration logo 2' },
-    { src: '/integrations/linear.svg', alt: 'Integration logo 3' }
+    { src: '/integrations/slack.svg', alt: 'Slack' },
+    { src: '/integrations/teams.svg', alt: 'Microsoft Teams' },
+    { src: '/integrations/linear.svg', alt: 'Linear' }
   ];
   return (
     <div className="flex flex-col h-full">
