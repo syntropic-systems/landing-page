@@ -18,6 +18,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Card } from '@/components/ui/card';
 import { ThemeAwareImage } from '@/components/theme-aware-image';
+import { VideoPlayer } from '@/components/video-player';
 
 export const metadata: Metadata = {
   title: 'CloudGlance - AI-Powered Document Intelligence Platform',
@@ -129,14 +130,17 @@ export default function Home() {
           <div>
             <Card className="w-full shadow-2xl overflow-hidden rounded-xl shadow-primary/20">
           <div className="relative w-full">
-          <ThemeAwareImage
-            src="/product/home_white.png"
-            srcDark="/product/home_black.png"
-            alt="CloudGlance Platform"
-            width={1600}
-            height={900}
-            className="w-full h-auto object-contain"
-            sizes="100vw"
+          <VideoPlayer
+            src="/platform-demo.mp4"
+            poster="/product/home_white.png"
+            posterDark="/product/home_black.png"
+            alt="CloudGlance Platform Demo"
+            className="w-full"
+            autoplay={false}
+            loop={true}
+            muted={true}
+            controls={true}
+            lazy={true}
           />
           </div>
           </Card>
