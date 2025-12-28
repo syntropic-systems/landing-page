@@ -350,8 +350,7 @@ export function SiteHeader() {
         : "/logo light_lg.svg";
 
     const headerClassName = cn(
-        "fixed top-0 z-50 w-full backdrop-blur-md supports-[backdrop-filter]:bg-card/50 transition-all duration-300 border-b transform-gpu ease-in-out",
-        showHeader ? "translate-y-0" : "-translate-y-full",
+        "sticky top-0 z-50 w-full backdrop-blur-md supports-[backdrop-filter]:bg-card/50 transition-all duration-300 border-b",
         !isNearTop ? "border-border shadow-sm" : "border-transparent"
     );
 

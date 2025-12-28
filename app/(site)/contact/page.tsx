@@ -1,74 +1,40 @@
-import { ContactForm } from '@/components/contact-form';
-import { Mail, Phone } from 'lucide-react';
-import { PageHeader } from '@/components/page-header';
-import { Section } from '@/components/section';
-import type { Metadata } from 'next';
+import { CalendlyWidget } from "@/components/calendly-widget";
+import { PageHeader } from "@/components/page-header";
+import { Section } from "@/components/section";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: "Schedule a Call",
   description:
-    'Get in touch with CloudGlance. Schedule a demo, ask questions, or learn how AI-powered document intelligence can transform your workflows.',
+    "Book a strategy call with CloudGlance. Discover how AI-powered document intelligence can transform your workflows.",
   alternates: {
-    canonical: 'https://cloudglancelab.com/contact',
+    canonical: "https://cloudglancelab.com/contact",
   },
   openGraph: {
-    title: 'Contact CloudGlance',
+    title: "Schedule a Call - CloudGlance",
     description:
-      'Schedule a demo or get in touch with our team to learn how CloudGlance can automate your document workflows.',
+      "Book a strategy call with our team to learn how CloudGlance can automate your document workflows.",
   },
 };
 
+const CALENDLY_URL = "https://calendly.com/cloudglancelab-sales/30min";
+
 export default function ContactPage() {
-    return (
-        <div>
-            <PageHeader
-                title="Get in touch"
-                description="Fill out the form and we'll be in touch as soon as possible. We usually respond within one business day."
-                className="!pb-0"
-            />
-            <Section className="!pt-12 md:!pt-16 lg:!pt-20">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 ">
-                    {/* Left Column - Contact Info */}
-                    <div>
-                        <div className="space-y-6">
-                            <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center flex-shrink-0 mt-1">
-                                    <Mail className="w-5 h-5 text-primary" />
-                                </div>
-                                <div>
-                                    <p className="font-medium mb-1">Email</p>
-                                    <a
-                                        href="mailto:sales@cloudglancelab.com"
-                                        className="text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        sales@cloudglancelab.com
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center flex-shrink-0 mt-1">
-                                    <Phone className="w-5 h-5 text-primary" />
-                                </div>
-                                <div>
-                                    <p className="font-medium mb-1">Phone</p>
-                                    <a
-                                        href="tel:+919951810706"
-                                        className="text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        +91 9951 810 706
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column - Contact Form */}
-                    <div>
-                        <ContactForm />
-                    </div>
-                </div>
-            </Section>
+  return (
+    <div>
+      <PageHeader
+        title="Schedule a Strategy Call"
+        description="Book a time with our team to discuss how CloudGlance can streamline your document workflows with AI-powered intelligence."
+        className="!pb-0"
+      />
+      <Section className="!pt-8 md:!pt-12 lg:!pt-16 !pb-12 md:!pb-16 lg:!pb-20">
+        <div className="max-w-4xl mx-auto">
+          <CalendlyWidget
+            url={CALENDLY_URL}
+            className="w-full"
+          />
         </div>
-    );
+      </Section>
+    </div>
+  );
 }
