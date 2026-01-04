@@ -153,6 +153,20 @@
     font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   }
 
+  /* Fix Calendly iframe styling */
+  .calendly-inline-widget > iframe {
+    color-scheme: light;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .calendly-inline-widget {
+    border: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
   .container {
     width: 100%;
     margin-left: auto;

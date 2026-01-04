@@ -128,6 +128,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
+        <script src="https://assets.calendly.com/assets/external/widget.js" async />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
