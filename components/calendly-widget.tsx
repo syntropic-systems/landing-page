@@ -67,15 +67,8 @@ export function CalendlyWidget({ url, className }: CalendlyWidgetProps) {
 
   if (!mounted) {
     return (
-      <div
-        className={`flex items-center justify-center bg-muted/50 rounded-lg ${className}`}
-        style={{ minHeight: "700px" }}
-        aria-label="Loading calendar..."
-      >
-        <div className="flex flex-col items-center gap-3">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-          <span className="text-sm text-muted-foreground">Loading calendar...</span>
-        </div>
+      <div className={className}>
+        <div style={{ minWidth: "320px", minHeight: "700px" }} />
       </div>
     );
   }
