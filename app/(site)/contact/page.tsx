@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
 };
 
-const CAL_URL = "swapnish-sahare/15min";
+const CAL_URL = "cloudglancesales/30min";
 
 export default function ContactPage() {
   return (
@@ -31,7 +31,7 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto">
           <CalWidget
             url={CAL_URL}
-            namespace="15min"
+            namespace="30min"
             className="w-full"
           />
         </div>
