@@ -153,19 +153,49 @@
     font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   }
 
-  /* Fix Calendly iframe styling */
-  .calendly-inline-widget > iframe {
-    color-scheme: light;
-    border: none !important;
-    border-radius: 0 !important;
-    overflow: hidden !important;
+  /* Cal.com BookerEmbed styling */
+  .cal-booker-embed {
+    color-scheme: light dark;
+    width: 100%;
+    min-height: 700px;
   }
 
-  .calendly-inline-widget {
-    border: none !important;
-    box-shadow: none !important;
-    overflow: hidden !important;
-    background-color: var(--background) !important;
+  .cal-booker-embed iframe {
+    border: none;
+    border-radius: 0.5rem;
+    width: 100% !important;
+    min-height: 700px;
+  }
+
+  /* Hide Cal.com skeleton loader once widget is loaded */
+  .cal-booker-embed iframe #skeleton-container {
+    display: none !important;
+  }
+
+  /* Ensure Cal.com iframe respects theme */
+  .cal-booker-embed[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  .cal-booker-embed[data-theme="dark"] iframe {
+    color-scheme: dark;
+  }
+
+  .cal-booker-embed[data-theme="light"] {
+    color-scheme: light;
+  }
+
+  .cal-booker-embed[data-theme="light"] iframe {
+    color-scheme: light;
+  }
+
+  /* Force dark mode on Cal.com iframe when in dark theme */
+  html.dark .cal-booker-embed iframe {
+    color-scheme: dark;
+  }
+
+  html:not(.dark) .cal-booker-embed iframe {
+    color-scheme: light;
   }
 
   .container {

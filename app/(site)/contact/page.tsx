@@ -1,4 +1,4 @@
-import { CalendlyWidget } from "@/components/calendly-widget";
+import { CalWidget } from "@/components/cal-widget";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import type { Metadata } from "next";
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
 };
 
-const CALENDLY_URL = "https://calendly.com/cloudglancelab-sales/30min";
+const CAL_URL = "swapnish-sahare/15min";
 
 export default function ContactPage() {
   return (
@@ -28,9 +28,10 @@ export default function ContactPage() {
         className="!pb-0"
       />
       <Section className="!pt-8 md:!pt-12 lg:!pt-16 !pb-12 md:!pb-16 lg:!pb-20">
-        <div className="max-w-4xl mx-auto">
-          <CalendlyWidget
-            url={CALENDLY_URL}
+        <div className="max-w-6xl mx-auto">
+          <CalWidget
+            url={CAL_URL}
+            namespace="15min"
             className="w-full"
           />
         </div>
