@@ -224,8 +224,7 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             <CTASection
                 title="Ready to Streamline how your Teams Work?"
                 description="See how CloudGlance automates the heavy lifting across bids, evaluations, and reviews so your team can focus on decisions, not documents."
-                primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
-                secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}
+                primaryCta={{ text: 'Book a Demo', href: '/contact' }}
             />
         </div>
     );

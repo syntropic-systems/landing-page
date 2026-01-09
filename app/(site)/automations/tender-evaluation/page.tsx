@@ -131,8 +131,7 @@ export default function TenderEvaluationPage() {
       <CTASection
         title="Experience smarter Tender Evaluation with CloudGlance."
         description="See how CloudGlance can streamline your evaluation process and make smarter, faster decisions."
-        primaryCta={{ text: "See it in Action", href: "https://app.cloudglancelab.com" }}
-        secondaryCta={{ text: "Talk to Sales", href: "/contact" }}
+        primaryCta={{ text: "Book a Demo", href: "/contact" }}
       />
     </div>
   );

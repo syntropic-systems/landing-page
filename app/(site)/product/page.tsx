@@ -210,8 +210,7 @@ export default function ProductPage() {
             <CTASection
                 title="Let's make your Documents work for You!"
                 description="See how CloudGlance can accelerate your document workflows and unlock the full potential of your team."
-                primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
-                secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}
+                primaryCta={{ text: 'Book a Demo', href: '/contact' }}
             />
         </div>
     );

@@ -286,7 +286,6 @@ export function SiteHeader() {
     const [isOpen, setIsOpen] = React.useState(false);
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = React.useState(false);
-    const [showHeader, setShowHeader] = React.useState(true);
     const [isNearTop, setIsNearTop] = React.useState(true);
     const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null);
 
@@ -299,30 +298,12 @@ export function SiteHeader() {
             return;
         }
 
-        let lastScrollY = window.scrollY;
         let frame: number | null = null;
 
         const updateState = () => {
             const currentScrollY = window.scrollY;
             const nearTop = currentScrollY <= 10;
-            const isScrollingUp = currentScrollY < lastScrollY - 4;
-            const isScrollingDown = currentScrollY > lastScrollY + 4;
-
             setIsNearTop(nearTop);
-
-            setShowHeader((prev) => {
-                if (nearTop || isScrollingUp) {
-                    return true;
-                }
-
-                if (isScrollingDown) {
-                    return false;
-                }
-
-                return prev;
-            });
-
-            lastScrollY = currentScrollY;
             frame = null;
         };
 
@@ -413,16 +394,7 @@ export function SiteHeader() {
                             className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                             asChild
                         >
-                            <a href="https://app.cloudglancelab.com" target="_blank" rel="noopener noreferrer">
-                                See it in Action
-                            </a>
-                        </Button>
-                        <Button
-                            variant="outline"
-                            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                            asChild
-                        >
-                            <Link href="/contact">Talk to Sales</Link>
+                            <Link href="/contact">Book a Demo</Link>
                         </Button>
                     </div>
                     <ThemeToggle />
@@ -517,18 +489,8 @@ export function SiteHeader() {
                                 })}
                                 <div className="flex flex-col gap-2 pt-4 border-t">
                                     <Button className="w-full justify-center" asChild>
-                                        <a 
-                                            href="https://app.cloudglancelab.com" 
-                                            target="_blank" 
-                                            rel="noopener noreferrer" 
-                                            onClick={() => setIsOpen(false)}
-                                        >
-                                            See it in Action
-                                        </a>
-                                    </Button>
-                                    <Button variant="outline" className="w-full justify-center" asChild>
                                         <Link href="/contact" onClick={() => setIsOpen(false)}>
-                                            Talk to Sales
+                                            Book a Demo
                                         </Link>
                                     </Button>
                                 </div>

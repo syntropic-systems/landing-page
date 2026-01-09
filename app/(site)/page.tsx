@@ -122,8 +122,7 @@ export default function Home() {
         badge="AI-Powered Document Intelligence Platform"
         title="Complete Document-Heavy Workflows in Minutes, not Days"
         description="CloudGlance cuts 80% of the time spent on tender bidding, vendor evaluation, contract review and more by turning PDFs, Excels and Technical files into structured data and automated processes instantly."
-        primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
-        secondaryCta={{ text: 'Talk to Our Team', href: '/contact' }}
+        primaryCta={{ text: 'Book a Demo', href: '/contact' }}
       />
 
       <Section id="Platform Image">
@@ -291,8 +290,7 @@ export default function Home() {
       <CTASection
         title="Ready to Transform the Way your Team Works with Documents?"
         description="Stop wasting time on manual review. See how CloudGlance automates bids, evaluations, and contract workflows from end to end."
-        primaryCta={{ text: 'See it in Action', href: 'https://app.cloudglancelab.com' }}
-        secondaryCta={{ text: 'Talk to Sales', href: '/contact' }}
+        primaryCta={{ text: 'Book a Demo', href: '/contact' }}
       />
     </div>
   );

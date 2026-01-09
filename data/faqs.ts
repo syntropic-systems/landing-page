@@ -4,6 +4,10 @@ export const faqs = [
     answer: 'Generic AI tools hallucinate, can\'t handle large technical documents and don\'t support accuracy, collaboration or end-to-end workflows. Cloudglance fixes all of this by processing thousands of pages reliably with citations, maintaining high accuracy and powering complete operational workflows.',
   },
   {
+    question: 'How does CloudGlance handle security and compliance?',
+    answer: 'CloudGlance is built with enterprise-grade security from the ground up. All data is encrypted at rest (AES-256) and in transit (TLS 1.3), with strict tenant isolation, role-based access controls, and full audit logging. We are currently completing SOC 2 Type II and ISO 27001 certification processes.',
+  },
+  {
     question: 'How fast is onboarding?',
     answer: 'Onboarding is immediate. You can start using Cloudglance the same day you sign up. If you need company-specific customisations, that may take a little additional time depending on the scope.',
   },
@@ -32,16 +36,11 @@ export const faqs = [
     answer: 'Yes. Organisation-specific formats and terminology are covered through our customisation process so the platform works reliably with your templates.',
   },
   {
-    question: 'Is Cloudglance secure?',
-    answer: 'Enterprise-grade security by default: encryption at rest and in transit, tenant isolation, role-based access, audit logs and strict data handling. We\'re also in the process of SOC2 and ISO certification applications.',
-  },
-  {
     question: 'Does Cloudglance hold a SOC 2 Type II Report?',
     answer: 'We are currently in our observation period for SOC 2 Type II and expect to receive our attestation later this year. However, our entire underlying infrastructure (Azure, Vercel, AWS S3) is fully SOC 2 Type II compliant.',
   },
-  {	
+  {
     question: 'Does Cloudglance encrypt data?',
     answer: 'Yes. All data is encrypted at rest using AES-256 standards and in transit using TLS 1.3. We enforce HTTPS for all connections.',
   }
 ];
-

@@ -125,8 +125,7 @@ export default function CompanyPage() {
             <CTASection
                 title="Want to Connect with our Team?"
                 description="We’d love to show you how CloudGlance works and answer any questions about your use case, industry, or workflows."
-                primaryCta={{ text: 'Talk to Our Team', href: '/contact' }}
-                secondaryCta={{ text: 'Book a Demo', href: '/contact' }}
+                primaryCta={{ text: 'Book a Demo', href: '/contact' }}
             />
         </div>
     );
