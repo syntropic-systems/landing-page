@@ -17,8 +17,7 @@ import { faqs } from '@/data/faqs';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Card } from '@/components/ui/card';
-import { ThemeAwareImage } from '@/components/theme-aware-image';
-import { VideoPlayer } from '@/components/video-player';
+import { YouTubeEmbed } from '@/components/youtube-embed';
 
 export const metadata: Metadata = {
   title: 'CloudGlance - AI-Powered Document Intelligence Platform',
@@ -125,25 +124,15 @@ export default function Home() {
         primaryCta={{ text: 'Book a Demo', href: '/contact' }}
       />
 
-      <Section id="Platform Image">
-          <div>
-            <Card className="w-full shadow-2xl overflow-hidden rounded-xl shadow-primary/20">
-          <div className="relative w-full">
-          <VideoPlayer
-            src="/platform-demo.mp4"
-            poster="/product/home_white.png"
-            posterDark="/product/home_black.png"
-            alt="CloudGlance Platform Demo"
-            className="w-full"
-            autoplay={false}
-            loop={true}
-            muted={true}
-            controls={true}
-            lazy={true}
-          />
-          </div>
+      <Section id="Platform Video">
+          <Card className="w-full shadow-2xl overflow-hidden rounded-xl shadow-primary/20">
+            <YouTubeEmbed
+              videoId="CQuGznmJAZI"
+              title="CloudGlance Platform Demo"
+              thumbnail="/product/home_white.png"
+              thumbnailDark="/product/home_black.png"
+            />
           </Card>
-          </div>
       </Section>
 
       {/* What Changes */}
