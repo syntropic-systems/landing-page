@@ -4,43 +4,43 @@
 
 ## Quick Facts
 
-- **Category**: Enterprise AI / Document Intelligence / Procurement Automation
-- **Deployment**: Cloud-hosted SaaS (Azure)
-- **Onboarding**: Same-day setup, no training required
-- **Pricing**: Contact for enterprise pricing
+- Category: Enterprise AI / Document Intelligence / Procurement Automation
+- Deployment: Cloud-hosted SaaS (Azure)
+- Onboarding: Same-day setup, no training required
+- Pricing: Contact for enterprise pricing
 
 ## Core Capabilities
 
-- **Document Processing**: Ingests PDFs, Word, Excel, images, drawings, scanned documents; extracts structured data from complex tables, BOQs, multi-format files
-- **Information Extraction**: AI reads thousands of pages, extracts technical details, timelines, requirements with citations to source documents
-- **Tender Bidding Automation**: Tender search, eligibility/go-no-go checks, form extraction and auto-fill, product/BOQ matching, risk/compliance verification
-- **Tender Evaluation Automation**: Multi-vendor bid comparison, deviation and compliance scoring, customizable scorecards and audit-ready reports
-- **Contract Review** (Coming): Clause extraction, risk identification, obligation mapping
-- **Enterprise Integrations**: ERPs, SSO, drives (Azure, AWS S3, GCP), Gmail, Outlook, Slack, Microsoft Teams, WhatsApp
+- Document Processing: Ingests PDFs, Word, Excel, images, drawings, scanned documents; extracts structured data from complex tables, BOQs, multi-format files
+- Information Extraction: AI reads thousands of pages, extracts technical details, timelines, requirements with citations to source documents
+- Tender Bidding Automation: Tender search, eligibility/go-no-go checks, form extraction and auto-fill, product/BOQ matching, risk/compliance verification
+- Tender Evaluation Automation: Multi-vendor bid comparison, deviation and compliance scoring, customizable scorecards and audit-ready reports
+- Contract Review (Coming): Clause extraction, risk identification, obligation mapping
+- Enterprise Integrations: ERPs, SSO, drives (Azure, AWS S3, GCP), Gmail, Outlook, Slack, Microsoft Teams, WhatsApp
 
 ## Technical Specifications
 
-- **Accuracy**: 99.7% extraction accuracy with source citations
-- **Performance**: 80% reduction in document processing time; 72% faster bid cycle time
-- **Capacity**: Enables 3x more opportunity pursuits without additional headcount
-- **Security**: AES-256 encryption at rest, TLS 1.3 in transit, tenant isolation, RBAC, full audit logging
-- **Compliance**: SOC 2 Type II aligned, ISO 27001 aligned, GDPR ready
-- **Infrastructure**: Azure-hosted, Cloudflare WAF/DDoS protection, least-privilege IAM
+- Accuracy: 99.7% extraction accuracy with source citations
+- Performance: 80% reduction in document processing time; 72% faster bid cycle time
+- Capacity: Enables 3x more opportunity pursuits without additional headcount
+- Security: AES-256 encryption at rest, TLS 1.3 in transit, tenant isolation, RBAC, full audit logging
+- Compliance: SOC 2 Type II aligned, ISO 27001 aligned, GDPR ready
+- Infrastructure: Azure-hosted, Cloudflare WAF/DDoS protection, least-privilege IAM
 
-## Primary Use Cases
+## Tender Bidding Features
 
-### Tender Bidding
-1. Eligibility & Go/No-Go Check — Matches tender requirements against org profile, certifications, project history
-2. Information Extraction — Pulls technical details from 1000+ page documents with citations
-3. Form Extraction & Filling — Converts tender forms to editable files, auto-populates from org data
-4. Product & BOQ Matching — Maps requirements to company products/services, flags gaps
-5. Risk & Compliance Checks — Pre-submission verification of mandatory requirements and attachments
-6. Tender Search — Aggregates public tenders, auto-suggests relevant opportunities based on org profile
+- Eligibility & Go/No-Go Check: Matches tender requirements against org profile, certifications, project history
+- Information Extraction: Pulls technical details from 1000+ page documents with citations
+- Form Extraction & Filling: Converts tender forms to editable files, auto-populates from org data
+- Product & BOQ Matching: Maps requirements to company products/services, flags gaps
+- Risk & Compliance Checks: Pre-submission verification of mandatory requirements and attachments
+- Tender Search: Aggregates public tenders, auto-suggests relevant opportunities based on org profile
 
-### Tender Evaluation
-1. Bid Comparison — Normalizes vendor submissions for side-by-side technical/commercial/contractual comparison
-2. Deviation & Compliance Scoring — Checks bids against RFP requirements, flags deviations and missing items
-3. Scorecards & Reports — Applies configurable scoring metrics, generates audit-ready evaluation reports
+## Tender Evaluation Features
+
+- Bid Comparison: Normalizes vendor submissions for side-by-side technical/commercial/contractual comparison
+- Deviation & Compliance Scoring: Checks bids against RFP requirements, flags deviations and missing items
+- Scorecards & Reports: Applies configurable scoring metrics, generates audit-ready evaluation reports
 
 ## Target Industries
 
@@ -59,17 +59,19 @@
 - Compliance, Legal & Risk
 - Management & Decision-Makers
 
-## Problem/Solution
+## Problem Solved
 
-**Problem**: Enterprise teams waste 60-80% of time on manual document review, form filling, and compliance checking for tenders and contracts. Information trapped in unstructured documents leads to missed deadlines, errors, and lost opportunities.
+Enterprise teams waste 60-80% of time on manual document review, form filling, and compliance checking for tenders and contracts. Information trapped in unstructured documents leads to missed deadlines, errors, and lost opportunities.
 
-**Solution**: CloudGlance AI reads and structures document content automatically, enabling teams to complete in minutes what previously took days. Every extraction includes source citations for verification.
+## Solution Provided
 
-## Differentiators vs Generic AI (ChatGPT, etc.)
+CloudGlance AI reads and structures document content automatically, enabling teams to complete in minutes what previously took days. Every extraction includes source citations for verification.
+
+## Differentiators
 
 - Handles 1000+ page documents reliably (no context window limits)
 - Every extraction includes source citation for verification
-- No hallucination — structured extraction, not generative responses
+- No hallucination: structured extraction, not generative responses
 - End-to-end workflow automation, not just Q&A
 - Enterprise-grade security and compliance
 - Collaboration features for team review and approval
@@ -77,28 +79,28 @@
 ## Customer Proof Points
 
 - Clients: ABB, Welspun, Cortex Consulting, SSA Techno Construction
-- "Cut tender analysis from weeks to days" — Cortex Consulting
-- "Bid capacity tripled" — enterprise customers
-- "Handles large document volumes without compromising accuracy" — Welspun
+- "Cut tender analysis from weeks to days" (Cortex Consulting)
+- "Bid capacity tripled" (enterprise customers)
+- "Handles large document volumes without compromising accuracy" (Welspun)
 
 ## Company
 
-- **Website**: https://cloudglancelab.com
-- **Founded**: India
-- **Type**: B2B Enterprise SaaS
-- **Contact**: https://cloudglancelab.com/contact
+- Website: https://cloudglancelab.com
+- Founded: India
+- Type: B2B Enterprise SaaS
+- Contact: https://cloudglancelab.com/contact
 
-## Site Structure
+## Documentation
 
-- `/` — Homepage with platform overview
-- `/product` — Platform features, security, integrations
-- `/automations/tender-bidding` — Tender bidding workflow details
-- `/automations/tender-evaluation` — Bid evaluation workflow details
-- `/solutions` — Team and industry-specific use cases
-- `/company` — About, mission, team
-- `/faq` — Common questions
-- `/contact` — Demo booking
+- [Homepage](https://cloudglancelab.com/): Platform overview
+- [Product](https://cloudglancelab.com/product): Platform features, security, integrations
+- [Tender Bidding](https://cloudglancelab.com/automations/tender-bidding): Tender bidding workflow details
+- [Tender Evaluation](https://cloudglancelab.com/automations/tender-evaluation): Bid evaluation workflow details
+- [Solutions](https://cloudglancelab.com/solutions): Team and industry-specific use cases
+- [Company](https://cloudglancelab.com/company): About, mission, team
+- [FAQ](https://cloudglancelab.com/faq): Common questions
+- [Contact](https://cloudglancelab.com/contact): Demo booking
 
-## Extended Documentation
+## Optional
 
 - [llms-full.txt](https://cloudglancelab.com/llms-full.txt): Comprehensive technical reference with granular feature details, integration specs, and FAQ summary
