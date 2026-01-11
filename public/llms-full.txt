@@ -1,0 +1,319 @@
+# CloudGlance — Extended Technical Documentation
+
+> Comprehensive reference for CloudGlance AI-powered document intelligence platform. This document provides granular technical details for RAG systems and LLM synthesis.
+
+---
+
+## Platform Architecture
+
+### Document Processing Pipeline
+
+```
+Input → Ingestion → Parsing → Extraction → Structuring → Output
+```
+
+**Supported Input Formats**:
+- PDF (native and scanned)
+- Microsoft Word (.doc, .docx)
+- Microsoft Excel (.xls, .xlsx)
+- Images (PNG, JPG, TIFF)
+- Technical drawings (CAD exports)
+- Scanned documents (OCR-processed)
+
+**Processing Capabilities**:
+- Multi-page document handling (1000+ pages per document)
+- Complex table extraction (nested tables, merged cells, BOQs)
+- Form field recognition and extraction
+- Technical specification parsing
+- Multi-language document support
+
+### Data Output
+
+All extracted data:
+- Includes source citations (document, page, location)
+- Converts to structured JSON/tabular format
+- Links to original source for verification
+- Maintains relational connections across documents
+
+---
+
+## Feature Modules
+
+### 1. Document Repository
+
+**Capabilities**:
+- Centralized storage for all organizational documents
+- Project-based organization
+- Version tracking
+- Format-agnostic storage (PDF, Excel, Word, images, drawings)
+- Searchable metadata and content
+
+### 2. AI Information Extraction
+
+**Process**:
+1. Document upload triggers AI parsing
+2. Content classified by type (technical, commercial, contractual, administrative)
+3. Key information extracted based on context
+4. Structured data generated with citations
+5. Cross-document relationships established
+
+**Extraction Types**:
+- Technical specifications and requirements
+- Timelines and milestones
+- Financial data and pricing
+- Compliance requirements
+- Contact information
+- Scope definitions
+- Terms and conditions
+
+### 3. Tender Bidding Automation
+
+#### 3.1 Tender Search
+- Aggregates public tender portals
+- Auto-suggests opportunities matching org profile
+- Real-time notifications for new relevant tenders
+- Keyword and filter-based custom search
+- Highlights required documents and criteria
+
+#### 3.2 Eligibility & Go/No-Go Analysis
+- Matches tender mandatory requirements against:
+  - Organization certifications
+  - Past project history
+  - Financial qualifications
+  - Technical capabilities
+- Produces gap analysis report
+- Assesses scope, timelines, risks, contract terms
+- Data-backed bid/no-bid recommendation
+
+#### 3.3 Information Extraction (Tender-specific)
+- Extracts from tender documents:
+  - Technical requirements
+  - Timelines and deadlines
+  - Submission requirements
+  - Evaluation criteria
+  - Special conditions
+- Every answer includes citation to source
+
+#### 3.4 Form Extraction & Auto-fill
+- Identifies all required forms and attachments
+- Converts to editable Word/Excel
+- Auto-populates fields from organization data
+- Flags fields requiring manual input
+- Attaches required supporting documents automatically:
+  - GST certificates
+  - Incorporation documents
+  - Past project records
+  - Certifications
+
+#### 3.5 Product & BOQ Matching
+- Reads Bill of Quantities (BOQ)
+- Maps requirements to company product catalog
+- Identifies:
+  - Direct matches
+  - Potential alternatives
+  - Gaps requiring clarification
+- Reduces manual cross-referencing
+
+#### 3.6 Risk & Compliance Pre-submission Check
+- Verifies compliance with mandatory requirements
+- Flags technical, commercial, contractual risks
+- Confirms all required forms and documents attached
+- Pre-submission validation report
+
+### 4. Tender Evaluation Automation
+
+#### 4.1 Bid Comparison
+- Normalizes multi-vendor submissions
+- Side-by-side comparison across:
+  - Technical specifications
+  - Commercial terms
+  - Contractual conditions
+- Single-view evaluation without manual document switching
+
+#### 4.2 Deviation & Compliance Scoring
+- Checks each bid against RFP/tender requirements
+- Identifies:
+  - Full compliance
+  - Partial deviations
+  - Missing responses
+  - Missing documents
+- Risk assessment for each deviation
+- Vendor ranking by compliance level
+
+#### 4.3 Scorecards & Reports
+- Configurable scoring metrics (organization-defined)
+- Automated scoring application
+- Vendor ranking and comparison
+- Export formats: PDF, Excel
+- Audit-ready documentation
+- Approval workflow integration
+
+### 5. Contract Review (Roadmap)
+
+**Planned Capabilities**:
+- Clause extraction and categorization
+- Risk identification and scoring
+- Obligation mapping and tracking
+- Comparison against standard templates
+- Deviation highlighting
+
+---
+
+## Enterprise Features
+
+### Security
+
+| Feature | Implementation |
+|---------|----------------|
+| Encryption at Rest | AES-256 |
+| Encryption in Transit | TLS 1.3 |
+| Access Control | Role-based (RBAC) |
+| Tenant Isolation | Full logical separation |
+| Audit Logging | Complete action trail |
+| Network Protection | Cloudflare WAF, DDoS mitigation |
+
+### Compliance Alignment
+
+- **SOC 2 Type II**: Aligned (attestation in progress)
+- **ISO 27001**: Aligned
+- **GDPR**: Ready
+
+### Infrastructure
+
+- **Primary Host**: Microsoft Azure (audited data centers)
+- **Edge/CDN**: Cloudflare
+- **Storage**: Azure + AWS S3 compatible
+- **Access Policy**: Least-privilege IAM, short-lived credentials
+
+### Integrations
+
+**Communication**:
+- Gmail
+- Microsoft Outlook
+- Slack
+- Microsoft Teams
+- WhatsApp
+
+**Storage/Cloud**:
+- Microsoft Azure
+- AWS S3
+- Google Cloud Platform
+- PostgreSQL
+
+**Enterprise Systems**:
+- ERP integration
+- SSO (Single Sign-On)
+- Document management systems
+
+---
+
+## Performance Metrics
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| Time Reduction | 80% | Document processing and review |
+| Cycle Time Improvement | 72% | Tender submission (weeks → hours) |
+| Capacity Increase | 3x | Opportunities pursued without added headcount |
+| Extraction Accuracy | 99.7% | Internal benchmarks |
+
+---
+
+## Industry Applications
+
+### Construction & Infrastructure
+- Large tender package management
+- BOQ and technical spec extraction
+- Multi-contractor coordination
+- Compliance document handling
+
+### Manufacturing
+- Product specification matching
+- BOQ interpretation
+- Quote preparation automation
+- Material and quantity parsing
+
+### Technology & IT Services
+- RFP response automation
+- Security questionnaire completion
+- Compliance documentation
+- Technical requirement mapping
+
+### Energy
+- Regulatory compliance verification
+- Risk identification in complex projects
+- Multi-document cross-referencing
+- Deviation analysis
+
+### Real Estate & Property Development
+- Contract clause extraction
+- Cost and obligation identification
+- Multi-vendor proposal evaluation
+- Risk assessment
+
+---
+
+## Team Use Cases
+
+### Operations & Project Teams
+- Information extraction from project documents
+- Task-document-stage connection
+- Error reduction through structured data
+- Faster project execution
+
+### Business Development & Sales
+- Opportunity discovery automation
+- Scope fit analysis
+- Risk and requirement highlighting
+- Response acceleration
+
+### Compliance, Legal & Risk
+- Hidden risk identification
+- Automated requirement checking
+- Missing document flagging
+- Audit trail maintenance
+
+### Management
+- 80% manual effort reduction
+- Error and rework reduction
+- Smaller team, higher output
+- Cost and margin improvement
+
+---
+
+## FAQ Summary
+
+**Q: How is CloudGlance different from ChatGPT?**
+A: CloudGlance is purpose-built for document workflows: handles thousands of pages reliably, provides citations, maintains accuracy, supports collaboration, and powers end-to-end operational workflows. Generic AI tools lack these capabilities.
+
+**Q: What file types are supported?**
+A: PDF, Word, Excel, images, drawings, scanned documents. Complex tables, BOQs, and multi-structure files are processed into structured data.
+
+**Q: How fast is onboarding?**
+A: Same-day start. Custom configurations may require additional time depending on scope.
+
+**Q: Is training required?**
+A: No. Personalized demo on onboarding day; ongoing customer success support available.
+
+**Q: Can existing tools be kept?**
+A: Yes. CloudGlance integrates with drives, ERPs, SSO, and document systems.
+
+**Q: What is the AI accuracy?**
+A: 99.7% extraction accuracy (internal benchmarks). Every extraction includes source citation for verification.
+
+---
+
+## Contact & Resources
+
+- **Website**: https://cloudglancelab.com
+- **Product**: https://cloudglancelab.com/product
+- **Tender Bidding**: https://cloudglancelab.com/automations/tender-bidding
+- **Tender Evaluation**: https://cloudglancelab.com/automations/tender-evaluation
+- **Solutions**: https://cloudglancelab.com/solutions
+- **Company**: https://cloudglancelab.com/company
+- **FAQ**: https://cloudglancelab.com/faq
+- **Contact/Demo**: https://cloudglancelab.com/contact
+
+---
+
+*Document version: 2026-01*
+*For LLM/RAG ingestion. Structured for token efficiency and hierarchical retrieval.*

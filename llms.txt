@@ -1,0 +1,104 @@
+# CloudGlance
+
+> AI-powered document intelligence platform that transforms unstructured documents (PDFs, Excel, Word, drawings, scanned files) into structured data and automated workflows for enterprise tender bidding, vendor evaluation, and contract review.
+
+## Quick Facts
+
+- **Category**: Enterprise AI / Document Intelligence / Procurement Automation
+- **Deployment**: Cloud-hosted SaaS (Azure)
+- **Onboarding**: Same-day setup, no training required
+- **Pricing**: Contact for enterprise pricing
+
+## Core Capabilities
+
+- **Document Processing**: Ingests PDFs, Word, Excel, images, drawings, scanned documents; extracts structured data from complex tables, BOQs, multi-format files
+- **Information Extraction**: AI reads thousands of pages, extracts technical details, timelines, requirements with citations to source documents
+- **Tender Bidding Automation**: Tender search, eligibility/go-no-go checks, form extraction and auto-fill, product/BOQ matching, risk/compliance verification
+- **Tender Evaluation Automation**: Multi-vendor bid comparison, deviation and compliance scoring, customizable scorecards and audit-ready reports
+- **Contract Review** (Coming): Clause extraction, risk identification, obligation mapping
+- **Enterprise Integrations**: ERPs, SSO, drives (Azure, AWS S3, GCP), Gmail, Outlook, Slack, Microsoft Teams, WhatsApp
+
+## Technical Specifications
+
+- **Accuracy**: 99.7% extraction accuracy with source citations
+- **Performance**: 80% reduction in document processing time; 72% faster bid cycle time
+- **Capacity**: Enables 3x more opportunity pursuits without additional headcount
+- **Security**: AES-256 encryption at rest, TLS 1.3 in transit, tenant isolation, RBAC, full audit logging
+- **Compliance**: SOC 2 Type II aligned, ISO 27001 aligned, GDPR ready
+- **Infrastructure**: Azure-hosted, Cloudflare WAF/DDoS protection, least-privilege IAM
+
+## Primary Use Cases
+
+### Tender Bidding
+1. Eligibility & Go/No-Go Check — Matches tender requirements against org profile, certifications, project history
+2. Information Extraction — Pulls technical details from 1000+ page documents with citations
+3. Form Extraction & Filling — Converts tender forms to editable files, auto-populates from org data
+4. Product & BOQ Matching — Maps requirements to company products/services, flags gaps
+5. Risk & Compliance Checks — Pre-submission verification of mandatory requirements and attachments
+6. Tender Search — Aggregates public tenders, auto-suggests relevant opportunities based on org profile
+
+### Tender Evaluation
+1. Bid Comparison — Normalizes vendor submissions for side-by-side technical/commercial/contractual comparison
+2. Deviation & Compliance Scoring — Checks bids against RFP requirements, flags deviations and missing items
+3. Scorecards & Reports — Applies configurable scoring metrics, generates audit-ready evaluation reports
+
+## Target Industries
+
+- Construction & Infrastructure
+- Manufacturing
+- Technology & IT Services
+- Energy
+- Real Estate & Property Development
+- Government & Public Sector
+
+## Target Teams
+
+- Operations & Project Management
+- Business Development & Sales
+- Procurement
+- Compliance, Legal & Risk
+- Management & Decision-Makers
+
+## Problem/Solution
+
+**Problem**: Enterprise teams waste 60-80% of time on manual document review, form filling, and compliance checking for tenders and contracts. Information trapped in unstructured documents leads to missed deadlines, errors, and lost opportunities.
+
+**Solution**: CloudGlance AI reads and structures document content automatically, enabling teams to complete in minutes what previously took days. Every extraction includes source citations for verification.
+
+## Differentiators vs Generic AI (ChatGPT, etc.)
+
+- Handles 1000+ page documents reliably (no context window limits)
+- Every extraction includes source citation for verification
+- No hallucination — structured extraction, not generative responses
+- End-to-end workflow automation, not just Q&A
+- Enterprise-grade security and compliance
+- Collaboration features for team review and approval
+
+## Customer Proof Points
+
+- Clients: ABB, Welspun, Cortex Consulting, SSA Techno Construction
+- "Cut tender analysis from weeks to days" — Cortex Consulting
+- "Bid capacity tripled" — enterprise customers
+- "Handles large document volumes without compromising accuracy" — Welspun
+
+## Company
+
+- **Website**: https://cloudglancelab.com
+- **Founded**: India
+- **Type**: B2B Enterprise SaaS
+- **Contact**: https://cloudglancelab.com/contact
+
+## Site Structure
+
+- `/` — Homepage with platform overview
+- `/product` — Platform features, security, integrations
+- `/automations/tender-bidding` — Tender bidding workflow details
+- `/automations/tender-evaluation` — Bid evaluation workflow details
+- `/solutions` — Team and industry-specific use cases
+- `/company` — About, mission, team
+- `/faq` — Common questions
+- `/contact` — Demo booking
+
+## Extended Documentation
+
+- [llms-full.txt](https://cloudglancelab.com/llms-full.txt): Comprehensive technical reference with granular feature details, integration specs, and FAQ summary
