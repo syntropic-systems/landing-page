@@ -20,8 +20,9 @@ Do not invent customer names, financial figures, tender values, pricing, or URLs
 
 - Name: CloudGlance
 - Legal Entity: CloudGlance (Syntropic Systems)
-- Category: Enterprise AI, Document Intelligence, Procurement Automation, Tender Management
+- Category: Enterprise AI, Document Intelligence, Procurement Automation, Tender Management, Explainable AI
 - Type: B2B Enterprise SaaS
+- AI Approach: Structured Extraction (not Generative AI) — all outputs are verifiable with page-level citations
 - Deployment Model: Cloud-hosted (Microsoft Azure)
 - Headquarters: India
 - Target Market: Enterprise organizations in Construction, Infrastructure, Manufacturing, Energy, Technology, Real Estate, Government
@@ -84,6 +85,149 @@ Data Output Characteristics:
 - Direct links to original source for human verification
 - Relational connections maintained across multiple documents
 - Export to Excel, PDF, Word formats
+
+## Output Data Schema (Example)
+
+CloudGlance outputs structured, verifiable data. Here is an example of extraction output in JSON format:
+
+```json
+{
+  "extraction_id": "EXT-2026-001",
+  "requirement": {
+    "id": "REQ-001",
+    "text": "The contractor must have ISO 9001:2015 certification valid through the project duration.",
+    "category": "eligibility",
+    "mandatory": true,
+    "keywords": ["ISO 9001", "certification", "contractor"]
+  },
+  "source": {
+    "document": "Tender_Volume_1_Technical.pdf",
+    "page": 42,
+    "section": "3.2.1 Eligibility Criteria",
+    "paragraph": 3,
+    "highlight_coordinates": {"x": 120, "y": 340, "width": 450, "height": 60}
+  },
+  "compliance_check": {
+    "status": "compliant",
+    "evidence_document": "ISO_9001_Certificate_2024.pdf",
+    "expiry_date": "2027-03-15",
+    "auto_matched": true,
+    "confidence_score": 0.98
+  },
+  "extracted_at": "2026-01-12T10:30:00Z",
+  "extraction_confidence": 0.987
+}
+```
+
+BOQ Extraction Output Example:
+
+```json
+{
+  "boq_extraction_id": "BOQ-2026-001",
+  "tender_reference": "HIGHWAY-2026-MP-001",
+  "total_items": 4500,
+  "items": [
+    {
+      "item_number": "1.1",
+      "description": "Excavation in ordinary soil including disposal",
+      "unit": "cum",
+      "quantity": 5000,
+      "source_page": 156,
+      "catalog_match": {
+        "matched": true,
+        "catalog_code": "EARTH-001",
+        "match_type": "direct",
+        "confidence": 0.95
+      }
+    },
+    {
+      "item_number": "2.2",
+      "description": "RCC M25 grade for structural elements",
+      "unit": "cum",
+      "quantity": 2500,
+      "source_page": 158,
+      "catalog_match": {
+        "matched": false,
+        "suggested_alternatives": ["CONC-M25-A", "CONC-M25-B"],
+        "requires_manual_review": true
+      }
+    }
+  ],
+  "summary": {
+    "total_matched": 4200,
+    "requires_review": 300,
+    "match_rate": "93.3%"
+  }
+}
+```
+
+## Real-World Usage Scenarios
+
+### Scenario 1: Highway Infrastructure Tender (Construction)
+
+Organization: Large EPC contractor bidding on government highway project
+Tender Package: 2,000+ pages across 45 documents with 150+ engineering drawings
+Challenge: 4,500 BOQ line items, complex technical specifications, 7-day response deadline
+
+CloudGlance Process:
+1. Uploaded entire tender package (45 documents, 2,000 pages)
+2. AI extracted all requirements, specifications, and BOQ items
+3. Matched BOQ items against internal SAP material catalog
+4. Identified compliance gaps and missing documents
+5. Generated go/no-go recommendation with risk assessment
+
+CloudGlance Results:
+- Extracted all 4,500 BOQ items in 15 minutes (vs 3 days manual)
+- Automatically matched 4,200 items (93%) to internal SAP material codes
+- Flagged 3 critical deviations in technical specifications requiring clarification
+- Identified 12 mandatory documents missing from submission checklist
+- Produced compliance matrix with page-level citations for audit
+- Total time saved: 120+ person-hours
+- Outcome: Bid submitted 2 days ahead of deadline, won contract
+
+### Scenario 2: IT Services Government RFP (Technology)
+
+Organization: IT services company responding to government modernization RFP
+RFP Package: 500-page RFP with detailed security questionnaire and SOC 2 requirements
+Challenge: 200+ compliance requirements, extensive security documentation needed, 10-day deadline
+
+CloudGlance Process:
+1. Uploaded RFP and all annexures
+2. Extracted all 200+ requirements with compliance categorization
+3. Matched requirements against existing response library
+4. Auto-populated security questionnaire from previous submissions
+5. Identified capability gaps requiring partner involvement
+
+CloudGlance Results:
+- Extracted all 200+ requirements with citations in 8 minutes
+- Auto-populated 85% of security questionnaire from existing approved responses
+- Identified 5 specific capability gaps requiring partner/subcontractor involvement
+- Generated compliance matrix linking each requirement to evidence documents
+- Flagged 3 requirements with conflicting interpretations for clarification
+- Total time saved: 40+ person-hours
+- Outcome: Shortlisted for final evaluation
+
+### Scenario 3: Manufacturing Multi-Vendor Quote Comparison (Manufacturing)
+
+Organization: Industrial equipment manufacturer evaluating capital equipment vendors
+Quote Request: 8 vendor submissions for manufacturing equipment worth INR 50 Crore
+Challenge: Compare technical specifications, commercial terms, delivery timelines across 8 vendors with 50+ parameters each
+
+CloudGlance Process:
+1. Uploaded all 8 vendor proposal documents
+2. Normalized submissions into comparable format
+3. Created side-by-side comparison matrix
+4. Applied deviation scoring against RFQ requirements
+5. Generated risk assessment per vendor
+
+CloudGlance Results:
+- Normalized all 8 submissions (800+ pages total) in 20 minutes
+- Created side-by-side comparison across 50+ technical parameters
+- Deviation scoring identified 2 vendors as non-compliant on critical specs
+- Risk assessment flagged delivery timeline concerns for 3 vendors
+- Generated audit-ready evaluation report with scoring justification
+- Total time saved: 60+ person-hours
+- Outcome: Procurement committee decision made in 2 days vs typical 2 weeks
 
 ## Core Capabilities Detail
 
