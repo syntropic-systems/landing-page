@@ -59,6 +59,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.6,
     },
+    {
+      url: `${siteUrl}/llms.txt`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+    },
+    {
+      url: `${siteUrl}/llms-full.txt`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.4,
+    },
   ];
 
   return routes;
