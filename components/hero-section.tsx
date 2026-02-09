@@ -26,7 +26,7 @@ export function HeroSection({
     secondaryCta,
 }: HeroSectionProps) {
     return (
-        <section className="relative h-[100vh] flex items-center mb-20 md:mb-28 lg:mb-32 overflow-hidden rounded-b-3xl shadow-primary/30 shadow-2xl bg-gradient-to-t from-card to-transparent">
+        <section className="relative h-[100vh] flex items-center -mt-14 pt-14 mb-20 md:mb-28 lg:mb-32 overflow-hidden rounded-b-3xl shadow-primary/30 shadow-2xl bg-gradient-to-t from-card to-transparent">
             <div className="absolute inset-0">
                 <Aurora
                     amplitude={1.0}

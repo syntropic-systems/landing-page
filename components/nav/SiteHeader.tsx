@@ -4,12 +4,14 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowRight, Menu as MenuIcon } from "lucide-react";
+import { ArrowRight, Menu as MenuIcon, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import {
     Sheet,
+    SheetClose,
     SheetContent,
+    SheetFooter,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
@@ -411,11 +413,29 @@ export function SiteHeader() {
                                 <MenuIcon className="h-5 w-5" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                            <SheetHeader>
-                                <SheetTitle>Navigation</SheetTitle>
+                        <SheetContent side="right" className="w-[300px] sm:w-[400px] flex flex-col backdrop-blur-md bg-card/50 border-border/50">
+                            <SheetHeader className="flex flex-row items-center justify-between pb-2 border-b">
+                                <SheetTitle>Menu</SheetTitle>
+                                <SheetClose className="rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
+                                    <X className="h-4 w-4" />
+                                    <span className="sr-only">Close</span>
+                                </SheetClose>
                             </SheetHeader>
-                            <nav className="flex flex-col gap-2 mt-6" role="navigation" aria-label="Mobile navigation">
+                            <nav className="flex flex-col gap-2 flex-1 overflow-y-auto" role="navigation" aria-label="Mobile navigation">
+                                <Link
+                                    href="/"
+                                    onClick={() => setIsOpen(false)}
+                                    className={cn(
+                                        "py-2 px-3 text-base font-medium rounded-md transition-colors",
+                                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                                        pathname === "/"
+                                            ? "bg-primary text-primary-foreground cursor-default pointer-events-none"
+                                            : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                                    )}
+                                    aria-current={pathname === "/" ? "page" : undefined}
+                                >
+                                    Home
+                                </Link>
                                 {navItems.map((item) => {
                                     const isActive = pathname === item.href;
                                     const hasDropdown = Boolean(item.dropdown);
@@ -426,10 +446,10 @@ export function SiteHeader() {
                                                 href={item.href}
                                                 onClick={() => setIsOpen(false)}
                                                 className={cn(
-                                                    "px-4 py-3 text-base font-medium rounded-md transition-colors",
+                                                    "py-2 px-3 text-base font-medium rounded-md transition-colors",
                                                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                                                     isActive
-                                                        ? "bg-accent text-accent-foreground cursor-default pointer-events-none"
+                                                        ? "bg-primary text-primary-foreground cursor-default pointer-events-none"
                                                         : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                                                 )}
                                                 aria-current={isActive ? "page" : undefined}
@@ -451,7 +471,7 @@ export function SiteHeader() {
                                                                             "px-4 py-2 text-sm rounded-md transition-colors",
                                                                             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                                                                             linkIsActive
-                                                                                ? "bg-accent text-accent-foreground font-medium"
+                                                                                ? "bg-primary text-primary-foreground font-medium"
                                                                                 : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
                                                                         )}
                                                                         aria-current={linkIsActive ? "page" : undefined}
@@ -473,7 +493,7 @@ export function SiteHeader() {
                                                                     "px-4 py-2 text-sm rounded-md transition-colors",
                                                                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                                                                     highlightIsActive
-                                                                        ? "bg-accent text-accent-foreground font-medium"
+                                                                        ? "bg-primary text-primary-foreground font-medium"
                                                                         : "text-muted-foreground hover:bg-accent/50 hover:text-foreground"
                                                                 )}
                                                                 aria-current={highlightIsActive ? "page" : undefined}
@@ -487,14 +507,14 @@ export function SiteHeader() {
                                         </div>
                                     );
                                 })}
-                                <div className="flex flex-col gap-2 pt-4 border-t">
-                                    <Button className="w-full justify-center" asChild>
-                                        <Link href="/contact" onClick={() => setIsOpen(false)}>
-                                            Book a Demo
-                                        </Link>
-                                    </Button>
-                                </div>
                             </nav>
+                            <SheetFooter className="border-t pt-4">
+                                <Button className="w-full justify-center" asChild>
+                                    <Link href="/contact" onClick={() => setIsOpen(false)}>
+                                        Book a Demo
+                                    </Link>
+                                </Button>
+                            </SheetFooter>
                         </SheetContent>
                     </Sheet>
                 </div>

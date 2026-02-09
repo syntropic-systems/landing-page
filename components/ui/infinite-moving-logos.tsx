@@ -11,6 +11,7 @@ type LogoItem = {
   alt?: string;
   width?: number;
   height?: number;
+  className?: string;
 };
 
 type InfiniteMovingLogosProps = {
@@ -76,7 +77,7 @@ export const InfiniteMovingLogos = ({
           className={cn(
             isStatic
               ? "flex flex-wrap items-center justify-center gap-20"
-              : "flex w-max min-w-full shrink-0 flex-nowrap gap-0 py-4",
+              : "flex w-max min-w-full shrink-0 flex-nowrap gap-12 sm:gap-20 py-4",
             !isStatic && start && "animate-scroll",
             !isStatic && pauseOnHover && "hover:[animation-play-state:paused]",
           )}
@@ -102,7 +103,7 @@ export const InfiniteMovingLogos = ({
                         alt={item.alt ?? "Client logo"}
                         width={item.width ?? 140}
                         height={item.height ?? 48}
-                        className={cn("w-auto object-contain", isStatic ? "h-12" : "h-10")}
+                        className={cn("w-auto object-contain", isStatic ? "h-12" : "h-10", item.className)}
                         draggable={false}
                       />
                     </div>

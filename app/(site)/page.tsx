@@ -104,11 +104,12 @@ export default function Home() {
   ];
 
   const logos = [
-    { src: '/client logos/Jha_client_logo.svg', alt: 'Jha Construction' },
+    { src: '/client logos/Jha_client_logo.svg', alt: 'Jha Construction', className: 'h-12' },
     { src: '/client logos/Cortex_client_logo_black.svg', srcDark: '/client logos/Cortex_client_logo_white.svg', alt: 'Cortex Construction Solutions' },
     { src: '/client logos/ABB_client_logo.svg', alt: 'ABB, India' },
-    { src: '/client logos/Welspun_client_logo.png', srcDark: '/client logos/Welspun_client_logo_white.png', alt: 'Welspun' },
-    { src: '/client logos/SSA_client_logo.svg', alt: 'SSA Techno Construction' },
+    { src: '/client logos/Welspun_client_logo.png', srcDark: '/client logos/Welspun_client_logo_white.png', alt: 'Welspun'},
+    { src: '/client logos/SSA_client_logo.svg', alt: 'SSA Techno Construction', className: 'h-12' },
+    { src: '/client logos/Texmaco_client_logo.png', srcDark: '/client logos/Texmaco_client_logo_white.png', alt: 'Texmaco', className: 'h-12' },
   ];
 
   // Show only first 5 FAQs on home page
@@ -123,6 +124,15 @@ export default function Home() {
         description="CloudGlance cuts 80% of the time spent on tender bidding, vendor evaluation, contract review and more by turning PDFs, Excels and Technical files into structured data and automated processes instantly."
         primaryCta={{ text: 'Book a Demo', href: '/contact' }}
       />
+
+      <Section className="!py-0">
+        <InfiniteMovingLogos
+          items={logos}
+          direction="right"
+          speed="slow"
+          pauseOnHover
+        />
+      </Section>
 
       <Section id="Platform Video">
           <Card className="w-full shadow-2xl overflow-hidden rounded-xl shadow-primary/20">
@@ -232,15 +242,7 @@ export default function Home() {
         }
         titleAlign="center"
       >
-        <InfiniteMovingLogos
-          items={logos}
-          direction="right"
-          speed="slow"
-          pauseOnHover
-          variant="static"
-          className="mb-16"
-        />
-        <div className="pt-4">
+        <div>
           <InfiniteMovingCards
             items={testimonials}
             direction="left"

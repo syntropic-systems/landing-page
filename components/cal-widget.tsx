@@ -143,8 +143,8 @@ export function CalWidget({ url, className, namespace }: CalWidgetProps) {
   }
 
   return (
-    <div 
-      className={`cal-booker-embed ${className || ""}`} 
+    <div
+      className={`cal-booker-embed ${className || ""}`}
       style={{ width: "100%", minHeight: "700px" }}
       data-theme={resolvedTheme}
     >

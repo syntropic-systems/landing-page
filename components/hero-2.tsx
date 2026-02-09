@@ -8,7 +8,7 @@ export function Hero2({
     description,
 }: Hero2Props) {
     return (
-        <section className="relative h-[100vh] flex items-center mb-20 md:mb-28 lg:mb-32 overflow-hidden rounded-b-3xl shadow-primary/30 shadow-2xl bg-gradient-to-b from-primary/50 via-background to-card">
+        <section className="relative h-[100vh] flex items-center -mt-14 pt-14 mb-20 md:mb-28 lg:mb-32 overflow-hidden rounded-b-3xl shadow-primary/30 shadow-2xl bg-gradient-to-b from-primary/50 via-background to-card">
             <div className="container relative z-10">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl text-left space-y-6 lg:space-y-10">
