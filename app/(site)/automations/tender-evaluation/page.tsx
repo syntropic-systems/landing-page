@@ -1,21 +1,36 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
-import { FeatureCard, FeatureGrid } from "@/components/feature-card";
+import { FeatureCard } from "@/components/feature-card";
+import { StaggerChildren, StaggerItem } from "@/components/animations";
 import { PageHeader } from "@/components/page-header";
 import { BadgeCheck, CheckCircle, LayoutPanelLeft} from "lucide-react";
-import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { WorkflowStepCards } from "@/components/workflow-step-cards";
+import { ImageShowcaseToggle } from "@/components/image-showcase-toggle";
+import {
+  EvaluationRubricShowcase,
+  L1EvaluationShowcase,
+  ComplianceShowcase,
+} from "@/components/showcases";
 
 export const metadata: Metadata = {
   title: "Tender Evaluation Automation",
   description:
-    "Automate vendor evaluation with AI. Bid comparison, compliance scoring, deviation analysis, and automated scorecards for faster, objective procurement decisions.",
+    "Automate vendor evaluation with AI. Evaluation rubrics, L1 bidder selection, and compliance analysis for faster, objective procurement decisions.",
   alternates: {
     canonical: "https://cloudglancelab.com/automations/tender-evaluation",
   },
+  keywords: [
+    "tender evaluation automation",
+    "vendor evaluation software",
+    "L1 bidder evaluation",
+    "bid comparison tool",
+    "evaluation rubric scoring",
+    "compliance analysis",
+  ],
   openGraph: {
     title: "Tender Evaluation Automation - CloudGlance",
     description:
@@ -23,27 +38,36 @@ export const metadata: Metadata = {
   },
 };
 
-const workflowSteps = [
+const workflowSteps: {
+  title: string;
+  description: string;
+  image: string;
+  imageDark: string;
+  showcase?: ComponentType;
+}[] = [
   {
-    title: "Bid Comparison",
+    title: "Evaluation Rubric",
     description:
-      "Upon uploading the tender submissions to the platform, AI reads every vendor's submission and brings their responses into a common, comparable format. Technical, commercial and contractual details that normally sit in separate files appear side by side, giving teams a clear view of how each vendor is approaching the scope without digging through individual documents. This speeds up the first level of evaluation, removing hours of manual sorting.",
-    image: "/evaluation/bid_comparison_white.png",
-    imageDark: "/evaluation/bid_comparison_black.png",
+      "Teams define or upload their scoring criteria, weightages and thresholds, and the platform applies them consistently across every submission. AI reads each vendor's response and maps it against the rubric, scoring technical, commercial and compliance parameters without manual interpretation.\n\nThis removes inconsistency from the evaluation process, ensures every bid is measured against the same standard and gives teams a clear, auditable basis for shortlisting and ranking vendors.",
+    image: "/evaluation/rubric_white.png",
+    imageDark: "/evaluation/rubric_black.png",
+    showcase: EvaluationRubricShowcase,
   },
   {
-    title: "Deviation and Compliance Scoring",
+    title: "L1 Bidder Evaluation",
     description:
-      "AI checks each bid against the requirements in the tender or RFP and highlights vendor compliance, deviations and any missing documents or responses. It also surfaces gaps or risks that could affect delivery, pricing or contractual obligations, making it clear where vendors may fall short or introduce uncertainty. This gives evaluation teams a straightforward view of which vendors closely match the scope, which ones need clarification and where potential issues may appear later in the project.",
-    image: "/evaluation/deviation_white.png",
-    imageDark: "/evaluation/deviation_black.png",
+      "AI evaluates bidders against the scoring rubric, applies the technical qualification threshold and selects the lowest-priced qualified bidder using the L1 method. It reads pricing schedules, applies normalisation rules and ranks vendors by evaluated cost after filtering out those who do not meet the minimum technical score.\n\nThis automates the most time-consuming part of financial evaluation, reduces errors in price comparison and ensures the L1 selection is transparent, traceable and aligned with the defined evaluation criteria.",
+    image: "/evaluation/l1_bidder_white.png",
+    imageDark: "/evaluation/l1_bidder_black.png",
+    showcase: L1EvaluationShowcase,
   },
   {
-    title: "Scorecards and Reports",
+    title: "Bidders Package Compliance Analysis",
     description:
-      "Organisations can feed their bid scoring metrics into the platform, and AI applies those rules to evaluate every bid. Each response is scored and ranked objectively, giving teams a clear view of how vendors compare and which ones are the strongest fit. The results can be downloaded or shared as reports for approvals and audits, making the evaluation process faster, consistent and completely traceable.",
-    image: "/evaluation/scorecards_white.png",
-    imageDark: "/evaluation/scorecards_black.png",
+      "AI analyses each bidder's submission against the tender requirements by extracting forms from both the tender document and the vendor's response. It matches them pair by pair, evaluates the quality and completeness of each matched set and flags missing, incomplete or non-compliant items.\n\nThe platform then generates a compliance report with rankings, giving evaluation teams a clear view of which vendors submitted complete packages and where gaps exist, so decisions can be made quickly and with full confidence.",
+    image: "/evaluation/package_compliance_white.png",
+    imageDark: "/evaluation/package_compliance_black.png",
+    showcase: ComplianceShowcase,
   },
 ];
 
@@ -82,25 +106,21 @@ export default function TenderEvaluationPage() {
         <WorkflowStepCards steps={workflowSteps} />
       </Section>
 
-      <Section className="!pt-0">
+      <Section className="!py-12">
         <ScrollStack>
           {workflowSteps.map((step) => (
             <ScrollStackItem key={step.title} itemClassName="bg-card h-auto" data-step-id={step.title}>
-              <div className="grid gap-6 md:grid-cols-3 items-start">
+              <div className="grid gap-6 md:grid-cols-3 items-start [&>*]:min-w-0">
                 <div className="flex flex-col justify-center space-y-3 md:col-span-1">
                   <p className="text-2xl font-semibold text-primary">{step.title}</p>
                   <p className="text-base text-foreground">{step.description}</p>
                 </div>
-                <div className="relative w-full aspect-video overflow-hidden rounded-lg border border-border shadow-md md:col-span-2">
-                  <ThemeAwareImage
-                    src={step.image}
-                    srcDark={step.imageDark}
-                    alt={step.title}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
+                <ImageShowcaseToggle
+                  image={step.image}
+                  imageDark={step.imageDark}
+                  alt={step.title}
+                  showcase={step.showcase}
+                />
               </div>
             </ScrollStackItem>
           ))}
@@ -114,18 +134,18 @@ export default function TenderEvaluationPage() {
           </>
         }
         description="CloudGlance helps evaluation teams compare vendors faster, reduce scoring errors, and make confident, evidence-backed decisions."
-        className="bg-muted/40"
       >
-        <FeatureGrid columns={3}>
+        <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" stagger={0.12}>
           {evaluationBenefits.map((benefit) => (
-            <FeatureCard
-              key={benefit.title}
-              icon={benefit.icon}
-              title={benefit.title}
-              description={benefit.description}
-            />
+            <StaggerItem key={benefit.title}>
+              <FeatureCard
+                icon={benefit.icon}
+                title={benefit.title}
+                description={benefit.description}
+              />
+            </StaggerItem>
           ))}
-        </FeatureGrid>
+        </StaggerChildren>
       </Section>
 
       <CTASection

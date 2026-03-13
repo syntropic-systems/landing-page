@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { InfiniteMovingLogos } from "@/components/ui/infinite-moving-logos";
+import { StaggerChildren, StaggerItem } from "@/components/animations";
 
 const features = [
   {
@@ -69,15 +70,17 @@ export default function EnterpriseReady() {
   return (
     <div className="relative z-20 max-w-7xl mx-auto w-full">
       <div className="relative">
-        <div className="grid grid-cols-1 lg:grid-cols-6 rounded-xl overflow-hidden border-border/80 shadow-lg">
+        <StaggerChildren className="grid grid-cols-1 lg:grid-cols-6 rounded-xl overflow-hidden border-border/80 shadow-lg" stagger={0.15}>
           {features.map((feature) => (
-            <FeatureCard key={feature.title} className={feature.className}>
-              <FeatureTitle>{feature.title}</FeatureTitle>
-              <FeatureDescription>{feature.description}</FeatureDescription>
-              <div className="h-full w-full">{feature.skeleton}</div>
-            </FeatureCard>
+            <StaggerItem key={feature.title} className={cn("h-full", feature.className)}>
+              <FeatureCard className="h-full">
+                <FeatureTitle>{feature.title}</FeatureTitle>
+                <FeatureDescription>{feature.description}</FeatureDescription>
+                <div className="h-full w-full">{feature.skeleton}</div>
+              </FeatureCard>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </div>
   );
@@ -99,12 +102,12 @@ function EnterpriseSkeletonOne() {
   ];
 
   return (
-    <div className="flex flex-col gap-12">
-      <div className="flex flex-wrap gap-4">
+    <div className="flex flex-col gap-12 h-full">
+      <div className="flex flex-wrap gap-3 sm:gap-4">
         {badges.map((badge) => (
           <div
             key={badge.label}
-            className="flex items-center gap-3 rounded-full border border-border/60 bg-muted px-4 py-2 text-sm uppercase tracking-wide"
+            className="flex items-center gap-2 sm:gap-3 rounded-full border border-border/60 bg-muted px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm uppercase tracking-wide"
           >
             <span className="font-semibold">{badge.label}</span>
             <span className="text-muted-foreground font-normal">{badge.status}</span>
@@ -224,19 +227,20 @@ function EnterpriseSkeletonThree() {
   ];
 
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
+    <StaggerChildren className="grid gap-4 lg:grid-cols-2" stagger={0.12}>
       {operationalControls.map((item) => (
-        <div
-          key={item.title}
-          className="rounded-2xl border border-border/60 bg-gradient-to-br from-accent/30 to-background p-5 shadow-sm"
-        >
-          <p className="text-base font-semibold text-foreground">{item.title}</p>
-          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-            {item.description}
-          </p>
-        </div>
+        <StaggerItem key={item.title}>
+          <div
+            className="rounded-2xl border border-border/60 bg-gradient-to-br from-accent/30 to-background p-5 shadow-sm"
+          >
+            <p className="text-base font-semibold text-foreground">{item.title}</p>
+            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+        </StaggerItem>
       ))}
-    </div>
+    </StaggerChildren>
   );
 }
 

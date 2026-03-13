@@ -5,7 +5,7 @@ import React from "react";
 import { motion, type Transition } from "motion/react";
 
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 type MenuContextValue = {
   setActiveItem: (item: string | null) => void;
@@ -105,12 +105,20 @@ export const MenuItem = ({
     <motion.span
       transition={{ duration: 0.2 }}
       className={cn(
-        "inline-flex items-center rounded-xl px-3 py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-foreground hover:bg-primary/20",
-        isRouteActive && "bg-primary text-primary-foreground",
+        "inline-flex items-center gap-1 rounded-xl px-3 py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-foreground hover:bg-primary/20",
+        isRouteActive && "bg-accent text-accent-foreground",
         !isRouteActive && isHovering && "bg-primary/20 text-foreground"
       )}
     >
       {item}
+      {hasDropdown && (
+        <ChevronDown
+          className={cn(
+            "h-3.5 w-3.5 transition-transform duration-200",
+            isHovering && "rotate-180"
+          )}
+        />
+      )}
     </motion.span>
   );
 
@@ -121,7 +129,15 @@ export const MenuItem = ({
       onFocus={handleFocus}
       onMouseLeave={handleMouseLeave}
     >
-      {href ? (
+      {hasDropdown ? (
+        <button
+          type="button"
+          className="inline-flex rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          onClick={isHovering ? clearMenu : activate}
+        >
+          {label}
+        </button>
+      ) : href ? (
         <Link
           href={href}
           className="inline-flex rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -171,6 +187,8 @@ export const Menu = ({
   ...rest
 }: MenuProps) => {
   const closeTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navRef = React.useRef<HTMLElement>(null);
+  const suppressedRef = React.useRef(false);
 
   const cancelClose = React.useCallback(() => {
     if (closeTimerRef.current) {
@@ -189,6 +207,9 @@ export const Menu = ({
 
   const setActiveItem = React.useCallback(
     (item: string | null) => {
+      if (item !== null && suppressedRef.current) {
+        return;
+      }
       cancelClose();
       setActive(item);
     },
@@ -199,6 +220,46 @@ export const Menu = ({
     cancelClose();
     setActive(null);
   }, [cancelClose, setActive]);
+
+  // When tab/window loses focus, close dropdown and suppress until real mousemove
+  React.useEffect(() => {
+    const suppress = () => {
+      closeNow();
+      suppressedRef.current = true;
+    };
+
+    const handleVisibility = () => {
+      if (document.hidden) suppress();
+    };
+
+    const handleMouseMove = () => {
+      if (suppressedRef.current) {
+        suppressedRef.current = false;
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibility);
+    window.addEventListener("blur", suppress);
+    document.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+      window.removeEventListener("blur", suppress);
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [closeNow]);
+
+  // Close dropdown on click outside the nav
+  React.useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        closeNow();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [closeNow]);
 
   const contextValue = React.useMemo(
     () => ({
@@ -213,6 +274,7 @@ export const Menu = ({
   return (
     <MenuContext.Provider value={contextValue}>
       <nav
+        ref={navRef}
         {...rest}
         onMouseEnter={cancelClose}
         onMouseLeave={scheduleClose}
@@ -229,13 +291,15 @@ export const ProductItem = ({
   description,
   href,
   src,
+  icon,
   onClick,
   showArrow,
 }: {
   title: string;
   description?: string;
   href: string;
-  src: string;
+  src?: string;
+  icon?: React.ReactNode;
   onClick?: () => void;
   showArrow?: boolean;
 }) => {
@@ -245,13 +309,19 @@ export const ProductItem = ({
       className="group flex items-center gap-3 rounded-xl border border-border bg-muted p-2 transition-all duration-300 hover:bg-accent hover:shadow"
       onClick={onClick}
     >
-      <img
-        src={src}
-        width={140}
-        height={70}
-        alt={title}
-        className="h-[80px] w-[120px] shrink-0 rounded-md object-cover shadow"
-      />
+      {icon ? (
+        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+          {icon}
+        </div>
+      ) : src ? (
+        <img
+          src={src}
+          width={140}
+          height={70}
+          alt={title}
+          className="h-[80px] w-[120px] shrink-0 rounded-md object-cover shadow"
+        />
+      ) : null}
       <div className="flex flex-1 flex-col justify-between space-y-1">
         <div className="flex items-center justify-between gap-3">
           <h4 className="text-base font-semibold text-foreground">{title}</h4>

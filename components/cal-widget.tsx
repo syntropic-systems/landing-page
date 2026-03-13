@@ -112,14 +112,6 @@ export function CalWidget({ url, className, namespace }: CalWidgetProps) {
     })();
   }, [mounted, calLink, namespace, resolvedTheme, lightBrandColor, darkBrandColor]);
 
-  // Debug: log the calLink being used (remove in production if needed)
-  // Must be called before any conditional returns to follow Rules of Hooks
-  useEffect(() => {
-    if (mounted && calLink) {
-      console.log("Cal.com calLink:", calLink);
-    }
-  }, [mounted, calLink]);
-
   if (!mounted) {
     return (
       <div className={className}>

@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://cloudglancelab.com/contact",
   },
+  keywords: [
+    "CloudGlance demo",
+    "book demo document AI",
+    "enterprise AI consultation",
+    "procurement automation demo",
+    "tender software demo",
+  ],
   openGraph: {
     title: "Schedule a Call - CloudGlance",
     description:

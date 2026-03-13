@@ -3,8 +3,37 @@
 import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { useRouter } from 'next/navigation';
+import { RevealOnScroll, StaggerChildren, StaggerItem } from '@/components/animations';
+import { setScrollTarget } from '@/components/scroll-to-section';
+
+type FooterLink = { name: string; href: string; section?: string };
+
+function FooterLinkItem({ link, className }: { link: FooterLink; className?: string }) {
+    const router = useRouter();
+
+    if (link.section) {
+        return (
+            <button
+                onClick={() => {
+                    setScrollTarget(link.section!);
+                    router.push(link.href);
+                }}
+                className={className}
+            >
+                {link.name}
+            </button>
+        );
+    }
+
+    return (
+        <Link href={link.href} className={className}>
+            {link.name}
+        </Link>
+    );
+}
 
 export function Footer() {
     const { resolvedTheme } = useTheme();
@@ -21,35 +50,35 @@ export function Footer() {
         product: {
             main: { name: 'Product', href: '/product' },
             links: [
-                { name: 'Platform', href: '/product#platform' },
-                { name: 'Features', href: '/product#features' },
-                { name: 'Integrations', href: '/product#integrations' },
-                { name: 'Security', href: '/product#security' },
-        ],
+                { name: 'Platform', href: '/product', section: 'platform' },
+                { name: 'Features', href: '/product', section: 'features' },
+                { name: 'Integrations', href: '/product', section: 'integrations' },
+                { name: 'Security', href: '/product', section: 'security' },
+            ],
         },
         automations: {
             main: { name: 'Automations', href: '/automations' },
             links: [
                 { name: 'Tender Bidding', href: '/automations/tender-bidding' },
                 { name: 'Tender Evaluation', href: '/automations/tender-evaluation' },
-                { name: 'Contract Review', href: '/automations#contract-review' },
+                { name: 'RFX Response', href: '/automations/rfx' },
             ],
         },
         solutions: {
             main: { name: 'Solutions', href: '/solutions' },
             links: [
-                { name: 'By Team', href: '/solutions#by-team' },
-                { name: 'By Industry', href: '/solutions#by-industry' },
-        ],
+                { name: 'By Team', href: '/solutions', section: 'by-team' },
+                { name: 'By Industry', href: '/solutions', section: 'by-industry' },
+            ],
         },
         company: {
             main: { name: 'Company', href: '/company' },
             links: [
-            { name: 'About Us', href: '/company#about-us' },
-            { name: 'Our Mission', href: '/company#our-mission' },
-            { name: 'Our Team', href: '/company#team' },
-            { name: 'Contact Us', href: '/contact' },
-        ],
+                { name: 'About Us', href: '/company', section: 'about-us' },
+                { name: 'Our Mission', href: '/company', section: 'our-mission' },
+                { name: 'Our Team', href: '/company', section: 'team' },
+                { name: 'Contact Us', href: '/contact' },
+            ],
         },
         resources: {
             main: { name: 'FAQ', href: '/faq' },
@@ -64,121 +93,50 @@ export function Footer() {
         <footer className="border-t bg-card">
             <div className="container pt-12 md:pt-16 lg:pt-20">
                 <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col gap-4 mb-10">
-                    <Link href="/" className="flex items-center space-x-2" aria-label="CloudGlance home">
-                        <Image
-                            src={logoSrc}
-                            alt="CloudGlance logo"
-                            width={546}
-                            height={101}
-                            className="h-12 w-auto flex-shrink-0"
-                            priority
-                            unoptimized
-                        />
-                    </Link>
-                    <p className="text-sm text-muted-foreground max-w-2xl">
-                        CloudGlance is an AI-powered document intelligence platform that transforms document-heavy workflows into automated, efficient processes.
-                    </p>
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8">
-                    {/* Product */}
-                    <div>
-                        <Link
-                            href={footerLinks.product.main.href}
-                            className="font-semibold mb-3 block hover:text-primary transition-colors"
-                        >
-                            {footerLinks.product.main.name}
+                <RevealOnScroll direction="up" duration={0.6}>
+                    <div className="flex flex-col gap-4 mb-10">
+                        <Link href="/" className="flex items-center space-x-2" aria-label="CloudGlance home">
+                            <Image
+                                src={logoSrc}
+                                alt="CloudGlance logo"
+                                width={546}
+                                height={101}
+                                className="h-12 w-auto flex-shrink-0"
+                                priority
+                                unoptimized
+                            />
                         </Link>
-                        <ul className="space-y-2">
-                            {footerLinks.product.links.map((link) => (
-                                <li key={link.name}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
+                        <p className="text-sm text-muted-foreground max-w-2xl">
+                            CloudGlance is an AI-powered document intelligence platform that transforms document-heavy workflows into automated, efficient processes.
+                        </p>
                     </div>
-
-                    {/* Automations */}
-                    <div>
-                        <Link
-                            href={footerLinks.automations.main.href}
-                            className="font-semibold mb-3 block hover:text-primary transition-colors"
-                        >
-                            {footerLinks.automations.main.name}
-                        </Link>
-                        <ul className="space-y-2">
-                            {footerLinks.automations.links.map((link) => (
-                                <li key={link.name}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Solutions */}
-                    <div>
-                        <Link
-                            href={footerLinks.solutions.main.href}
-                            className="font-semibold mb-3 block hover:text-primary transition-colors"
-                        >
-                            {footerLinks.solutions.main.name}
-                        </Link>
-                        <ul className="space-y-2">
-                            {footerLinks.solutions.links.map((link) => (
-                                <li key={link.name}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Company */}
-                    <div>
-                        <Link
-                            href={footerLinks.company.main.href}
-                            className="font-semibold mb-3 block hover:text-primary transition-colors"
-                        >
-                            {footerLinks.company.main.name}
-                        </Link>
-                        <ul className="space-y-2">
-                            {footerLinks.company.links.map((link) => (
-                                <li key={link.name}>
-                                    <Link
-                                        href={link.href}
-                                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Resources */}
-                    <div>
-                        <Link
-                            href={footerLinks.resources.main.href}
-                            className="font-semibold mb-3 block hover:text-primary transition-colors"
-                        >
-                            {footerLinks.resources.main.name}
-                        </Link>
-                    </div>
-                </div>
+                </RevealOnScroll>
+                <StaggerChildren className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8" stagger={0.08}>
+                    {Object.values(footerLinks).map((group) => (
+                        <StaggerItem key={group.main.name}>
+                            <div>
+                                <Link
+                                    href={group.main.href}
+                                    className="font-semibold mb-3 block hover:text-primary transition-colors"
+                                >
+                                    {group.main.name}
+                                </Link>
+                                {'links' in group && (
+                                    <ul className="space-y-2">
+                                        {group.links.map((link) => (
+                                            <li key={link.name}>
+                                                <FooterLinkItem
+                                                    link={link}
+                                                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                                />
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        </StaggerItem>
+                    ))}
+                </StaggerChildren>
 
                 {/* Copyright and Social */}
                 <div className="py-3 border-t flex flex-col sm:flex-row items-center justify-between gap-4">

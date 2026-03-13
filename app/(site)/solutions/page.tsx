@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cloudglancelab.com/solutions',
   },
+  keywords: [
+    "procurement solutions",
+    "construction document AI",
+    "manufacturing tender software",
+    "IT services RFP automation",
+    "operations document automation",
+    "enterprise procurement platform",
+  ],
   openGraph: {
     title: 'CloudGlance Solutions - By Team & Industry',
     description:
@@ -18,16 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-type SolutionsPageProps = {
-    searchParams?: Promise<Record<string, string | string[] | undefined>> | Record<string, string | string[] | undefined>;
-};
-
-export default async function SolutionsPage({ searchParams }: SolutionsPageProps) {
-    const params = searchParams instanceof Promise ? await searchParams : searchParams;
-    const tabParamInput = params?.tab;
-    const tabParam = Array.isArray(tabParamInput) ? tabParamInput[0] : tabParamInput;
-    const sectionParamInput = params?.section;
-    const sectionParam = Array.isArray(sectionParamInput) ? sectionParamInput[0] : sectionParamInput;
+export default function SolutionsPage() {
 
     const teamTabs = [
         {
@@ -184,13 +183,11 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
         },
     ];
 
-    const validDefaultTeamTab = sectionParam !== "industry" && teamTabs.some((tab) => tab.value === tabParam) ? tabParam : undefined;
-    const validDefaultIndustryTab = sectionParam === "industry" && industryTabs.some((tab) => tab.value === tabParam) ? tabParam : undefined;
-
     return (
         <div>
             {/* Hero Section */}
             <Hero2
+                badge="Solutions"
                 title="Built for Every Team, Across Every Document-Heavy Industry"
                 description="CloudGlance supports analysts, operations, and decision-makers with AI that reads documents, structures information, and powers complete workflows across sectors."
             />
@@ -201,9 +198,8 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             title="By Team"
             >
                 <TabSection
-                    key={validDefaultTeamTab ?? "default"}
                     tabs={teamTabs}
-                    defaultValue={validDefaultTeamTab}
+                    navDataKey="tab"
                 />
             </Section>
 
@@ -214,9 +210,9 @@ export default async function SolutionsPage({ searchParams }: SolutionsPageProps
             description="Streamline your business-to-institution workflows"
             >
                 <TabSection
-                    key={validDefaultIndustryTab ?? "default"}
                     tabs={industryTabs}
-                    defaultValue={validDefaultIndustryTab}
+                    navDataKey="tab"
+                    navDataMatch={{ section: "industry" }}
                 />
             </Section>
 

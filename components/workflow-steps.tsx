@@ -1,204 +1,204 @@
 "use client";
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, type ComponentType } from 'react';
+import { useInView as useFramerInView } from "framer-motion";
 import { cn } from '@/lib/utils';
+import { RevealOnScroll } from '@/components/animations';
 
 interface WorkflowStep {
     step: string;
     title: string;
     description: string;
     image?: string;
+    showcase?: ComponentType;
+    duration?: number;
 }
 
 interface WorkflowStepsProps {
     steps: WorkflowStep[];
 }
 
-// Baseline values at 1920px width
-const BASELINE_WIDTH = 1920;
-const BASELINE_Y_OFFSETS = [0, -120, -354, -640];
-const BASELINE_SCALES = [1.1, 0.85, 0.70, 0.9];
+const DEFAULT_DURATION = 7000;
 
 export function WorkflowSteps({ steps }: WorkflowStepsProps) {
-    const [activeStep, setActiveStep] = useState(0);
+    const [active, setActive] = useState(0);
     const [progress, setProgress] = useState(0);
-    const [isInView, setIsInView] = useState(false);
-    const [multiplier, setMultiplier] = useState(1);
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
-    const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const imageContainerRef = useRef<HTMLDivElement>(null);
-    const STEP_DURATION = 7000; // 7 seconds
+    const startTimeRef = useRef(Date.now());
+    const rafRef = useRef<number>(0);
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const inView = useFramerInView(sectionRef, { once: true, margin: "-60px" });
 
-    // Track container width and calculate multiplier
+    const current = steps[active];
+    const Showcase = current?.showcase;
+    const stepDuration = current?.duration ?? DEFAULT_DURATION;
+
+    const advanceTab = useCallback(() => {
+        setActive((prev) => (prev + 1) % steps.length);
+    }, [steps.length]);
+
+    // Progress bar animation synced to showcase duration
     useEffect(() => {
-        const updateMultiplier = () => {
-            if (imageContainerRef.current) {
-                const width = imageContainerRef.current.offsetWidth;
-                setMultiplier(width / (BASELINE_WIDTH / 2)); // Divide by 2 since container is half of viewport
+        if (!inView) return;
+
+        startTimeRef.current = Date.now();
+        setProgress(0);
+
+        const tick = () => {
+            const elapsed = Date.now() - startTimeRef.current;
+            const pct = Math.min(elapsed / stepDuration, 1);
+            setProgress(pct);
+
+            if (pct < 1) {
+                rafRef.current = requestAnimationFrame(tick);
+            } else {
+                advanceTab();
             }
         };
 
-        updateMultiplier();
-        window.addEventListener('resize', updateMultiplier);
-        return () => window.removeEventListener('resize', updateMultiplier);
-    }, []);
+        rafRef.current = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(rafRef.current);
+    }, [active, advanceTab, inView, stepDuration]);
 
-    // Calculate transform based on multiplier
-    const getTransform = (index: number) => {
-        const yOffset = BASELINE_Y_OFFSETS[index] * multiplier;
-        const baseScale = BASELINE_SCALES[index];
-        const scale = 1 + (baseScale - 1) * multiplier;
-        return `translateY(${yOffset}px) scale(${scale})`;
-    };
-
-    // Intersection Observer to detect when component is in view
-    useEffect(() => {
-        const container = containerRef.current;
-        if (!container) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setIsInView(true);
-                    }
-                });
-            },
-            {
-                threshold: 0.2, // Start animation when 20% of the component is visible
-            }
-        );
-
-        observer.observe(container);
-
-        return () => {
-            observer.unobserve(container);
-        };
-    }, []);
-
-    useEffect(() => {
-        // Only start animation when component is in view
-        if (!isInView) {
-            // Clear intervals when not in view
-            if (intervalRef.current) {
-                clearTimeout(intervalRef.current);
-                intervalRef.current = null;
-            }
-            if (progressIntervalRef.current) {
-                clearInterval(progressIntervalRef.current);
-                progressIntervalRef.current = null;
-            }
-            return;
-        }
-
-        // Clear existing intervals
-        if (intervalRef.current) {
-            clearTimeout(intervalRef.current);
-        }
-        if (progressIntervalRef.current) {
-            clearInterval(progressIntervalRef.current);
-        }
-
-        // Progress bar animation (updates every 50ms for smooth animation)
-        let currentProgress = 0;
-        progressIntervalRef.current = setInterval(() => {
-            currentProgress += (100 / (STEP_DURATION / 50));
-            if (currentProgress >= 100) {
-                currentProgress = 100;
-            }
-            setProgress(currentProgress);
-        }, 50);
-
-        // Auto-advance to next step after STEP_DURATION
-        intervalRef.current = setTimeout(() => {
-            setActiveStep((prev) => (prev + 1) % steps.length);
-        }, STEP_DURATION);
-
-        return () => {
-            if (intervalRef.current) {
-                clearTimeout(intervalRef.current);
-            }
-            if (progressIntervalRef.current) {
-                clearInterval(progressIntervalRef.current);
-            }
-        };
-    }, [activeStep, steps.length, isInView]);
-
-    const handleStepClick = (index: number) => {
-        setActiveStep(index);
-        setProgress(0); // Reset progress when manually clicking
+    const handleStepClick = (i: number) => {
+        cancelAnimationFrame(rafRef.current);
+        setProgress(0);
+        setActive(i);
     };
 
     return (
-        <div ref={containerRef} className="grid lg:grid-cols-2 gap-8 items-start">
-            {/* Left side - Steps list */}
-            <div>
-                {steps.map((step, index) => {
-                    const isActive = index === activeStep;
-
-                    return (
-                        <div
-                            key={step.step}
-                            onClick={() => handleStepClick(index)}
-                            className={cn(
-                                "group relative pl-8 py-2 cursor-pointer transition-all duration-300 mb-4"
-                            )}
-                        >
-                            {isActive && (
-                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/20 rounded-r overflow-hidden">
-                                    <div
-                                        className="absolute left-0 top-0 w-full bg-primary rounded-r transition-all ease-linear"
-                                        style={{
-                                            height: `${progress}%`,
-                                        }}
-                                    />
-                                </div>
-                            )}
-                            {!isActive && (
-                                <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-r " />
-                            )}
-                            <div className="space-y-2">
-                                <h3
+        <div ref={sectionRef}>
+            {/* ── Mobile: Tab-based layout (< lg) ── */}
+            <div className="lg:hidden">
+                <RevealOnScroll>
+                    <div className="grid grid-cols-4 gap-3 sm:gap-4 mb-8">
+                        {steps.map((step, i) => (
+                            <button
+                                key={step.step}
+                                onClick={() => handleStepClick(i)}
+                                className="group relative flex flex-col items-start gap-1 pb-3 pt-1 cursor-pointer text-left"
+                            >
+                                <span
                                     className={cn(
-                                        "text-2xl font-semibold transition-colors",
-                                        isActive ? "text-foreground" : "text-muted-foreground"
+                                        "text-lg sm:text-2xl font-bold transition-colors duration-300",
+                                        i === active
+                                            ? "text-primary"
+                                            : "text-muted-foreground/40"
                                     )}
                                 >
-                                    {step.title}
-                                </h3>
-                                <p
-                                    className="text-base text-muted-foreground leading-relaxed transition-opacity duration-300"
-                                    style={{ visibility: isActive ? 'visible' : 'hidden', opacity: isActive ? 1 : 0 }}
-                                    aria-hidden={!isActive}
+                                    {step.step}
+                                </span>
+                                <span
+                                    className={cn(
+                                        "text-xs sm:text-sm font-medium transition-colors duration-300 leading-tight",
+                                        i === active
+                                            ? "text-foreground"
+                                            : "text-muted-foreground hover:text-foreground/70"
+                                    )}
                                 >
-                                    {step.description}
-                                </p>
-                            </div>
-                        </div>
-                    );
-                })}
-            </div>
+                                </span>
 
-            {/* Right side - Stacked Images */}
-            <div className="sticky top-24 mt-[200px] lg:mt-0">
-                <div ref={imageContainerRef} className="overflow-visible bg-transparent aspect-square flex items-start justify-start relative">
-                    {steps.slice(0, activeStep + 1).map((step, index) => (
-                        step.image && (
-                            <img
-                                key={step.step}
-                                src={step.image}
-                                alt={step.title}
-                                className="absolute w-full h-full object-contain transition-all duration-500 animate-fade-in"
-                                style={{
-                                    transform: getTransform(index),
-                                    zIndex: index,
-                                }}
-                            />
-                        )
-                    ))}
+                                {/* Track */}
+                                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-border/60 rounded-full overflow-hidden">
+                                    {i === active && (
+                                        <div
+                                            className="h-full bg-primary rounded-full"
+                                            style={{ width: `${progress * 100}%` }}
+                                        />
+                                    )}
+                                    {i < active && (
+                                        <div className="h-full w-full bg-primary/40 rounded-full" />
+                                    )}
+                                </div>
+                            </button>
+                        ))}
+                    </div>
+                </RevealOnScroll>
+
+                {/* Active content */}
+                <div key={active} className="grid items-start gap-6 [&>*]:min-w-0">
+                    <RevealOnScroll direction="left" duration={0.5}>
+                        <div className="flex flex-col gap-3 pt-2">
+                            <h3 className="text-2xl md:text-3xl font-semibold">
+                                {current.title}
+                            </h3>
+                            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                                {current.description}
+                            </p>
+                        </div>
+                    </RevealOnScroll>
+                    <RevealOnScroll direction="right" duration={0.5} delay={0.15}>
+                        <div className="w-full overflow-hidden rounded-lg border border-border bg-card shadow-sm aspect-[3/4]">
+                            {Showcase ? <Showcase /> : current?.image ? (
+                                <img
+                                    src={current.image}
+                                    alt={current.title}
+                                    className="w-full h-full object-contain"
+                                />
+                            ) : null}
+                        </div>
+                    </RevealOnScroll>
                 </div>
             </div>
+
+            {/* ── Desktop: Vertical step list + sticky showcase (lg+) ── */}
+            <RevealOnScroll className="hidden lg:block" duration={0.7}>
+            <div className="grid lg:grid-cols-2 lg:gap-8 items-start [&>*]:min-w-0">
+                {/* Left side — Step list with progress bar */}
+                <div>
+                    {steps.map((step, i) => {
+                        const isActive = i === active;
+                        return (
+                            <div
+                                key={step.step}
+                                onClick={() => handleStepClick(i)}
+                                className="group relative pl-8 py-2 cursor-pointer transition-all duration-300 mb-4"
+                            >
+                                {/* Active progress bar only */}
+                                {isActive && (
+                                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/20 rounded-r overflow-hidden">
+                                        <div
+                                            className="absolute left-0 top-0 w-full bg-primary rounded-r"
+                                            style={{ height: `${progress * 100}%` }}
+                                        />
+                                    </div>
+                                )}
+
+                                <div className="space-y-2">
+                                    <h3
+                                        className={cn(
+                                            "text-2xl font-semibold transition-colors",
+                                            isActive ? "text-foreground" : "text-muted-foreground"
+                                        )}
+                                    >
+                                        {step.title}
+                                    </h3>
+                                    <p
+                                        className="text-base text-muted-foreground leading-relaxed transition-opacity duration-300"
+                                        style={{ visibility: isActive ? 'visible' : 'hidden', opacity: isActive ? 1 : 0 }}
+                                        aria-hidden={!isActive}
+                                    >
+                                        {step.description}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* Right side — Sticky showcase */}
+                <div className="sticky top-24">
+                    <div className="w-full overflow-hidden rounded-lg aspect-square relative">
+                        {Showcase ? <Showcase /> : current?.image ? (
+                            <img
+                                src={current.image}
+                                alt={current.title}
+                                className="w-full h-full object-contain"
+                            />
+                        ) : null}
+                    </div>
+                </div>
+            </div>
+            </RevealOnScroll>
         </div>
     );
 }

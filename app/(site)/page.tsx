@@ -4,7 +4,6 @@ import { CTASection } from '@/components/cta-section';
 import { WorkflowSteps } from '@/components/workflow-steps';
 import EnterpriseReady from '@/components/enterprise-ready';
 import { Button } from '@/components/ui/button';
-import { CheckCircle } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -18,6 +17,14 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Card } from '@/components/ui/card';
 import { YouTubeEmbed } from '@/components/youtube-embed';
+import { CountUp, StaggerChildren, StaggerItem, RevealOnScroll } from '@/components/animations';
+import { AutomationsTabs } from '@/components/automations-tabs';
+import {
+  CentralizedRepoShowcase,
+  IndexingShowcase,
+  FormExtractionShowcase,
+  ProjectSpacesShowcase,
+} from '@/components/showcases';
 
 export const metadata: Metadata = {
   title: 'CloudGlance - AI-Powered Document Intelligence Platform',
@@ -34,47 +41,30 @@ export default function Home() {
       step: '1',
       title: 'Centralized Data',
       description: 'All files related to the organization and projects, across formats like PDF, Excel, Word, drawings, images, forms and technical documents, are maintained centrally.',
-      image: '/workflow steps/01.png',
+      showcase: CentralizedRepoShowcase,
+      duration: 11600,
     },
     {
       step: '2',
       title: 'Structured Understanding',
       description: 'AI reads and interprets content across formats, extracting key information and converting unstructured data into structured, connected data the system can act.',
-      image: '/workflow steps/02.png',
+      showcase: IndexingShowcase,
+      duration: 13000,
     },
     {
       step: '3',
       title: 'Intelligence to Automation',
       description: 'Structured Information powers all the processes, for tender bidding and vendor evaluation today & automating contract review, financial checks & more tomorrow.',
-      image: '/workflow steps/03.png',
+      showcase: FormExtractionShowcase,
+      duration: 13200,
     },
     {
       step: '4',
       title: 'Review & Finalize',
       description: 'Teams review the AI outputs, collaborate on answers, clear pending items, validate final decisions and close projects end-to-end with accountability across every stage.',
-      image: '/workflow steps/04.png',
+      showcase: ProjectSpacesShowcase,
+      duration: 11500,
     }
-  ];
-
-  const automations = [
-    {
-      title: 'Tender Bidding',
-      description: 'Respond to RFXs in a fraction of the usual time.',
-      bullets: ['Tender search', 'Automated form filling', 'Product / BOQ matching'],
-      cta: { label: 'Learn more', href: '/automations/tender-bidding' },
-    },
-    {
-      title: 'Tender Evaluation',
-      description: 'Choose the best vendor in a fraction of the usual time.',
-      bullets: ['AI bid comparison', 'Compliance checks', 'Scorecards & reports'],
-      cta: { label: 'Learn more', href: '/automations/tender-evaluation' },
-    },
-    {
-      title: 'Contract Review',
-      description: 'Turn long contracts into clear summaries, risks and obligations.',
-      bullets: ['Clause extraction', 'Risk identification', 'Obligation mapping'],
-      cta: { label: 'Coming Soon', href:'/contact' },	
-    },
   ];
 
   const testimonials = [
@@ -126,23 +116,25 @@ export default function Home() {
       />
 
       <Section className="!py-0">
-        <InfiniteMovingLogos
-          items={logos}
-          direction="right"
-          speed="slow"
-          pauseOnHover
-        />
+        <RevealOnScroll direction="up" duration={0.7}>
+          <InfiniteMovingLogos
+            items={logos}
+            direction="right"
+            speed="slow"
+            pauseOnHover
+          />
+        </RevealOnScroll>
       </Section>
 
       <Section id="Platform Video">
-          <Card className="w-full shadow-2xl overflow-hidden rounded-xl shadow-primary/20">
-            <YouTubeEmbed
-              videoId="CQuGznmJAZI"
-              title="CloudGlance Platform Demo"
-              thumbnail="/product/home_white.png"
-              thumbnailDark="/product/home_black.png"
-            />
-          </Card>
+          <RevealOnScroll direction="up" duration={0.8}>
+            <Card className="w-full shadow-2xl overflow-hidden rounded-xl shadow-primary/20">
+              <YouTubeEmbed
+                videoId="CQuGznmJAZI"
+                title="CloudGlance Platform Demo"
+              />
+            </Card>
+          </RevealOnScroll>
       </Section>
 
       {/* What Changes */}
@@ -154,23 +146,23 @@ export default function Home() {
         }
         description="Teams use CloudGlance to move faster, reduce risk and deliver more with the same resources."
       >
-        <div className="grid md:grid-cols-3 gap-12 text-center mx-auto pt-8">
-          <div>
-            <div className="text-7xl font-semibold text-primary mb-4">80%</div>
+        <StaggerChildren className="grid md:grid-cols-3 gap-12 text-center mx-auto pt-8" stagger={0.15}>
+          <StaggerItem>
+            <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={80} suffix="%" /></div>
             <div className="text-2xl text-foreground font-semibold pb-2">Faster Response Time</div>
             <div className="text-base text-muted-foreground">AI reads and understands documents, organizing required information instantly & solving review, preparation and analysis faster.</div>
-          </div>
-          <div>
-            <div className="text-7xl font-semibold text-primary mb-4">3x</div>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={3} suffix="x" /></div>
             <div className="text-2xl text-foreground font-semibold pb-2">More Opportunities</div>
             <div className="text-base text-muted-foreground">With AI handling time-consuming and repetitive manual processes, teams can take on more projects without extra hiring or burnout.</div>
-          </div>
-          <div>
-            <div className="text-7xl font-semibold text-primary mb-4">99.7%</div>
+          </StaggerItem>
+          <StaggerItem>
+            <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={99.7} suffix="%" decimals={1} /></div>
             <div className="text-2xl text-foreground font-semibold pb-2">Accuracy</div>
             <div className="text-base text-muted-foreground">AI detects every requirement, clause and attachment, even those buried in fine print, with the same consistency, so nothing gets missed.</div>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerChildren>
       </Section>
 
       {/* Workflow Steps */}
@@ -194,29 +186,7 @@ export default function Home() {
         }
         description="Cloudglance automates the heaviest parts of tender and vendor workflows first."
       >
-        <div className="grid gap-4 md:grid-cols-3">
-          {automations.map((automation) => (
-            <div key={automation.title} className="rounded-xl bg-card text-card-foreground border border-border/40 shadow-sm flex flex-col p-6">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-2xl font-semibold">{automation.title}</h3>
-              </div>
-              <p className="text-sm text-muted-foreground mb-6">{automation.description}</p>
-              <ul className="space-y-3 text-sm text-muted-foreground flex-1 mb-8">
-                {automation.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary mt-0.5" />
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button variant="outline" asChild>
-                <a href={automation.cta.href}>
-                  {automation.cta.label}
-                </a>
-              </Button>
-            </div>
-          ))}
-        </div>
+        <AutomationsTabs />
       </Section>
 
       {/* Enterprise Ready */}
@@ -242,14 +212,14 @@ export default function Home() {
         }
         titleAlign="center"
       >
-        <div>
+        <RevealOnScroll direction="up" duration={0.7}>
           <InfiniteMovingCards
             items={testimonials}
             direction="left"
             speed="slow"
             pauseOnHover
           />
-        </div>
+        </RevealOnScroll>
       </Section>
 
       {/* FAQ Section */}
@@ -260,14 +230,18 @@ export default function Home() {
       >
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full">
-            {homePageFaqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+            <StaggerChildren stagger={0.08}>
+              {homePageFaqs.map((faq, index) => (
+                <StaggerItem key={index}>
+                  <AccordionItem value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </StaggerItem>
+              ))}
+            </StaggerChildren>
           </Accordion>
           <div className="mt-8 text-center">
             <Button variant="outline" asChild>

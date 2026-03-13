@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
 
 export const InfiniteMovingCards = ({
   items,
@@ -48,6 +48,18 @@ export const InfiniteMovingCards = ({
     // Add animation class directly to avoid setState in effect
     scroller.classList.add("animate-scroll");
   }, [direction, speed]);
+
+  // Touch handlers for mobile: hold to pause
+  const handleTouchStart = useCallback(() => {
+    const scroller = scrollerRef.current;
+    if (scroller) scroller.style.animationPlayState = "paused";
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    const scroller = scrollerRef.current;
+    if (scroller) scroller.style.animationPlayState = "running";
+  }, []);
+
   return (
     <div
       ref={containerRef}
@@ -55,6 +67,9 @@ export const InfiniteMovingCards = ({
         "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,var(--background)_20%,var(--background)_80%,transparent)]",
         className,
       )}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
     >
       <ul
         ref={scrollerRef}

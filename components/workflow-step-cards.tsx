@@ -1,6 +1,7 @@
 'use client';
 
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { StaggerChildren, StaggerItem } from "@/components/animations";
 
 interface WorkflowStep {
   title: string;
@@ -24,19 +25,20 @@ export function WorkflowStepCards({ steps }: WorkflowStepCardsProps) {
   };
 
   return (
-    <div className="grid gap-4 md:grid-cols-3">
+    <StaggerChildren className="grid gap-4 md:grid-cols-3" stagger={0.1}>
       {steps.map((step) => (
-        <Card 
-          key={step.title} 
-          className="bg-gradient-to-br from-accent/50 to-card text-center border-none shadow-sm p-3 cursor-pointer hover:shadow-md transition-shadow"
-          onClick={() => scrollToStep(step.title)}
-        >
-          <CardHeader className="p-0">
-            <CardTitle className="text-lg">{step.title}</CardTitle>
-          </CardHeader>
-        </Card>
+        <StaggerItem key={step.title}>
+          <Card
+            className="bg-gradient-to-br from-accent/50 to-card text-center border-none shadow-sm p-3 cursor-pointer hover:shadow-md transition-shadow"
+            onClick={() => scrollToStep(step.title)}
+          >
+            <CardHeader className="p-0">
+              <CardTitle className="text-lg">{step.title}</CardTitle>
+            </CardHeader>
+          </Card>
+        </StaggerItem>
       ))}
-    </div>
+    </StaggerChildren>
   );
 }
 

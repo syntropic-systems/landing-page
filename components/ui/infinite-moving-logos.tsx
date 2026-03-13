@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 type LogoItem = {
   src: string;
@@ -60,6 +60,14 @@ export const InfiniteMovingLogos = ({
     initAnimation();
   }, [direction, speed, isStatic]);
 
+  // Touch handlers for mobile: hold to pause
+  const handleTouchStart = useCallback(() => {
+    if (scrollerRef.current) scrollerRef.current.style.animationPlayState = "paused";
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    if (scrollerRef.current) scrollerRef.current.style.animationPlayState = "running";
+  }, []);
 
   return (
     <TooltipProvider>
@@ -71,6 +79,9 @@ export const InfiniteMovingLogos = ({
             : "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,var(--background)_15%,var(--background)_85%,transparent)]",
           className,
         )}
+        onTouchStart={isStatic ? undefined : handleTouchStart}
+        onTouchEnd={isStatic ? undefined : handleTouchEnd}
+        onTouchCancel={isStatic ? undefined : handleTouchEnd}
       >
         <ul
           ref={isStatic ? undefined : scrollerRef}

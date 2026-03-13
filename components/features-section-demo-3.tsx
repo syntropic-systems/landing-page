@@ -2,7 +2,8 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { ThemeAwareImage } from "@/components/theme-aware-image";
+import { StaggerChildren, StaggerItem } from "@/components/animations";
+import { IndexingShowcase, ChatShowcase, ProjectSpacesShowcase, CentralizedRepoShowcase } from "@/components/showcases";
 
 
 export default function FeaturesSectionDemo() {
@@ -41,14 +42,31 @@ export default function FeaturesSectionDemo() {
   return (
     <div className="relative z-20 max-w-7xl mx-auto">
       <div className="relative ">
-        <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-xl border-border overflow-hidden shadow-xl">
-          {features.map((feature) => (
-            <FeatureCard key={feature.title} className={feature.className}>
-              <FeatureTitle>{feature.title}</FeatureTitle>
-              <FeatureDescription>{feature.description}</FeatureDescription>
-              <div className="mt-auto w-full">{feature.skeleton}</div>
-            </FeatureCard>
-          ))}
+        <div className="mt-12 xl:border rounded-xl border-border overflow-hidden shadow-xl">
+          {/* Row 1: features 0-1 */}
+          <StaggerChildren className="grid grid-cols-1 lg:grid-cols-6" stagger={0.2}>
+            {features.slice(0, 2).map((feature) => (
+              <StaggerItem key={feature.title} className={cn("h-full", feature.className)}>
+                <FeatureCard className="h-full">
+                  <FeatureTitle>{feature.title}</FeatureTitle>
+                  <FeatureDescription>{feature.description}</FeatureDescription>
+                  <div className="w-full">{feature.skeleton}</div>
+                </FeatureCard>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
+          {/* Row 2: features 2-3 */}
+          <StaggerChildren className="grid grid-cols-1 lg:grid-cols-6" stagger={0.2}>
+            {features.slice(2, 4).map((feature) => (
+              <StaggerItem key={feature.title} className={cn("h-full", feature.className)}>
+                <FeatureCard className="h-full">
+                  <FeatureTitle>{feature.title}</FeatureTitle>
+                  <FeatureDescription>{feature.description}</FeatureDescription>
+                  <div className="w-full">{feature.skeleton}</div>
+                </FeatureCard>
+              </StaggerItem>
+            ))}
+          </StaggerChildren>
         </div>
       </div>
     </div>
@@ -106,17 +124,8 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 export const SkeletonOne = () => {
   return (
     <div className="relative w-full">
-      <div className="w-full mx-auto shadow-2xl border border-border overflow-hidden rounded-lg shadow-primary/20 group">
-        <div className="flex flex-1 w-full flex-col">
-          <ThemeAwareImage
-            src="/product/document_white.png"
-            srcDark="/product/document_black.png"
-            alt="Document Intelligence"
-            width={1600}
-            height={900}
-            className="w-full object-cover object-left-top rounded-sm"
-          />
-        </div>
+      <div className="w-full mx-auto overflow-hidden h-auto">
+        <IndexingShowcase />
       </div>
     </div>
   );
@@ -125,17 +134,8 @@ export const SkeletonOne = () => {
 export const SkeletonThree = () => {
   return (
     <div className="relative w-full">
-      <div className="w-full mx-auto shadow-2xl border border-border overflow-hidden rounded-lg shadow-primary/20 group">
-        <div className="flex flex-1 w-full flex-col">
-          <ThemeAwareImage
-            src="/product/file_manager_white.png"
-            srcDark="/product/file_manager_black.png"
-            alt="Centralized Repository"
-            width={1600}
-            height={900}
-            className="w-full object-cover object-center rounded-sm"
-          />
-        </div>
+      <div className="w-full mx-auto overflow-hidden h-120">
+        <CentralizedRepoShowcase />
       </div>
     </div>
   );
@@ -144,17 +144,8 @@ export const SkeletonThree = () => {
 export const SkeletonTwo = () => {
   return (
     <div className="relative w-full">
-      <div className="w-full mx-auto shadow-2xl border border-border overflow-hidden rounded-lg shadow-primary/20 group">
-        <div className="flex flex-1 w-full flex-col">
-          <ThemeAwareImage
-            src="/product/projects_white.png"
-            srcDark="/product/projects_black.png"
-            alt="Project Spaces"
-            width={1600}
-            height={900}
-            className="w-full object-cover object-center rounded-sm"
-          />
-        </div>
+      <div className="w-full mx-auto overflow-hidden h-120">
+        <ProjectSpacesShowcase />
       </div>
     </div>
   );
@@ -163,17 +154,8 @@ export const SkeletonTwo = () => {
 export const SkeletonFour = () => {
   return (
     <div className="relative w-full">
-      <div className="w-full mx-auto shadow-2xl border border-border overflow-hidden rounded-lg shadow-primary/20 group">
-        <div className="flex flex-1 w-full flex-col bg-transparent">
-          <ThemeAwareImage
-            src="/product/chat_white.png"
-            srcDark="/product/chat_black.png"
-            alt="AI Assistant"
-            width={1600}
-            height={900}
-            className="w-full object-contain object-center rounded-sm"
-          />
-        </div>
+      <div className="w-full mx-auto overflow-hidden h-128  sm:h-120">
+        <ChatShowcase />
       </div>
     </div>
   );

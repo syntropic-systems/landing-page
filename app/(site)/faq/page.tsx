@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { StaggerChildren, StaggerItem } from '@/components/animations';
 import { faqs } from '@/data/faqs';
 import type { Metadata } from 'next';
 
@@ -17,6 +18,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cloudglancelab.com/faq',
   },
+  keywords: [
+    "CloudGlance FAQ",
+    "document AI security",
+    "SOC 2 document platform",
+    "AI accuracy",
+    "enterprise onboarding",
+    "document extraction accuracy",
+  ],
   openGraph: {
     title: 'CloudGlance FAQ',
     description:
@@ -52,14 +61,18 @@ export default function FAQPage() {
       <Section>
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
+            <StaggerChildren stagger={0.15}>
+              {faqs.map((faq, index) => (
+                <StaggerItem key={index}>
+                  <AccordionItem value={`item-${index}`}>
+                    <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </StaggerItem>
+              ))}
+            </StaggerChildren>
           </Accordion>
         </div>
       </Section>

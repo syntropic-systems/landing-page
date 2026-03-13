@@ -1,21 +1,38 @@
 import type { Metadata } from "next";
+import type { ComponentType } from "react";
 
 import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
-import { FeatureCard, FeatureGrid } from "@/components/feature-card";
+import { FeatureCard } from "@/components/feature-card";
+import { StaggerChildren, StaggerItem } from "@/components/animations";
 import { PageHeader } from "@/components/page-header";
-import { ThemeAwareImage } from "@/components/theme-aware-image";
 import { ShieldCheck, Timer, Zap } from "lucide-react";
 import { WorkflowStepCards } from "@/components/workflow-step-cards";
+import { ImageShowcaseToggle } from "@/components/image-showcase-toggle";
+import {
+  TenderSearchShowcase,
+  EligibilityGoNoGoShowcase,
+  KeywordExtractionShowcase,
+  FormExtractionShowcase,
+  RiskComplianceShowcase,
+} from "@/components/showcases";
 
 export const metadata: Metadata = {
   title: "Tender Bidding Automation",
   description:
-    "Automate your tender bidding process with AI. Tender search, eligibility checks, form extraction, automated filling, BOQ matching, and compliance verification.",
+    "Automate your tender bidding process with AI. Tender search, eligibility checks, form extraction, automated filling, and compliance verification.",
   alternates: {
     canonical: "https://cloudglancelab.com/automations/tender-bidding",
   },
+  keywords: [
+    "tender bidding automation",
+    "tender search software",
+    "eligibility check automation",
+    "form extraction AI",
+    "BOQ matching",
+    "tender compliance verification",
+  ],
   openGraph: {
     title: "Tender Bidding Automation - CloudGlance",
     description:
@@ -23,13 +40,28 @@ export const metadata: Metadata = {
   },
 };
 
-const workflowSteps = [
+const workflowSteps: {
+  title: string;
+  description: string;
+  image: string;
+  imageDark: string;
+  showcase?: ComponentType;
+}[] = [
+  {
+    title: "Tender Search",
+    description:
+      "Tender Search gathers all public tenders in one place and reads the organisation's profile, past work and preferences to automatically suggest the opportunities that fit. New releases appear the moment they go live, so relevant tenders are surfaced without the constant effort of checking multiple portals.\n\nTeams can still use their own keywords and filters whenever they want, and the platform highlights the required documents along with key financial and technical criteria. This keeps the team from missing suitable opportunities, reduces time spent scanning external sites and helps them focus only on tenders that are feasible for them.",
+    image: "/bidding/tender_search_white.png",
+    imageDark: "/bidding/tender_search_black.png",
+    showcase: TenderSearchShowcase,
+  },
   {
     title: "Eligibility & Go / No-Go Check",
     description:
       "Eligibility Check reads the tender and matches its mandatory requirements with the organisation's profile, certifications and project history. It shows exactly where the company meets the criteria and where gaps exist, replacing hours of manual review.\n\nGo/No-Go then looks beyond eligibility by assessing scope, timelines, risks, contract terms and commercial fit. It highlights potential blockers, shows where the company is well-positioned and helps teams make a clear, data-backed decision on whether the bid is worth pursuing.",
     image: "/bidding/go_nogo_white.png",
     imageDark: "/bidding/go_nogo_black.png",
+    showcase: EligibilityGoNoGoShowcase,
   },
   {
     title: "Information Extraction",
@@ -37,6 +69,7 @@ const workflowSteps = [
       "AI pulls out information such the technical details, timelines and requirements from even thousand-page tender documents and organises them into a clear, structured format. Teams get the information they need without searching across files or reading page by page.\n\nEvery extracted answer comes with a citation from the original document, which keeps the review accurate, reduces missed clauses and allows the team to prepare bids with confidence.",
     image: "/bidding/information_extraction_white.png",
     imageDark: "/bidding/information_extraction_black.png",
+    showcase: KeywordExtractionShowcase,
   },
   {
     title: "Form Extraction & Filling",
@@ -44,13 +77,7 @@ const workflowSteps = [
       "AI identifies all the forms and attachments required for a tender and converts them into editable Word or Excel files, allowing teams to work on them directly without manually extraction efforts. AI fills the fields using the company data already stored on the platform and suggests the remaining inputs that need attention.\n\nAI also identifies the supporting documents each form requires, such as GST certificates, incorporation documents or past project records, and attaches them automatically. This ensures that no form or document is missed, reduces the risk of technical rejection and saves significant time otherwise spent filling repetitive formats.",
     image: "/bidding/form_extraction_white.png",
     imageDark: "/bidding/form_extraction_black.png",
-  },
-  {
-    title: "Product & BOQ Matching",
-    description:
-      "AI reads the BOQ and connects each requirement with the company's products or services, showing what fits and where alternatives or clarifications may be needed. This gives teams quick visibility into the scope without manually checking every line or depending on multiple people to piece the information together.\n\nBy surfacing matches, gaps and potential mismatches early, the platform reduces back-and-forth across teams and lowers the risk of incorrect entries that commonly delay or derail submissions.",
-    image: "/bidding/product_n_boq_white.png",
-    imageDark: "/bidding/product_n_boq_black.png",
+    showcase: FormExtractionShowcase,
   },
   {
     title: "Risk & Compliance Checks",
@@ -58,13 +85,7 @@ const workflowSteps = [
       "AI runs a complete review of the tender response against the tender documents before submission. It checks compliance with mandatory requirements, flags risks hidden in technical, commercial or contractual clauses and verifies that all required forms and documents are in place.\n\nThis single pass highlights what could lead to rejection now or create problems later, giving teams a clear view of what needs to be fixed before the bid goes out.",
     image: "/bidding/risk_compliance_white.png",
     imageDark: "/bidding/risk_compliance_black.png",
-  },
-  {
-    title: "Tender Search",
-    description:
-      "Tender Search gathers all public tenders in one place and reads the organisation's profile, past work and preferences to automatically suggest the opportunities that fit. New releases appear the moment they go live, so relevant tenders are surfaced without the constant effort of checking multiple portals.\n\nTeams can still use their own keywords and filters whenever they want, and the platform highlights the required documents along with key financial and technical criteria. This keeps the team from missing suitable opportunities, reduces time spent scanning external sites and helps them focus only on tenders that are feasible for them.",
-    image: "/bidding/tender_search_white.png",
-    imageDark: "/bidding/tender_search_black.png",
+    showcase: RiskComplianceShowcase,
   },
 ];
 
@@ -126,25 +147,21 @@ export default function TenderBiddingPage() {
         <WorkflowStepCards steps={workflowSteps} />
       </Section>
 
-      <Section className="!pt-0">
+      <Section className="!py-12">
         <ScrollStack>
           {workflowSteps.map((step) => (
             <ScrollStackItem key={step.title} itemClassName="bg-card h-auto" data-step-id={step.title}>
-              <div className="grid gap-6 md:grid-cols-3 items-start">
+              <div className="grid gap-6 md:grid-cols-3 items-start [&>*]:min-w-0">
                 <div className="flex flex-col justify-center space-y-3 md:col-span-1">
                   <p className="text-2xl font-semibold text-primary">{step.title}</p>
                   <p className="text-base text-foreground">{step.description}</p>
                 </div>
-                <div className="relative w-full aspect-video overflow-hidden rounded-lg border border-border shadow-md md:col-span-2">
-                  <ThemeAwareImage
-                    src={step.image}
-                    srcDark={step.imageDark}
-                    alt={step.title}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
+                <ImageShowcaseToggle
+                  image={step.image}
+                  imageDark={step.imageDark}
+                  alt={step.title}
+                  showcase={step.showcase}
+                />
               </div>
             </ScrollStackItem>
           ))}
@@ -158,18 +175,18 @@ export default function TenderBiddingPage() {
           </>
         }
         description="CloudGlance speeds up your bid process, eliminates manual errors, and helps your team handle more tenders with confidence."
-        className="bg-muted/40"
       >
-        <FeatureGrid columns={3}>
+        <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" stagger={0.12}>
           {automationHighlights.map((item) => (
-            <FeatureCard
-              key={item.title}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-            />
+            <StaggerItem key={item.title}>
+              <FeatureCard
+                icon={item.icon}
+                title={item.title}
+                description={item.description}
+              />
+            </StaggerItem>
           ))}
-        </FeatureGrid>
+        </StaggerChildren>
       </Section>
 
       <CTASection

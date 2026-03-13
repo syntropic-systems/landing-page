@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/section";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
+import { RevealOnScroll } from "@/components/animations";
 
 interface CTA {
     text: string;
@@ -18,13 +19,16 @@ interface CTA {
 interface FeatureSideProps {
     title: string;
     description: string;
-    image: string;
+    image?: string;
     imageAlt?: string;
+    media?: React.ReactNode;
     primaryCta?: CTA;
+    secondaryCta?: CTA;
     reverse?: boolean; // If true, image on left, content on right
     className?: string;
     imageClassName?: string;
     sectionClassName?: string;
+    asSection?: boolean;
 }
 
 export function FeatureSide({
@@ -32,11 +36,14 @@ export function FeatureSide({
     description,
     image,
     imageAlt,
+    media,
     primaryCta,
+    secondaryCta,
     reverse = false,
     className,
     imageClassName,
     sectionClassName,
+    asSection = true,
 }: FeatureSideProps) {
     // Parse description to handle line breaks and bullet points
     const parseDescription = (desc: string) => {
@@ -96,54 +103,88 @@ export function FeatureSide({
     };
 
     const contentSection = (
-        <div className="flex flex-col gap-3 pt-2">
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold !my-0 ">{title}</h3>
-            {parseDescription(description)}
-            {primaryCta && (
-                <div className="flex items-center gap-2 flex-wrap">
-                    {primaryCta.href ? (
-                        <Button className="w-fit" variant={primaryCta.variant || "default"} asChild>
-                            <Link href={primaryCta.href}>
+        <RevealOnScroll direction={reverse ? "right" : "left"} duration={0.7}>
+            <div className="flex flex-col gap-3 pt-2">
+                <h3 className={cn(
+                    "font-semibold !my-0",
+                    asSection ? "text-3xl md:text-4xl lg:text-5xl" : "text-2xl md:text-3xl lg:text-4xl"
+                )}>{title}</h3>
+                {parseDescription(description)}
+                {(primaryCta || secondaryCta) && (
+                    <div className="flex items-center gap-2 flex-wrap">
+                        {primaryCta && (primaryCta.href ? (
+                            <Button className="w-fit" variant={primaryCta.variant || "default"} asChild>
+                                <Link href={primaryCta.href}>
+                                    {primaryCta.text}
+                                    {(primaryCta.showArrow !== false) && <ArrowRight className="w-4 h-4" />}
+                                </Link>
+                            </Button>
+                        ) : (
+                            <Button className="w-fit" variant={primaryCta.variant || "default"} disabled>
                                 {primaryCta.text}
-                                {(primaryCta.showArrow !== false) && <ArrowRight className="w-4 h-4" />}
-                            </Link>
-                        </Button>
-                    ) : (
-                        <Button className="w-fit" variant={primaryCta.variant || "default"} disabled>
-                            {primaryCta.text}
-                        </Button>
-                    )}
-                </div>
-            )}
-        </div>
+                            </Button>
+                        ))}
+                        {secondaryCta && (secondaryCta.href ? (
+                            <Button className="w-fit" variant={secondaryCta.variant || "outline"} asChild>
+                                <Link href={secondaryCta.href}>
+                                    {secondaryCta.text}
+                                    {(secondaryCta.showArrow !== false) && <ArrowRight className="w-4 h-4" />}
+                                </Link>
+                            </Button>
+                        ) : (
+                            <Button className="w-fit" variant={secondaryCta.variant || "outline"} disabled>
+                                {secondaryCta.text}
+                            </Button>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </RevealOnScroll>
     );
 
     const imageSection = (
+        <RevealOnScroll direction={reverse ? "left" : "right"} duration={0.7} delay={0.15}>
+            {media ? (
+                <div className={cn(
+                    "w-full overflow-hidden rounded-lg border border-border bg-card shadow-sm",
+                    imageClassName
+                )}>
+                    {media}
+                </div>
+            ) : image ? (
+                <div className={cn(
+                    "w-full overflow-hidden rounded-lg border border-border bg-muted shadow-sm",
+                    imageClassName
+                )}>
+                    <Image
+                        src={image}
+                        alt={imageAlt || title}
+                        width={800}
+                        height={600}
+                        className="w-full h-auto object-cover"
+                        unoptimized
+                    />
+                </div>
+            ) : null}
+        </RevealOnScroll>
+    );
+
+    const grid = (
         <div className={cn(
-            "w-full overflow-hidden rounded-lg border border-border bg-muted shadow-sm",
-            imageClassName
+            "grid items-start gap-6 lg:grid-cols-2 lg:gap-10 [&>*]:min-w-0",
+            reverse && "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1",
+            className
         )}>
-            <Image
-                src={image}
-                alt={imageAlt || title}
-                width={800}
-                height={600}
-                className="w-full h-auto object-cover"
-                unoptimized
-            />
+            {contentSection}
+            {imageSection}
         </div>
     );
 
+    if (!asSection) return grid;
+
     return (
         <Section className={sectionClassName} disableDefaultHeader>
-            <div className={cn(
-                "grid items-start gap-6 lg:grid-cols-2 lg:gap-10",
-                reverse && "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1",
-                className
-            )}>
-                {contentSection}
-                {imageSection}
-            </div>
+            {grid}
         </Section>
     );
 }

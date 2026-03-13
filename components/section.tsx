@@ -1,5 +1,6 @@
 import { Fragment, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import { RevealOnScroll } from '@/components/animations';
 
 interface SectionProps {
     children?: ReactNode;
@@ -23,7 +24,7 @@ export function Section({
     disableDefaultHeader = false,
 }: SectionProps) {
     const titleAlignment = titleAlign === 'center' ? 'text-center mx-auto' : 'text-left';
-    
+
   const descriptionContent = description
     ? description.split('\n').map((line, index, arr) => (
         <Fragment key={`section-desc-line-${index}`}>
@@ -41,17 +42,21 @@ export function Section({
             <div className="container">
                 <div className="max-w-7xl mx-auto">
                     {(header || (!disableDefaultHeader && (title || description))) && (
-                        <div className={`${titleAlignment} mb-16 md:mb-20`}>
+                        <div className={`${titleAlignment}${children ? ' mb-16 md:mb-20' : ''}`}>
                             {header}
                             {!disableDefaultHeader && title && (
-                                <h2 className={`text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 max-w-3xl ${titleAlign === 'center' ? 'mx-auto' : ''}`}>
-                                    {title}
-                                </h2>
+                                <RevealOnScroll direction="up" duration={0.6}>
+                                    <h2 className={`text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 max-w-3xl ${titleAlign === 'center' ? 'mx-auto' : ''}`}>
+                                        {title}
+                                    </h2>
+                                </RevealOnScroll>
                             )}
                             {!disableDefaultHeader && description && (
-                                <p className={`text-lg text-muted-foreground max-w-3xl ${titleAlign === 'center' ? 'mx-auto' : ''}`}>
-                                    {descriptionContent}
-                                </p>
+                                <RevealOnScroll direction="up" delay={0.15} duration={0.6}>
+                                    <p className={`text-lg text-muted-foreground max-w-3xl ${titleAlign === 'center' ? 'mx-auto' : ''}`}>
+                                        {descriptionContent}
+                                    </p>
+                                </RevealOnScroll>
                             )}
                         </div>
                     )}

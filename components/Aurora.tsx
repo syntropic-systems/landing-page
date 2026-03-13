@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 
@@ -356,6 +356,7 @@ export default function Aurora(props: AuroraProps) {
   }, [resolvedColorStops, resolvedAmplitude, resolvedBlend, resolvedBias, resolvedMidPoint, resolvedIntensityScale, resolvedBaseColor, resolvedBaseStrength, time, speed]);
 
   const ctnDom = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const ctn = ctnDom.current;
@@ -439,6 +440,13 @@ export default function Aurora(props: AuroraProps) {
 
     resize();
 
+    // Signal ready after a short delay so the first frame has rendered
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setReady(true);
+      });
+    });
+
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener('resize', resize);
@@ -449,5 +457,14 @@ export default function Aurora(props: AuroraProps) {
     };
   }, []);
 
-  return <div ref={ctnDom} className="w-full h-full" />;
+  return (
+    <div
+      ref={ctnDom}
+      className="w-full h-full"
+      style={{
+        opacity: ready ? 1 : 0,
+        transition: 'opacity 1.2s ease-in',
+      }}
+    />
+  );
 }
