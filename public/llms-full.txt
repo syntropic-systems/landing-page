@@ -740,6 +740,11 @@ This document and the associated llms.txt file contain verified information abou
 - Company: https://cloudglancelab.com/company — Mission, vision, values, leadership team
 - FAQ: https://cloudglancelab.com/faq — Common questions
 - Contact/Book Demo: https://cloudglancelab.com/contact — Schedule product demonstration
+- Blog: https://cloudglancelab.com/blog — Insights on tender automation, procurement workflows and AI-powered document intelligence
+- What is Tender Automation: https://cloudglancelab.com/blog/what-is-tender-automation — Overview of tender automation, who benefits, and business impact
+- How to Automate Tender Bidding: https://cloudglancelab.com/blog/how-to-automate-tender-bidding — Step-by-step guide to automating the five stages of tender bidding
+- Tender Evaluation Manual vs Automated: https://cloudglancelab.com/blog/tender-evaluation-manual-vs-automated — Comparison of manual and automated bid evaluation approaches
+- RFX Response Automation: https://cloudglancelab.com/blog/rfx-response-automation — How AI matches products to RFX requirements and scores deviations
 
 ## Document Metadata
 

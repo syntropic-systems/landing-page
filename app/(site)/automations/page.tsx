@@ -3,7 +3,7 @@ import { Section } from '@/components/section';
 import { CTASection } from '@/components/cta-section';
 import { FeatureSide } from '@/components/feature-side';
 import type { Metadata } from 'next';
-import { CountUp, StaggerChildren, StaggerItem } from '@/components/animations';
+import { CountUp, RevealOnScroll, StaggerChildren, StaggerItem } from '@/components/animations';
 import { TenderSearchShowcase, L1EvaluationShowcase, RfqMatchingShowcase, ComingSoonShowcase } from '@/components/showcases';
 
 export const metadata: Metadata = {
@@ -37,6 +37,22 @@ export default function AutomationsPage() {
                 title="Automate Every Step of Your Tender and Evaluation Workflow"
                 description="Let CloudGlance handle the repetitive, time-consuming tasks across bidding, evaluation, and contract review with AI-powered automation."
             />
+
+            <Section>
+                <RevealOnScroll direction="up" duration={0.6}>
+                    <div className="max-w-4xl space-y-4 text-base md:text-lg text-muted-foreground">
+                        <p>
+                            Tender automation replaces the manual, repetitive steps in procurement workflows with AI that reads, extracts and organises information from complex tender documents. Instead of teams spending days scanning portals, cross-referencing eligibility criteria, filling forms and compiling submissions, the platform handles these tasks in minutes with consistent accuracy.
+                        </p>
+                        <p>
+                            Most procurement teams lose time not because they lack expertise, but because the process itself is fragmented. Documents arrive in different formats, requirements are buried across hundreds of pages, and coordination between technical, commercial and compliance teams creates bottlenecks at every stage. CloudGlance connects these steps into a single, structured workflow so nothing falls through the cracks.
+                        </p>
+                        <p>
+                            Whether your team is responding to government tenders, evaluating vendor bids or managing RFX submissions, automation removes the friction that slows down every cycle. The result is faster turnaround, fewer errors and the ability to pursue more opportunities without scaling headcount.
+                        </p>
+                    </div>
+                </RevealOnScroll>
+            </Section>
 
             <FeatureSide
                 title="Tender Bidding"

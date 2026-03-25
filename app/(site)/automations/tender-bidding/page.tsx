@@ -5,7 +5,7 @@ import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { FeatureCard } from "@/components/feature-card";
-import { StaggerChildren, StaggerItem } from "@/components/animations";
+import { RevealOnScroll, StaggerChildren, StaggerItem } from "@/components/animations";
 import { PageHeader } from "@/components/page-header";
 import { ShieldCheck, Timer, Zap } from "lucide-react";
 import { WorkflowStepCards } from "@/components/workflow-step-cards";
@@ -143,7 +143,20 @@ export default function TenderBiddingPage() {
           variant: "ghost"
         }}
       />
-      <Section className="!pb-0">
+      <Section>
+        <RevealOnScroll direction="up" duration={0.6}>
+          <div className="max-w-4xl space-y-4 text-base md:text-lg text-muted-foreground">
+            <p>
+              Tender bidding involves discovering opportunities, validating eligibility, extracting requirements from complex documents, filling mandatory forms and running compliance checks before submission. For most teams, this process is manual, scattered across tools and people, and under constant time pressure.
+            </p>
+            <p>
+              CloudGlance automates each step of the bidding workflow so teams can move from opportunity discovery to a complete, compliant submission in a fraction of the time. AI reads tender documents, matches requirements against your organisation's profile, extracts and fills forms, and flags risks before the bid goes out.
+            </p>
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      <Section className="!py-0">
         <WorkflowStepCards steps={workflowSteps} />
       </Section>
 
@@ -153,7 +166,7 @@ export default function TenderBiddingPage() {
             <ScrollStackItem key={step.title} itemClassName="bg-card h-auto" data-step-id={step.title}>
               <div className="grid gap-6 md:grid-cols-3 items-start [&>*]:min-w-0">
                 <div className="flex flex-col justify-center space-y-3 md:col-span-1">
-                  <p className="text-2xl font-semibold text-primary">{step.title}</p>
+                  <h3 className="text-2xl font-semibold text-primary">{step.title}</h3>
                   <p className="text-base text-foreground">{step.description}</p>
                 </div>
                 <ImageShowcaseToggle

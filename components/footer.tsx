@@ -81,7 +81,11 @@ export function Footer() {
             ],
         },
         resources: {
-            main: { name: 'FAQ', href: '/faq' },
+            main: { name: 'Resources', href: '/faq' },
+            links: [
+                { name: 'FAQ', href: '/faq' },
+                { name: 'Blog', href: '/blog' },
+            ],
         },
     };
 

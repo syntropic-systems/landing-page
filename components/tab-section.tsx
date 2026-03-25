@@ -203,9 +203,9 @@ export function TabSection({
 
                                                         return (
                                                             <div key={`${tab.value}-highlight-${idx}`}>
-                                                                <p className="text-lg md:text-xl font-semibold text-foreground mb-1">
+                                                                <h4 className="text-lg md:text-xl font-semibold text-foreground mb-1">
                                                                     {item.subtitle}
-                                                                </p>
+                                                                </h4>
                                                                 {parseBody(item.body)}
                                                             </div>
                                                         );

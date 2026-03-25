@@ -227,6 +227,7 @@ const navItems: NavItem[] = [
         },
     },
     { href: "/faq", label: "FAQ" },
+    { href: "/blog", label: "Blog" },
 ];
 
 /**

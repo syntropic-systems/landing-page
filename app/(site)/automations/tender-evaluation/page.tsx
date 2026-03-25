@@ -5,7 +5,7 @@ import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { FeatureCard } from "@/components/feature-card";
-import { StaggerChildren, StaggerItem } from "@/components/animations";
+import { RevealOnScroll, StaggerChildren, StaggerItem } from "@/components/animations";
 import { PageHeader } from "@/components/page-header";
 import { BadgeCheck, CheckCircle, LayoutPanelLeft} from "lucide-react";
 import { WorkflowStepCards } from "@/components/workflow-step-cards";
@@ -102,7 +102,20 @@ export default function TenderEvaluationPage() {
         }}
       />
 
-      <Section className="!pb-0">
+      <Section>
+        <RevealOnScroll direction="up" duration={0.6}>
+          <div className="max-w-4xl space-y-4 text-base md:text-lg text-muted-foreground">
+            <p>
+              Tender evaluation is where procurement teams compare vendor submissions, score bids against defined criteria and select the right partner. Done manually, this process is slow, inconsistent and vulnerable to errors — especially when dozens of bids need to be reviewed under tight deadlines.
+            </p>
+            <p>
+              CloudGlance automates the evaluation workflow by applying scoring rubrics consistently across every submission, running L1 bidder selection based on qualified pricing and analysing each vendor's package for compliance gaps. Teams get structured, auditable results instead of spreadsheets and subjective reviews.
+            </p>
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      <Section className="!py-0">
         <WorkflowStepCards steps={workflowSteps} />
       </Section>
 
@@ -112,7 +125,7 @@ export default function TenderEvaluationPage() {
             <ScrollStackItem key={step.title} itemClassName="bg-card h-auto" data-step-id={step.title}>
               <div className="grid gap-6 md:grid-cols-3 items-start [&>*]:min-w-0">
                 <div className="flex flex-col justify-center space-y-3 md:col-span-1">
-                  <p className="text-2xl font-semibold text-primary">{step.title}</p>
+                  <h3 className="text-2xl font-semibold text-primary">{step.title}</h3>
                   <p className="text-base text-foreground">{step.description}</p>
                 </div>
                 <ImageShowcaseToggle

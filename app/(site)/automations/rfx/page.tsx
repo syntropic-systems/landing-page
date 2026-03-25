@@ -5,7 +5,7 @@ import ScrollStack, { ScrollStackItem } from "@/components/ScrollStack";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { FeatureCard } from "@/components/feature-card";
-import { StaggerChildren, StaggerItem } from "@/components/animations";
+import { RevealOnScroll, StaggerChildren, StaggerItem } from "@/components/animations";
 import { PageHeader } from "@/components/page-header";
 import { GitCompare, ShieldCheck, Target } from "lucide-react";
 import { WorkflowStepCards } from "@/components/workflow-step-cards";
@@ -96,7 +96,20 @@ export default function RfxPage() {
         }}
       />
 
-      <Section className="!pb-0">
+      <Section>
+        <RevealOnScroll direction="up" duration={0.6}>
+          <div className="max-w-4xl space-y-4 text-base md:text-lg text-muted-foreground">
+            <p>
+              Responding to RFPs, RFQs and RFIs requires matching your products and services against detailed specifications, identifying deviations and ensuring every response meets the buyer's requirements. When done manually, this means hours of cross-referencing catalogues, BOQs and compliance documents across teams.
+            </p>
+            <p>
+              CloudGlance automates RFX responses by reading requirement documents, matching each line item against your product catalogue and scoring compliance and deviations automatically. Teams see exactly where they match, where they deviate and what needs clarification — before the submission deadline.
+            </p>
+          </div>
+        </RevealOnScroll>
+      </Section>
+
+      <Section className="!py-0">
         <WorkflowStepCards steps={workflowSteps} />
       </Section>
 
@@ -110,9 +123,9 @@ export default function RfxPage() {
             >
               <div className="grid gap-6 md:grid-cols-3 items-start [&>*]:min-w-0">
                 <div className="flex flex-col justify-center space-y-3 md:col-span-1">
-                  <p className="text-2xl font-semibold text-primary">
+                  <h3 className="text-2xl font-semibold text-primary">
                     {step.title}
-                  </p>
+                  </h3>
                   <p className="text-base text-foreground">
                     {step.description}
                   </p>
