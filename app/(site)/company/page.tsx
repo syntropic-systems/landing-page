@@ -40,7 +40,7 @@ export default function CompanyPage() {
                 id="about-us"
                 className="!pb-0"
                 title="About Us"
-                description="We started Cloudglance to solve a simple but widespread problem: too much important information is trapped in messy, disconnected documents. This leads to enormous waste of time, money and human effort across teams. Our aim is to help organisations organise, understand and act on this information more effectively, without forcing them to change the way they already work.We started Cloudglance to solve a simple but widespread problem: too much important information is trapped in messy, disconnected documents. This leads to enormous waste of time, money and human effort across teams. Our aim is to help organisations organise, understand and act on this information more effectively, without forcing them to change the way they already work."
+                description="We started Cloudglance to solve a simple but widespread problem: too much important information is trapped in messy, disconnected documents. This leads to enormous waste of time, money and human effort across teams. Our aim is to help organisations organise, understand and act on this information more effectively, without forcing them to change the way they already work."
             >
             </Section>
             
