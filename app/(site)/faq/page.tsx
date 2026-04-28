@@ -9,7 +9,12 @@ import {
 } from '@/components/ui/accordion';
 import { StaggerChildren, StaggerItem } from '@/components/animations';
 import { faqs } from '@/data/faqs';
+import { SHOW_AI_CREDITS } from '@/data/pricing';
 import type { Metadata } from 'next';
+
+const visibleFaqs = SHOW_AI_CREDITS
+  ? faqs
+  : faqs.filter((faq) => !/credit/i.test(faq.question));
 
 export const metadata: Metadata = {
   title: 'FAQ - Frequently Asked Questions',
@@ -36,7 +41,7 @@ export const metadata: Metadata = {
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
+  mainEntity: visibleFaqs.map((faq) => ({
     "@type": "Question",
     name: faq.question,
     acceptedAnswer: {
@@ -62,7 +67,7 @@ export default function FAQPage() {
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full">
             <StaggerChildren stagger={0.15}>
-              {faqs.map((faq, index) => (
+              {visibleFaqs.map((faq, index) => (
                 <StaggerItem key={index}>
                   <AccordionItem value={`item-${index}`}>
                     <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>

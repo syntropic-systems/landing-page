@@ -81,8 +81,9 @@ export function Footer() {
             ],
         },
         resources: {
-            main: { name: 'Resources', href: '/faq' },
+            main: { name: 'Resources', href: '' },
             links: [
+                { name: 'Pricing', href: '/pricing' },
                 { name: 'FAQ', href: '/faq' },
                 { name: 'Blog', href: '/blog' },
             ],
@@ -119,12 +120,18 @@ export function Footer() {
                     {Object.values(footerLinks).map((group) => (
                         <StaggerItem key={group.main.name}>
                             <div>
-                                <Link
-                                    href={group.main.href}
-                                    className="font-semibold mb-3 block hover:text-primary transition-colors"
-                                >
-                                    {group.main.name}
-                                </Link>
+                                {group.main.href ? (
+                                    <Link
+                                        href={group.main.href}
+                                        className="font-semibold mb-3 block hover:text-primary transition-colors"
+                                    >
+                                        {group.main.name}
+                                    </Link>
+                                ) : (
+                                    <span className="font-semibold mb-3 block">
+                                        {group.main.name}
+                                    </span>
+                                )}
                                 {'links' in group && (
                                     <ul className="space-y-2">
                                         {group.links.map((link) => (

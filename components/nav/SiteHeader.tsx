@@ -226,6 +226,7 @@ const navItems: NavItem[] = [
             },
         },
     },
+    { href: "/pricing", label: "Pricing" },
     { href: "/faq", label: "FAQ" },
     { href: "/blog", label: "Blog" },
 ];
