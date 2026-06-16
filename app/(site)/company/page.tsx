@@ -78,9 +78,9 @@ export default function CompanyPage() {
                 description="Our team brings together experts in AI, engineering, operations, and procurement who have seen firsthand how slow, manual document work holds organizations back. We're united by a simple goal: helping teams move faster, reduce risk, and deliver exceptional results with the same resources."
             >
                 <div className="space-y-4 sm:space-y-6">
-                    {/* Row 1 (desktop: 4 cards, mobile: 2 rows of 2) */}
-                    <StaggerChildren className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6" stagger={0.12}>
-                        <StaggerItem>
+                    {/* Row 1 (desktop: 3 cards centered via 8-col grid, mobile: 2 rows of 2) */}
+                    <StaggerChildren className="grid grid-cols-2 lg:grid-cols-8 gap-4 sm:gap-6" stagger={0.12}>
+                        {/* <StaggerItem>
                             <TeamMemberCard
                                 image="/team/yash tiwari.png"
                                 name="Yash Tiwari"
@@ -88,9 +88,20 @@ export default function CompanyPage() {
                                 position="CEO & Co-Founder"
                                 description="Sets product direction and business strategy, aligning engineering and operations so CloudGlance turns messy documents into usable workflows."
                             />
-                        </StaggerItem>
-                        <StaggerItem>
+                        </StaggerItem> */}
+                        <StaggerItem className="h-full lg:col-span-2 lg:col-start-2">
                             <TeamMemberCard
+                                className="h-full"
+                                image="/team/manish bharti.png"
+                                name="Manish Bharti"
+                                linkedin="https://www.linkedin.com/in/mbharti/"
+                                position="CEO & Co-Founder"
+                                description="Leads governance and strategic partnerships, ensuring the company’s roadmap translates into real operational value for enterprise customers."
+                            />
+                        </StaggerItem>
+                        <StaggerItem className="h-full lg:col-span-2">
+                            <TeamMemberCard
+                                className="h-full"
                                 image="/team/abhishek gautam.png"
                                 name="Abhishek Gautam"
                                 linkedin="https://www.linkedin.com/in/abhishekgautam03/"
@@ -98,17 +109,9 @@ export default function CompanyPage() {
                                 description="Builds and scales the platform infrastructure that processes large document collections, turning complex formats into dependable systems."
                             />
                         </StaggerItem>
-                        <StaggerItem>
+                        <StaggerItem className="h-full lg:col-span-2">
                             <TeamMemberCard
-                                image="/team/manish bharti.png"
-                                name="Manish Bharti"
-                                linkedin="https://www.linkedin.com/in/mbharti/"
-                                position="Director"
-                                description="Leads governance and strategic partnerships, ensuring the company’s roadmap translates into real operational value for enterprise customers."
-                            />
-                        </StaggerItem>
-                        <StaggerItem>
-                            <TeamMemberCard
+                                className="h-full"
                                 image="/team/dr. kk bajpal.png"
                                 name="Dr. KK Bajpai"
                                 linkedin="https://www.linkedin.com/in/kk-bajpai-7b56611a1/"
@@ -151,7 +154,7 @@ export default function CompanyPage() {
                                 image="/team/swapnish sahare.png"
                                 name="Swapnish Sahare"
                                 linkedin="https://www.linkedin.com/in/swapnishsahare/"
-                                position="Design Consultant"
+                                position="Design"
                                 description="Crafts the product’s visual and interaction language, simplifying complex flows so teams can use the product without a manual."
                             />
                         </StaggerItem>
