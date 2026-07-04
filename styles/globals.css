@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --color-background: hsl(0 0% 98.0392%);
   --color-foreground: hsl(0 0% 10.1961%);
