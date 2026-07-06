@@ -95,8 +95,18 @@ export function Footer() {
     ];
 
     return (
-        <footer className="border-t bg-card">
-            <div className="container pt-12 md:pt-16 lg:pt-20">
+        // border-foreground/10 rather than the default border token: card and
+        // background are near-identical, so this line is the footer's whole
+        // edge — softened to the hero family's divider weight
+        // (HeroSectionV2's border-foreground/10) instead of the harder chrome
+        // hairline.
+        <footer className="relative border-t border-foreground/10 bg-card">
+            {/* Same brand wash as Hero2/PageHeader — identical radial at the
+                identical 70%/30% anchor, so the light that opens every page
+                also closes it. Footer height varies with link groups, so the
+                wash just fills the element rather than a fixed stage. */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_70%_30%,hsl(208_46%_33%/0.12),transparent_70%)] dark:bg-[radial-gradient(ellipse_60%_50%_at_70%_30%,hsl(208_46%_33%/0.25),transparent_70%)]" />
+            <div className="container relative z-10 pt-12 md:pt-16 lg:pt-20">
                 <div className="max-w-7xl mx-auto">
                 <RevealOnScroll direction="up" duration={0.6}>
                     <div className="flex flex-col gap-4 mb-10">
@@ -106,12 +116,11 @@ export function Footer() {
                                 alt="CloudGlance logo"
                                 width={546}
                                 height={101}
-                                className="h-12 w-auto flex-shrink-0"
-                                priority
+                                className="h-8 w-auto flex-shrink-0"
                                 unoptimized
                             />
                         </Link>
-                        <p className="text-sm text-muted-foreground max-w-2xl">
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl">
                             CloudGlance is an AI-powered document intelligence platform that transforms document-heavy workflows into automated, efficient processes.
                         </p>
                     </div>
@@ -123,12 +132,12 @@ export function Footer() {
                                 {group.main.href ? (
                                     <Link
                                         href={group.main.href}
-                                        className="font-semibold mb-3 block hover:text-primary transition-colors"
+                                        className="text-sm font-semibold mb-3 block hover:text-primary transition-colors"
                                     >
                                         {group.main.name}
                                     </Link>
                                 ) : (
-                                    <span className="font-semibold mb-3 block">
+                                    <span className="text-sm font-semibold mb-3 block">
                                         {group.main.name}
                                     </span>
                                 )}
@@ -138,7 +147,7 @@ export function Footer() {
                                             <li key={link.name}>
                                                 <FooterLinkItem
                                                     link={link}
-                                                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
                                                 />
                                             </li>
                                         ))}
@@ -150,14 +159,14 @@ export function Footer() {
                 </StaggerChildren>
 
                 {/* Copyright and Social */}
-                <div className="py-3 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="py-5 md:py-6 border-t border-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-4">
                         {socialLinks.map(({ name, href, icon: Icon }) => (
                             <Link
                                 key={name}
                                 href={href}
                                 aria-label={name}
-                                className="text-muted-foreground transition-colors hover:text-foreground"
+                                className="text-muted-foreground transition-colors hover:text-primary"
                             >
                                 <Icon className="h-4 w-4" style={{ fill: 'currentColor', stroke: 'none' }} />
                             </Link>
