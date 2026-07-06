@@ -117,7 +117,7 @@ export function TabSection({
                 <RevealOnScroll direction="up" duration={0.6}>
                     <TabsList
                         className={cn(
-                            "flex flex-wrap gap-2 sm:gap-3 w-full justify-start bg-transparent p-0 h-auto text-muted-foreground",
+                            "flex flex-wrap gap-2 sm:gap-3 w-full justify-start bg-transparent border-0 p-0 h-auto text-muted-foreground",
                             tabsListClassName
                         )}
                     >

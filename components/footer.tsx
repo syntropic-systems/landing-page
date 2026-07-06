@@ -110,7 +110,7 @@ export function Footer() {
                 <div className="max-w-7xl mx-auto">
                 <RevealOnScroll direction="up" duration={0.6}>
                     <div className="flex flex-col gap-4 mb-10">
-                        <Link href="/" className="flex items-center space-x-2" aria-label="CloudGlance home">
+                        <Link href="/" className="flex items-center space-x-2 self-start" aria-label="CloudGlance home">
                             <Image
                                 src={logoSrc}
                                 alt="CloudGlance logo"
