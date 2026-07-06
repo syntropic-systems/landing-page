@@ -1,5 +1,5 @@
 // Reusable layout components
-export { HeroSection } from './hero-section';
+export { HeroSectionV2 } from './hero/HeroSectionV2';
 export { Section } from './section';
 export { CTASection } from './cta-section';
 
