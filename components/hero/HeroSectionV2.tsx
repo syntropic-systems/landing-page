@@ -34,14 +34,17 @@ export function HeroSectionV2({
     // laptops minus chrome) a bare 100vh crushes copy + scene + proof bar
     // and overflow-hidden CLIPS them — the floor lets the hero grow past
     // the fold instead. Normal screens are unaffected (100vh wins the max).
+    // Post-hero gap follows the Hero2/PageHeader convention: [&+section]
+    // trims the next section's top padding so the hero's mb-20/28/32 sets
+    // the rhythm instead of stacking with a full section pt.
     return (
-        <section className="relative lg:h-[max(100vh,680px)] -mt-14 pt-14 pb-10 md:pb-8 mb-20 md:mb-28 lg:mb-32 overflow-hidden rounded-b-3xl shadow-primary/30 shadow-2xl bg-gradient-to-b from-background via-background to-secondary/70">
+        <section className="relative lg:h-[max(100vh,680px)] -mt-14 pt-14 pb-10 md:pb-8 mb-20 md:mb-28 lg:mb-32 [&+section]:pt-8 md:[&+section]:pt-12 lg:[&+section]:pt-16 overflow-hidden rounded-b-3xl shadow-primary/30 shadow-2xl bg-gradient-to-b from-background via-background to-secondary/70">
             {/* Soft brand wash — blooms on slowly with the scene's entrance
                 (a light source turning on behind the window). The base
                 gradient stays static: it's the section surface, and fading
                 a surface reads as a load glitch, not a reveal. */}
             <motion.div
-                className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_70%_30%,hsl(208_46%_33%/0.08),transparent_70%)] dark:bg-[radial-gradient(ellipse_60%_50%_at_70%_30%,hsl(208_46%_33%/0.25),transparent_70%)]"
+                className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_70%_30%,hsl(208_46%_33%/0.12),transparent_70%)] dark:bg-[radial-gradient(ellipse_60%_50%_at_70%_30%,hsl(208_46%_33%/0.25),transparent_70%)]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.6, delay: 0.5, ease: 'easeOut' }}

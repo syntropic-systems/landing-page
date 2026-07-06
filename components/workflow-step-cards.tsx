@@ -29,7 +29,7 @@ export function WorkflowStepCards({ steps }: WorkflowStepCardsProps) {
       {steps.map((step) => (
         <StaggerItem key={step.title}>
           <Card
-            className="bg-gradient-to-br from-accent/50 to-card text-center border-none shadow-sm p-3 cursor-pointer hover:shadow-md transition-shadow"
+            className="bg-gradient-to-br from-accent/40 to-card text-center border-none shadow-sm p-3 cursor-pointer hover:shadow-md transition-shadow"
             onClick={() => scrollToStep(step.title)}
           >
             <CardHeader className="p-0">

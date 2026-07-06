@@ -140,7 +140,7 @@ export function TabSection({
                 <div
                     ref={contentRef}
                     className={cn(
-                        "mt-4 relative transition-all duration-500 ease-out",
+                        "mt-8 relative transition-all duration-500 ease-out",
                         contentInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                     )}
                     style={{ transitionDelay: contentInView ? "0.4s" : "0s" }}
@@ -162,7 +162,7 @@ export function TabSection({
                                         )}
                                     >
                                         <div className="flex flex-col gap-3 pt-2">
-                                            <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary font-semibold mb-2">
+                                            <h3 className="text-xl md:text-2xl lg:text-3xl text-primary font-semibold tracking-tight">
                                                 {tab.title}
                                             </h3>
                                             {tab.highlights?.length ? (
@@ -203,7 +203,7 @@ export function TabSection({
 
                                                         return (
                                                             <div key={`${tab.value}-highlight-${idx}`}>
-                                                                <h4 className="text-lg md:text-xl font-semibold text-foreground mb-1">
+                                                                <h4 className="text-lg md:text-xl font-semibold tracking-tight text-foreground mb-1">
                                                                     {item.subtitle}
                                                                 </h4>
                                                                 {parseBody(item.body)}

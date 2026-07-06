@@ -79,7 +79,7 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
                             >
                                 <span
                                     className={cn(
-                                        "text-lg sm:text-2xl font-bold transition-colors duration-300",
+                                        "text-lg sm:text-2xl font-semibold tracking-tight transition-colors duration-300",
                                         i === active
                                             ? "text-primary"
                                             : "text-muted-foreground/40"
@@ -118,9 +118,9 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
                 <div key={active} className="grid items-start gap-6 [&>*]:min-w-0">
                     <RevealOnScroll direction="left" duration={0.5}>
                         <div className="flex flex-col gap-3 pt-2">
-                            <h3 className="text-2xl md:text-3xl font-semibold">
+                            <h4 className="text-xl md:text-2xl font-semibold tracking-tight">
                                 {current.title}
-                            </h3>
+                            </h4>
                             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                                 {current.description}
                             </p>
@@ -164,16 +164,16 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
                                 )}
 
                                 <div className="space-y-2">
-                                    <h3
+                                    <h4
                                         className={cn(
-                                            "text-2xl font-semibold transition-colors",
+                                            "text-2xl font-semibold tracking-tight transition-colors",
                                             isActive ? "text-foreground" : "text-muted-foreground"
                                         )}
                                     >
                                         {step.title}
-                                    </h3>
+                                    </h4>
                                     <p
-                                        className="text-base text-muted-foreground leading-relaxed transition-opacity duration-300"
+                                        className="text-lg text-muted-foreground leading-relaxed transition-opacity duration-300"
                                         style={{ visibility: isActive ? 'visible' : 'hidden', opacity: isActive ? 1 : 0 }}
                                         aria-hidden={!isActive}
                                     >

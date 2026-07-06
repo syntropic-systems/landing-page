@@ -48,9 +48,9 @@ const FeatureCard = ({
 );
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => (
-  <h3 className="text-left tracking-tight text-foreground font-semibold text-xl md:text-2xl md:leading-snug">
+  <h4 className="text-left tracking-tight text-foreground font-semibold text-xl md:text-2xl md:leading-snug">
     {children}
-  </h3>
+  </h4>
 );
 
 function FeatureDescription({ children }: { children?: React.ReactNode }) {
@@ -123,7 +123,7 @@ function EnterpriseSkeletonOne() {
         </p>
       </div>
 
-      <div className="rounded-2xl border border-border/70 bg-gradient-to-br from-accent/30 to-background p-4 lg:p-5 shadow-inner">
+      <div className="rounded-2xl border border-border/70 bg-gradient-to-br from-accent/40 to-card p-4 lg:p-5 shadow-sm">
         <p className="text-xs uppercase tracking-wide text-muted-foreground font-semibold">
           Built on audited, industry-leading infrastructure
         </p>
@@ -231,7 +231,7 @@ function EnterpriseSkeletonThree() {
       {operationalControls.map((item) => (
         <StaggerItem key={item.title}>
           <div
-            className="rounded-2xl border border-border/60 bg-gradient-to-br from-accent/30 to-background p-5 shadow-sm"
+            className="rounded-2xl border border-border/60 bg-gradient-to-br from-accent/40 to-card p-5 shadow-sm"
           >
             <p className="text-base font-semibold text-foreground">{item.title}</p>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">

@@ -28,6 +28,9 @@ interface FeatureSideProps {
     className?: string;
     imageClassName?: string;
     sectionClassName?: string;
+    /** Forwarded to Section's variant — use this for surface tints instead
+     * of sectionClassName, so tints stay centralized in section.tsx. */
+    sectionVariant?: 'default' | 'muted' | 'secondary';
     asSection?: boolean;
 }
 
@@ -43,6 +46,7 @@ export function FeatureSide({
     className,
     imageClassName,
     sectionClassName,
+    sectionVariant,
     asSection = true,
 }: FeatureSideProps) {
     // Parse description to handle line breaks and bullet points
@@ -104,10 +108,10 @@ export function FeatureSide({
 
     const contentSection = (
         <RevealOnScroll direction={reverse ? "right" : "left"} duration={0.7}>
-            <div className="flex flex-col gap-3 pt-2">
+            <div className={cn("flex flex-col gap-3 pt-2", asSection && "md:gap-4")}>
                 <h3 className={cn(
-                    "font-semibold !my-0",
-                    asSection ? "text-3xl md:text-4xl lg:text-5xl" : "text-2xl md:text-3xl lg:text-4xl"
+                    "font-semibold tracking-tight !my-0",
+                    asSection ? "text-2xl md:text-3xl lg:text-4xl leading-[1.05]" : "text-xl md:text-2xl lg:text-3xl"
                 )}>{title}</h3>
                 {parseDescription(description)}
                 {(primaryCta || secondaryCta) && (
@@ -183,7 +187,7 @@ export function FeatureSide({
     if (!asSection) return grid;
 
     return (
-        <Section className={sectionClassName} disableDefaultHeader>
+        <Section className={sectionClassName} variant={sectionVariant} disableDefaultHeader>
             {grid}
         </Section>
     );

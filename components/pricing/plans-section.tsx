@@ -9,10 +9,10 @@ import { PlanCard } from './plan-card';
 type Billing = 'annual' | 'monthly';
 
 export function PlansSection() {
-  const [billing, setBilling] = useState<Billing>('annual');
+  const [billing, setBilling] = useState<Billing>('monthly');
 
   return (
-    <section id="plans" className="relative py-20 md:py-24 lg:py-28">
+    <section id="plans" className="relative py-20 md:py-24 lg:py-32">
       <div className="container relative">
         <div className="mx-auto max-w-7xl">
           {/* Toggle */}
