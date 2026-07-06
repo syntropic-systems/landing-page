@@ -1,4 +1,5 @@
 import { Hero2 } from '@/components/hero-2';
+import { TeamsShard } from '@/components/hero/shards/TeamsShard';
 import { Section } from '@/components/section';
 import { CTASection } from '@/components/cta-section';
 import { TabSection } from '@/components/tab-section';
@@ -188,8 +189,13 @@ export default function SolutionsPage() {
             {/* Hero Section */}
             <Hero2
                 badge="Solutions"
-                title="Built for Every Team, Across Every Document-Heavy Industry"
+                title={
+                    <>
+                        Built for <span className="text-primary">Every Team</span>, Across Every Document-Heavy Industry
+                    </>
+                }
                 description="CloudGlance supports analysts, operations, and decision-makers with AI that reads documents, structures information, and powers complete workflows across sectors."
+                visual={<TeamsShard />}
             />
 
             {/* Tab Section - By Team */}

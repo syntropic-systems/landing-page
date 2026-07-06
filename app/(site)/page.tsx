@@ -16,7 +16,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Card } from '@/components/ui/card';
 import { YouTubeEmbed } from '@/components/youtube-embed';
-import { CountUp, StaggerChildren, StaggerItem, RevealOnScroll } from '@/components/animations';
+import { StaggerChildren, StaggerItem, RevealOnScroll } from '@/components/animations';
+import { StatsSection } from '@/components/stats-section';
 import { AutomationsTabs } from '@/components/automations-tabs';
 import {
   CentralizedRepoShowcase,
@@ -124,32 +125,7 @@ export default function Home() {
       </Section>
 
       {/* What Changes */}
-      <Section
-        title={
-          <>
-            What Changes with <span className="text-primary">CloudGlance</span>
-          </>
-        }
-        description="Teams use CloudGlance to move faster, reduce risk and deliver more with the same resources."
-      >
-        <StaggerChildren className="grid md:grid-cols-3 gap-12 text-center mx-auto pt-8" stagger={0.15}>
-          <StaggerItem>
-            <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={80} suffix="%" /></div>
-            <div className="text-2xl text-foreground font-semibold pb-2">Faster Response Time</div>
-            <div className="text-base text-muted-foreground">AI reads and understands documents, organizing required information instantly & solving review, preparation and analysis faster.</div>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={3} suffix="x" /></div>
-            <div className="text-2xl text-foreground font-semibold pb-2">More Opportunities</div>
-            <div className="text-base text-muted-foreground">With AI handling time-consuming and repetitive manual processes, teams can take on more projects without extra hiring or burnout.</div>
-          </StaggerItem>
-          <StaggerItem>
-            <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={99.7} suffix="%" decimals={1} /></div>
-            <div className="text-2xl text-foreground font-semibold pb-2">Accuracy</div>
-            <div className="text-base text-muted-foreground">AI detects every requirement, clause and attachment, even those buried in fine print, with the same consistency, so nothing gets missed.</div>
-          </StaggerItem>
-        </StaggerChildren>
-      </Section>
+      <StatsSection />
 
       {/* Workflow Steps */}
       <Section
@@ -164,7 +140,7 @@ export default function Home() {
       </Section>
 
       {/* Automations */}
-      <Section className="bg-accent/70 shadow-inner"
+      <Section variant="secondary"
         title={
           <>
             <span className="text-primary">Automations</span> you get Today
@@ -189,7 +165,7 @@ export default function Home() {
 
       {/* Customer Logos */}
       <Section
-        className="bg-muted"
+        variant="muted"
         title={
           <>
             Teams already winning more with{' '}

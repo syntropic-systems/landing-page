@@ -91,7 +91,7 @@ export function PlanCard({ plan, billing }: PlanCardProps) {
                           : 'bg-primary/10 text-primary'
                       )}
                     >
-                      Quarterly billing
+                      Billed quarterly
                     </span>
                   )}
                 </div>

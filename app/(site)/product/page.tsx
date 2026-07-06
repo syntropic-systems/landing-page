@@ -1,4 +1,5 @@
 import { Hero2 } from '@/components/hero-2';
+import { IntelligenceShard } from '@/components/hero/shards/IntelligenceShard';
 
 import { Section } from '@/components/section';
 import { CTASection } from '@/components/cta-section';
@@ -52,8 +53,13 @@ export default function ProductPage() {
             {/* Hero Section */}
             <Hero2
                 badge="Product"
-                title="AI-Powered Document Intelligence Platform for High-Stake Workflows"
+                title={
+                    <>
+                        AI-Powered <span className="text-primary">Document Intelligence</span> Platform for High-Stake Workflows
+                    </>
+                }
                 description="Turn messy, multi-format documents into structured, actionable data so your tender, evaluation, and review processes run end-to-end without manual effort."
+                visual={<IntelligenceShard />}
             />
 
             {/* Platform Section */}
@@ -96,7 +102,7 @@ export default function ProductPage() {
                 id="integrations"
                 title="Integrations"
                 description={`Cloudglance connects with the systems organisations already rely on, so existing processes do not need to be rebuilt. It works with common file drives, SSO setups, ERPs, project management tools and document storage environments, allowing information to flow in from the tools that are already part of daily work. \n\n The platform adapts to the organisation's ecosystem rather than asking teams to migrate or start over. This makes adoption smooth, keeps current workflows intact and ensures that document intelligence and automations can be layered on top of what is already working well.`}
-                className="bg-muted"
+                variant="muted"
             >
                 <StaggerChildren stagger={0.15}>
                     <StaggerItem>
@@ -162,7 +168,7 @@ export default function ProductPage() {
                         </div>
                     </StaggerItem>
                     <StaggerItem>
-                        <div className="rounded-2xl border border-border/70 bg-gradient-to-br from-accent/30 to-background p-4 lg:p-5 shadow-inner h-full">
+                        <div className="rounded-2xl border border-border/70 bg-gradient-to-br from-accent/40 to-card p-4 lg:p-5 shadow-sm h-full">
                             <p className="text-xs uppercase tracking-wide text-muted-foreground font-semibold">
                                 Built on audited, industry-leading infrastructure
                             </p>

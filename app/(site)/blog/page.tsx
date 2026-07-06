@@ -117,7 +117,7 @@ export default function BlogPage() {
                               </div>
                             )}
 
-                            <h2 className="text-2xl font-semibold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
+                            <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
                               {post.title}
                             </h2>
                             <p className="text-muted-foreground text-sm line-clamp-2 mb-4">

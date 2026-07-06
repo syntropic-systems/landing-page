@@ -1,9 +1,11 @@
 import { Hero2 } from '@/components/hero-2';
+import { TaskCardsShard } from '@/components/hero/shards/TaskCardsShard';
 import { Section } from '@/components/section';
 import { CTASection } from '@/components/cta-section';
 import { FeatureSide } from '@/components/feature-side';
 import type { Metadata } from 'next';
-import { CountUp, RevealOnScroll, StaggerChildren, StaggerItem } from '@/components/animations';
+import { RevealOnScroll } from '@/components/animations';
+import { StatsSection } from '@/components/stats-section';
 import { TenderSearchShowcase, L1EvaluationShowcase, RfqMatchingShowcase, ComingSoonShowcase } from '@/components/showcases';
 
 export const metadata: Metadata = {
@@ -34,8 +36,13 @@ export default function AutomationsPage() {
             {/* Hero Section */}
             <Hero2
                 badge="Automations"
-                title="Automate Every Step of Your Tender and Evaluation Workflow"
+                title={
+                    <>
+                        Automate <span className="text-primary">Every Step</span> of Your Bidding and Evaluation Workflow
+                    </>
+                }
                 description="Let CloudGlance handle the repetitive, time-consuming tasks across bidding, evaluation, and contract review with AI-powered automation."
+                visual={<TaskCardsShard />}
             />
 
             <Section>
@@ -67,7 +74,7 @@ export default function AutomationsPage() {
                 primaryCta={{ text: "Learn More", href: "/automations/tender-bidding" }}
             />
             <FeatureSide
-                sectionClassName="bg-secondary"
+                sectionVariant="secondary"
                 reverse={true}
                 title="Tender Evaluation"
                 description={`Select the right vendor with clarity and confidence. CloudGlance streamlines evaluation by centralizing comparisons, standardizing scoring, and removing bottlenecks across your entire review process.
@@ -88,7 +95,7 @@ export default function AutomationsPage() {
                 primaryCta={{ text: "Learn More", href: "/automations/rfx" }}
             />
             <FeatureSide
-                sectionClassName="bg-secondary"
+                sectionVariant="secondary"
                 reverse={true}
                 title="Contract Review"
                 description="Transform complex contracts into clear, actionable insights. CloudGlance extracts clauses, highlights risks, and maps obligations so teams can review agreements faster and make informed decisions with confidence."
@@ -104,29 +111,7 @@ export default function AutomationsPage() {
                 primaryCta={{ text: "Coming Soon" }}
             />
 
-            <Section
-                title={<>What Changes with <span className="text-primary">CloudGlance</span></>
-                }   
-                description="Teams use CloudGlance to move faster, reduce risk and deliver more with the same resources."
-                >
-                <StaggerChildren className="grid md:grid-cols-3 gap-12 text-center mx-auto pt-8" stagger={0.15}>
-                    <StaggerItem>
-                        <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={80} suffix="%" /></div>
-                        <div className="text-2xl text-foreground font-semibold pb-2">Faster Response Time</div>
-                        <div className="text-base text-muted-foreground">AI reads and understands documents, organizing required information instantly & solving review, preparation and analysis faster.</div>
-                    </StaggerItem>
-                    <StaggerItem>
-                        <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={3} suffix="x" /></div>
-                        <div className="text-2xl text-foreground font-semibold pb-2">More Opportunities</div>
-                        <div className="text-base text-muted-foreground">With AI handling time-consuming and repetitive manual processes, teams can take on more projects without extra hiring or burnout.</div>
-                    </StaggerItem>
-                    <StaggerItem>
-                        <div className="text-7xl font-semibold text-primary mb-4"><CountUp target={99.7} suffix="%" decimals={1} /></div>
-                        <div className="text-2xl text-foreground font-semibold pb-2">Accuracy</div>
-                        <div className="text-base text-muted-foreground">AI detects every requirement, clause and attachment, even those buried in fine print, with the same consistency, so nothing gets missed.</div>
-                    </StaggerItem>
-                </StaggerChildren>
-            </Section>
+            <StatsSection />
 
             {/* CTA Section */}
             <CTASection

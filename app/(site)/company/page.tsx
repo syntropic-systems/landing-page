@@ -1,5 +1,6 @@
 import { FeatureCard } from "@/components/feature-card";
 import { Hero2 } from "@/components/hero-2";
+import { TeamConstellationShard } from "@/components/hero/shards/TeamConstellationShard";
 import { Section } from "@/components/section";
 import { CTASection } from "@/components/cta-section";
 import { TeamMemberCard } from "@/components/team-member-card";
@@ -33,8 +34,13 @@ export default function CompanyPage() {
         <div>
             <Hero2
                 badge="Company"
-                title="The People Building the Future of Document Intelligence"
+                title={
+                    <>
+                        The <span className="text-primary">People</span> Building the Future of Document Intelligence
+                    </>
+                }
                 description="Learn more about the mission, vision, and people building CloudGlance."
+                visual={<TeamConstellationShard />}
             />
             <Section
                 id="about-us"
