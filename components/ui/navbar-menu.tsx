@@ -133,7 +133,7 @@ export const MenuItem = ({
         <button
           type="button"
           className="inline-flex rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-          onClick={isHovering ? clearMenu : activate}
+          onClick={activate}
         >
           {label}
         </button>
