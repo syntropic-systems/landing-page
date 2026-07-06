@@ -420,8 +420,8 @@ export function SiteHeader() {
         : "/logo light_lg.svg";
 
     const headerClassName = cn(
-        "sticky top-0 z-50 w-full backdrop-blur-md supports-[backdrop-filter]:bg-card/50 transition-all duration-300 border-b",
-        !isNearTop ? "border-border shadow-sm" : "border-transparent"
+        "sticky top-0 z-50 w-full backdrop-blur-md transition-all duration-300 border-b",
+        !isNearTop ? "supports-[backdrop-filter]:bg-card/50 border-border/50 shadow-sm" : "border-transparent supports-[backdrop-filter]:bg-transparent"
     );
 
     return (
@@ -437,7 +437,7 @@ export function SiteHeader() {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm min-w-0 transition-all duration-200 hover:scale-[1.03] hover:[filter:drop-shadow(0_2px_2px_rgba(0,0,0,0.1))]"
+                        className="flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm shrink-0 transition-all duration-200 hover:scale-[1.03] hover:[filter:drop-shadow(0_2px_2px_rgba(0,0,0,0.1))]"
                     >
                         <Image
                             src={logoSrc}
@@ -454,7 +454,7 @@ export function SiteHeader() {
                     <NavbarMenu
                         aria-label="Main navigation"
                         setActive={setActiveDropdown}
-                        className="hidden gap-1 rounded-none border-none bg-transparent px-0 py-0 text-sm shadow-none backdrop-blur-none lg:relative lg:flex lg:items-center lg:gap-2"
+                        className="hidden gap-1 rounded-none border-none bg-transparent px-0 py-0 text-sm shadow-none backdrop-blur-none xl:relative xl:flex xl:items-center xl:gap-2"
                     >
                     {navItems.map((item) => {
                         const isActive = pathname === item.href;
@@ -482,7 +482,7 @@ export function SiteHeader() {
 
                 {/* Right side actions */}
                 <div className="flex items-center gap-2">
-                    <div className="hidden lg:flex items-center gap-2">
+                    <div className="hidden md:flex items-center gap-2">
                         <Button
                             variant="default"
                             className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
@@ -507,7 +507,7 @@ export function SiteHeader() {
                             <Button
                                 variant="ghost"
                                 size="icon"
-                                className="lg:hidden h-9 w-9"
+                                className="xl:hidden h-9 w-9"
                                 aria-label="Open menu"
                             >
                                 <MenuIcon className="h-5 w-5" />
