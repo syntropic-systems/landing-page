@@ -67,8 +67,10 @@ export function PlanCard({ plan, billing }: PlanCardProps) {
       </CardHeader>
 
       <CardContent className="relative flex flex-1 flex-col gap-6">
-        {/* Price block */}
-        <div className="min-h-[5.5rem]">
+        {/* Price block — min-h reserves a gap under the description so the
+            monthly billing badge drops into it without growing the card
+            (monthly and annual stay the same height). */}
+        <div className="min-h-[6.75rem]">
           {plan.customPricing ? (
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
@@ -78,22 +80,13 @@ export function PlanCard({ plan, billing }: PlanCardProps) {
                 exit={{ opacity: 0, y: -6 }}
                 transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 md:mt-2">
-                  <span className="text-4xl font-semibold tracking-tight">
+                <div className="md:mt-2">
+                  {/* text-3xl in the narrow lg band so "Custom Pricing"
+                      stays one line (text-4xl wraps there and grows the
+                      block past the reserved min-h); full size again at xl+. */}
+                  <span className="whitespace-nowrap text-3xl font-semibold tracking-tight xl:text-4xl">
                     {plan.customLabel ?? 'Custom Pricing'}
                   </span>
-                  {billing === 'monthly' && (
-                    <span
-                      className={cn(
-                        'rounded-md px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide',
-                        featured
-                          ? 'bg-primary-foreground/15 text-primary-foreground'
-                          : 'bg-primary/10 text-primary'
-                      )}
-                    >
-                      Billed quarterly
-                    </span>
-                  )}
                 </div>
                 {plan.customNote && (
                   <p
@@ -104,6 +97,22 @@ export function PlanCard({ plan, billing }: PlanCardProps) {
                   >
                     {plan.customNote}
                   </p>
+                )}
+                {/* Billing badge sits in the reserved gap BELOW the
+                    description so it never wraps beside the label or pushes
+                    the card taller — the price block's min-h absorbs it, so
+                    monthly and annual are the same height. */}
+                {billing === 'monthly' && (
+                  <span
+                    className={cn(
+                      'mt-2 inline-flex whitespace-nowrap rounded-md px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide',
+                      featured
+                        ? 'bg-primary-foreground/15 text-primary-foreground'
+                        : 'bg-primary/10 text-primary'
+                    )}
+                  >
+                    Billed quarterly
+                  </span>
                 )}
               </motion.div>
             </AnimatePresence>

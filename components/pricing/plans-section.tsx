@@ -9,7 +9,7 @@ import { PlanCard } from './plan-card';
 type Billing = 'annual' | 'monthly';
 
 export function PlansSection() {
-  const [billing, setBilling] = useState<Billing>('monthly');
+  const [billing, setBilling] = useState<Billing>('annual');
 
   return (
     <section id="plans" className="relative py-20 md:py-24 lg:py-32">
