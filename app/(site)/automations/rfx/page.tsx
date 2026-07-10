@@ -123,7 +123,7 @@ export default function RfxPage() {
             >
               <div className="grid gap-6 md:grid-cols-3 items-start [&>*]:min-w-0">
                 <div className="flex flex-col justify-center space-y-3 md:col-span-1">
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-primary">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-semibold tracking-tight text-primary">
                     {step.title}
                   </h3>
                   <p className="text-base text-foreground">

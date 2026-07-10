@@ -39,7 +39,7 @@ const FeatureCard = ({
 }) => (
   <div
     className={cn(
-      "p-4 sm:p-8 relative overflow-hidden bg-card",
+      "p-4 sm:p-8 relative overflow-hidden bg-card flex flex-col",
       className
     )}
   >
@@ -76,7 +76,7 @@ export default function EnterpriseReady() {
               <FeatureCard className="h-full">
                 <FeatureTitle>{feature.title}</FeatureTitle>
                 <FeatureDescription>{feature.description}</FeatureDescription>
-                <div className="h-full w-full">{feature.skeleton}</div>
+                <div className="flex-1 min-h-0 w-full">{feature.skeleton}</div>
               </FeatureCard>
             </StaggerItem>
           ))}
@@ -102,7 +102,7 @@ function EnterpriseSkeletonOne() {
   ];
 
   return (
-    <div className="flex flex-col gap-12 h-full">
+    <div className="flex flex-col h-full justify-between gap-6">
       <div className="flex flex-wrap gap-3 sm:gap-4">
         {badges.map((badge) => (
           <div
@@ -115,42 +115,41 @@ function EnterpriseSkeletonOne() {
         ))}
       </div>
 
-      <div>
-        <p className="text-lg md:text-xl text-foreground leading-snug">
+      <div className="flex flex-col gap-3">
+        <p className="text-sm md:text-base text-foreground leading-snug">
           We leverage world-class infrastructure providers to ensure your data is
           encrypted, protected, and available. Security isn’t an afterthought; it’s
           our foundation.
         </p>
-      </div>
-
-      <div className="rounded-2xl border border-border/70 bg-gradient-to-br from-accent/40 to-card p-4 lg:p-5 shadow-sm">
-        <p className="text-xs uppercase tracking-wide text-muted-foreground font-semibold">
-          Built on audited, industry-leading infrastructure
-        </p>
-        <div className="mt-4 flex flex-wrap items-center gap-4">
-          {infraVendors.map((vendor) => (
-            <div
-              key={vendor.name}
-              className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-3 py-2"
-            >
-              {vendor.src ? (
-                <Image
-                  src={vendor.src}
-                  alt={`${vendor.name} logo`}
-                  width={20}
-                  height={20}
-                  className="h-5 w-5 object-contain"
-                />
-              ) : (
-                <span className="flex h-5 w-5 items-center justify-center rounded-sm bg-primary/10 text-[0.65rem] font-semibold uppercase text-primary">
-                  {vendor.name.charAt(0)}
+        <div className="rounded-2xl border border-border/50 bg-gradient-to-br from-accent/40 to-card p-4 lg:p-5 shadow-sm">
+          <p className="text-xs uppercase tracking-wide text-muted-foreground font-semibold">
+            Built on audited, industry-leading infrastructure
+          </p>
+          <div className="mt-4 flex flex-wrap items-center justify-evenly">
+            {infraVendors.map((vendor) => (
+              <div
+                key={vendor.name}
+                className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card px-3 py-2"
+              >
+                {vendor.src ? (
+                  <Image
+                    src={vendor.src}
+                    alt={`${vendor.name} logo`}
+                    width={20}
+                    height={20}
+                    className="h-5 w-5 object-contain"
+                  />
+                ) : (
+                  <span className="flex h-5 w-5 items-center justify-center rounded-sm bg-primary/10 text-[0.65rem] font-semibold uppercase text-primary">
+                    {vendor.name.charAt(0)}
+                  </span>
+                )}
+                <span className="text-xs font-semibold text-foreground/80">
+                  {vendor.name}
                 </span>
-              )}
-              <span className="text-xs font-semibold text-foreground/80">
-                {vendor.name}
-              </span>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -231,9 +230,9 @@ function EnterpriseSkeletonThree() {
       {operationalControls.map((item) => (
         <StaggerItem key={item.title}>
           <div
-            className="rounded-2xl border border-border/60 bg-gradient-to-br from-accent/40 to-card p-5 shadow-sm"
+            className="rounded-2xl border border-border/50 bg-gradient-to-br from-accent/40 to-card p-4 lg:p-5 shadow-sm"
           >
-            <p className="text-base font-semibold text-foreground">{item.title}</p>
+            <p className="text-base font-medium text-foreground">{item.title}</p>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
               {item.description}
             </p>

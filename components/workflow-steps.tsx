@@ -121,7 +121,7 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
                             <h4 className="text-xl md:text-2xl font-semibold tracking-tight">
                                 {current.title}
                             </h4>
-                            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                                 {current.description}
                             </p>
                         </div>
@@ -173,7 +173,7 @@ export function WorkflowSteps({ steps }: WorkflowStepsProps) {
                                         {step.title}
                                     </h4>
                                     <p
-                                        className="text-lg text-muted-foreground leading-relaxed transition-opacity duration-300"
+                                        className="text-base text-muted-foreground leading-relaxed transition-opacity duration-300"
                                         style={{ visibility: isActive ? 'visible' : 'hidden', opacity: isActive ? 1 : 0 }}
                                         aria-hidden={!isActive}
                                     >

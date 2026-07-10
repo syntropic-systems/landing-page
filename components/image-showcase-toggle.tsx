@@ -67,8 +67,16 @@ export function ImageShowcaseToggle({
 
         {/* Showcase view — taller than image to show full showcase */}
         {Showcase && showLive && (
-          <div className="relative aspect-[3/4] md:aspect-video overflow-hidden bg-card [&>*]:!p-0">
-            <Showcase />
+          <div className="relative aspect-[3/4] md:aspect-video bg-card overflow-x-visible overflow-y-clip">
+            {/* Showcase is absolutely pinned so it can't stretch the frame — the
+                height stays locked to the aspect ratio no matter how tall its
+                content is. The frame then clips the vertical axis only
+                (overflow-y-clip keeps the fixed height + bottom fade), while
+                overflow-x-visible lets expand/scale animations bleed past the
+                sides instead of being cut. */}
+            <div className="absolute inset-0 md:px-8 lg:px-12 [&>*]:!p-0">
+              <Showcase />
+            </div>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-card to-transparent" />
           </div>
         )}

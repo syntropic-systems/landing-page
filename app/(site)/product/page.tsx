@@ -153,7 +153,7 @@ export default function ProductPage() {
             >
                 <StaggerChildren className="mb-8 grid gap-4 lg:grid-cols-2" stagger={0.15}>
                     <StaggerItem>
-                        <div className="flex flex-wrap gap-3 sm:gap-4 rounded-2xl border border-border/60 bg-gradient-to-br from-accent/30 to-background p-4 h-full">
+                        <div className="flex flex-wrap gap-3 sm:gap-4 rounded-2xl border border-border/50 bg-gradient-to-br from-accent/40 to-card p-4 shadow-sm h-full">
                             {securityBadges.map((badge) => (
                                 <div
                                     key={badge.label}
@@ -168,7 +168,7 @@ export default function ProductPage() {
                         </div>
                     </StaggerItem>
                     <StaggerItem>
-                        <div className="rounded-2xl border border-border/70 bg-gradient-to-br from-accent/40 to-card p-4 lg:p-5 shadow-sm h-full">
+                        <div className="rounded-2xl border border-border/50 bg-gradient-to-br from-accent/40 to-card p-4 lg:p-5 shadow-sm h-full">
                             <p className="text-xs uppercase tracking-wide text-muted-foreground font-semibold">
                                 Built on audited, industry-leading infrastructure
                             </p>
@@ -221,7 +221,7 @@ export default function ProductPage() {
                     ].map((item) => (
                         <StaggerItem key={item.title}>
                             <div
-                                className="rounded-xl border border-border/60 bg-gradient-to-br from-accent/40 to-background p-6 hover:border-primary transition-colors h-full"
+                                className="rounded-2xl border border-border/50 bg-gradient-to-br from-accent/40 to-card p-6 shadow-sm h-full"
                             >
                                 <p className="text-base font-semibold text-foreground mb-2">
                                     {item.title}

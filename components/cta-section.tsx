@@ -50,7 +50,7 @@ export function CTASection({
     secondaryCta,
 }: CTASectionProps) {
     return (
-        <section className="py-20 md:py-24 lg:py-28 bg-secondary shadow-inner">
+        <section className="relative py-20 md:py-24 lg:py-28 bg-secondary shadow-[0_0_24px_hsl(0_0%_10%/0.10)] dark:shadow-[0_0_24px_hsl(0_0%_0%/0.4)]">
             <div className="container">
                 <div className="max-w-7xl mx-auto">
                     <div className="max-w-3xl mx-auto text-center">
