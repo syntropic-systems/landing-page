@@ -1,7 +1,5 @@
 import { renderOgCard } from "@/components/og-card";
 
-export const runtime = "edge";
-
 export const alt = "CloudGlance - AI-Powered Document Intelligence Platform";
 export const size = {
   width: 1200,

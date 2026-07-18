@@ -1,24 +1,28 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 // Shared template for app/opengraph-image.tsx and app/twitter-image.tsx.
 // Rendered by satori (ImageResponse), so only its supported CSS subset works
-// (explicit display:flex, no external URLs — background and fonts are bundled
-// at build time via import.meta.url asset references; satori needs TTF, not
-// the woff2 that next/font ships).
+// (explicit display:flex, no external URLs). Runs on the Node runtime: the
+// card has no dynamic inputs, so Next renders it once at build time — assets
+// are read from disk then, and nothing heavy ships in a serverless bundle
+// (the edge runtime's 1MB function limit is what broke Vercel deploys).
+// satori needs TTF fonts, not the woff2 that next/font ships.
 
 export const ogSize = { width: 1200, height: 630 };
 
+const toArrayBuffer = (buf: Buffer) => new Uint8Array(buf).buffer as ArrayBuffer;
+
 export async function renderOgCard(): Promise<ImageResponse> {
   const [bg, jakartaSemiBold, jakartaRegular] = await Promise.all([
-    fetch(new URL("../public/cg_background.jpg", import.meta.url)).then((res) =>
-      res.arrayBuffer()
-    ),
-    fetch(
-      new URL("../assets/fonts/PlusJakartaSans-SemiBold.ttf", import.meta.url)
-    ).then((res) => res.arrayBuffer()),
-    fetch(
-      new URL("../assets/fonts/PlusJakartaSans-Regular.ttf", import.meta.url)
-    ).then((res) => res.arrayBuffer()),
+    readFile(join(process.cwd(), "public", "cg_background.jpg")).then(toArrayBuffer),
+    readFile(
+      join(process.cwd(), "assets", "fonts", "PlusJakartaSans-SemiBold.ttf")
+    ).then(toArrayBuffer),
+    readFile(
+      join(process.cwd(), "assets", "fonts", "PlusJakartaSans-Regular.ttf")
+    ).then(toArrayBuffer),
   ]);
 
   return new ImageResponse(
