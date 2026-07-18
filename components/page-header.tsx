@@ -42,14 +42,26 @@ export function PageHeader({ title, description, className, button }: PageHeader
                 regardless of title length; it just shines over open page
                 instead of a closed hero. */}
             <div className="absolute inset-x-0 top-0 h-[max(75vh,560px)] pointer-events-none bg-[radial-gradient(ellipse_60%_50%_at_70%_30%,hsl(208_46%_33%/0.12),transparent_70%)] dark:bg-[radial-gradient(ellipse_60%_50%_at_70%_30%,hsl(208_46%_33%/0.25),transparent_70%)]" />
+            {/* Ladder is derived, not chosen: pt + eyebrow slot (h-9 = 36px)
+                + space-y gap must land the h1 on the hub-hero title line
+                below lg (hero/Hero2 open content 88px from page top, badge
+                then gap → h1 at ~134/143/156px). At lg+ Hero2 centers its
+                copy in the 75vh stage, so there is no shared line to match —
+                lg pins the h1 at 160px, the tertiary line this component
+                already established. */}
             <Section
-                className={cn("relative z-10 -mt-14 !pt-28 md:!pt-36 lg:!pt-40 !pb-0 [&>div>div>div]:!mb-0", className)}
+                className={cn("relative z-10 -mt-14 !pt-21 sm:!pt-23 md:!pt-25 lg:!pt-26 !pb-0 [&>div>div>div]:!mb-0", className)}
                 disableDefaultHeader
                 header={
                     <div className="space-y-4 md:space-y-5 !mb-0">
-                        {button && (
-                            <RevealOnScroll direction="up" duration={0.5}>
-                                <div>
+                        {/* Eyebrow slot — the tertiary counterpart of the hub
+                            badge, reserved even when empty so the h1 sits on
+                            one line with or without a back-button (the empty
+                            slot reads as top padding). h-9 matches the
+                            Button's fixed height. */}
+                        <div className="h-9">
+                            {button && (
+                                <RevealOnScroll direction="up" duration={0.5}>
                                     <Button
                                         variant={button.variant || "ghost"}
                                         className="inline-flex items-center gap-1 px-3 py-1 text-xs uppercase tracking-wide"
@@ -60,9 +72,9 @@ export function PageHeader({ title, description, className, button }: PageHeader
                                             <span>{button.text}</span>
                                         </Link>
                                     </Button>
-                                </div>
-                            </RevealOnScroll>
-                        )}
+                                </RevealOnScroll>
+                            )}
+                        </div>
                         <div className="space-y-4 md:space-y-5">
                             <RevealOnScroll direction="up" delay={0.15} duration={0.7}>
                                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[1.05]">
