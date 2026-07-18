@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | CloudGlance",
   },
   description:
-    "CloudGlance cuts 80% of time spent on tender bidding, vendor evaluation, and contract review by turning PDFs, Excels, and technical files into structured data and automated workflows.",
+    "CloudGlance cuts 80% of time spent on tender bidding, vendor evaluation, contract review, and compliance by turning PDFs, Excels, and technical files into structured data and automated workflows.",
   keywords: [
     "document intelligence",
     "AI document processing",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     siteName: "CloudGlance",
     title: "CloudGlance - AI-Powered Document Intelligence Platform",
     description:
-      "Complete document-heavy workflows in minutes, not days. AI-powered automation for tender bidding, vendor evaluation, and contract review.",
+      "Process Aware AI for document-heavy workflows. Automate tender bidding, vendor evaluation, contract review, and compliance.",
     images: [
       {
         url: "/opengraph-image",
@@ -78,11 +78,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+  // No title/description here: pages that set their own openGraph would
+  // otherwise inherit this generic pair as explicit twitter:title/description,
+  // which wins over their page-specific og: tags on X.
   twitter: {
     card: "summary_large_image",
-    title: "CloudGlance - AI-Powered Document Intelligence Platform",
-    description:
-      "Complete document-heavy workflows in minutes, not days. AI-powered automation for tender bidding, vendor evaluation, and contract review.",
     creator: "@cloudglance",
     images: ["/opengraph-image"],
   },

@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "CloudGlance - AI-Powered Document Intelligence",
     short_name: "CloudGlance",
     description:
-      "Complete document-heavy workflows in minutes, not days. AI-powered automation for tender bidding, vendor evaluation, and contract review.",
+      "Process Aware AI for document-heavy workflows. AI-powered automation for tender bidding, vendor evaluation, contract review, and compliance.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

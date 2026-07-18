@@ -27,9 +27,9 @@ import {
 } from '@/components/showcases';
 
 export const metadata: Metadata = {
-  title: 'CloudGlance - AI-Powered Document Intelligence Platform',
+  title: { absolute: 'CloudGlance - AI-Powered Document Intelligence Platform' },
   description:
-    'Complete document-heavy workflows in minutes, not days. CloudGlance cuts 80% of time spent on tender bidding, vendor evaluation, and contract review with AI-powered automation.',
+    'Process Aware AI for document-heavy workflows. CloudGlance cuts 80% of time spent on tender bidding, vendor evaluation, contract review, and compliance with AI-powered automation.',
   alternates: {
     canonical: 'https://cloudglancelab.com',
   },
